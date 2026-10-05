@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 20: IELTS Band 8.0 Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08); --sidebar-w: 290px;
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .ipa, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.app{display:flex; min-height:100vh;}
+.sidebar{width:var(--sidebar-w); flex-shrink:0; background:var(--ink); color:#EDEFF4; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; padding:24px 18px 40px; z-index:900; transition:transform .3s ease;}
+.sidebar::-webkit-scrollbar{width:6px;} .sidebar::-webkit-scrollbar-thumb{background:var(--teal-dark); border-radius:3px;}
+.brand{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+.brand h1{font-size:1.05rem; color:#fff; margin:0; line-height:1.25;}
+.brand small{display:block; color:var(--amber); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; margin-top:2px;}
+.sidebar-meter{margin:18px 0 22px; padding:12px; background:rgba(255,255,255,0.05); border-radius:10px;}
+.sidebar-meter .label{font-size:.72rem; color:#B7C2D6; margin-bottom:6px; display:flex; justify-content:space-between;}
+.meter-track{height:6px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;}
+.meter-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:4px; transition:width .2s ease;}
+.toc-group{margin-bottom:4px;}
+.toc-title{font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:#8496B4; margin:18px 0 8px;}
+.toc-link{display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; color:#CBD5E6; text-decoration:none; font-size:.86rem; margin-bottom:2px; transition:background .2s, color .2s;}
+.toc-link:hover{background:rgba(255,255,255,0.07); color:#fff;}
+.toc-link.active{background:var(--teal-dark); color:#fff; font-weight:600;}
+.toc-num{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--amber); width:20px;}
+.main{margin-left:var(--sidebar-w); flex:1; min-width:0;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.topbar-title{font-size:.85rem; color:var(--text-soft); font-weight:500;}
+.controls{display:flex; gap:10px; align-items:center;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{padding:36px 48px 100px; max-width:920px;}
+.hero{padding:38px 34px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:40px; box-shadow:var(--shadow); position:relative; overflow:hidden;}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.1rem; margin:10px 0 14px;}
+.hero p{color:#C9D3E4; line-height:1.7; max-width:680px; font-size:.98rem;}
+.hero .waveform{margin-top:18px;}
+.roadmap{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:24px;}
+.roadmap .rm-item{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:12px 14px;}
+.roadmap .rm-item b{color:var(--amber); font-size:.72rem; text-transform:uppercase; letter-spacing:.06em;}
+.roadmap .rm-item div{font-size:.86rem; color:#E4E9F2; margin-top:4px;}
+section.chapter{margin-bottom:56px; scroll-margin-top:90px;}
+.chapter-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px;}
+.chapter-head .num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:1rem; font-weight:700;}
+.chapter-head h2{margin:0; font-size:1.6rem;}
+.chapter-sub{color:var(--text-soft); margin-bottom:22px; font-size:.95rem;}
+p{line-height:1.75; font-size:.98rem;}
+.section-block{margin:20px 0;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid; font-size:.92rem; line-height:1.65;}
+.box .box-title{font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:.86rem; text-transform:uppercase; letter-spacing:.04em;}
+.box.note{background:rgba(47,143,134,0.08); border-color:var(--teal);} .box.note .box-title{color:var(--teal-dark);}
+.box.tip{background:rgba(217,164,65,0.1); border-color:var(--amber);} .box.tip .box-title{color:#A3781F;}
+[data-theme="dark"] .box.tip .box-title{color:var(--amber);}
+.box.warning{background:rgba(226,96,79,0.08); border-color:var(--coral);} .box.warning .box-title{color:var(--coral);}
+.box.important{background:rgba(22,36,61,0.06); border-color:var(--ink);}
+[data-theme="dark"] .box.important{background:rgba(255,255,255,0.05);}
+.box.important .box-title{color:var(--ink);}
+[data-theme="dark"] .box.important .box-title{color:var(--text);}
+.table-wrap{overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px;}
+table{border-collapse:collapse; width:100%; font-size:.9rem;}
+th,td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--line);}
+th{background:var(--paper-2); color:var(--ink); font-family:'Fraunces',serif; font-weight:600;}
+[data-theme="dark"] th{color:var(--text);}
+tr:last-child td{border-bottom:none;}
+.example-block{background:var(--ink); color:#EAF0F8; border-radius:12px; padding:16px 18px; margin:16px 0; position:relative; font-size:.9rem; line-height:1.7;}
+.example-block .copy-btn{position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.1); color:#fff; border:none; padding:5px 10px; border-radius:6px; font-size:.72rem; cursor:pointer; transition:background .2s;}
+.example-block .copy-btn:hover{background:var(--teal);}
+.example-block .ex-line{margin-bottom:6px;}
+.example-block .ex-en{color:#fff;}
+.example-block .ex-vi{color:#9FB0C8; font-size:.85rem;}
+.accordion{border:1px solid var(--line); border-radius:12px; margin:14px 0; overflow:hidden; background:var(--paper-2);}
+.acc-head{padding:14px 18px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-family:'Fraunces',serif; font-size:1rem;}
+.acc-head:hover{background:rgba(47,143,134,0.08);}
+.acc-icon{transition:transform .25s ease; color:var(--teal-dark); font-size:1.1rem;}
+.accordion.open .acc-icon{transform:rotate(45deg);}
+.acc-body{max-height:0; overflow:hidden; transition:max-height .35s ease; padding:0 18px;}
+.accordion.open .acc-body{padding:4px 18px 18px;}
+.ex-item{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px;}
+.ex-item .q{font-weight:600; margin-bottom:6px;}
+.ex-answer{display:none; margin-top:8px; padding:10px 12px; background:rgba(47,143,134,0.1); border-radius:8px; font-size:.88rem;}
+.ex-answer.show{display:block;}
+.reveal-btn{border:1px solid var(--teal); color:var(--teal-dark); background:transparent; padding:5px 12px; border-radius:8px; font-size:.8rem; cursor:pointer; transition:.2s;}
+.reveal-btn:hover{background:var(--teal); color:#fff;}
+.quiz-box{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:20px; margin:16px 0;}
+.quiz-q{margin-bottom:14px; padding-bottom:14px; border-bottom:1px dashed var(--line);}
+.quiz-q:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+.quiz-q p{font-weight:600; margin:0 0 8px;}
+.quiz-opts{display:grid; gap:8px;}
+.quiz-opt{border:1px solid var(--line); background:var(--paper); padding:9px 14px; border-radius:8px; cursor:pointer; font-size:.9rem; transition:.15s;}
+.quiz-opt:hover{border-color:var(--teal);}
+.quiz-opt.correct{background:rgba(47,143,134,0.18); border-color:var(--teal); font-weight:600;}
+.quiz-opt.wrong{background:rgba(226,96,79,0.18); border-color:var(--coral);}
+.quiz-score{margin-top:14px; font-weight:600; color:var(--teal-dark);}
+.summary-card{background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:#fff; border-radius:14px; padding:22px 24px; margin-top:24px;}
+.summary-card h3{color:#fff; margin-top:0;}
+.summary-card ul{margin:8px 0 0; padding-left:20px; line-height:1.8;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900; transition:transform .2s ease, background .2s;}
+#toTop:hover{background:var(--teal-dark); transform:translateY(-3px);}
+.fade-in{animation:fadeIn .6s ease both;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+.menu-toggle{display:none;}
+.essay-box{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:22px 24px; margin:16px 0; font-size:.92rem; line-height:1.85;}
+.essay-box .eb-label{font-size:.72rem; text-transform:uppercase; color:var(--teal-dark); font-weight:700; letter-spacing:.05em; margin-bottom:8px;}
+.band-badge{display:inline-block; background:var(--amber); color:#1a1200; font-weight:700; padding:4px 12px; border-radius:20px; font-size:.78rem; margin-left:8px;}
+@media (max-width: 980px){
+  .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;} .menu-toggle{display:flex;} .content{padding:28px 20px 100px;}
+}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 20</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 20</a>
+      <a class="toc-link" href="#ch82"><span class="toc-num">82</span> Band 7 vs 8 vs 9 — khác biệt then chốt</a>
+      <a class="toc-link" href="#ch83"><span class="toc-num">83</span> Từ vựng &amp; Paraphrasing nâng cao</a>
+      <a class="toc-link" href="#ch84"><span class="toc-num">84</span> Cấu trúc câu phức tạp &amp; liên kết</a>
+      <a class="toc-link" href="#ch85"><span class="toc-num">85</span> Bài mẫu Writing Task 2 Band 8.0</a>
+      <a class="toc-link" href="#ch86"><span class="toc-num">86</span> Kỹ thuật Speaking Band 8.0</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Đã học</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 1-19 ✓</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 20 / IELTS Band 8.0 Mastery</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần nâng cao</span>
+          <h1>IELTS Band 8.0 Mastery</h1>
+          <p>
+            Sau khi đã nắm chiến lược cơ bản ở Phần 10, đây là phần đào sâu để vượt qua ngưỡng band 6.5-7.0 thông
+            thường và hướng tới <b>band 8.0 — mức điểm "Very Good User"</b>, tương đương khả năng sử dụng tiếng Anh
+            gần như người bản xứ trong hầu hết ngữ cảnh học thuật và chuyên môn. Trọng tâm là sự <b>tinh tế trong
+            từ vựng, độ phức tạp tự nhiên trong ngữ pháp, và khả năng diễn đạt ý tưởng sâu sắc, mạch lạc</b>.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 82</b><div>Phân biệt band 7, 8, 9 — giám khảo chấm gì khác nhau</div></div>
+            <div class="rm-item"><b>Chương 83</b><div>Từ vựng ít gặp &amp; kỹ thuật paraphrasing nâng cao</div></div>
+            <div class="rm-item"><b>Chương 84</b><div>Cấu trúc câu phức, mệnh đề quan hệ, đảo ngữ</div></div>
+            <div class="rm-item"><b>Chương 85</b><div>Bài mẫu Writing Task 2 band 8.0 phân tích chi tiết</div></div>
+            <div class="rm-item"><b>Chương 86</b><div>Kỹ thuật Speaking band 8.0 — fluency devices tự nhiên</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 82: BAND DIFFERENCES -->
+      <section id="ch82" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">82</span><h2>Band 7 vs 8 vs 9 — Khác Biệt Then Chốt</h2></div>
+        <div class="chapter-sub">Hiểu rõ giám khảo phân biệt các mức điểm cao dựa trên tiêu chí nào.</div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tiêu chí</th><th>Band 7</th><th>Band 8</th><th>Band 9</th></tr></thead>
+            <tbody>
+              <tr><td>Task Response</td><td>Trả lời đủ ý nhưng đôi khi thiếu chiều sâu</td><td>Trả lời đầy đủ, phát triển ý tưởng rõ ràng, có sắc thái riêng</td><td>Trả lời hoàn toàn thuyết phục, phát triển ý xuất sắc</td></tr>
+              <tr><td>Coherence &amp; Cohesion</td><td>Sắp xếp logic, đôi khi lạm dụng từ nối</td><td>Liên kết tự nhiên, ít lộ liễu, đoạn văn mạch lạc</td><td>Liên kết hoàn toàn tự nhiên, không có dấu vết "công thức"</td></tr>
+              <tr><td>Lexical Resource</td><td>Vốn từ đa dạng nhưng còn lỗi nhỏ khi dùng từ hiếm</td><td>Dùng từ vựng ít gặp linh hoạt, chính xác, tự nhiên</td><td>Vốn từ vựng như người bản xứ, dùng thành ngữ tinh tế</td></tr>
+              <tr><td>Grammatical Range</td><td>Kết hợp câu đơn/phức, còn một số lỗi</td><td>Đa dạng cấu trúc câu phức, lỗi rất hiếm và không cản trở giao tiếp</td><td>Sử dụng ngữ pháp linh hoạt hoàn hảo, gần như không lỗi</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Điểm khác biệt lớn nhất giữa band 7 và band 8 KHÔNG phải là "dùng từ khó hơn" — mà là <b>sự TỰ NHIÊN</b>:
+          band 8 dùng từ vựng/ngữ pháp phức tạp một cách <i>không gượng ép</i>, còn band 7 đôi khi để lộ "công thức
+          học thuộc" quá rõ ràng.
+        </div>
+
+        <h3>82.1 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Sự khác biệt cốt lõi giữa band 7 và band 8 về Lexical Resource là gì?</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Band 8 dùng từ vựng ít gặp một cách chính xác và tự nhiên, trong khi band 7 vẫn có lỗi nhỏ khi thử dùng từ hiếm.</div>
+        </div>
+
+        <h3>82.2 Quiz trắc nghiệm — Chương 82</h3>
+        <div class="quiz-box" id="quiz82"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 82</h3>
+          <ul>
+            <li>Band 8 khác band 7 chủ yếu ở tính TỰ NHIÊN khi dùng từ vựng/ngữ pháp phức tạp.</li>
+            <li>Cả 4 tiêu chí chấm điểm đều đòi hỏi sự tinh tế cao hơn khi lên band 8-9.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 83: ADVANCED VOCABULARY & PARAPHRASING -->
+      <section id="ch83" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">83</span><h2>Từ Vựng &amp; Paraphrasing Nâng Cao</h2></div>
+        <div class="chapter-sub">Kỹ thuật diễn đạt lại đề bài và đa dạng hóa từ vựng band 8+.</div>
+
+        <div class="section-block">
+          <h3>83.1 Kỹ thuật Paraphrase đề bài (mở bài không lặp nguyên văn đề)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Đề bài gốc</th><th>Paraphrase band 8</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">Many people believe that technology has made life easier.</td><td class="mono">It is widely held that advancements in technology have significantly simplified daily life.</td></tr>
+                <tr><td class="mono">Some people think students should study abroad.</td><td class="mono">There is a growing consensus that pursuing an education overseas offers considerable benefits to students.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box tip">
+            <div class="box-title">💡 Tip — Kỹ thuật paraphrase</div>
+            Kết hợp 3 cách: (1) đổi từ đồng nghĩa (many → numerous), (2) đổi từ loại (believe → it is believed),
+            (3) đổi cấu trúc câu (chủ động → bị động, hoặc thêm mệnh đề). Không nên chỉ đổi 1-2 từ đơn lẻ.
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>83.2 Từ vựng thay thế nâng cao theo chủ đề phổ biến</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Từ thông thường</th><th>Từ thay thế band 8+</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">important</td><td class="mono">pivotal, paramount, crucial</td></tr>
+                <tr><td class="mono">many people</td><td class="mono">a considerable proportion of the population</td></tr>
+                <tr><td class="mono">good</td><td class="mono">beneficial, advantageous, favorable</td></tr>
+                <tr><td class="mono">bad</td><td class="mono">detrimental, adverse, counterproductive</td></tr>
+                <tr><td class="mono">a big problem</td><td class="mono">a pressing/formidable challenge</td></tr>
+                <tr><td class="mono">very</td><td class="mono">remarkably, considerably, notably</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning</div>
+            KHÔNG nhồi nhét từ vựng "khó" một cách gượng ép chỉ để gây ấn tượng — giám khảo band 8-9 rất giỏi nhận ra
+            khi từ vựng bị dùng sai ngữ cảnh. Ưu tiên dùng từ chính xác về nghĩa và tự nhiên trong câu.
+          </div>
+        </div>
+
+        <h3>83.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Paraphrase câu: "Some people think social media is harmful to teenagers."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "It is widely believed that social networking platforms have a detrimental impact on adolescents."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Thay thế từ "very important" bằng từ vựng band 8+ trong câu: "Education is very important for society."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Education plays a pivotal role in society." hoặc "Education is of paramount importance to society."</div>
+        </div>
+
+        <h3>83.4 Quiz trắc nghiệm — Chương 83</h3>
+        <div class="quiz-box" id="quiz83"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 83</h3>
+          <ul>
+            <li>Paraphrase đề bài bằng cách kết hợp đồng nghĩa + đổi từ loại + đổi cấu trúc câu.</li>
+            <li>Học từ vựng thay thế theo chủ đề thường gặp trong IELTS (giáo dục, công nghệ, môi trường, xã hội).</li>
+            <li>Không lạm dụng từ khó — ưu tiên chính xác và tự nhiên.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 84: COMPLEX SENTENCE STRUCTURES -->
+      <section id="ch84" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">84</span><h2>Cấu Trúc Câu Phức Tạp &amp; Liên Kết</h2></div>
+        <div class="chapter-sub">Đa dạng hóa cấu trúc ngữ pháp một cách tự nhiên cho Grammatical Range.</div>
+
+        <div class="section-block">
+          <h3>84.1 Mệnh đề quan hệ nâng cao (Advanced Relative Clauses)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">The government, whose policies have been widely criticized, is now facing public backlash.</div>
+            <div class="ex-line ex-vi">→ Mệnh đề quan hệ chen giữa chủ ngữ và động từ chính — cấu trúc thường thấy ở band 8+.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>84.2 Đảo ngữ (Inversion) — dùng để nhấn mạnh</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Câu thường</th><th>Câu đảo ngữ (band 8+)</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">I have never seen such a beautiful sunset.</td><td class="mono">Never have I seen such a beautiful sunset.</td></tr>
+                <tr><td class="mono">The company will succeed only if it innovates.</td><td class="mono">Only if it innovates will the company succeed.</td></tr>
+                <tr><td class="mono">Not only was the plan expensive, but it was also ineffective.</td><td class="mono">(cấu trúc "Not only... but also" đảo ngữ)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>84.3 Cấu trúc nhấn mạnh (Cleft sentences)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">What concerns me most is the rising cost of living. — It is the government's responsibility to address this issue.</div>
+            <div class="ex-line ex-vi">→ Cấu trúc "What... is" và "It is... that/to" giúp nhấn mạnh ý chính một cách tự nhiên, tinh tế.</div>
+          </div>
+        </div>
+
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Chỉ nên dùng 2-3 cấu trúc phức tạp (đảo ngữ, cleft sentence, mệnh đề quan hệ nâng cao) trong MỘT bài luận —
+          dùng quá nhiều liên tục sẽ khiến bài viết mất tự nhiên, phản tác dụng với tiêu chí Coherence.
+        </div>
+
+        <h3>84.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chuyển câu sau thành câu đảo ngữ: "I have rarely encountered such dedication."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Rarely have I encountered such dedication."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết một câu dùng cấu trúc "What... is" để nhấn mạnh vấn đề ô nhiễm môi trường.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "What worries environmentalists most is the accelerating rate of deforestation."</div>
+        </div>
+
+        <h3>84.5 Quiz trắc nghiệm — Chương 84</h3>
+        <div class="quiz-box" id="quiz84"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 84</h3>
+          <ul>
+            <li>Mệnh đề quan hệ nâng cao, đảo ngữ, và cleft sentences là 3 công cụ ngữ pháp band 8+ then chốt.</li>
+            <li>Chỉ dùng vừa phải (2-3 lần/bài) để tránh gượng ép.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 85: SAMPLE ESSAY BAND 8.0 -->
+      <section id="ch85" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">85</span><h2>Bài Mẫu Writing Task 2 Band 8.0</h2></div>
+        <div class="chapter-sub">Phân tích chi tiết một bài luận đạt band 8.0 để học cách áp dụng.</div>
+
+        <div class="essay-box">
+          <div class="eb-label">Đề bài <span class="band-badge">Opinion Essay</span></div>
+          "Some people believe that the best way to reduce crime is to give longer prison sentences. Others, however,
+          think there are better alternative ways of reducing crime. Discuss both views and give your opinion."
+        </div>
+
+        <div class="essay-box">
+          <div class="eb-label">Bài luận mẫu (trích đoạn thân bài 1)</div>
+          "Proponents of stricter sentencing argue that <b>lengthier incarceration serves as a powerful deterrent</b>,
+          discouraging potential offenders from engaging in criminal activity. <b>Were</b> the consequences of crime
+          not sufficiently severe, individuals might perceive the risk as worth taking. Moreover, <b>removing
+          offenders from society for extended periods</b> undeniably prevents them from committing further crimes
+          during that time, which explains why many governments continue to favor this approach despite its
+          considerable financial cost."
+        </div>
+
+        <div class="box note">
+          <div class="box-title">📝 Note — Phân tích các điểm band 8.0</div>
+          <ul style="margin:0; padding-left:20px;">
+            <li><b>"lengthier incarceration serves as a powerful deterrent"</b> — từ vựng chính xác, học thuật, tự nhiên.</li>
+            <li><b>"Were the consequences... not sufficiently severe"</b> — đảo ngữ câu điều kiện (thay vì "If the consequences were not..."), thể hiện Grammatical Range cao.</li>
+            <li><b>"removing offenders from society for extended periods"</b> — danh động từ (gerund phrase) làm chủ ngữ, cấu trúc câu đa dạng.</li>
+            <li>Lập luận có chiều sâu, không chỉ liệt kê ý mà còn giải thích NGUYÊN NHÂN-KẾT QUẢ rõ ràng.</li>
+          </ul>
+        </div>
+
+        <h3>85.1 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Xác định 2 kỹ thuật ngữ pháp band 8+ được dùng trong đoạn văn mẫu trên.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Đảo ngữ câu điều kiện ("Were the consequences...") và cụm danh động từ làm chủ ngữ ("removing offenders...").</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết đoạn thân bài thứ 2 (khoảng 4-5 câu) trình bày quan điểm "các phương pháp thay thế" (rehabilitation, education) cho đề bài trên.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Không có đáp án cố định — hãy áp dụng cấu trúc PEEL (Chương 45) và cố gắng dùng ít nhất 1 cấu trúc ngữ pháp nâng cao đã học ở Chương 84.</div>
+        </div>
+
+        <h3>85.2 Quiz trắc nghiệm — Chương 85</h3>
+        <div class="quiz-box" id="quiz85"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 85</h3>
+          <ul>
+            <li>Bài luận band 8.0 kết hợp từ vựng chính xác, cấu trúc ngữ pháp đa dạng, và lập luận có chiều sâu nhân-quả.</li>
+            <li>Học cách phân tích bài mẫu để nhận diện kỹ thuật cụ thể, không chỉ đọc để hiểu nội dung.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 86: SPEAKING BAND 8.0 -->
+      <section id="ch86" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">86</span><h2>Kỹ Thuật Speaking Band 8.0</h2></div>
+        <div class="chapter-sub">Fluency devices tự nhiên và cách mở rộng câu trả lời có chiều sâu.</div>
+
+        <div class="section-block">
+          <h3>86.1 Sử dụng "hesitation devices" tự nhiên (khác với ấp úng)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Mẫu câu</th><th>Mục đích</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">That's an interesting question, let me think for a moment...</td><td>Câu giờ tự nhiên, không gây cảm giác ấp úng</td></tr>
+                <tr><td class="mono">I suppose you could say that...</td><td>Diễn đạt ý kiến một cách mềm mại, tinh tế</td></tr>
+                <tr><td class="mono">To be perfectly honest, I've never really considered that, but...</td><td>Câu giờ + dẫn vào ý kiến cá nhân sâu sắc hơn</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>86.2 Mở rộng câu trả lời có chiều sâu (Extended Response)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">Band 6: "Yes, I like reading books." — Band 8: "Yes, I'm quite an avid reader, actually. I particularly enjoy non-fiction, especially books about psychology, because they help me understand why people behave the way they do — which I find genuinely fascinating."</div>
+            <div class="ex-line ex-vi">→ Band 8 không chỉ trả lời "có/không" mà mở rộng với lý do, ví dụ cụ thể, và quan điểm cá nhân sâu sắc.</div>
+          </div>
+        </div>
+
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Giám khảo Speaking band 8-9 đặc biệt chú ý đến khả năng <b>phát triển ý tưởng một cách tự nhiên, không cần
+          được hỏi thêm</b> — nếu câu trả lời của bạn khiến giám khảo phải liên tục hỏi thêm câu phụ để "moi" thông
+          tin, đó là dấu hiệu band thấp hơn.
+        </div>
+
+        <h3>86.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Mở rộng câu trả lời "Yes, I enjoy traveling" thành một câu trả lời band 8 đầy đủ.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Yes, I'm a huge fan of traveling, particularly to places with a rich cultural history. What I find most rewarding is immersing myself in local customs — it broadens my perspective in ways that reading alone simply can't."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết một câu giờ tự nhiên (hesitation device) cho câu hỏi khó bất ngờ.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Hmm, that's not something I've thought about much before, but I'd say..."</div>
+        </div>
+
+        <h3>86.4 Quiz trắc nghiệm — Chương 86</h3>
+        <div class="quiz-box" id="quiz86"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 86</h3>
+          <ul>
+            <li>Dùng hesitation devices tự nhiên thay vì ấp úng khi cần thời gian suy nghĩ.</li>
+            <li>Luôn mở rộng câu trả lời với lý do, ví dụ cụ thể, quan điểm cá nhân — không dừng ở câu trả lời ngắn.</li>
+            <li>Mục tiêu: giám khảo không cần hỏi thêm để "moi" thông tin từ bạn.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 20</div>
+          Bạn đã có bộ kỹ thuật nâng cao để hướng tới IELTS Band 8.0! Hãy luyện tập kết hợp với 3 công cụ Speaking
+          Studio, Conversation Simulator, và IPA Lab (Phần 16-18) để áp dụng những kỹ thuật này vào phản xạ nói thực tế.
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz82: [
+    {q:"Khác biệt cốt lõi giữa band 7 và band 8 là gì?", opts:["Band 8 viết dài hơn","Sự tự nhiên khi dùng từ vựng/ngữ pháp phức tạp","Band 8 không cần đúng ngữ pháp","Không có khác biệt"], correct:1},
+    {q:"Band 9 về Grammatical Range được mô tả như thế nào?", opts:["Chỉ dùng câu đơn giản","Sử dụng linh hoạt hoàn hảo, gần như không lỗi","Không cần đa dạng cấu trúc","Chỉ cần đúng chính tả"], correct:1}
+  ],
+  quiz83: [
+    {q:"Kỹ thuật paraphrase hiệu quả nhất kết hợp điều gì?", opts:["Chỉ đổi từ đồng nghĩa","Đồng nghĩa + đổi từ loại + đổi cấu trúc câu","Chỉ đổi cấu trúc câu","Không cần paraphrase"], correct:1},
+    {q:"Từ nào là từ thay thế band 8+ cho 'important'?", opts:["big","pivotal","nice","easy"], correct:1},
+    {q:"Vì sao không nên nhồi nhét từ vựng khó?", opts:["Không có lý do gì","Giám khảo dễ nhận ra khi dùng sai ngữ cảnh","Từ khó luôn sai","Không liên quan đến điểm số"], correct:1}
+  ],
+  quiz84: [
+    {q:"Câu 'Never have I seen such beauty' là ví dụ của kỹ thuật gì?", opts:["Mệnh đề quan hệ","Đảo ngữ (Inversion)","Câu bị động","Câu điều kiện"], correct:1},
+    {q:"'What concerns me most is...' là cấu trúc gì?", opts:["Cleft sentence","Đảo ngữ","Mệnh đề quan hệ","Câu tường thuật"], correct:0},
+    {q:"Nên dùng bao nhiêu cấu trúc phức tạp trong một bài luận?", opts:["Càng nhiều càng tốt","2-3 lần vừa phải","Không nên dùng","10 lần trở lên"], correct:1}
+  ],
+  quiz85: [
+    {q:"'Were the consequences not sufficiently severe' là dạng đảo ngữ của câu gì?", opts:["Câu tường thuật","Câu điều kiện (if)","Câu bị động","Câu hỏi"], correct:1},
+    {q:"Bài luận band 8.0 có đặc điểm gì về lập luận?", opts:["Chỉ liệt kê ý ngắn gọn","Có chiều sâu, giải thích nguyên nhân-kết quả rõ ràng","Không cần giải thích","Chỉ dùng ví dụ đơn giản"], correct:1}
+  ],
+  quiz86: [
+    {q:"Hesitation devices dùng để làm gì?", opts:["Che giấu lỗi sai","Câu giờ tự nhiên khi cần suy nghĩ","Kết thúc câu trả lời","Không có tác dụng gì"], correct:1},
+    {q:"Câu trả lời band 8 khác band 6 như thế nào?", opts:["Ngắn gọn hơn","Mở rộng với lý do, ví dụ, quan điểm cá nhân","Chỉ trả lời có/không","Nói chậm hơn"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container) return;
+  let score = 0; let answered = 0;
+  data.forEach((item, qi)=>{
+    const qDiv = document.createElement('div');
+    qDiv.className='quiz-q';
+    qDiv.innerHTML = `<p>Câu ${qi+1}. ${item.q}</p>`;
+    const optsDiv = document.createElement('div');
+    optsDiv.className='quiz-opts';
+    item.opts.forEach((opt, oi)=>{
+      const b = document.createElement('button');
+      b.className='quiz-opt';
+      b.textContent = opt;
+      b.onclick = ()=>{
+        if(b.dataset.locked) return;
+        [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+        if(oi === item.correct){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
+        answered++;
+        updateScore();
+      };
+      optsDiv.appendChild(b);
+    });
+    qDiv.appendChild(optsDiv);
+    container.appendChild(qDiv);
+  });
+  const scoreEl = document.createElement('div');
+  scoreEl.className='quiz-score';
+  container.appendChild(scoreEl);
+  function updateScore(){
+    scoreEl.textContent = `Điểm hiện tại: ${score}/${data.length} (${answered}/${data.length} câu đã trả lời)`;
+  }
+  updateScore();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

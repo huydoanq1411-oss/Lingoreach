@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 11: Mẹo Ghi Nhớ, Lỗi Thường Gặp & Phương Pháp Tự Học</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08); --sidebar-w: 290px;
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .ipa, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.app{display:flex; min-height:100vh;}
+.sidebar{width:var(--sidebar-w); flex-shrink:0; background:var(--ink); color:#EDEFF4; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; padding:24px 18px 40px; z-index:900; transition:transform .3s ease;}
+.sidebar::-webkit-scrollbar{width:6px;} .sidebar::-webkit-scrollbar-thumb{background:var(--teal-dark); border-radius:3px;}
+.brand{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+.brand h1{font-size:1.05rem; color:#fff; margin:0; line-height:1.25;}
+.brand small{display:block; color:var(--amber); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; margin-top:2px;}
+.sidebar-meter{margin:18px 0 22px; padding:12px; background:rgba(255,255,255,0.05); border-radius:10px;}
+.sidebar-meter .label{font-size:.72rem; color:#B7C2D6; margin-bottom:6px; display:flex; justify-content:space-between;}
+.meter-track{height:6px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;}
+.meter-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:4px; transition:width .2s ease;}
+.toc-group{margin-bottom:4px;}
+.toc-title{font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:#8496B4; margin:18px 0 8px;}
+.toc-link{display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; color:#CBD5E6; text-decoration:none; font-size:.86rem; margin-bottom:2px; transition:background .2s, color .2s;}
+.toc-link:hover{background:rgba(255,255,255,0.07); color:#fff;}
+.toc-link.active{background:var(--teal-dark); color:#fff; font-weight:600;}
+.toc-num{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--amber); width:20px;}
+.main{margin-left:var(--sidebar-w); flex:1; min-width:0;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.topbar-title{font-size:.85rem; color:var(--text-soft); font-weight:500;}
+.controls{display:flex; gap:10px; align-items:center;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{padding:36px 48px 100px; max-width:920px;}
+.hero{padding:38px 34px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:40px; box-shadow:var(--shadow); position:relative; overflow:hidden;}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.1rem; margin:10px 0 14px;}
+.hero p{color:#C9D3E4; line-height:1.7; max-width:680px; font-size:.98rem;}
+.hero .waveform{margin-top:18px;}
+.roadmap{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:24px;}
+.roadmap .rm-item{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:12px 14px;}
+.roadmap .rm-item b{color:var(--amber); font-size:.72rem; text-transform:uppercase; letter-spacing:.06em;}
+.roadmap .rm-item div{font-size:.86rem; color:#E4E9F2; margin-top:4px;}
+section.chapter{margin-bottom:56px; scroll-margin-top:90px;}
+.chapter-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px;}
+.chapter-head .num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:1rem; font-weight:700;}
+.chapter-head h2{margin:0; font-size:1.6rem;}
+.chapter-sub{color:var(--text-soft); margin-bottom:22px; font-size:.95rem;}
+p{line-height:1.75; font-size:.98rem;}
+.section-block{margin:20px 0;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid; font-size:.92rem; line-height:1.65;}
+.box .box-title{font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:.86rem; text-transform:uppercase; letter-spacing:.04em;}
+.box.note{background:rgba(47,143,134,0.08); border-color:var(--teal);} .box.note .box-title{color:var(--teal-dark);}
+.box.tip{background:rgba(217,164,65,0.1); border-color:var(--amber);} .box.tip .box-title{color:#A3781F;}
+[data-theme="dark"] .box.tip .box-title{color:var(--amber);}
+.box.warning{background:rgba(226,96,79,0.08); border-color:var(--coral);} .box.warning .box-title{color:var(--coral);}
+.box.important{background:rgba(22,36,61,0.06); border-color:var(--ink);}
+[data-theme="dark"] .box.important{background:rgba(255,255,255,0.05);}
+.box.important .box-title{color:var(--ink);}
+[data-theme="dark"] .box.important .box-title{color:var(--text);}
+.table-wrap{overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px;}
+table{border-collapse:collapse; width:100%; font-size:.9rem;}
+th,td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--line);}
+th{background:var(--paper-2); color:var(--ink); font-family:'Fraunces',serif; font-weight:600;}
+[data-theme="dark"] th{color:var(--text);}
+tr:last-child td{border-bottom:none;}
+.example-block{background:var(--ink); color:#EAF0F8; border-radius:12px; padding:16px 18px; margin:16px 0; position:relative; font-size:.9rem; line-height:1.7;}
+.example-block .copy-btn{position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.1); color:#fff; border:none; padding:5px 10px; border-radius:6px; font-size:.72rem; cursor:pointer; transition:background .2s;}
+.example-block .copy-btn:hover{background:var(--teal);}
+.example-block .ex-line{margin-bottom:6px;}
+.example-block .ex-en{color:#fff;}
+.example-block .ex-vi{color:#9FB0C8; font-size:.85rem;}
+.accordion{border:1px solid var(--line); border-radius:12px; margin:14px 0; overflow:hidden; background:var(--paper-2);}
+.acc-head{padding:14px 18px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-family:'Fraunces',serif; font-size:1rem;}
+.acc-head:hover{background:rgba(47,143,134,0.08);}
+.acc-icon{transition:transform .25s ease; color:var(--teal-dark); font-size:1.1rem;}
+.accordion.open .acc-icon{transform:rotate(45deg);}
+.acc-body{max-height:0; overflow:hidden; transition:max-height .35s ease; padding:0 18px;}
+.accordion.open .acc-body{padding:4px 18px 18px;}
+.ex-item{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px;}
+.ex-item .q{font-weight:600; margin-bottom:6px;}
+.ex-answer{display:none; margin-top:8px; padding:10px 12px; background:rgba(47,143,134,0.1); border-radius:8px; font-size:.88rem;}
+.ex-answer.show{display:block;}
+.reveal-btn{border:1px solid var(--teal); color:var(--teal-dark); background:transparent; padding:5px 12px; border-radius:8px; font-size:.8rem; cursor:pointer; transition:.2s;}
+.reveal-btn:hover{background:var(--teal); color:#fff;}
+.quiz-box{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:20px; margin:16px 0;}
+.quiz-q{margin-bottom:14px; padding-bottom:14px; border-bottom:1px dashed var(--line);}
+.quiz-q:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+.quiz-q p{font-weight:600; margin:0 0 8px;}
+.quiz-opts{display:grid; gap:8px;}
+.quiz-opt{border:1px solid var(--line); background:var(--paper); padding:9px 14px; border-radius:8px; cursor:pointer; font-size:.9rem; transition:.15s;}
+.quiz-opt:hover{border-color:var(--teal);}
+.quiz-opt.correct{background:rgba(47,143,134,0.18); border-color:var(--teal); font-weight:600;}
+.quiz-opt.wrong{background:rgba(226,96,79,0.18); border-color:var(--coral);}
+.quiz-score{margin-top:14px; font-weight:600; color:var(--teal-dark);}
+.summary-card{background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:#fff; border-radius:14px; padding:22px 24px; margin-top:24px;}
+.summary-card h3{color:#fff; margin-top:0;}
+.summary-card ul{margin:8px 0 0; padding-left:20px; line-height:1.8;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900; transition:transform .2s ease, background .2s;}
+#toTop:hover{background:var(--teal-dark); transform:translateY(-3px);}
+.fade-in{animation:fadeIn .6s ease both;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+.menu-toggle{display:none;}
+.step-list{counter-reset:step; list-style:none; padding:0; margin:14px 0;}
+.step-list li{counter-increment:step; position:relative; padding-left:42px; margin-bottom:14px; line-height:1.65;}
+.step-list li::before{content:counter(step); position:absolute; left:0; top:0; width:28px; height:28px; background:var(--teal); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.85rem;}
+.final-card{background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; border-radius:20px; padding:34px; margin-top:36px; text-align:center;}
+.final-card h2{color:#fff;}
+.final-card p{color:#C9D3E4;}
+@media (max-width: 980px){
+  .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;} .menu-toggle{display:flex;} .content{padding:28px 20px 100px;}
+}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 11</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 11</a>
+      <a class="toc-link" href="#ch55"><span class="toc-num">55</span> Mẹo ghi nhớ từ vựng</a>
+      <a class="toc-link" href="#ch56"><span class="toc-num">56</span> Lỗi thường gặp của người Việt</a>
+      <a class="toc-link" href="#ch57"><span class="toc-num">57</span> Phương pháp tự học hiệu quả</a>
+      <a class="toc-link" href="#ch58"><span class="toc-num">58</span> Lộ trình 6 tháng cho mục tiêu Nhật Bản</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Đã học — Toàn bộ giáo trình</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 1-10 ✓ (58 chương)</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 11 / Mẹo Ghi Nhớ &amp; Phương Pháp Tự Học</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần 11 / Chương Cuối</span>
+          <h1>Mẹo Ghi Nhớ, Lỗi Thường Gặp &amp; Phương Pháp Tự Học</h1>
+          <p>
+            Đây là chương <b>tổng kết cuối cùng</b> của bộ giáo trình — tập trung vào <b>PHƯƠNG PHÁP</b> thay vì kiến
+            thức mới: làm sao ghi nhớ từ vựng lâu dài, nhận diện và sửa các lỗi đặc trưng của người Việt, và xây dựng
+            thói quen tự học bền vững để tiếp tục tiến bộ sau khi đã học hết bộ giáo trình này.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 55</b><div>Mẹo ghi nhớ từ vựng — Spaced Repetition &amp; kỹ thuật liên tưởng</div></div>
+            <div class="rm-item"><b>Chương 56</b><div>Tổng hợp lỗi thường gặp của người Việt qua 10 phần đã học</div></div>
+            <div class="rm-item"><b>Chương 57</b><div>Phương pháp tự học hiệu quả — xây dựng thói quen bền vững</div></div>
+            <div class="rm-item"><b>Chương 58</b><div>Lộ trình 6 tháng cụ thể cho mục tiêu IT Engineer tại Nhật</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 55: VOCABULARY MEMORY TIPS -->
+      <section id="ch55" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">55</span><h2>Mẹo Ghi Nhớ Từ Vựng</h2></div>
+        <div class="chapter-sub">Khoa học về trí nhớ áp dụng vào việc học ngôn ngữ.</div>
+
+        <div class="section-block">
+          <h3>55.1 Spaced Repetition (Lặp lại ngắt quãng)</h3>
+          <p>
+            Não bộ ghi nhớ tốt nhất khi thông tin được <b>ôn lại đúng thời điểm sắp quên</b>, thay vì học nhồi nhét một
+            lần rồi thôi (cramming). Đây là nguyên lý đằng sau các app như Anki, Quizlet.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Lần ôn tập</th><th>Khoảng cách gợi ý</th></tr></thead>
+              <tbody>
+                <tr><td>Lần 1</td><td>Ngay sau khi học</td></tr>
+                <tr><td>Lần 2</td><td>1 ngày sau</td></tr>
+                <tr><td>Lần 3</td><td>3 ngày sau</td></tr>
+                <tr><td>Lần 4</td><td>1 tuần sau</td></tr>
+                <tr><td>Lần 5</td><td>1 tháng sau</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>55.2 Kỹ thuật liên tưởng (Mnemonics)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Kỹ thuật</th><th>Cách thực hiện</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Liên tưởng âm thanh</td><td>Liên hệ từ mới với từ tiếng Việt phát âm gần giống</td><td class="mono">"ambulance" (xe cứu thương) nghe giống "am-bu-lần" → tưởng tượng xe chạy "ầm" qua "lần" nào cũng vội</td></tr>
+                <tr><td>Liên tưởng hình ảnh</td><td>Tạo hình ảnh sống động trong đầu gắn với nghĩa từ</td><td class="mono">"gigantic" (khổng lồ) → tưởng tượng một "gã khổng lồ" cụ thể</td></tr>
+                <tr><td>Học theo gốc từ (Root words)</td><td>Nhận diện tiền tố/hậu tố để suy ra nghĩa nhiều từ cùng gốc</td><td class="mono">"port" (mang) → import, export, transport, portable</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>55.3 Học từ vựng theo NGỮ CẢNH, không học từ đơn lẻ</h3>
+          <div class="box important">
+            <div class="box-title">📌 Important</div>
+            Nghiên cứu ngôn ngữ học chỉ ra rằng học từ vựng gắn với <b>câu ví dụ cụ thể</b> giúp ghi nhớ lâu hơn 3-4 lần
+            so với học từ đơn lẻ kèm nghĩa dịch. Luôn viết ít nhất 1 câu ví dụ khi ghi chú từ mới vào sổ tay.
+          </div>
+        </div>
+
+        <h3>55.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Áp dụng kỹ thuật gốc từ, đoán nghĩa của "transport", "portable" dựa vào gốc "port" (mang).</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "transport" = vận chuyển (mang qua - trans), "portable" = có thể mang theo được (dễ di chuyển).</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Vì sao Spaced Repetition hiệu quả hơn học nhồi nhét (cramming)?</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Vì ôn lại đúng lúc sắp quên giúp củng cố trí nhớ dài hạn, trong khi nhồi nhét chỉ lưu vào trí nhớ ngắn hạn và quên rất nhanh sau đó.</div>
+        </div>
+
+        <h3>55.5 Quiz trắc nghiệm — Chương 55</h3>
+        <div class="quiz-box" id="quiz55"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 55</h3>
+          <ul>
+            <li>Spaced Repetition: ôn lại theo khoảng cách tăng dần để ghi nhớ dài hạn.</li>
+            <li>Mnemonics: liên tưởng âm thanh, hình ảnh, hoặc gốc từ để nhớ nhanh hơn.</li>
+            <li>Luôn học từ vựng kèm câu ví dụ cụ thể, không học từ đơn lẻ.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 56: COMMON MISTAKES -->
+      <section id="ch56" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">56</span><h2>Tổng Hợp Lỗi Thường Gặp Của Người Việt</h2></div>
+        <div class="chapter-sub">Nhìn lại các lỗi đặc trưng đã học xuyên suốt 10 phần — để tự kiểm tra bản thân.</div>
+
+        <div class="accordion open">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>56.1 Lỗi phát âm &amp; ngữ âm</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body" style="max-height:400px;">
+            <ul>
+              <li>Không đọc âm cuối (final sounds): "work" đọc thiếu /k/ cuối.</li>
+              <li>Nhầm /θ/, /ð/ với /t/, /d/: "think" đọc thành "tink".</li>
+              <li>Không phân biệt nguyên âm dài/ngắn: "sheep" và "ship" đọc giống nhau.</li>
+              <li>Đọc đều mọi âm tiết, không dùng âm schwa /ə/ tự nhiên.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>56.2 Lỗi ngữ pháp</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <ul>
+              <li>Thêm "-s" vào danh từ không đếm được: "informations", "advices".</li>
+              <li>Dùng sai mạo từ a/an/the (do tiếng Việt không có mạo từ).</li>
+              <li>Nhầm "mustn't" (cấm) với "don't have to" (không bắt buộc).</li>
+              <li>Dùng "will" trong mệnh đề "if" của câu điều kiện.</li>
+              <li>Quên lùi thì khi chuyển sang câu tường thuật.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>56.3 Lỗi từ vựng &amp; diễn đạt</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <ul>
+              <li>Dịch word-by-word từ tiếng Việt sang tiếng Anh (đặc biệt với collocations, idioms).</li>
+              <li>Sai collocation: "do a mistake" thay vì "make a mistake".</li>
+              <li>Lạm dụng idiom liên tục khiến câu văn nghe gượng ép.</li>
+              <li>Không phân biệt văn phong trang trọng/thân mật khi viết email.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>56.4 Lỗi tư duy khi học ngôn ngữ</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <ul>
+              <li>Học ngữ pháp/từ vựng trên giấy nhưng thiếu tiếp xúc âm thanh thực tế.</li>
+              <li>Dịch câu trong đầu trước khi nói, khiến phản xạ chậm và thiếu tự nhiên.</li>
+              <li>Sợ sai nên ngại nói/viết, dẫn đến ít cơ hội thực hành và tiến bộ chậm.</li>
+              <li>Học tràn lan không có lộ trình rõ ràng, dễ nản và bỏ cuộc giữa chừng.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>56.5 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Tìm và sửa lỗi trong câu: "I need some advices about my career."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "I need some advice about my career." — "advice" là danh từ không đếm được, không thêm -s.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Tìm và sửa lỗi: "You mustn't come if you don't want to." (câu này muốn nói "không bắt buộc")</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "You don't have to come if you don't want to." — "mustn't" nghĩa là cấm, không phải "không bắt buộc".</div>
+        </div>
+
+        <h3>56.6 Quiz trắc nghiệm — Chương 56</h3>
+        <div class="quiz-box" id="quiz56"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 56</h3>
+          <ul>
+            <li>Lỗi phổ biến trải rộng ở cả 4 mảng: phát âm, ngữ pháp, từ vựng, và tư duy học tập.</li>
+            <li>Tự nhận diện lỗi của bản thân là bước đầu tiên để cải thiện — hãy ghi chú lại lỗi hay mắc phải.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 57: SELF-STUDY METHODS -->
+      <section id="ch57" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">57</span><h2>Phương Pháp Tự Học Hiệu Quả</h2></div>
+        <div class="chapter-sub">Xây dựng thói quen bền vững để tiếp tục tiến bộ sau khi hoàn thành giáo trình.</div>
+
+        <div class="section-block">
+          <h3>57.1 Nguyên tắc "Input trước, Output sau"</h3>
+          <p>
+            Trước khi có thể nói/viết tốt (Output), cần tiếp nhận đủ lượng ngôn ngữ chất lượng qua nghe/đọc (Input).
+            Tỷ lệ hợp lý cho người tự học: <b>70% Input (nghe, đọc) — 30% Output (nói, viết)</b> ở giai đoạn đầu, tăng
+            dần tỷ lệ Output khi đã có nền tảng vững.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h3>57.2 Nguyên tắc "i+1" (Đầu vào có thể hiểu được, hơi cao hơn trình độ hiện tại)</h3>
+          <p>
+            Chọn tài liệu học có độ khó <b>cao hơn trình độ hiện tại một chút</b> (không quá dễ gây nhàm chán, không
+            quá khó gây nản lòng) — đây là "vùng học tập tối ưu" giúp tiến bộ nhanh nhất mà vẫn duy trì được động lực.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h3>57.3 Xây dựng thói quen học tập bền vững</h3>
+          <ol class="step-list">
+            <li><b>Học ít nhưng đều đặn</b> — 30 phút mỗi ngày hiệu quả hơn nhiều so với 5 tiếng một lần/tuần.</li>
+            <li><b>Kết hợp nhiều kỹ năng trong một buổi học</b> — ví dụ: nghe 10 phút, shadowing 10 phút, đọc 10 phút.</li>
+            <li><b>Theo dõi tiến độ cụ thể</b> — ghi chép số từ vựng học được, số bài shadowing hoàn thành mỗi tuần.</li>
+            <li><b>Tìm môi trường thực hành thực tế</b> — tham gia câu lạc bộ tiếng Anh, tìm bạn học cùng trình độ, hoặc dùng ứng dụng trao đổi ngôn ngữ.</li>
+            <li><b>Đặt mục tiêu SMART</b> — cụ thể (Specific), đo lường được (Measurable), khả thi (Achievable), liên quan (Relevant), có thời hạn (Time-bound).</li>
+          </ol>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title">⚠️ Warning — "Tự học sai cách" phổ biến</div>
+          Chỉ học lý thuyết ngữ pháp mà không luyện tập Output (nói/viết) thực tế sẽ khiến kiến thức nằm "chết" trên
+          giấy — không chuyển hóa thành kỹ năng sử dụng thực sự. Luôn cân bằng giữa học lý thuyết và luyện tập.
+        </div>
+
+        <h3>57.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Đặt 1 mục tiêu SMART cho việc học tiếng Anh trong 1 tháng tới.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Trong 30 ngày tới, tôi sẽ shadowing 5 đoạn hội thoại ngắn mỗi tuần và học 15 từ vựng mới mỗi ngày, kiểm tra lại bằng flashcard vào cuối mỗi tuần."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Thiết kế một buổi học 30 phút kết hợp nhiều kỹ năng (nghe, nói, đọc).</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: 10 phút nghe podcast → 10 phút shadowing đoạn khó → 10 phút đọc bài báo ngắn và ghi chú từ mới.</div>
+        </div>
+
+        <h3>57.5 Quiz trắc nghiệm — Chương 57</h3>
+        <div class="quiz-box" id="quiz57"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 57</h3>
+          <ul>
+            <li>Cân bằng Input (nghe/đọc) và Output (nói/viết), ưu tiên Input nhiều hơn ở giai đoạn đầu.</li>
+            <li>Chọn tài liệu ở mức "i+1" — hơi khó hơn trình độ hiện tại một chút.</li>
+            <li>Học đều đặn mỗi ngày, kết hợp nhiều kỹ năng, đặt mục tiêu SMART.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 58: 6-MONTH ROADMAP -->
+      <section id="ch58" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">58</span><h2>Lộ Trình 6 Tháng Cho Mục Tiêu IT Engineer Tại Nhật</h2></div>
+        <div class="chapter-sub">Kế hoạch cụ thể áp dụng toàn bộ kiến thức đã học vào mục tiêu thực tế của bạn.</div>
+
+        <div class="section-block">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Giai đoạn</th><th>Trọng tâm</th><th>Hoạt động cụ thể</th></tr></thead>
+              <tbody>
+                <tr><td>Tháng 1-2</td><td>Củng cố nền tảng</td><td>Ôn lại Phần 1-4 (phát âm, ngữ pháp cơ bản, thì, modal verbs); shadowing 15 phút/ngày</td></tr>
+                <tr><td>Tháng 3-4</td><td>Mở rộng kỹ năng</td><td>Luyện Nghe-Nói-Đọc-Viết theo Phần 7-8; bắt đầu luyện đề TOEIC; học Business English cơ bản</td></tr>
+                <tr><td>Tháng 5</td><td>Chuyên sâu công việc IT</td><td>Học từ vựng chuyên ngành IT tiếng Anh; luyện viết email/báo cáo kỹ thuật; luyện phỏng vấn tiếng Anh</td></tr>
+                <tr><td>Tháng 6</td><td>Luyện thi &amp; hoàn thiện</td><td>Làm đề thi thử TOEIC/IELTS đầy đủ; tập trung sửa các lỗi cá nhân đã ghi nhận; luyện phản xạ giao tiếp hàng ngày</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box tip">
+            <div class="box-title">💡 Tip</div>
+            Song song với lộ trình tiếng Anh, đừng quên kết hợp với việc học tiếng Nhật (JLPT) và các kỹ năng chuyên
+            môn IT (Java, Spring Boot, React) — nhà tuyển dụng Nhật thường đánh giá cao ứng viên có nền tảng vững cả
+            về chuyên môn lẫn ngoại ngữ.
+          </div>
+        </div>
+
+        <h3>58.1 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Liệt kê 3 hoạt động cụ thể bạn sẽ thực hiện trong tháng đầu tiên theo lộ trình trên.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: (1) Ôn lại Chương 1-4 về phát âm và IPA, (2) Shadowing 15 phút/ngày với podcast tiếng Anh cơ bản, (3) Ôn lại 8 thì đã học và làm bài tập thực hành.</div>
+        </div>
+
+        <h3>58.2 Quiz trắc nghiệm — Chương 58</h3>
+        <div class="quiz-box" id="quiz58"></div>
+
+        <div class="final-card">
+          <h2>🎓 Chúc mừng bạn đã hoàn thành toàn bộ giáo trình!</h2>
+          <p>
+            Từ Bảng chữ cái, IPA, Phonics ở Phần 1, đến Ngữ pháp, Thì, Câu điều kiện, Câu bị động, đến Kỹ năng
+            Nghe-Nói-Đọc-Viết, Business/Academic English, và chiến lược TOEIC/IELTS — bạn đã đi qua một hành trình đầy
+            đủ để xây dựng năng lực tiếng Anh toàn diện. Điều quan trọng nhất bây giờ là <b>DUY TRÌ THỰC HÀNH ĐỀU ĐẶN</b>.
+            Chúc bạn thành công trên con đường trở thành IT Engineer tại Nhật Bản!
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz55: [
+    {q:"Spaced Repetition là gì?", opts:["Học nhồi nhét 1 lần","Ôn lại theo khoảng cách tăng dần","Chỉ học buổi tối","Không cần ôn lại"], correct:1},
+    {q:"Học từ vựng kèm câu ví dụ có lợi ích gì?", opts:["Không có lợi ích gì khác","Ghi nhớ lâu hơn học từ đơn lẻ","Làm mất thời gian","Chỉ phù hợp người mới"], correct:1},
+    {q:"Gốc từ 'port' trong 'transport', 'portable' có nghĩa là gì?", opts:["Nhìn","Mang","Nói","Nghe"], correct:1}
+  ],
+  quiz56: [
+    {q:"'informations' là lỗi gì?", opts:["Lỗi phát âm","Thêm -s vào danh từ không đếm được","Lỗi chính tả","Không phải lỗi"], correct:1},
+    {q:"Lỗi nào liên quan đến câu điều kiện?", opts:["Dùng will trong mệnh đề if","Quên chia động từ","Sai trọng âm","Thiếu mạo từ"], correct:0},
+    {q:"'do a mistake' là lỗi gì?", opts:["Lỗi ngữ pháp thì","Sai collocation (nên là 'make a mistake')","Lỗi phát âm","Không phải lỗi"], correct:1}
+  ],
+  quiz57: [
+    {q:"Tỷ lệ Input/Output hợp lý cho người mới là gì?", opts:["50/50","70% Input - 30% Output","100% Output","30% Input - 70% Output"], correct:1},
+    {q:"'i+1' nghĩa là gì?", opts:["Học nội dung dễ hơn trình độ","Học nội dung ngang trình độ","Học nội dung hơi khó hơn trình độ hiện tại","Không liên quan đến trình độ"], correct:2},
+    {q:"Mục tiêu SMART là viết tắt của gì?", opts:["Specific-Measurable-Achievable-Relevant-Time-bound","Simple-Modern-Active-Real-Total","Study-Memorize-Analyze-Read-Talk","Speed-Method-Ability-Result-Time"], correct:0}
+  ],
+  quiz58: [
+    {q:"Theo lộ trình 6 tháng, tháng 1-2 tập trung vào điều gì?", opts:["Luyện thi TOEIC","Củng cố nền tảng (phát âm, ngữ pháp cơ bản)","Chỉ học từ vựng IT","Không có trọng tâm cụ thể"], correct:1},
+    {q:"Vì sao nên kết hợp học tiếng Anh với chuyên môn IT và tiếng Nhật?", opts:["Không cần thiết","Nhà tuyển dụng Nhật đánh giá cao ứng viên toàn diện","Chỉ để giải trí","Không liên quan đến mục tiêu"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container) return;
+  let score = 0; let answered = 0;
+  data.forEach((item, qi)=>{
+    const qDiv = document.createElement('div');
+    qDiv.className='quiz-q';
+    qDiv.innerHTML = `<p>Câu ${qi+1}. ${item.q}</p>`;
+    const optsDiv = document.createElement('div');
+    optsDiv.className='quiz-opts';
+    item.opts.forEach((opt, oi)=>{
+      const b = document.createElement('button');
+      b.className='quiz-opt';
+      b.textContent = opt;
+      b.onclick = ()=>{
+        if(b.dataset.locked) return;
+        [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+        if(oi === item.correct){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
+        answered++;
+        updateScore();
+      };
+      optsDiv.appendChild(b);
+    });
+    qDiv.appendChild(optsDiv);
+    container.appendChild(qDiv);
+  });
+  const scoreEl = document.createElement('div');
+  scoreEl.className='quiz-score';
+  container.appendChild(scoreEl);
+  function updateScore(){
+    scoreEl.textContent = `Điểm hiện tại: ${score}/${data.length} (${answered}/${data.length} câu đã trả lời)`;
+  }
+  updateScore();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Từ Vựng (Tổng Hợp Toàn Bộ Chủ Đề)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08);
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:14px 5vw; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:700;}
+.controls{display:flex; gap:10px;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s; text-decoration:none;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{max-width:1080px; margin:0 auto; padding:32px 5vw 100px;}
+.hero{padding:34px 32px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:26px; box-shadow:var(--shadow);}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.2rem; margin:10px 0 12px;}
+.hero p{color:#C9D3E4; line-height:1.7; font-size:.95rem;}
+.stat-row{display:flex; gap:24px; margin-top:20px; flex-wrap:wrap;}
+.stat-pill{background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:10px 18px; text-align:center;}
+.stat-pill b{display:block; font-family:'JetBrains Mono',monospace; font-size:1.3rem; color:var(--amber);}
+.stat-pill span{font-size:.72rem; color:#C9D3E4; text-transform:uppercase;}
+.search-box{width:100%; padding:14px 18px; border-radius:12px; border:1px solid var(--line); background:var(--paper-2); color:var(--text); font-size:1rem; margin-bottom:14px;}
+.api-lookup-box{background:var(--paper-2); border:1px dashed var(--teal); border-radius:14px; padding:18px 20px; margin-bottom:20px;}
+.alb-title{font-size:.85rem; color:var(--text-soft); margin-bottom:10px;}
+.alb-row{display:flex; gap:8px;}
+.alb-input{flex:1; padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--paper); color:var(--text); font-size:.92rem;}
+.alb-btn{background:var(--teal); color:#fff; border:none; padding:10px 20px; border-radius:10px; font-weight:600; cursor:pointer;}
+.alb-btn:hover{background:var(--teal-dark);}
+.alb-result{background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-top:12px;}
+.alb-word{font-weight:700; font-family:'Fraunces',serif; font-size:1.1rem;}
+.alb-ipa{color:var(--teal-dark); font-family:'JetBrains Mono',monospace; font-size:.85rem; margin-left:8px;}
+.alb-type{display:inline-block; background:rgba(47,143,134,0.15); color:var(--teal-dark); padding:2px 10px; border-radius:10px; font-size:.72rem; margin-left:8px;}
+.alb-meaning{margin:8px 0; font-size:.9rem;}
+.alb-synonyms{font-size:.82rem; color:var(--text-soft); margin-top:6px;}
+.alb-save-btn{background:var(--amber); color:#1a1200; border:none; padding:7px 16px; border-radius:8px; font-size:.82rem; font-weight:700; cursor:pointer; margin-top:10px;}
+.alb-save-btn:hover{opacity:.85;}
+.alb-save-btn:disabled{opacity:.5; cursor:not-allowed;}
+.group-filter{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px; position:sticky; top:70px; z-index:50; background:var(--paper); padding:10px 0;}
+.group-chip{border:1px solid var(--line); background:var(--paper-2); color:var(--text); padding:8px 16px; border-radius:18px; font-size:.82rem; cursor:pointer;}
+.group-chip.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+.group-section{margin:30px 0 10px;}
+.group-title{font-size:1.3rem; margin-bottom:4px; display:flex; align-items:center; gap:10px;}
+.group-sub{color:var(--text-soft); font-size:.88rem; margin-bottom:16px;}
+.ex-item{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px;}
+.ex-item .exq{font-size:.92rem; margin-bottom:8px;}
+.ex-row{display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
+.ex-input{flex:1; min-width:140px; padding:8px 12px; border-radius:8px; border:1px solid var(--line); background:var(--paper); color:var(--text); font-size:.9rem;}
+.ex-check-btn{border:1px solid var(--teal); color:var(--teal-dark); background:transparent; padding:7px 16px; border-radius:8px; font-size:.82rem; cursor:pointer;}
+.ex-check-btn:hover{background:var(--teal); color:#fff;}
+.ex-feedback{margin-top:6px; font-size:.85rem; display:none;}
+.ex-feedback.correct{color:var(--teal-dark); display:block;}
+.ex-feedback.wrong{color:var(--coral); display:block;}
+.topic-accordion{border:1px solid var(--line); border-radius:14px; margin:10px 0; overflow:hidden; background:var(--paper-2);}
+.topic-head{padding:14px 18px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:700; font-family:'Fraunces',serif; font-size:1.02rem;}
+.topic-head:hover{background:rgba(47,143,134,0.08);}
+.topic-head .th-left{display:flex; align-items:center; gap:10px;}
+.topic-count{font-size:.72rem; background:var(--teal); color:#fff; padding:2px 9px; border-radius:12px; font-family:'Inter',sans-serif; font-weight:600;}
+.topic-icon{transition:transform .25s ease; color:var(--teal-dark); font-size:1.1rem;}
+.topic-accordion.open .topic-icon{transform:rotate(45deg);}
+.topic-body{max-height:0; overflow:hidden; transition:max-height .4s ease; padding:0 18px;}
+.topic-accordion.open .topic-body{padding:4px 18px 18px;}
+.vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px; margin:10px 0;}
+.vocab-card{background:var(--paper); border:1px solid var(--line); border-radius:9px; padding:9px 12px; position:relative;}
+.vocab-card .vc-en{font-weight:700; font-family:'Fraunces',serif; font-size:.92rem; padding-right:22px;}
+.vc-speak-btn{position:absolute; top:8px; right:48px; background:none; border:none; cursor:pointer; font-size:.95rem; color:var(--teal); opacity:.7; padding:2px;}
+.vc-mic-btn{position:absolute; top:8px; right:28px; background:none; border:none; cursor:pointer; font-size:.9rem; color:var(--coral); opacity:.7; padding:2px;}
+.vc-del-btn{position:absolute; top:8px; right:8px; background:none; border:none; cursor:pointer; font-size:.85rem; color:var(--text-soft); opacity:.6; padding:2px;}
+.vc-del-btn:hover{opacity:1; color:var(--coral);}
+.vc-mic-btn:hover, .vc-speak-btn:hover{opacity:1; transform:scale(1.15);}
+.vc-mic-btn.recording{opacity:1; animation:micPulse 1s infinite;}
+@keyframes micPulse{0%,100%{transform:scale(1);} 50%{transform:scale(1.3);}}
+.vc-feedback{font-size:.72rem; margin-top:4px; font-weight:600;}
+.vc-feedback.ok{color:var(--teal-dark);}
+.vc-feedback.bad{color:var(--coral);}
+.vocab-card .vc-en{font-weight:700; font-family:'Fraunces',serif; font-size:.92rem;}
+.vocab-card .vc-vi{color:var(--text-soft); font-size:.79rem; margin-top:1px;}
+.hidden{display:none !important;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid var(--amber); background:rgba(217,164,65,0.1); font-size:.9rem; line-height:1.6;}
+.box .box-title{font-weight:700; color:#A3781F; margin-bottom:6px; font-size:.85rem; text-transform:uppercase;}
+[data-theme="dark"] .box .box-title{color:var(--amber);}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<nav class="topbar">
+  <div class="brand">
+    <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+    Giáo Trình Tiếng Anh — Từ Vựng
+  </div>
+  <div class="controls">
+    <a class="icon-btn" href="index_hub.html" title="Về trang chủ">🏠</a>
+    <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+    <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="hero">
+    <span class="eyebrow">Giáo trình tiếng Anh toàn diện · File Từ Vựng Tổng Hợp</span>
+    <h1>📚 Từ Vựng</h1>
+    <p>
+      File này <b>gộp toàn bộ từ vựng</b> từng nằm rải rác ở nhiều phần (Phrasal Verbs/Idioms, Từ vựng chủ đề, Chuyên
+      ngành, Từ điển theo từ loại...) vào <b>một nơi duy nhất</b> — chia theo 4 nhóm lớn, dễ tìm, dễ ôn tập.
+    </p>
+    <div class="stat-row">
+      <div class="stat-pill"><b id="statGroups">0</b><span>Nhóm lớn</span></div>
+      <div class="stat-pill"><b id="statTopics">0</b><span>Chủ đề nhỏ</span></div>
+      <div class="stat-pill"><b id="statWords">0</b><span>Từ vựng</span></div>
+    </div>
+  </div>
+
+  <input type="text" class="search-box" id="masterSearch" placeholder="🔍 Gõ để tìm bất kỳ từ vựng nào trong TOÀN BỘ file này...">
+
+  <div class="api-lookup-box" id="apiLookupBox">
+    <div class="alb-title">🌐 Không tìm thấy từ bạn cần? Tra online &amp; lưu vào bộ sưu tập của bạn</div>
+    <div class="alb-row">
+      <input type="text" class="alb-input" id="apiWordInput" placeholder="Gõ từ tiếng Anh muốn tra thêm...">
+      <button class="alb-btn" id="apiLookupBtn">Tra online</button>
+    </div>
+    <div id="apiLookupResult"></div>
+  </div>
+
+
+  <div class="group-filter" id="groupFilter">
+    <button class="group-chip active" data-group="all">Tất cả</button>
+    <button class="group-chip" data-group="topics">🗂️ Chủ đề đời sống</button>
+    <button class="group-chip" data-group="ielts">🎯 IELTS Band 7-9</button>
+    <button class="group-chip" data-group="writing2">✍️ Từ Vựng Writing Task 2</button>
+    <button class="group-chip" data-group="phrasal">🔗 Phrasal Verbs</button>
+    <button class="group-chip" data-group="idioms">💬 Idioms</button>
+    <button class="group-chip" data-group="specialized">🏢 Chuyên ngành</button>
+    <button class="group-chip" data-group="wordtype">🔤 Theo từ loại</button>
+    <button class="group-chip" data-group="confusing">⚠️ Cặp Từ Dễ Nhầm</button>
+    <button class="group-chip" data-group="countable">🔢 Đếm Được/Không Đếm Được</button>
+    <button class="group-chip" data-group="myWords">⭐ Từ Vựng Của Tôi</button>
+    <button class="group-chip" data-group="exercises">📝 Bài Tập Điền Từ</button>
+  </div>
+
+  <div id="topicsContainer"></div>
+
+  <div class="group-section" data-group="exercises" style="margin-top:30px;">
+    <div class="group-title">📝 Bài Tập Điền Từ</div>
+    <div class="group-sub">15 câu điền từ dùng vốn từ vựng đã có trong file này — gõ đáp án rồi bấm "Kiểm tra".</div>
+    <div id="exerciseList"></div>
+    <div style="text-align:center; margin-top:14px;">
+      <span id="exerciseScore" style="font-weight:700; color:var(--teal);"></span>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="box-title">💡 Cách dùng</div>
+    Gõ từ khóa (tiếng Anh hoặc tiếng Việt) vào ô tìm kiếm để lọc xuyên suốt TOÀN BỘ file — không quan trọng nó nằm ở
+    nhóm nào. Hoặc bấm các nút nhóm phía trên để chỉ xem riêng 1 nhóm. Bấm vào từng chủ đề để mở/đóng danh sách từ.
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+const topics = [
+  // ===== GROUP: TOPICS (chủ đề đời sống) =====
+  {group:"topics", name:"🌍 Môi Trường & Biến Đổi Khí Hậu", words:[["carbon footprint","lượng khí thải carbon"],["renewable energy","năng lượng tái tạo"],["deforestation","nạn phá rừng"],["greenhouse gas","khí thải nhà kính"],["sustainable development","phát triển bền vững"],["biodiversity","đa dạng sinh học"],["pollution","ô nhiễm"],["endangered species","loài nguy cấp"]]},
+  {group:"topics", name:"🏥 Sức Khỏe & Y Tế", words:[["sedentary lifestyle","lối sống ít vận động"],["chronic disease","bệnh mãn tính"],["life expectancy","tuổi thọ trung bình"],["obesity","béo phì"],["mental well-being","sức khỏe tinh thần"],["preventive healthcare","chăm sóc phòng ngừa"],["balanced diet","chế độ ăn cân bằng"],["healthcare accessibility","khả năng tiếp cận y tế"]]},
+  {group:"topics", name:"💻 Công Nghệ & AI", words:[["automation","tự động hóa"],["artificial intelligence","trí tuệ nhân tạo"],["digital transformation","chuyển đổi số"],["data privacy","quyền riêng tư dữ liệu"],["job displacement","mất việc do công nghệ"],["cybersecurity","an ninh mạng"],["innovation","đổi mới sáng tạo"],["digital divide","khoảng cách số"]]},
+  {group:"topics", name:"📈 Kinh Tế & Xã Hội", words:[["income inequality","bất bình đẳng thu nhập"],["unemployment rate","tỷ lệ thất nghiệp"],["urbanization","đô thị hóa"],["globalization","toàn cầu hóa"],["economic growth","tăng trưởng kinh tế"],["social mobility","khả năng thay đổi vị trí xã hội"],["standard of living","mức sống"],["workforce","lực lượng lao động"]]},
+  {group:"topics", name:"🎓 Giáo Dục", words:[["curriculum","chương trình học"],["scholarship","học bổng"],["literacy","khả năng đọc viết"],["tuition fee","học phí"],["extracurricular","ngoại khóa"],["rote learning","học vẹt"],["mentor","người cố vấn"],["accreditation","công nhận chất lượng"]]},
+  {group:"topics", name:"✈️ Du Lịch", words:[["itinerary","lịch trình"],["accommodation","chỗ ở"],["excursion","chuyến tham quan ngắn"],["layover","thời gian quá cảnh"],["souvenir","quà lưu niệm"],["jet lag","lệch múi giờ"],["backpacking","du lịch bụi"],["landmark","địa danh nổi tiếng"]]},
+  {group:"topics", name:"⚖️ Tội Phạm & Pháp Luật", words:[["offender","người phạm tội"],["witness","nhân chứng"],["verdict","phán quyết"],["deterrent","biện pháp răn đe"],["rehabilitation","cải tạo"],["law enforcement","thực thi pháp luật"],["surveillance","giám sát"],["custody","giam giữ"]]},
+  {group:"topics", name:"🏛️ Chính Trị & Chính Phủ", words:[["legislation","đạo luật"],["constituency","khu vực bầu cử"],["policy","chính sách"],["bureaucracy","bộ máy hành chính"],["referendum","trưng cầu dân ý"],["diplomacy","ngoại giao"],["subsidy","trợ cấp"],["accountability","trách nhiệm giải trình"]]},
+  {group:"topics", name:"🔬 Khoa Học & Vũ Trụ", words:[["hypothesis","giả thuyết"],["experiment","thí nghiệm"],["galaxy","thiên hà"],["gravity","trọng lực"],["genome","bộ gen"],["breakthrough","bước đột phá"],["telescope","kính thiên văn"],["orbit","quỹ đạo"]]},
+  {group:"topics", name:"🎨 Nghệ Thuật & Văn Hóa", words:[["masterpiece","kiệt tác"],["heritage","di sản"],["exhibition","triển lãm"],["aesthetic","thẩm mỹ"],["contemporary","đương đại"],["craftsmanship","tay nghề thủ công"],["symbolism","tính biểu tượng"],["preservation","bảo tồn"]]},
+  {group:"topics", name:"🏠 Nhà Ở & Đời Sống", words:[["mortgage","vay thế chấp mua nhà"],["tenant","người thuê nhà"],["landlord","chủ nhà"],["lease","hợp đồng thuê"],["utility bill","hóa đơn tiện ích"],["renovation","cải tạo"],["real estate","bất động sản"],["deposit","tiền đặt cọc"]]},
+  {group:"topics", name:"🛍️ Mua Sắm & Tiêu Dùng", words:[["discount","giảm giá"],["refund","hoàn tiền"],["warranty","bảo hành"],["impulse buying","mua sắm bốc đồng"],["consumer rights","quyền lợi người tiêu dùng"],["retailer","nhà bán lẻ"],["e-commerce","thương mại điện tử"],["brand loyalty","lòng trung thành thương hiệu"]]},
+  {group:"topics", name:"👗 Thời Trang", words:[["trend","xu hướng"],["fast fashion","thời trang nhanh"],["sustainable fashion","thời trang bền vững"],["tailor-made","may đo riêng"],["accessorize","phối phụ kiện"],["silhouette","dáng vóc trang phục"],["vintage","phong cách cổ điển"],["wardrobe","tủ quần áo"]]},
+  {group:"topics", name:"🎵 Âm Nhạc", words:[["melody","giai điệu"],["rhythm","nhịp điệu"],["genre","thể loại"],["lyrics","lời bài hát"],["composer","nhà soạn nhạc"],["streaming platform","nền tảng phát nhạc"],["chart-topping","đứng đầu bảng xếp hạng"],["acoustic","nhạc mộc"]]},
+  {group:"topics", name:"🧠 Tâm Lý Học", words:[["cognitive","thuộc nhận thức"],["subconscious","tiềm thức"],["behavior pattern","mô hình hành vi"],["coping mechanism","cơ chế đối phó"],["self-esteem","lòng tự trọng"],["bias","thiên kiến"],["motivation","động lực"],["resilience","khả năng phục hồi tâm lý"]]},
+  {group:"topics", name:"📜 Lịch Sử", words:[["civilization","nền văn minh"],["dynasty","triều đại"],["colonization","thuộc địa hóa"],["revolution","cách mạng"],["artifact","hiện vật khảo cổ"],["chronicle","biên niên sử"],["legacy","di sản để lại"],["turning point","bước ngoặt"]]},
+  {group:"topics", name:"💑 Các Mối Quan Hệ", words:[["commitment","sự cam kết"],["trust","sự tin tưởng"],["compromise","sự thỏa hiệp"],["reconcile","hòa giải"],["intimacy","sự gần gũi"],["estranged","xa cách"],["mutual respect","tôn trọng lẫn nhau"],["boundaries","giới hạn cá nhân"]]},
+  {group:"topics", name:"🚨 Khẩn Cấp & An Toàn", words:[["evacuation","sơ tán"],["first aid","sơ cứu"],["hazard","mối nguy hiểm"],["precaution","biện pháp phòng ngừa"],["emergency exit","lối thoát hiểm"],["casualty","người bị thương/tử vong"],["alert","cảnh báo"],["contingency plan","kế hoạch dự phòng"]]},
+  {group:"topics", name:"🌾 Nông Nghiệp", words:[["crop yield","năng suất mùa vụ"],["irrigation","tưới tiêu"],["livestock","gia súc gia cầm"],["fertilizer","phân bón"],["organic farming","canh tác hữu cơ"],["pesticide","thuốc trừ sâu"],["harvest","thu hoạch"],["soil erosion","xói mòn đất"]]},
+  {group:"topics", name:"📰 Truyền Thông & Báo Chí", words:[["headline","tiêu đề tin tức"],["credible source","nguồn tin đáng tin cậy"],["misinformation","thông tin sai lệch"],["censorship","kiểm duyệt"],["broadcast","phát sóng"],["investigative journalism","báo chí điều tra"],["media bias","thiên vị đưa tin"],["press freedom","tự do báo chí"]]},
+  {group:"topics", name:"🍳 Nấu Ăn & Nhà Hàng", words:[["marinate","ướp thực phẩm"],["simmer","ninh, đun liu riu"],["garnish","trang trí món ăn"],["reservation","đặt bàn trước"],["signature dish","món đặc trưng"],["dietary restriction","hạn chế ăn uống"],["gratuity","tiền boa"],["takeout","mang đi"]]},
+  {group:"topics", name:"🎯 Sở Thích & Giải Trí", words:[["pastime","thú tiêu khiển"],["leisure time","thời gian rảnh"],["collector","người sưu tầm"],["DIY","tự làm, tự chế"],["binge-watch","xem liên tục nhiều tập"],["enthusiast","người đam mê"],["unwind","thư giãn"],["recreational","mang tính giải trí"]]},
+  {group:"topics", name:"🏦 Ngân Hàng & Tài Chính Cá Nhân", words:[["savings account","tài khoản tiết kiệm"],["withdraw / deposit","rút tiền / gửi tiền"],["overdraft","thấu chi"],["credit score","điểm tín dụng"],["installment","trả góp"],["exchange rate","tỷ giá hối đoái"],["transaction","giao dịch"],["budget","ngân sách cá nhân"]]},
+  {group:"topics", name:"📱 Mạng Xã Hội & Internet", words:[["go viral","lan truyền nhanh"],["influencer","người có sức ảnh hưởng"],["algorithm","thuật toán"],["engagement","mức độ tương tác"],["screen time","thời gian dùng màn hình"],["cyberbullying","bắt nạt trên mạng"],["privacy setting","cài đặt riêng tư"],["echo chamber","buồng vang quan điểm"]]},
+  {group:"topics", name:"🐾 Động Vật & Thú Cưng", words:[["breed","giống loài"],["domesticated","đã thuần hóa"],["veterinarian","bác sĩ thú y"],["shelter","trại cứu hộ"],["predator / prey","kẻ săn mồi / con mồi"],["companionship","sự bầu bạn"],["instinct","bản năng"]]},
+  {group:"topics", name:"🤝 Thiện Nguyện & Từ Thiện", words:[["donation","sự quyên góp"],["nonprofit organization","tổ chức phi lợi nhuận"],["fundraiser","sự kiện gây quỹ"],["underprivileged","người kém may mắn"],["philanthropy","hoạt động từ thiện"],["community service","công tác cộng đồng"],["selfless","vị tha"],["give back","đền đáp xã hội"]]},
+  {group:"topics", name:"🕊️ Tôn Giáo & Tín Ngưỡng", words:[["faith","đức tin"],["ritual","nghi lễ"],["worship","thờ phụng"],["secular","thế tục"],["tradition","truyền thống"],["spirituality","tính tâm linh"],["tolerance","sự khoan dung"],["doctrine","giáo lý"]]},
+  {group:"topics", name:"🌦️ Thời Tiết & Thiên Tai", words:[["humidity","độ ẩm"],["forecast","dự báo"],["typhoon","bão"],["earthquake","động đất"],["heatwave","đợt nắng nóng"],["downpour","mưa như trút"],["aftermath","hậu quả sau thiên tai"]]},
+  {group:"topics", name:"🚗 Ô Tô & Giao Thông Cá Nhân", words:[["fuel efficiency","hiệu suất nhiên liệu"],["maintenance","bảo dưỡng"],["insurance premium","phí bảo hiểm"],["traffic violation","vi phạm giao thông"],["test drive","lái thử"],["electric vehicle","xe điện"],["mileage","số km đã đi"],["roadworthy","đủ điều kiện lưu thông"]]},
+  {group:"topics", name:"👶 Nuôi Dạy Con Cái", words:[["parenting style","phong cách nuôi dạy con"],["discipline","kỷ luật"],["toddler","trẻ mới biết đi"],["milestone","cột mốc phát triển"],["nurture","nuôi dưỡng"],["screen time limit","giới hạn thời gian màn hình"],["role model","tấm gương"],["bonding","gắn kết tình cảm"]]},
+  {group:"topics", name:"🎮 Game & Thể Thao Điện Tử", words:[["esports","thể thao điện tử"],["gameplay","lối chơi"],["multiplayer","chơi nhiều người"],["leaderboard","bảng xếp hạng"],["in-game purchase","mua trong game"],["competitive gaming","thi đấu chuyên nghiệp"],["streamer","người phát trực tiếp"],["addiction (gaming)","nghiện game"]]},
+  {group:"topics", name:"👴 Người Cao Tuổi & Nghỉ Hưu", words:[["retirement","nghỉ hưu"],["pension","lương hưu"],["elderly care","chăm sóc người già"],["aging population","dân số già hóa"],["independence (elderly)","tính tự chủ của người già"],["nursing home","viện dưỡng lão"],["intergenerational","liên thế hệ"]]},
+  {group:"topics", name:"♿ Khuyết Tật & Hòa Nhập", words:[["disability","khuyết tật"],["accessibility","khả năng tiếp cận"],["inclusive","mang tính hòa nhập"],["wheelchair ramp","đường dốc cho xe lăn"],["assistive technology","công nghệ hỗ trợ"],["discrimination","sự phân biệt đối xử"],["workplace accommodation","điều chỉnh phù hợp tại nơi làm việc"],["empowerment","trao quyền"]]},
+  {group:"topics", name:"🚀 Khám Phá Vũ Trụ (Nâng Cao)", words:[["space mission","sứ mệnh không gian"],["astronaut","phi hành gia"],["spacecraft","tàu vũ trụ"],["extraterrestrial","ngoài trái đất"],["zero gravity","trạng thái không trọng lực"],["lunar","thuộc mặt trăng"],["satellite","vệ tinh"],["interstellar","liên sao"]]},
+  {group:"topics", name:"💻 Làm Việc Từ Xa & Công Sở Hiện Đại (Remote Work)", words:[["remote work","làm việc từ xa"],["work-life balance","cân bằng công việc-cuộc sống"],["digital nomad","người du mục kỹ thuật số"],["hybrid work model","mô hình làm việc kết hợp"],["video conferencing","họp qua video"],["co-working space","không gian làm việc chung"],["flexible hours","giờ làm linh hoạt"],["team collaboration tool","công cụ hợp tác nhóm"]]},
+  {group:"topics", name:"🌐 Giao Tiếp Đa Văn Hóa (Cross-Cultural Communication)", words:[["cultural sensitivity","sự nhạy cảm văn hóa"],["cultural shock","sốc văn hóa"],["stereotype","định kiến rập khuôn"],["etiquette","phép xã giao"],["multicultural","đa văn hóa"],["assimilation","sự hòa nhập văn hóa"],["cultural diversity","sự đa dạng văn hóa"],["nonverbal communication","giao tiếp phi ngôn ngữ"]]},
+  {group:"topics", name:"📈 Đầu Tư & Chứng Khoán (Investment & Stock Market)", words:[["stock","cổ phiếu"],["dividend","cổ tức"],["volatility","sự biến động"],["bull market / bear market","thị trường tăng giá / giảm giá"],["diversify a portfolio","đa dạng hóa danh mục đầu tư"],["capital gain","lợi nhuận từ vốn"],["risk tolerance","mức độ chấp nhận rủi ro"],["compound interest","lãi kép"]]},
+  {group:"topics", name:"🔒 An Ninh Mạng & Quyền Riêng Tư (Cybersecurity & Privacy)", words:[["phishing","lừa đảo trực tuyến qua email/link giả"],["malware","phần mềm độc hại"],["two-factor authentication","xác thực hai yếu tố"],["data breach","rò rỉ dữ liệu"],["firewall","tường lửa"],["identity theft","đánh cắp danh tính"],["encryption","mã hóa"],["vulnerability","lỗ hổng bảo mật"]]},
+
+  {group:"topics", name:"🏗️ Kỹ Thuật & Xây Dựng", words:[["blueprint","bản vẽ thiết kế"],["structural integrity","độ vững chắc kết cấu"],["construction site","công trường xây dựng"],["scaffolding","giàn giáo"],["load-bearing wall","tường chịu lực"],["renovation permit","giấy phép cải tạo"],["contractor","nhà thầu"],["building code","quy chuẩn xây dựng"]]},
+  {group:"topics", name:"✈️ Hàng Không", words:[["boarding pass","thẻ lên máy bay"],["turbulence","nhiễu động không khí"],["baggage claim","khu vực nhận hành lý"],["connecting flight","chuyến bay nối chuyến"],["air traffic control","kiểm soát không lưu"],["cabin crew","tiếp viên hàng không"],["runway","đường băng"],["customs declaration","khai báo hải quan"]]},
+  {group:"topics", name:"🧬 Y Sinh Học & Di Truyền", words:[["DNA","ADN"],["clinical trial","thử nghiệm lâm sàng"],["vaccine","vắc-xin"],["immune system","hệ miễn dịch"],["gene therapy","liệu pháp gen"],["epidemic","dịch bệnh"],["pathogen","tác nhân gây bệnh"],["biotechnology","công nghệ sinh học"]]},
+  {group:"topics", name:"⚖️ Nhân Quyền & Bình Đẳng", words:[["equality","sự bình đẳng"],["human rights","nhân quyền"],["gender gap","khoảng cách giới"],["minority group","nhóm thiểu số"],["advocacy","sự vận động, ủng hộ"],["social justice","công bằng xã hội"],["marginalized","bị gạt ra ngoài lề"]]},
+  {group:"topics", name:"🌐 Ngoại Giao Quốc Tế", words:[["treaty","hiệp ước"],["embassy","đại sứ quán"],["sanction","lệnh trừng phạt"],["bilateral relations","quan hệ song phương"],["summit","hội nghị thượng đỉnh"],["ceasefire","lệnh ngừng bắn"],["alliance","liên minh"],["negotiation table","bàn đàm phán"]]},
+  {group:"topics", name:"🎭 Sân Khấu & Điện Ảnh", words:[["screenplay","kịch bản phim"],["box office","doanh thu phòng vé"],["plot twist","tình tiết bất ngờ"],["cast","dàn diễn viên"],["cinematography","nghệ thuật quay phim"],["premiere","buổi công chiếu"],["blockbuster","phim bom tấn"],["soundtrack","nhạc phim"]]},
+  {group:"topics", name:"🏋️ Thể Dục & Rèn Luyện Sức Khỏe", words:[["workout routine","chế độ tập luyện"],["cardio","bài tập tim mạch"],["muscle building","xây dựng cơ bắp"],["flexibility","độ dẻo dai"],["personal trainer","huấn luyện viên cá nhân"],["warm-up","khởi động"],["endurance training","luyện tập sức bền"],["overtraining","tập luyện quá sức"]]},
+  {group:"topics", name:"🧾 Thuế & Nghĩa Vụ Tài Chính", words:[["tax return","hồ sơ khai thuế"],["taxable income","thu nhập chịu thuế"],["deduction","khoản khấu trừ"],["audit","kiểm toán"],["tax evasion","trốn thuế"],["value-added tax (VAT)","thuế giá trị gia tăng"],["fiscal responsibility","trách nhiệm tài chính"],["exemption","miễn trừ"]]},
+  {group:"topics", name:"🏆 Thể Thao & Cạnh Tranh", words:[["athlete","vận động viên"],["championship","giải vô địch"],["stamina","sức bền"],["sportsmanship","tinh thần thể thao"],["underdog","đội/người yếu thế"],["rivalry","sự ganh đua"],["spectator","khán giả"],["personal best","kỷ lục cá nhân"]]},
+  {group:"topics", name:"💰 Tiền Điện Tử & Blockchain", words:[["cryptocurrency","tiền điện tử"],["blockchain","chuỗi khối"],["decentralized","phi tập trung"],["digital wallet","ví điện tử"],["crypto mining","đào tiền điện tử"],["token","token/mã thông báo"],["transparency","tính minh bạch"],["financial regulation","quy định tài chính"]]},
+  {group:"topics", name:"🏙️ Đô Thị Thông Minh", words:[["smart city","thành phố thông minh"],["infrastructure","cơ sở hạ tầng"],["public transportation","giao thông công cộng"],["urban planning","quy hoạch đô thị"],["traffic congestion","tắc nghẽn giao thông"],["smart grid","lưới điện thông minh"],["sensor network","mạng lưới cảm biến"],["energy efficiency","hiệu quả sử dụng năng lượng"]]},
+  {group:"topics", name:"🌏 Dân Số & Di Cư", words:[["population growth","tăng trưởng dân số"],["migration","di cư"],["refugee","người tị nạn"],["overpopulation","dân số quá đông"],["birth rate","tỷ lệ sinh"],["census","điều tra dân số"],["demographic","thuộc nhân khẩu học"],["social integration","hòa nhập xã hội"]]},
+  {group:"topics", name:"🧘 Sức Khỏe Tâm Thần", words:[["anxiety","lo âu"],["depression","trầm cảm"],["stress management","quản lý căng thẳng"],["therapy","trị liệu tâm lý"],["mindfulness","chánh niệm"],["emotional exhaustion","kiệt sức tinh thần"],["support system","hệ thống hỗ trợ"],["stigma","sự kỳ thị"]]},
+  {group:"topics", name:"🗣️ Học Ngoại Ngữ", words:[["fluency","sự lưu loát"],["immersion","phương pháp đắm chìm ngôn ngữ"],["bilingual","song ngữ"],["vocabulary retention","khả năng ghi nhớ từ vựng"],["native speaker","người bản xứ"],["language barrier","rào cản ngôn ngữ"],["grammar structure","cấu trúc ngữ pháp"],["accent","giọng (phát âm)"]]},
+  {group:"topics", name:"🌊 Đại Dương & Bảo Tồn Biển", words:[["marine ecosystem","hệ sinh thái biển"],["coral reef","rạn san hô"],["overfishing","đánh bắt quá mức"],["ocean acidification","sự axit hóa đại dương"],["marine life","sinh vật biển"],["conservation effort","nỗ lực bảo tồn"],["sea level rise","mực nước biển dâng"],["ecosystem","hệ sinh thái"]]},
+  {group:"topics", name:"⚔️ Chiến Tranh & Xung Đột", words:[["military intervention","can thiệp quân sự"],["armistice","hiệp định đình chiến"],["humanitarian aid","viện trợ nhân đạo"],["war crime","tội ác chiến tranh"],["peace treaty","hiệp ước hòa bình"],["displacement","sự di dời (do xung đột)"],["veteran","cựu chiến binh"],["peace negotiation","đàm phán hòa bình"]]},
+  {group:"topics", name:"🎉 Lễ Hội & Ngày Lễ", words:[["festival","lễ hội"],["intangible heritage","di sản phi vật thể"],["celebration","lễ kỷ niệm"],["public holiday","ngày lễ quốc gia"],["parade","diễu hành"],["folk custom","phong tục dân gian"],["commemorate","tưởng niệm"],["carnival","lễ hội hóa trang"]]},
+  {group:"topics", name:"💼 Kỹ Năng Mềm & Giao Tiếp Công Sở", words:[["teamwork","làm việc nhóm"],["leadership","khả năng lãnh đạo"],["negotiation skill","kỹ năng đàm phán"],["active listening","lắng nghe chủ động"],["constructive feedback","phản hồi mang tính xây dựng"],["mediation","hòa giải"],["time management","quản lý thời gian"],["adaptability","khả năng thích ứng"]]},
+  
+  // ===== GROUP: WRITING TASK 2 VOCAB (IELTS Xuân Phi) =====
+  {group:"writing2", name:"🎎 Culture", words:[["Homogeneous Society","Văn Hóa Đồng Nhất"],["Cultural Homogeneity","Đồng Nhất Văn Hóa"],["Cultural Assimilation","Sự Đồng Hoá Văn Hoá"],["Adopt The Norms","Áp Dụng Các Tiêu Chuẩn/Văn Hóa"],["The Host Culture","Văn Hóa Của Nước Chủ Nhà"],["Be Segregated Or Marginalized","Bị Tách Biệt Hoặc Bị Gạt Ra Ngoài Lề"],["Authentic Community","Cộng Đồng Đích Thực"],["A Multicultural Society","Một Xã Hội Đa Văn Hóa"],["A Collective Openness To New Ideas And Perspectives","Sự Cởi Mở Với Những Ý Tưởng Và Quan Điểm Mới"],["A Dominant Culture","Một Nền Văn Hóa Thống Trị"],["Cultural Exchange","Trao Đổi Văn Hoá"],["Community Coalition","Liên Minh Cộng Đồng"],["Transform The Status Quo","Chuyển Đổi Hiện Trạng"],["Ethnic Groups","Các Nhóm Dân Tộc"],["Share Their Religious Beliefs","Chia Sẻ Niềm Tin Tôn Giáo Của Họ"],["Cultural Identity","Bản Sắc Văn Hóa"],["National Identity","Bản Sắc Dân Tộc"],["Cultural Diplomats","Nhà Ngoại Giao Văn Hóa"],["Cross-Cultural Learning","Học Tập Giữa Các Nền Văn Hóa"],["Cultural Ambassadors","Đại Sứ Văn Hóa"],["Immigrant Communities","Cộng Đồng Nhập Cư"],["Cultural Practices","Tập Quán Văn Hóa"],["Traditional Festivals","Lễ Hội Truyền Thống"],["Social Hierarchy","Hệ Thống Phân Cấp Xã Hội"],["Multiculturalism","Chủ Nghĩa Đa Văn Hóa"],["Enculturation","Sự Hội Hóa"],["Acculturation","Hòa Nhập"],["Intangible Cultural Heritage","Di Sản Văn Hóa Phi Vật Thể"],["Adopting Traits Of A Different Culture","Chấp Nhận Những Đặc Điểm Của Một Nền Văn Hóa Khác"],["Cultural Heterogeneity","Không Đồng Nhất Văn Hóa"],["Shape Their New Sets Of Values","Định Hình Bộ Giá Trị Mới Của Họ"],["Cultural Preservation","Bảo Tồn Văn Hóa"],["National Heritage","Di Sản Quốc Gia"],["Existing Traditional Standards","Các Tiêu Chuẩn Truyền Thống Hiện Có"],["Lose Cultural Uniqueness","Đánh Mất Sự Độc Đáo Về Văn Hóa"],["A Process Of Extensive Cultural Borrowing","Một Quá Trình Vay Mượn Văn Hóa Sâu Rộng"],["Ethnic Diversity","Đa Dạng Hóa Sắc Tộc"],["Racial Discrimination/ Racism","Kỳ Thị Chủng Tộc / Phân Biệt Chủng Tộc"],["Cultural Awareness","Nhận Thức Văn Hóa"],["Ethnic Conflict","Xung Đột Chủng Tộc"]]},
+  {group:"writing2", name:"🎓 Education", words:[["Higher education","Giáo dục nâng cao"],["Tertiary study","Giáo dục đại học"],["Full-time education","Giáo dục toàn thời gian"],["Gifted students","Học sinh ưu tú"],["Be admitted to a university","Được nhận vào một trường đại học"],["Home school","Trường học tại nhà"],["An academic year","Một năm học"],["Meet the entry requirements for university entrance","Đáp ứng yêu cầu nhập học vào đại học"],["Complete a degree","Hoàn thành một bằng cấp (thường chỉ bằng cử nhân)"],["Bachelor's degree holders","Người có bằng cử nhân"],["Have a natural talent for","Có tài năng thiên bẩm về"],["Demonstrate an ability to","Thể hiện khả năng"],["Cheat in an exam","Gian lận trong một kỳ thi"],["Prestigious university","Trường đại học danh tiếng"],["Exemption of tuition fees","Miễn học phí"],["Free-of-charge college policy","Chính sách đại học miễn phí"],["Optional subject","Môn học tùy chọn"],["Double degree","2 văn bằng"],["Extracurricular activity","Hoạt động ngoại khóa"],["Pedagogical methods","Phương pháp sư phạm"],["Teaching programs","Chương trình giảng dạy"],["Practical skills","Kỹ năng thực hành"],["Theoretical knowledge","Kiến thức lý thuyết"],["Comprehensive education","Giáo dục toàn diện"],["Holistic education","Giáo dục toàn diện"],["Educational institution","Cơ sở giáo dục"],["Receive an education","Nhận sự giáo dục"],["General knowledge","Kiến thức chung"],["Excel at school","Học tập xuất sắc"],["Academic performance","Kết quả học tập"],["Retain knowledge","Lưu giữ kiến thức"],["Scholarship program","Chương trình học bổng"],["Award someone a scholarship","Trao học bổng cho ai đó"],["Distance learning","Học từ xa"],["Online learning","Học trực tuyến"],["Independent learning","Học tập độc lập"],["Enhance language ability","Nâng cao khả năng ngôn ngữ"],["Learning materials","Tài liệu học tập"],["Facilitate online learning","Tạo điều kiện học trực tuyến"],["Application of general concepts","Ứng dụng của các khái niệm chung"],["Interpersonal skill","Kỹ năng giao tiếp"],["Live discussion","Thảo luận trực tiếp"],["Academic discipline","Môn học"],["Major in","Chuyên ngành"],["Have an aptitude for","Có năng khiếu về"],["Core subject","Môn học chính"],["Vocational guidance","Hướng nghiệp"],["Career counselling","Tư vấn nghề nghiệp"],["Enrich life experiences","Làm giàu kinh nghiệm sống"],["Hone practical skills","Trau dồi kỹ năng thực hành"],["Take a gap year","Nghỉ một năm"],["Academic overload","Quá tải học tập"],["Chronically absent","Vắng mặt thường xuyên"],["Precipitate neglect in their academic pursuits","Khiến họ bỏ bê việc học tập"],["Inconsistent presence","Sự hiện diện không nhất quán"],["In-class assignments","Bài tập trong lớp"],["Teaching curriculum","Giáo trình giảng dạy"],["Classroom behaviour","Hành vi trong lớp học"],["Alterations to the teaching syllabus","Thay đổi giáo trình giảng dạy"]]},
+  {group:"writing2", name:"💼 Employment and Business", words:[["A line of work","Một công việc"],["Be offered a lucrative job","Được cung cấp một công việc hấp dẫn"],["A hyper competitive job market","Một thị trường việc làm siêu cạnh tranh"],["An inclusive labour market","Một thị trường lao động toàn diện"],["A job offer","Một lời mời làm việc"],["Run/ operate a business","Điều hành một doanh nghiệp"],["Promotion opportunity","Cơ hội thăng tiến"],["Fulfil the requirements","Đáp ứng các yêu cầu"],["Learn from experiences","Học hỏi kinh nghiệm"],["Self – employed","Tự kinh doanh"],["A marketing campaign","Một chiến dịch tiếp thị"],["Meet the qualifications","Đáp ứng các tiêu chuẩn"],["Job prospects","Triển vọng việc làm"],["Hone one's interpersonal skills","Rèn luyện kỹ năng giao tiếp giữa các cá nhân với nhau"],["A competitive salary","Một mức lương cạnh tranh"],["Hands-on/practical experience","Kinh nghiệm thực hành / thực tế"],["Heavy workload","Khối lượng công việc nặng"],["In-house training","Tập huấn trong nhà"],["Retirement scheme","Chương trình hưu trí"],["Pension fund","Quỹ hưu trí"],["Retire from a position","Nghỉ hưu từ một vị trí"],["Incumbent","Đương nhiệm"],["Disposable income","Thu nhập khả dụng"],["Salary increments","Tăng lương"],["Work overtime","Làm việc ngoài giờ"],["An incentive","Khuyến khích"],["Sale Commissions","Hoa Hồng Bán Hàng"],["Blue-Collar Worker","Công Nhân"],["White-Collar Workers","Người Làm Việc Văn Phòng"],["A Manufacturing Industry","Một Ngành Công Nghiệp Sản Xuất"],["Economic Sectors","Các Thành Phần Kinh Tế"],["Service industry","Công nghiệp dịch vụ"],["A part-time employee","Một nhân viên bán thời gian"],["Manual jobs","Công việc thủ công"],["Carbon-intensive industries","Các ngành công nghiệp sử dụng nhiều carbon"]]},
+  {group:"writing2", name:"🌿 Environment and the wildlife", words:[["Preserve/ protect the wildlife","Bảo tồn / bảo vệ động vật hoang dã"],["Conservation efforts","Những hiệu quả của cuộc hội thoại"],["Produce helpful scientific research","Sản xuất nghiên cứu khoa học hữu ích"],["Wildlife populations","Quần thể động vật hoang dã"],["Captive animals","Động vật nuôi nhốt"],["Save species from extinction","Cứu các loài khỏi tuyệt chủng"],["Push to the verge of extinction","Đẩy đến bờ vực tuyệt chủng"],["Become extinct","Bị tuyệt chủng"],["Endangered/ rare animals","Động vật nguy cấp / quý hiếm"],["Conservation programs","Chương trình bảo tồn"],["Help animal repopulate","Giúp động vật tái sinh"],["Breeding sites","Địa điểm nhân giống"],["Animals' natural behaviors","Các hành vi tự nhiên của động vật"],["Life in captivity","Cuộc sống bị giam cầm"],["Poaching","Săn trộm"],["Animal abuse","Ngược đãi động vật"],["Wildlife species","Các loài động vật hoang dã"],["Zoological Park","Công viên động vật học"],["Animal exploitation","Khai thác động vật"],["Animal rights","Quyền động vật"],["Animal domestication","Thuần hóa động vật"],["Animal testing","Thử nghiệm động vật"],["Coexistence","Cùng tồn tại"],["Animal welfare matters","Các vấn đề về phúc lợi động vật"],["Biological diversity","Sự đa dạng sinh học"],["The natural habitat","Môi trường sống tự nhiên"],["The imbalance of the ecosystem","Sự mất cân bằng của hệ sinh thái"],["Illegal wildlife trade","Buôn bán động vật hoang dã bất hợp pháp"],["Garbage patches in the ocean","Những mảng rác trong đại dương"],["Oceanographers and climatologists","Nhà hải dương học và nhà khí tượng học"],["Entangled animals","Động vật bị vướng vào bẫy"],["Disturb marine food webs","Làm xáo trộn mạng lưới thức ăn biển"],["Algae and plankton communities","Quần xã tảo và sinh vật phù du"],["Enter the food chain","Tham gia chuỗi thức ăn"],["Marine debris","Mảnh vụn biển"],["Over-exploitation of natural resources","Khai thác quá mức tài nguyên thiên nhiên"],["Plastic pollution","Ô nhiễm nhựa"],["Stranded ocean species","Các loài đại dương mắc cạn"],["Ingest plastic into their digestive system","Nuốt nhựa vào đường tiêu hóa"],["Extraction of raw materials","Khai thác nguyên liệu thô"],["Future provision of natural resources","Cung cấp tài nguyên thiên nhiên trong tương lai"],["Ecosystem services","Dịch vụ sinh thái"],["Pervasive global threats","Các mối đe dọa toàn cầu lan rộng"],["Coral bleach","Tẩy trắng san hô"],["Global warming","Sự nóng lên toàn cầu"],["Greenhouse gas emissions","Khí thải nhà kính"],["Exhaust fumes","Khí thải"],["Self-decomposition","Tự phân hủy"],["Plastic incineration","Thiêu hủy nhựa"],["Environmental catastrophe","Thảm họa môi trường"],["Bushfire","Cháy rừng"],["Unplanned vegetation fire","Đốt thảm thực vật không có kế hoạch"],["Create difficulties in breathing","Khó thở"],["Terrestrial biodiversity","Đa dạng sinh học trên cạn"],["Extreme weather","Thời tiết khắc nghiệt"],["Complex terrain","Địa hình phức tạp"],["Rising sea level","Nước biển dâng"],["Glaciers and sea ice melting","Sông băng và biển băng tan"],["Severe drought","Hạn hán nghiêm trọng"],["Salinity intrusion","Xâm thực mặn"],["Seasonal flooding","Lũ lụt theo mùa"],["Soil salinity","Đất nhiễm mặn"],["Land salinization","Nhiễm mặn đất"],["Natural process","Quá trình tự nhiên"],["Anthropogenic factors","Yếu tố con người"],["Mineral weathering","Phong hóa khoáng sản"],["Fossil fuels","Nhiên liệu hóa thạch"],["Land and air degradation","Suy thoái đất và không khí"],["Sustainable growth","Tăng trưởng bền vững"],["Alternative energy sources","Nguồn năng lượng thay thế"]]},
+  {group:"writing2", name:"👨‍👩‍👧 Family", words:[["Parenting courses/ classes","Các khóa học / lớp học làm cha mẹ"],["Prepare for each developmental stage","Chuẩn bị cho từng giai đoạn phát triển"],["Attend a parenting workshop","Tham dự hội thảo về nuôi dạy con cái"],["Parental involvement","Sự tham gia của cha mẹ"],["Children upbringing","Nuôi dạy trẻ em"],["Parenting efficacy","Hiệu quả nuôi dạy con cái"],["Discipline styles","Phong cách kỷ luật"],["A holistic approach to parenting","Một cách tiếp cận toàn diện để nuôi dạy con cái"],["Extended families","Đại gia đình"],["Social service agencies","Các cơ quan dịch vụ xã hội"],["Anger management","Quản lý cơn tức giận"],["Conflict resolution","Giải quyết xung đột"],["Substance abuse","Lạm dụng chất kích thích"],["Domestic violence","Bạo lực gia đình"],["A family structure","Một cấu trúc gia đình"],["Intellectual development","Phát triển trí tuệ"],["Valuable life lessons","Bài học cuộc sống quý giá"],["A strict discipline style","Một phong cách kỷ luật nghiêm ngặt"],["Nurture versus nature","Nuôi dưỡng so với tự nhiên"],["Housework gender gap","Khoảng cách giới tính việc nhà"],["Do household chores","Làm công việc nhà"],["Do the laundry","Giặt ủi"],["Immediate family","Gia đình trực tiếp"],["Family members","Các thành viên trong gia đình"],["Custody of the children","Quyền nuôi con"],["Adoptive parents","Cha mẹ nuôi"],["Gives birth","Sinh con"],["Raise a child","Nuôi một đứa trẻ"],["Biological parents","Cha mẹ ruột"],["Tighten family bondings","Thắt chặt tình cảm gia đình"],["Bear resemblance to someone","Giống ai đó"],["Helicopter parent","Cha mẹ trực thăng"],["Formative years","Năm tháng sơ sinh"],["Attitudes toward women","Thái độ đối với phụ nữ"],["The dominance of traditional values","Sự thống trị của các giá trị truyền thống"],["Full-time working parents","Cha mẹ làm việc toàn thời gian"],["Younger generations","Thế hệ trẻ"],["Intensive parenting","Nuôi dạy con cái chuyên sâu"],["Gender roles","Vai trò giới tính"],["Move in with family members","Chuyển đến ở với các thành viên trong gia đình"],["Live independently","Sống độc lập"],["Emerging adults","Người lớn"],["A financial contribution","Một khoản đóng góp tài chính"],["Issues of privacy and independence","Các vấn đề về quyền riêng tư và độc lập"]]},
+  {group:"writing2", name:"🌐 Globalisation", words:[["Cross-border workforce","Lực lượng lao động xuyên biên giới"],["International competition","Cạnh tranh quốc tế"],["At a global level","Ở cấp độ toàn cầu"],["Emerging economies","Các nền kinh tế mới nổi"],["Increasing demand for talents","Nhu cầu nhân tài ngày càng tăng"],["Global growth","Tăng trưởng nhanh chóng của nền kinh tế toàn cầu"],["International supply chain","Chuỗi cung ứng quốc tế"],["Developed/ developing countries","Các nước phát triển / đang phát triển"],["Free trade","Thương mại tự do"],["Free flow of labour","Dòng lao động tự do"],["Brain drains","Chảy máu chất xám"],["Free flow of capital","Dòng vốn tự do"],["Urbanisation","Đô thị hóa"],["The loss of cultural practices","Mất văn hóa"],["Stimulate growth","Kích thích tăng trưởng"],["Create more employment opportunities","Tạo nhiều cơ hội việc làm hơn"],["Business opportunities","Cơ hội kinh doanh"],["A target market","Một thị trường mục tiêu"],["Supply and demand","Cung và cầu"],["Foster exportation","Thúc đẩy xuất nhập khẩu"],["Armed conflict","Xung đột vũ trang"],["A steady growth","Sự tăng trưởng ổn định"],["Allocate resources","Phân bổ nguồn lực"],["Global trade","Thương mại toàn cầu"],["Global community","Cộng đồng toàn cầu"],["Foreign capital investment","Vốn đầu tư nước ngoài"],["Foreign direct investment","Đầu tư trực tiếp nước ngoài"],["Immigrate to a new country","Di cư đến một quốc gia mới"],["Anti-globalisation movement","Phong trào chống toàn cầu hóa"],["National sovereignty","Chủ quyền quốc gia"],["A global governance","Một nền quản trị toàn cầu"],["Loss of self-determination","Mất quyền tự quyết"],["Geographical shift of factories","Sự dịch chuyển địa lý của các nhà máy"],["International capital flows","Dòng vốn quốc tế"],["Superpower frictions and fragility","Xích mích và sự mong manh của các cường quốc"],["Technological shifts","Sự thay đổi công nghệ"],["Trade barriers","Rào cản thương mại"],["Customs authority","Cơ quan hải quan"],["National security","An ninh quốc gia"],["Manipulate the currency","Thao túng tiền tệ"],["Infusions of foreign capital and technology","Sự truyền vốn và công nghệ nước ngoài"],["Compartmentalized power sectors","Phân chia quyền lực"],["A world power","Một cường quốc thế giới"],["Influx of information between countries","Luồng thông tin giữa các quốc gia"],["Human migration","Sự di cư của con người"],["Transnational companies","Công ty xuyên quốc gia"]]},
+  {group:"writing2", name:"⚖️ Law and order", words:[["Exploit tax havens","Khai thác thiên đường thuế"],["A civil society","Xã hội văn minh"],["Bind all people living in a community","Ràng buộc tất cả những người sống trong một cộng đồng"],["To lead all citizens to conduct moral acts","Dẫn dắt mọi công dân thực hiện các hành vi đạo đức"],["The common good","Lợi ích chung"],["Excessive freedom to behave","Tự do quá mức để cư xử"],["Civil unrest","Tình trạng bất ổn dân sự"],["Public disorder","Mất trật tự công cộng"],["Law enforcement agencies","Cơ quan thực thi pháp luật"],["Public riots against the general public","Bạo loạn công khai chống lại công chúng"],["Political and social disturbance","Xáo trộn chính trị và xã hội"],["Law and order","Pháp luật và mệnh lệnh"],["The legal framework","Khuôn khổ pháp lý"],["Comply with the legislation","Tuân thủ luật pháp"],["Unalienable rights","Quyền không thể chối bỏ"],["Legal decisions","Quyết định pháp lý"],["Within the boundaries of the Constitution","Trong ranh giới của Hiến pháp"],["Set the standard for acceptable behaviors","Thiết lập tiêu chuẩn cho các hành vi có thể chấp nhận được"],["Provide clarity and context for unacceptable actions","Cung cấp sự rõ ràng và bối cảnh cho các hành động không được chấp nhận"],["Have equal access to justice","Có quyền tiếp cận công lý một cách bình đẳng"],["Pass a bill","Chấp nhận dự thảo luật"],["Social progress","Tiến bộ xã hội"],["Violating human rights","Vi phạm nhân quyền"],["Maintain justice and equality","Duy trì công lý và bình đẳng"],["Ethical and moral values","Đạo đức và giá trị đạo đức"],["Antisocial behavior","Hành vi chống xã hội"],["Dysfunctional family","Gia đình rối loạn"],["Abide by the law","Tuân thủ pháp luật"],["Law-abiding citizens","Những công dân tuân thủ theo luật pháp"],["Juvenile delinquency","Tội phạm vị thành niên"],["Crimes committed by minors","Các tội của trẻ vị thành niên"],["High-profile criminal cases","Các vụ án hình sự nghiêm trọng"],["Psychological and social circumstances","Hoàn cảnh tâm lý và xã hội"],["Potential perpetrators","Thủ phạm tiềm năng"],["The victims of violence","Nạn nhân của bạo lực"],["Provoke criminal behaviours","Kích động các hành vi tội phạm"],["Engage in criminal behavior","Tham gia vào hành vi tội phạm"],["Commit criminal acts","Thực hiện các hành vi phạm tội"],["Poor socio-economic status","Tình trạng kinh tế xã hội kém"],["Poor economic and social conditions","Điều kiện kinh tế và xã hội kém"],["Legal prosecution","Truy tố pháp lý"],["Prosecute for a criminal act","Truy tố hành vi phạm tội"],["Preventive measures","Biện pháp phòng ngừa"],["Reformation programs","Các chương trình cải cách"],["Juvenile detainees","Người chưa thành niên bị giam giữ"],["Penitentiary detention center","Trại giam"],["Correction center","Trại cải tạo"],["Penitentiary System","Hệ thống pháp lý"],["Repent for a wrongdoing","Ăn năn về việc làm sai trái"],["Be charged with a crime","Bị buộc tội"],["Appear in court","Xuất hiện tại tòa án"],["Be sued for something","Bị kiện vì điều gì đó"],["Stand trial","Hầu tòa"],["Reach a verdict","Đạt được phán quyết"],["A jury trial","Bồi thẩm đoàn"],["Irrefutable evidence","Bằng chứng không thể chối cãi"],["Unanimous decision by the jury","Quyết định của bồi thẩm đoàn"],["Provoke reactionary unrest","Kích động bất ổn"],["Court trials","Phiên tòa"],["Withdraw a statement","Rút lại một tuyên bố"],["A deterrence from crime","Ngăn chặn tội phạm"],["Public court hearings","Phiên tòa công khai"],["Breach a contract","Vi phạm hợp đồng"],["Intervention of the court","Sự can thiệp của tòa án"],["Deter any law-violating activities or misdemeanours","Ngăn chặn bất kỳ hoạt động vi phạm pháp luật hoặc tội nhẹ"],["Legal codes of conduct","Quy tắc ứng xử hợp pháp"],["Defense attorney","Luật sư bào chữa"],["Guilty verdicts","Có tội"],["A civil case","Một vụ án dân sự"],["Obtaining empirical evidence","Thu thập bằng chứng thực nghiệm"],["The credibility of justice","Sự tín nhiệm của công lý"],["Legitimacy of the government","Tính hợp pháp của chính phủ"],["Judicial transparency","Minh bạch tư pháp"],["A custodial/prison sentence","Hình phạt tù giam"],["A life sentence","Tù chung thân"],["A death penalty","Án tử hình"],["Put (somebody) on a probation","Cho ai đó vào thời gian quản chế"],["Reintegrate into the society/community","Tái hòa nhập xã hội / cộng đồng"]]},
+  {group:"writing2", name:"🖥️ Technology", words:[["Advent of artificial intelligence","Sự phát triển của trí tuệ nhân tạo"],["Advancements to computer technology","Sự phát triển của công nghệ máy tính"],["Programmed with algorithms","Lập trình với thuật toán"],["Smaller margin of error","Phạm vi sai số nhỏ hơn"],["A powerful instrument of calculation","Một công cụ tính toán mạnh mẽ"],["Do research","Làm nghiên cứu"],["Complex mathematical computations","Các phép tính toán phức tạp"],["Wireless connection","Kết nối không dây"],["Cutting-edge/ State-of-the-art technology","Công nghệ tân tiến"],["User-friendly interface","Giao diện thân thiện với người dùng"],["System breakdowns","Hệ thống bị hỏng"],["Informative and entertainment tool","Công cụ thông tin và giải trí"],["Speed up the pace of something","Tăng cường tốc độ của cái gì đó"],["Over-reliance on technology","Phụ thuộc quá nhiều vào công nghệ"],["Digital age","Thời đại kỹ thuật số"],["Electronic Gadget","Tiện ích điện tử"],["Back up data","Sao lưu dữ liệu"],["Verify their information","Xác minh thông tin của họ"],["Install a program","Cài đặt một chương trình"],["Help somebody to keep in touch with friends and family","Giúp ai đó giữ liên lạc với bạn bè và gia đình"],["Make education accessible to countryside students","Làm cho học sinh nông thôn có thể tiếp cận giáo dục"],["Surf the web","Lướt web"],["Reach accuracy with a greater degree of precision","Đạt độ chính xác với mức độ chính xác cao hơn"],["Automate mundane tasks","Tự động hóa các nhiệm vụ thông thường"],["Use digital assistants to interact with users","Sử dụng trợ lý kỹ thuật số để tương tác với người dùng"],["Chatbots are designed to be more intelligent","Chatbots được thiết kế để trở nên thông minh hơn"],["Can set up a Voice bot or Chatbot to help customers with their queries","Có thể thiết lập Voicebot hoặc Chatbot để giúp khách hàng giải quyết các thắc mắc của họ"],["Advanced AI-based technologies","Công nghệ dựa trên AI tiên tiến"],["Give irrelevant outputs","Đưa ra kết quả đầu ra không liên quan"],["AI may enslave humanity","AI có thể nô dịch nhân loại"],["Download materials","Tải tài liệu"],["The modern revolution in information technology","Cuộc cách mạng công nghệ thông tin hiện đại"],["Self-automation","Tự động hóa"],["A search engine","Một công cụ tìm kiếm"],["Innovations in the AI sector","Những đổi mới trong lĩnh vực trí tuệ nhân tạo"],["Video conference","Hội thảo qua cầu truyền hình"],["Automate dull work like data entry","Tự động hóa công việc buồn tẻ như nhập dữ liệu"],["Deliver actionable insights","Cung cấp thông tin chi tiết hữu ích"],["Natural language processing (NLP)","Xử lý ngôn ngữ tự nhiên (NLP)"],["Automated speech recognition (ASR)","Nhận dạng giọng nói tự động (ASR)"],["Body camera footage","Cảnh quay máy ảnh cơ thể"],["Become addicted to the virtual world","Trở nên nghiện thế giới trực tuyến"],["Accelerate pace of life","Đẩy nhanh tốc độ cuộc sống"],["Produce automated transcripts","Tạo ra bản ghi tự động"],["E-commerce site/ e-commerce platforms","Sàn thương mại điện tử"],["An electronic network","Một mạng điện tử"],["Transmit of funds or data","Chuyển tiền và dữ liệu"],["Powered by the internet","Được cung cấp bởi internet"],["Access an online store","Truy cập một cửa hàng trực tuyến"],["Central computer","Máy tính trung tâm"],["Payment information","Thông tin thanh toán"],["E-commerce transactions","Giao dịch thương mại điện tử"],["Online auctions","Đấu giá trực tuyến"],["Scheduled maintenance","Bảo trì theo lịch trình"],["Make a wide array of products available","Cung cấp một loạt các sản phẩm có sẵn"],["Easy accessibility","Khả năng tiếp cận dễ dàng"],["Personalization and product recommendations","Cá nhân hóa và đề xuất sản phẩm"],["Limited customer service","Dịch vụ khách hàng hạn chế"],["Collects customers' credit card information","Thu thập thông tin thẻ tín dụng của khách hàng"],["Several payment modes","Một số phương thức thanh toán"],["Online retail shopping","Mua sắm bán lẻ trực tuyến"],["Automatic ordering systems","Hệ thống đặt hàng tự động"]]},
+  {group:"writing2", name:"📰 The media", words:[["Express opinion openly","Thể hiện quan điểm một cách cởi mở"],["A biased view","Một cái nhìn thiên vị"],["Controversial topic","Chủ đề gây tranh cãi"],["Front page","Trang đầu"],["The press","Báo chí"],["Media transparency","Tính minh bạch của phương tiện truyền thông"],["The validity of the information","Tính hợp lệ của thông tin"],["Errors and deception by sources","Lỗi và lừa dối bởi các nguồn"],["Trustworthy stories","Những câu chuyện đáng tin cậy"],["Reliable information","Thông tin đáng tin cậy"],["Fight against disinformation","Đấu tranh chống lại thông tin sai lệch"],["Eliminate misinformation","Loại bỏ thông tin sai lệch"],["Provide information","Cung cấp thông tin"],["Disseminate information","Phổ biến thông tin"],["Recognize their own fallibility","Nhận ra khả năng thất bại của chính họ"],["Information subsidies","Trợ cấp thông tin"],["Domestic and global affairs","Các vấn đề trong nước và toàn cầu"],["Avoid misrepresenting events","Tránh xuyên tạc sự kiện"],["Disciplined honesty","Trung thực có kỷ luật"],["Carry the news of the world","Mang tin tức của thế giới"],["Provide information and general knowledge","Cung cấp thông tin và kiến thức chung"],["Circulates information","Lưu hành thông tin"],["Means of communication","Phương tiện truyền thông"],["Informed citizens","Thông báo cho công dân"],["Conveys the public opinion","Truyền đạt ý kiến công chúng"],["Review the government","Xem xét lại chính phủ"],["Seek jobs","Tìm kiếm việc làm"],["Mind-brain exercise games","Trò chơi tập thể dục trí não"],["The digital era","Kỷ nguyên kỹ thuật số"],["Distorting information","Bóp méo thông tin"],["Powerful tool for verification","Công cụ mạnh mẽ để xác minh"],["Mass media","Phương tiện thông tin đại chúng"],["Online news services","Dịch vụ tin tức trực tuyến"],["Distributed digitally","Phân phối kỹ thuật số"],["Mass media coverage","Bảo hiểm đại chúng"],["Place an advertisement","Đặt một quảng cáo"],["Undermine social values","Làm suy yếu các giá trị xã hội"],["Advertising campaign","Chiến dịch quảng cáo"],["Deceptive advertisement","Quảng cáo lừa đảo"],["The absence of biases","Không có những thành kiến"],["Media Literacy","Kiến thức về phương tiện truyền thông"],["Credible sources","Nguồn đáng tin cậy"],["Intrusiveness of advertisements","Sự xâm nhập của quảng cáo"],["Skeptical of the news industry","Hoài nghi về ngành công nghiệp tin tức"],["A weekly publication","Một ấn phẩm hàng tuần"],["A tabloid","Báo lá cải"],["A media outlet","Một phương tiện truyền thông"],["Subscribe to","Đăng ký"],["Information overload","Quá tải thông tin"],["Invasion of privacy","Xâm phạm riêng tư"],["Media manipulation","Điều khiển đám đông"]]},
+  {group:"writing2", name:"🧳 Travelling", words:[["Travel agency","Đại lý du lịch"],["Business trip","Đi công tác"],["Checked baggage / carry-on baggage","Hành lý ký gửi / hành lý xách tay"],["Peak season","Mùa cao điểm"],["Tourist attraction","Thu hút khách du lịch"],["Local cuisine","Ẩm thực địa phương"],["Capture the beauty of","Nắm bắt vẻ đẹp của"],["Escape from the daily routine","Thoát khỏi thói quen hàng ngày"],["Package tour","Chuyến đi trọn gói"],["Embark on a trip","Bắt tay vào một cuộc hành trình"],["A mountaineering certificate","Chứng chỉ leo núi"],["Tourism industry","Ngành công nghiệp du lịch"],["Create a livelihood","Tạo kế sinh nhai"],["Trekking trips","Các chuyến đi bộ đường dài"],["Carry a certain degree of risk","Mang một mức độ rủi ro nhất định"],["Inhospitable weather","Thời tiết khắc nghiệt"],["Ecological disturbances","Rối loạn sinh thái"],["Encounter various cultures","Gặp gỡ các nền văn hóa khác nhau"],["Broaden knowledge on global perspective","Mở rộng kiến thức về quan điểm toàn cầu"],["Modes of transport","Phương thức vận tải"],["The influx of tourists","Dòng khách du lịch"],["Foreign exchange earnings","Thu nhập ngoại hối"],["Open to new cultures and different mindsets","Cởi mở với những nền văn hóa mới và những suy nghĩ khác nhau"],["Sustainable travel","Du lịch bền vững"],["Memorable experiences","Những trải nghiệm đáng nhớ"],["Local products","Hàng hóa địa phương"],["Travel journal","Tạp chí du lịch"],["Arrange a schedule","Sắp xếp lịch trình"],["Remote locations","Địa điểm từ xa"],["Weather forecast","Dự báo thời tiết"],["Host regions","Các khu vực đăng cai"],["International tourism","Du lịch quốc tế"],["Forge mutual understandings between cultures","Rèn luyện sự hiểu biết lẫn nhau giữa các nền văn hóa"],["Travel restrictions","Các hạn chế đi lại"],["Indigenous cultures","Văn hóa bản địa"],["Intrepid travellers","Du khách gan dạ"],["Beauty of nature","Vẻ đẹp của thiên nhiên"],["Solo travellers","Du khách một mình"],["Comfort zone","Vùng an toàn"],["Ancient ruins","Phế tích cổ xưa"],["Tourism-dependent economies","Nền kinh tế phụ thuộc vào du lịch"],["Travel services exports","Xuất khẩu dịch vụ du lịch"],["Possibilities for diversification","Khả năng đa dạng hóa"],["Cultural heritage","Di sản văn hóa"],["On the global stage","Trên toàn cầu"],["A break from repetitive patterns","Thoát khỏi vòng lặp lại"],["A mundane lifestyle","Một lối sống bình thường"],["Partake in local festivals","Tham gia các lễ hội địa phương"],["Gain a sense of accomplishment","Cảm giác thành công"]]},
+
+  // ===== GROUP: IELTS BAND 7-9 =====
+  {group:"ielts", name:"🎯 Từ Nối & Liên Kết Học Thuật (Cohesive Devices)", words:[["furthermore","hơn nữa"],["nevertheless","tuy nhiên, dù vậy"],["consequently","do đó, kết quả là"],["notwithstanding","mặc dù vậy"],["in light of","xét đến, dựa trên"],["with regard to","liên quan đến"],["conversely","ngược lại"],["to a certain extent","ở một mức độ nào đó"],["on the whole","nhìn chung"],["all things considered","xét mọi mặt"],["by the same token","tương tự như vậy"],["in retrospect","nhìn lại"]]},
+  {group:"ielts", name:"🎯 Từ Thay Thế Nâng Cao (Paraphrasing Bank)", words:[["important → crucial / pivotal","quan trọng → then chốt / cốt yếu"],["many → numerous / a multitude of","nhiều → vô số"],["good → beneficial / advantageous","tốt → có lợi"],["bad → detrimental / adverse","xấu → có hại"],["big problem → pressing issue","vấn đề lớn → vấn đề cấp bách"],["very → remarkably / considerably","rất → đáng kể"],["show → demonstrate / illustrate","cho thấy → minh chứng"],["think → argue / contend","nghĩ → lập luận"],["get → obtain / acquire","có được → giành được"],["help → facilitate / contribute to","giúp → tạo điều kiện"],["change → transform / alter","thay đổi → biến đổi"],["cause → trigger / give rise to","gây ra → châm ngòi cho"]]},
+  {group:"ielts", name:"🎯 Cụm Từ Học Thuật (Academic Collocations)", words:[["draw a conclusion","rút ra kết luận"],["play a vital role","đóng vai trò quan trọng"],["give rise to","làm nảy sinh, dẫn đến"],["shed light on","làm sáng tỏ"],["strike a balance","tạo sự cân bằng"],["pose a threat","đặt ra mối đe dọa"],["yield results","cho ra kết quả"],["adopt a measure","áp dụng biện pháp"],["raise awareness","nâng cao nhận thức"],["mitigate the effects","giảm thiểu tác động"],["carry significant weight","mang trọng lượng đáng kể"],["reach a consensus","đạt được đồng thuận"]]},
+  {group:"ielts", name:"🎯 Diễn Đạt Tự Nhiên Cho Speaking (Natural Expressions)", words:[["I'd say...","tôi muốn nói là..."],["to be perfectly honest","thành thật mà nói"],["that's an interesting question","đó là một câu hỏi thú vị"],["off the top of my head","nghĩ ngay không cần suy nghĩ lâu"],["I suppose you could say...","tôi nghĩ có thể nói rằng..."],["it varies from person to person","tùy từng người mà khác"],["I've never really thought about it","tôi chưa từng thực sự nghĩ về điều đó"],["generally speaking","nhìn chung mà nói"],["as far as I'm concerned","theo như tôi quan tâm/nghĩ"],["it really depends on...","điều đó thực sự phụ thuộc vào..."],["come to think of it","nghĩ lại thì..."],["I can't stress enough how...","tôi không thể nhấn mạnh đủ việc..."]]},
+
+  {group:"ielts", name:"🎯 Mô Tả Biểu Đồ & Xu Hướng (Writing Task 1)", words:[["a sharp rise / increase","sự tăng mạnh"],["a gradual decline","sự giảm dần"],["fluctuate","dao động lên xuống"],["peak at","đạt đỉnh ở mức"],["plummet","giảm mạnh, lao dốc"],["remain stable / steady","giữ ổn định"],["a slight dip","sự giảm nhẹ"],["surge","tăng vọt"],["level off","chững lại, đi ngang"],["overtake","vượt qua"],["account for","chiếm (tỷ lệ)"],["a significant proportion","một tỷ lệ đáng kể"]]},
+  {group:"ielts", name:"🎯 Thêm Từ Đồng Nghĩa Mô Tả Xu Hướng (Task 1)", words:[["climb steadily","tăng đều đặn"],["dip slightly","giảm nhẹ"],["hover around","dao động quanh mức"],["bottom out","chạm đáy rồi bắt đầu hồi phục"],["taper off","giảm dần rồi dừng lại"],["experience a boom","trải qua giai đoạn bùng nổ"],["stagnate","trì trệ, không thay đổi"],["rebound","phục hồi sau khi giảm"],["a modest increase","mức tăng khiêm tốn"],["a dramatic shift","sự thay đổi mạnh mẽ, đột ngột"],["converge","hội tụ lại gần nhau (các đường trên biểu đồ)"],["diverge","phân kỳ, tách xa nhau (các đường trên biểu đồ)"]]},
+  {group:"ielts", name:"🎯 Diễn Đạt So Sánh & Đối Chiếu (Task 1 & 2)", words:[["in contrast to","trái ngược với"],["compared to / with","so với"],["whereas","trong khi đó"],["similarly","tương tự như vậy"],["by far the largest","lớn nhất tính đến thời điểm hiện tại"],["marginally higher","cao hơn một chút"],["twice as many as","gấp đôi so với"],["a stark contrast","sự tương phản rõ rệt"],["on par with","ngang bằng với"],["the gap between... narrowed","khoảng cách giữa... thu hẹp lại"],["outnumber","vượt trội về số lượng"],["correspondingly","tương ứng"]]},
+  {group:"ielts", name:"🎯 Mô Tả Người, Nơi Chốn & Trải Nghiệm (Speaking Part 2)", words:[["down-to-earth","chân thật, giản dị"],["breathtaking","đẹp đến ngỡ ngàng"],["unforgettable","khó quên"],["laid-back","thoải mái, dễ tính"],["awe-inspiring","gây kinh ngạc, ấn tượng"],["picturesque","đẹp như tranh"],["life-changing","thay đổi cuộc đời"],["thought-provoking","gợi suy nghĩ"],["heartwarming","ấm lòng"],["larger than life","phi thường, ấn tượng vượt trội"],["a hidden gem","viên ngọc ẩn (nơi ít người biết đến nhưng tuyệt vời)"]]},
+  {group:"ielts", name:"🎯 Collocations Thông Dụng (General Collocations)", words:[["make a decision","đưa ra quyết định"],["take responsibility","chịu trách nhiệm"],["reach an agreement","đạt được thỏa thuận"],["gain experience","tích lũy kinh nghiệm"],["face a challenge","đối mặt thử thách"],["achieve a goal","đạt được mục tiêu"],["build a relationship","xây dựng mối quan hệ"],["set a record","lập kỷ lục"],["meet a deadline","hoàn thành đúng hạn"],["make an effort","nỗ lực"],["take advantage of","tận dụng"],["draw attention to","thu hút sự chú ý đến"]]},
+
+  // ===== GROUP: PHRASAL VERBS =====
+  {group:"phrasal", name:"🔗 Phrasal Verbs — Công việc & Cuộc sống", words:[["give up","từ bỏ"],["look after","chăm sóc"],["run out of","hết (đồ gì đó)"],["put off","trì hoãn"],["figure out","tìm ra, hiểu ra"],["burn out","kiệt sức do làm việc quá độ"],["roll out","triển khai (sản phẩm)"],["team up with","hợp tác với"],["brush up on","ôn lại kiến thức đã quên"],["get back at","trả đũa"],["stand up for","bênh vực"],["put up with","chịu đựng"],["reach out to","chủ động liên hệ"],["fall behind","bị tụt lại phía sau"],["keep up with","theo kịp"],["back up","ủng hộ / sao lưu dữ liệu"],["carry out","thực hiện, tiến hành"],["set up","thiết lập, thành lập"],["take over","tiếp quản"],["work out","tập luyện / tìm ra giải pháp"],["turn down","từ chối"],["show up","xuất hiện, có mặt"],["come up with","nghĩ ra (ý tưởng)"],["deal with","xử lý, đối phó với"],["look forward to","mong chờ"],["get along with","hòa hợp với"],["put together","lắp ráp, tập hợp lại"],["cut back on","cắt giảm"],["hold on to","giữ chặt, bám vào"],["catch up on","bắt kịp (công việc còn tồn đọng)"],["go over","xem lại, rà soát"],["break down","hỏng hóc / phân tích chi tiết"]]},
+
+  // ===== GROUP: IDIOMS =====
+  {group:"idioms", name:"💬 Idioms — Thành ngữ thông dụng", words:[["break the ice","phá vỡ sự ngại ngùng ban đầu"],["piece of cake","việc rất dễ dàng"],["under the weather","cảm thấy không khỏe"],["cost an arm and a leg","rất đắt đỏ"],["the ball is in your court","quyết định là ở bạn"],["go the extra mile","nỗ lực hết mình"],["think outside the box","suy nghĩ sáng tạo, khác biệt"],["on cloud nine","vui sướng tột độ"],["break the bank","tốn rất nhiều tiền"],["once in a lifetime","cơ hội hiếm có trong đời"],["read between the lines","hiểu ý ẩn bên trong lời nói"],["beat around the bush","nói vòng vo"],["bury the hatchet","làm hòa, quên đi mâu thuẫn"],["a slip of the tongue","lỡ lời"],["save for a rainy day","tiết kiệm phòng khi khó khăn"],["it's now or never","bây giờ hoặc không bao giờ"],["hit the nail on the head","nói/đoán trúng vấn đề"],["let the cat out of the bag","để lộ bí mật"],["a blessing in disguise","cái rủi hóa cái may"],["kill two birds with one stone","một mũi tên trúng hai đích"],["back to square one","quay lại vạch xuất phát"],["burn the midnight oil","thức khuya làm việc/học bài"],["get the ball rolling","khởi động một việc gì đó"],["in the same boat","cùng chung hoàn cảnh khó khăn"],["a penny for your thoughts","bạn đang nghĩ gì vậy"],["miss the boat","bỏ lỡ cơ hội"]]},
+
+  // ===== GROUP: SPECIALIZED =====
+  {group:"specialized", name:"🏥 Medical English", words:[["symptom","triệu chứng"],["diagnosis","chẩn đoán"],["prescription","đơn thuốc"],["side effect","tác dụng phụ"],["allergic reaction","phản ứng dị ứng"],["chronic condition","bệnh mãn tính"],["outpatient / inpatient","bệnh nhân ngoại trú/nội trú"],["insurance coverage","phạm vi bảo hiểm y tế"]]},
+  {group:"specialized", name:"💰 Finance English", words:[["revenue","doanh thu"],["net profit","lợi nhuận ròng"],["asset / liability","tài sản / nợ phải trả"],["shareholder","cổ đông"],["fiscal year","năm tài chính"],["cash flow","dòng tiền"],["interest rate","lãi suất"],["portfolio","danh mục đầu tư"]]},
+  {group:"specialized", name:"⚖️ Legal English", words:[["contract","hợp đồng"],["clause","điều khoản"],["liability","trách nhiệm pháp lý"],["breach of contract","vi phạm hợp đồng"],["non-disclosure agreement","thỏa thuận bảo mật"],["terms and conditions","điều khoản và điều kiện"],["intellectual property","sở hữu trí tuệ"],["jurisdiction","thẩm quyền pháp lý"]]},
+  {group:"specialized", name:"📣 Marketing English", words:[["target audience","đối tượng khách hàng mục tiêu"],["brand awareness","nhận diện thương hiệu"],["market research","nghiên cứu thị trường"],["customer engagement","tương tác với khách hàng"],["conversion rate","tỷ lệ chuyển đổi"],["campaign","chiến dịch"],["competitive advantage","lợi thế cạnh tranh"],["return on investment (ROI)","lợi tức đầu tư"]]},
+  {group:"specialized", name:"💻 IT English — Lập Trình & Phần Mềm", words:[["variable","biến"],["function / method","hàm / phương thức"],["compile","biên dịch"],["debug","gỡ lỗi"],["syntax error","lỗi cú pháp"],["recursion","đệ quy"],["object-oriented programming","lập trình hướng đối tượng"],["inheritance","tính kế thừa"],["refactor","tái cấu trúc mã nguồn"],["technical debt","nợ kỹ thuật"],["version control","quản lý phiên bản"]]},
+  {group:"specialized", name:"🌐 IT English — Web Development", words:[["frontend / backend","giao diện người dùng / phía máy chủ"],["API","giao diện lập trình ứng dụng"],["responsive design","thiết kế đáp ứng (đa thiết bị)"],["database schema","lược đồ cơ sở dữ liệu"],["authentication","xác thực người dùng"],["endpoint","điểm cuối (API)"],["framework","khung phát triển"],["deployment","triển khai (ứng dụng)"],["caching","bộ nhớ đệm"],["middleware","phần mềm trung gian"]]},
+  {group:"specialized", name:"☁️ IT English — DevOps & Cloud", words:[["CI/CD pipeline","quy trình tích hợp/triển khai liên tục"],["containerization","đóng gói ứng dụng (container)"],["scalability","khả năng mở rộng"],["load balancing","cân bằng tải"],["cloud infrastructure","hạ tầng đám mây"],["uptime","thời gian hoạt động liên tục"],["rollback","hoàn tác về phiên bản trước"],["monitoring","giám sát hệ thống"],["provisioning","cấp phát tài nguyên"],["microservices","kiến trúc vi dịch vụ"]]},
+  {group:"specialized", name:"🔧 IT English — Công Việc & Agile", words:[["sprint","chu kỳ làm việc ngắn (Agile)"],["stand-up meeting","họp đứng hàng ngày"],["backlog","danh sách công việc tồn đọng"],["code review","rà soát mã nguồn"],["bug report","báo cáo lỗi"],["stakeholder","bên liên quan"],["scope creep","phạm vi công việc bị mở rộng ngoài kế hoạch"],["deliverable","sản phẩm bàn giao"],["onboarding","quá trình hòa nhập nhân viên mới"],["cross-functional team","đội nhóm liên chức năng"]]},
+  {group:"specialized", name:"🛡️ IT English — Cybersecurity Chuyên Sâu", words:[["penetration testing","kiểm thử xâm nhập"],["zero-day vulnerability","lỗ hổng chưa được vá (zero-day)"],["denial-of-service attack","tấn công từ chối dịch vụ"],["access control","kiểm soát quyền truy cập"],["threat detection","phát hiện mối đe dọa"],["incident response","ứng phó sự cố"],["social engineering","tấn công phi kỹ thuật (lừa đảo tâm lý)"],["patch management","quản lý bản vá lỗi"],["least privilege principle","nguyên tắc đặc quyền tối thiểu"],["security audit","kiểm toán bảo mật"]]},
+  {group:"specialized", name:"🤖 IT English — Data Science & AI", words:[["machine learning model","mô hình học máy"],["training data","dữ liệu huấn luyện"],["overfitting","hiện tượng quá khớp"],["neural network","mạng nơ-ron"],["data preprocessing","tiền xử lý dữ liệu"],["feature engineering","kỹ thuật tạo đặc trưng"],["natural language processing","xử lý ngôn ngữ tự nhiên"],["bias in data","thiên kiến trong dữ liệu"],["inference","suy luận (từ mô hình đã huấn luyện)"],["data pipeline","quy trình xử lý dữ liệu"]]},
+  {group:"specialized", name:"📱 IT English — Mobile Development", words:[["native app","ứng dụng gốc (theo nền tảng)"],["cross-platform","đa nền tảng"],["user interface (UI)","giao diện người dùng"],["push notification","thông báo đẩy"],["app store submission","nộp ứng dụng lên kho ứng dụng"],["offline mode","chế độ ngoại tuyến"],["battery optimization","tối ưu hóa pin"],["gesture control","điều khiển bằng cử chỉ"],["app crash","ứng dụng bị treo/đóng đột ngột"],["backward compatibility","khả năng tương thích ngược"]]},
+  {group:"specialized", name:"🗄️ IT English — Database & SQL", words:[["primary key","khóa chính"],["foreign key","khóa ngoại"],["query optimization","tối ưu hóa truy vấn"],["normalization","chuẩn hóa dữ liệu"],["join (SQL)","phép nối bảng"],["index","chỉ mục"],["schema migration","di chuyển/thay đổi lược đồ"],["data integrity","tính toàn vẹn dữ liệu"],["stored procedure","thủ tục lưu trữ"]]},
+  {group:"specialized", name:"🧪 IT English — Software Testing & QA", words:[["unit testing","kiểm thử đơn vị"],["regression testing","kiểm thử hồi quy"],["test case","trường hợp kiểm thử"],["edge case","trường hợp biên"],["quality assurance","đảm bảo chất lượng"],["automated testing","kiểm thử tự động"],["reproduce a bug","tái hiện lại lỗi"],["acceptance criteria","tiêu chí nghiệm thu"],["staging environment","môi trường thử nghiệm trước triển khai"],["test coverage","độ bao phủ kiểm thử"]]},
+  {group:"specialized", name:"⚙️ Engineering English", words:[["prototype","nguyên mẫu"],["calibration","hiệu chuẩn"],["mechanism","cơ chế"],["schematic","sơ đồ nguyên lý"],["load capacity","khả năng chịu tải"],["assembly line","dây chuyền lắp ráp"]]},
+  {group:"specialized", name:"🎓 Academic & Research English", words:[["methodology","phương pháp luận"],["literature review","tổng quan tài liệu"],["peer-reviewed","được bình duyệt"],["citation","trích dẫn"],["abstract","tóm tắt (bài báo)"],["empirical evidence","bằng chứng thực nghiệm"],["thesis statement","luận điểm chính"],["plagiarism","đạo văn"]]},
+  {group:"specialized", name:"✈️ Aviation English", words:[["baggage allowance","hạn mức hành lý"],["departure gate","cổng khởi hành"]]},
+  {group:"specialized", name:"🏨 Hospitality & Tourism English", words:[["check-in / check-out","nhận phòng / trả phòng"],["concierge","nhân viên hỗ trợ khách sạn"],["amenities","tiện nghi"],["occupancy rate","tỷ lệ lấp đầy phòng"],["complimentary","miễn phí (dịch vụ đi kèm)"],["itemized bill","hóa đơn chi tiết"],["guest satisfaction","sự hài lòng của khách"],["front desk","quầy lễ tân"]]},
+
+  // ===== GROUP: WORD TYPE (theo từ loại) =====
+  {group:"wordtype", name:"📗 Danh Từ (Nouns) Nâng Cao", words:[["relative","họ hàng"],["sibling","anh chị em ruột"],["colleague","đồng nghiệp"],["achievement","thành tích"],["opportunity","cơ hội"],["consequence","hậu quả"],["perspective","quan điểm"],["obstacle","chướng ngại vật"],["initiative","sáng kiến"],["reputation","danh tiếng"],["assumption","giả định"],["prospect","triển vọng"],["dilemma","tình thế khó xử"],["controversy","tranh cãi"],["phenomenon","hiện tượng"],["implication","hàm ý, ảnh hưởng"]]},
+  {group:"wordtype", name:"📙 Động Từ (Verbs) Nâng Cao", words:[["clarify","làm rõ"],["negotiate","đàm phán"],["facilitate","tạo điều kiện thuận lợi"],["accomplish","hoàn thành"],["acquire","tiếp thu"],["collaborate","hợp tác"],["emphasize","nhấn mạnh"],["enhance","nâng cao"],["undermine","làm suy yếu"],["pursue","theo đuổi"],["comprise","bao gồm"],["contemplate","suy ngẫm"],["mitigate","giảm thiểu"],["reinforce","củng cố"],["allocate","phân bổ"],["stem from","bắt nguồn từ"]]},
+  {group:"wordtype", name:"📕 Tính Từ (Adjectives) Nâng Cao", words:[["meticulous","tỉ mỉ, cẩn thận"],["resilient","kiên cường"],["versatile","đa năng, linh hoạt"],["crucial","quan trọng, then chốt"],["inevitable","không thể tránh khỏi"],["profound","sâu sắc"],["ambiguous","mơ hồ"],["vulnerable","dễ bị tổn thương"],["comprehensive","toàn diện"],["tremendous","to lớn"],["viable","khả thi"],["intrinsic","vốn có, nội tại"],["prevalent","phổ biến"],["subtle","tinh tế"],["arbitrary","tùy tiện"],["coherent","mạch lạc"]]},
+  {group:"wordtype", name:"📘 Trạng Từ (Adverbs) Nâng Cao", words:[["undoubtedly","chắc chắn"],["considerably","đáng kể"],["subsequently","sau đó"],["gradually","dần dần"],["thoroughly","kỹ lưỡng"],["arguably","có thể lập luận rằng"],["ultimately","cuối cùng"],["deliberately","cố ý"],["presumably","có lẽ"],["invariably","luôn luôn, không thay đổi"],["predominantly","chủ yếu là"],["increasingly","ngày càng"],["reportedly","theo như báo cáo"],["simultaneously","đồng thời"]]},
+
+  // ===== GROUP: CONFUSING WORD PAIRS =====
+  {group:"confusing", name:"⚠️ Cặp Từ Dễ Nhầm Lẫn Nhất", words:[["affect (v) / effect (n)","ảnh hưởng (động từ) / hiệu ứng, kết quả (danh từ)"],["than / then","so với / sau đó, thì"],["its / it's","của nó / nó là (viết tắt 'it is')"],["your / you're","của bạn / bạn là (viết tắt 'you are')"],["there / their / they're","ở đó / của họ / họ là (viết tắt 'they are')"],["accept / except","chấp nhận / ngoại trừ"],["advice (n) / advise (v)","lời khuyên (danh từ) / khuyên bảo (động từ)"],["economic / economical","thuộc kinh tế / tiết kiệm"],["historic / historical","có tính lịch sử (quan trọng) / thuộc về lịch sử (nói chung)"],["principal / principle","hiệu trưởng, chính yếu / nguyên tắc"],["complement / compliment","bổ sung hoàn thiện / lời khen"],["stationary / stationery","đứng yên / văn phòng phẩm"],["lose / loose","mất, thua / lỏng lẻo"],["desert / dessert","sa mạc / món tráng miệng"],["quiet / quite","yên tĩnh / khá là"],["breath (n) / breathe (v)","hơi thở (danh từ) / thở (động từ)"]]},
+
+  // ===== GROUP: COUNTABLE & UNCOUNTABLE NOUNS =====
+  {group:"countable", name:"🔢 Danh Từ KHÔNG Đếm Được Thường Gặp [U]", words:[["information [U]","thông tin — KHÔNG có 'informations', dùng 'a piece of information'"],["advice [U]","lời khuyên — KHÔNG có 'advices', dùng 'a piece of advice'"],["furniture [U]","đồ nội thất — dùng 'a piece/item of furniture'"],["news [U]","tin tức — luôn số ít dù có 's', VD: 'The news is good.'"],["luggage / baggage [U]","hành lý — dùng 'a piece of luggage'"],["equipment [U]","thiết bị — dùng 'a piece of equipment'"],["money [U]","tiền — dùng 'some money', không đếm trực tiếp"],["water [U]","nước — dùng 'a glass/bottle of water'"],["rice [U]","gạo, cơm — dùng 'a bowl of rice'"],["homework [U]","bài tập về nhà — KHÔNG có 'homeworks'"],["traffic [U]","giao thông — không đếm được"],["knowledge [U]","kiến thức — không đếm được"]]},
+  {group:"countable", name:"🔢 Danh Từ Đổi Nghĩa Khi Đếm Được vs Không Đếm Được", words:[["paper [U]=giấy / a paper [C]=bài báo, tờ báo","VD: 'I need some paper' vs 'I read a paper this morning.'"],["time [U]=thời gian / a time [C]=một lần","VD: 'I don't have time' vs 'I called her three times.'"],["room [U]=không gian / a room [C]=căn phòng","VD: 'There's no room' vs 'This house has 3 rooms.'"],["light [U]=ánh sáng / a light [C]=đèn","VD: 'There's not enough light' vs 'Turn off the lights.'"],["work [U]=công việc / a work [C]=tác phẩm (nghệ thuật)","VD: 'I have a lot of work' vs 'a work of art'"],["hair [U]=tóc nói chung / a hair [C]=một sợi tóc","VD: 'She has long hair' vs 'There's a hair in my soup.'"],["experience [U]=kinh nghiệm / an experience [C]=một trải nghiệm","VD: 'I have experience' vs 'It was an amazing experience.'"],["chicken [U]=thịt gà / a chicken [C]=con gà","VD: 'I'm eating chicken' vs 'There's a chicken in the yard.'"]]},
+  {group:"countable", name:"🔢 Quantifiers Đi Kèm — Nhắc Lại Nhanh", words:[["much + danh từ không đếm được","VD: 'much water', 'much information'"],["many + danh từ đếm được số nhiều","VD: 'many books', 'many people'"],["a lot of / lots of + cả 2 loại","VD: 'a lot of money', 'a lot of friends'"],["a little + không đếm được (một ít)","VD: 'a little time'"],["little + không đếm được (rất ít, ý tiêu cực)","VD: 'little hope'"],["a few + đếm được (một ít)","VD: 'a few friends'"],["few + đếm được (rất ít, ý tiêu cực)","VD: 'few opportunities'"],["a piece of / an item of + không đếm được","cách 'đếm' danh từ không đếm được: 'a piece of advice'"]]},
+];
+
+const container = document.getElementById('topicsContainer');
+
+/* Text-to-speech for pronunciation practice */
+function speakWord(text){
+  if(!('speechSynthesis' in window)) return;
+  const cleaned = text.split('/')[0].split('(')[0].split(',')[0].trim();
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(cleaned);
+  utter.lang = 'en-US';
+  utter.rate = 0.9;
+  const voices = window.speechSynthesis.getVoices();
+  const enVoice = voices.find(v => v.lang && v.lang.startsWith('en'));
+  if(enVoice) utter.voice = enVoice;
+  window.speechSynthesis.speak(utter);
+}
+container.addEventListener('click', (e)=>{
+  const speakBtn = e.target.closest('.vc-speak-btn');
+  if(speakBtn){
+    e.stopPropagation();
+    speakWord(speakBtn.dataset.speak);
+    return;
+  }
+  const micBtn = e.target.closest('.vc-mic-btn');
+  if(!micBtn){
+    const delBtn = e.target.closest('.vc-del-btn');
+    if(delBtn){
+      e.stopPropagation();
+      const wordToDelete = delBtn.dataset.delword;
+      const list = loadMyWords().filter(w => w.word !== wordToDelete);
+      saveMyWordsList(list);
+      delBtn.closest('.vocab-card').remove();
+      return;
+    }
+  }
+  if(micBtn){
+    e.stopPropagation();
+    startMicCheck(micBtn);
+    return;
+  }
+});
+
+/* Speech recognition for pronunciation check on each vocab card */
+const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+let micRecognition = null;
+if(SpeechRecognitionAPI){
+  micRecognition = new SpeechRecognitionAPI();
+  micRecognition.lang = 'en-US';
+  micRecognition.interimResults = false;
+  micRecognition.maxAlternatives = 3;
+}
+
+function startMicCheck(btn){
+  if(!micRecognition){
+    alert('Trình duyệt của bạn không hỗ trợ nhận diện giọng nói. Hãy thử dùng Google Chrome.');
+    return;
+  }
+  if(btn.classList.contains('recording')) return;
+  const card = btn.closest('.vocab-card');
+  const feedback = card.querySelector('.vc-feedback');
+  const target = btn.dataset.target.split('/')[0].split('(')[0].split(',')[0].trim().toLowerCase();
+
+  btn.classList.add('recording');
+  feedback.textContent = '';
+  feedback.className = 'vc-feedback';
+
+  try{ micRecognition.start(); }catch(e){ btn.classList.remove('recording'); return; }
+
+  micRecognition.onresult = function(event){
+    let matched = false;
+    for(let i=0;i<event.results[0].length;i++){
+      const alt = event.results[0][i].transcript.toLowerCase().trim().replace(/[.,!?]/g,'');
+      if(alt === target || alt.includes(target) || target.includes(alt)){ matched = true; break; }
+    }
+    if(matched){
+      feedback.textContent = '✅ Đúng rồi!';
+      feedback.className = 'vc-feedback ok';
+    } else {
+      const heard = event.results[0][0].transcript;
+      feedback.textContent = `❌ Nghe thấy: "${heard}"`;
+      feedback.className = 'vc-feedback bad';
+    }
+  };
+  micRecognition.onerror = function(){
+    feedback.textContent = '⚠️ Không nghe rõ, thử lại nhé.';
+    feedback.className = 'vc-feedback bad';
+  };
+  micRecognition.onend = function(){
+    btn.classList.remove('recording');
+  };
+}
+let totalWords = 0;
+
+function groupLabel(g){
+  return {topics:"🗂️ Chủ Đề Đời Sống", ielts:"🎯 IELTS Band 7-9", writing2:"✍️ Từ Vựng Nâng Cao Writing Task 2", phrasal:"🔗 Phrasal Verbs", idioms:"💬 Idioms", specialized:"🏢 Chuyên Ngành", wordtype:"🔤 Theo Từ Loại", confusing:"⚠️ Cặp Từ Dễ Nhầm", countable:"🔢 Danh Từ Đếm Được &amp; Không Đếm Được"}[g] || g;
+}
+function groupSub(g){
+  return {
+    topics:"42 chủ đề đời sống, xã hội, học thuật thường gặp nhất.",
+    ielts:"Từ vựng, cụm liên kết, và cách diễn đạt tự nhiên giúp đạt Band 7 trở lên trong cả Writing và Speaking.",
+    writing2:"Kho từ vựng nâng cao Writing Task 2 (IELTS Xuân Phi) — 10 chủ đề, hơn 500 từ &amp; cụm từ nâng cao kèm giải nghĩa tiếng Việt.",
+    phrasal:"Các cụm động từ (phrasal verbs) thông dụng trong giao tiếp và công việc.",
+    idioms:"Thành ngữ giúp nói tiếng Anh tự nhiên, gần gũi hơn.",
+    specialized:"Từ vựng cơ bản của 7 lĩnh vực chuyên ngành phổ biến.",
+    wordtype:"Từ vựng nâng cao tổ chức theo 4 từ loại chính.",
+    confusing:"Các cặp từ tiếng Anh dễ gây nhầm lẫn nhất cho người học.",
+    countable:"Phân biệt danh từ đếm được [C] và không đếm được [U] — nền tảng để dùng đúng a/an, some/any, much/many.",
+    exercises:"Bài tập điền từ dùng chính từ vựng trong file này để ôn tập.",
+    myWords:"Từ vựng bạn tự tra online và lưu lại — lưu trên trình duyệt này."
+  }[g] || "";
+}
+
+/* Load "My Words" saved via API lookup from localStorage */
+const MY_WORDS_KEY = 'empath_my_words';
+function loadMyWords(){
+  try{ return JSON.parse(localStorage.getItem(MY_WORDS_KEY)) || []; }catch(e){ return []; }
+}
+function saveMyWordsList(list){
+  try{ localStorage.setItem(MY_WORDS_KEY, JSON.stringify(list)); }catch(e){}
+}
+const myWordsData = loadMyWords();
+if(myWordsData.length > 0){
+  topics.push({group:"myWords", name:"⭐ Từ Vựng Của Tôi (Tự tra &amp; lưu)", words: myWordsData.map(w=>[w.word, w.meaning])});
+}
+
+const groups = ["topics","ielts","writing2","phrasal","idioms","specialized","wordtype","confusing","countable"];
+if(myWordsData.length > 0) groups.push("myWords");
+groups.forEach(g=>{
+  const groupTopics = topics.filter(t=>t.group===g);
+  const sectionWrap = document.createElement('div');
+  sectionWrap.className = 'group-section';
+  sectionWrap.dataset.group = g;
+  sectionWrap.innerHTML = `<div class="group-title">${groupLabel(g)}</div><div class="group-sub">${groupSub(g)}</div>`;
+  const listWrap = document.createElement('div');
+  sectionWrap.appendChild(listWrap);
+
+  groupTopics.forEach((topic, idx)=>{
+    totalWords += topic.words.length;
+    const acc = document.createElement('div');
+    acc.className = 'topic-accordion';
+    const isMyWords = topic.group === 'myWords';
+    const wordsHtml = topic.words.map(([en, vi], wi)=>`<div class="vocab-card word-item" data-text="${(en+' '+vi).toLowerCase()}"><button class="vc-speak-btn" data-speak="${en.replace(/"/g,'&quot;')}" title="Nghe phát âm">🔊</button><button class="vc-mic-btn" data-target="${en.replace(/"/g,'&quot;')}" title="Nói theo &amp; kiểm tra">🎙️</button>${isMyWords ? `<button class="vc-del-btn" data-delword="${en.replace(/"/g,'&quot;')}" title="Xóa từ này">🗑️</button>` : ''}<div class="vc-en">${en}</div><div class="vc-vi">${vi}</div><div class="vc-feedback"></div></div>`).join('');
+    acc.innerHTML = `
+      <div class="topic-head">
+        <div class="th-left">${topic.name}<span class="topic-count">${topic.words.length} từ</span></div>
+        <span class="topic-icon">＋</span>
+      </div>
+      <div class="topic-body">
+        <div class="vocab-grid">${wordsHtml}</div>
+      </div>
+    `;
+    acc.querySelector('.topic-head').addEventListener('click', ()=>{
+      const body = acc.querySelector('.topic-body');
+      const isOpen = acc.classList.contains('open');
+      if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+      else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + 'px'; }
+    });
+    listWrap.appendChild(acc);
+  });
+  container.appendChild(sectionWrap);
+});
+
+document.getElementById('statGroups').textContent = groups.length;
+
+/* ============ FILL-IN-THE-BLANK EXERCISES ============ */
+const exercises = [
+  {sentence:"Please ___ me if you need any help with the project.", answer:"clarify", hint:"làm rõ"},
+  {sentence:"The company plans to ___ a new marketing strategy next quarter.", answer:"implement", hint:"triển khai"},
+  {sentence:"She is very ___ about checking every detail before submitting a report.", answer:"meticulous", hint:"tỉ mỉ"},
+  {sentence:"Deforestation contributes significantly to climate ___.", answer:"change", hint:"biến đổi"},
+  {sentence:"He finally decided to ___ up smoking after years of trying.", answer:"give", hint:"give up = từ bỏ"},
+  {sentence:"I don't have much ___ , so let's make this quick.", answer:"time", hint:"không đếm được"},
+  {sentence:"There isn't enough ___ in this room for another desk.", answer:"room", hint:"không gian (không đếm được)"},
+  {sentence:"The test was a piece of ___ ; I finished in ten minutes.", answer:"cake", hint:"thành ngữ: rất dễ"},
+  {sentence:"You should always ___ a decision only after considering the facts.", answer:"make", hint:"make a decision"},
+  {sentence:"I have ___ friends in this city, so I feel a bit lonely.", answer:"few", hint:"đếm được, ý tiêu cực"},
+  {sentence:"They finally managed to ___ the conflict through negotiation.", answer:"resolve", hint:"giải quyết"},
+  {sentence:"Renewable ___ sources like solar and wind are becoming cheaper.", answer:"energy", hint:"năng lượng"},
+  {sentence:"It's important to accept ___ , not except, when someone offers help.", answer:"advice", hint:"advice [U] = lời khuyên"},
+  {sentence:"The company reported a ___ increase in revenue this year.", answer:"substantial", hint:"đáng kể"},
+  {sentence:"After months of practice, her English speaking became remarkably ___.", answer:"fluent", hint:"trôi chảy"}
+];
+
+const exerciseList = document.getElementById('exerciseList');
+let exCorrectCount = 0;
+let exAnsweredCount = 0;
+
+exercises.forEach((ex, i)=>{
+  const parts = ex.sentence.split('___');
+  const div = document.createElement('div');
+  div.className = 'ex-item';
+  div.innerHTML = `
+    <div class="exq">Câu ${i+1}. ${parts[0]}<b>___</b>${parts[1]} <span style="color:var(--text-soft); font-size:.8rem;">(gợi ý: ${ex.hint})</span></div>
+    <div class="ex-row">
+      <input type="text" class="ex-input" placeholder="Nhập đáp án...">
+      <button class="ex-check-btn">Kiểm tra</button>
+    </div>
+    <div class="ex-feedback"></div>
+  `;
+  const input = div.querySelector('.ex-input');
+  const btn = div.querySelector('.ex-check-btn');
+  const feedback = div.querySelector('.ex-feedback');
+  let answered = false;
+  function checkAnswer(){
+    if(answered) return;
+    const userAnswer = input.value.trim().toLowerCase();
+    if(!userAnswer) return;
+    answered = true;
+    exAnsweredCount++;
+    if(userAnswer === ex.answer.toLowerCase()){
+      feedback.textContent = '✅ Chính xác!';
+      feedback.className = 'ex-feedback correct';
+      exCorrectCount++;
+    } else {
+      feedback.textContent = `❌ Chưa đúng. Đáp án đúng là: "${ex.answer}"`;
+      feedback.className = 'ex-feedback wrong';
+    }
+    input.disabled = true;
+    btn.disabled = true;
+    document.getElementById('exerciseScore').textContent = `Điểm: ${exCorrectCount}/${exercises.length} (${exAnsweredCount}/${exercises.length} câu đã làm)`;
+  }
+  btn.addEventListener('click', checkAnswer);
+  input.addEventListener('keypress', (e)=>{ if(e.key === 'Enter') checkAnswer(); });
+  exerciseList.appendChild(div);
+});
+document.getElementById('exerciseScore').textContent = `Điểm: 0/${exercises.length} (0/${exercises.length} câu đã làm)`;
+document.getElementById('statTopics').textContent = topics.length;
+document.getElementById('statWords').textContent = totalWords + '+';
+
+/* Group filter */
+document.querySelectorAll('.group-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.group-chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    const g = chip.dataset.group;
+    document.querySelectorAll('.group-section').forEach(sec=>{
+      sec.classList.toggle('hidden', !(g === 'all' || sec.dataset.group === g));
+    });
+  });
+});
+
+/* Master search across all groups */
+const masterSearch = document.getElementById('masterSearch');
+masterSearch.addEventListener('input', function(){
+  const term = this.value.toLowerCase().trim();
+  document.querySelectorAll('.group-chip').forEach(c=>c.classList.remove('active'));
+  document.querySelector('.group-chip[data-group="all"]').classList.add('active');
+  document.querySelectorAll('.group-section').forEach(sec=> sec.classList.remove('hidden'));
+
+  document.querySelectorAll('.topic-accordion').forEach(acc=>{
+    const items = acc.querySelectorAll('.word-item');
+    let anyMatch = false;
+    items.forEach(item=>{
+      const match = !term || item.dataset.text.includes(term);
+      item.classList.toggle('hidden', !match);
+      if(match) anyMatch = true;
+    });
+    acc.classList.toggle('hidden', !anyMatch);
+    if(term && anyMatch){
+      acc.classList.add('open');
+      const body = acc.querySelector('.topic-body');
+      body.style.maxHeight = body.scrollHeight + 100 + 'px';
+    } else if(!term){
+      acc.classList.remove('open');
+      acc.querySelector('.topic-body').style.maxHeight = null;
+    }
+  });
+});
+
+/* ============ API-POWERED WORD LOOKUP (Free Dictionary API + Datamuse + MyMemory) ============ */
+const posMap = {noun:"danh từ", verb:"động từ", adjective:"tính từ", adverb:"trạng từ", preposition:"giới từ", conjunction:"liên từ", pronoun:"đại từ", interjection:"thán từ", determiner:"từ hạn định"};
+
+async function fetchWordDefinition(word){
+  const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
+  if(!res.ok) throw new Error('not found');
+  const data = await res.json();
+  const first = data[0];
+  const ipa = (first.phonetics.find(p=>p.text) || {}).text || '';
+  let type = '';
+  const meanings = [];
+  first.meanings.slice(0,2).forEach(m=>{
+    if(!type) type = posMap[m.partOfSpeech] || m.partOfSpeech;
+    m.definitions.slice(0,1).forEach(d=> meanings.push(d.definition));
+  });
+  return {word, ipa, type: type || 'từ vựng', meanings};
+}
+
+async function fetchSynonyms(word){
+  try{
+    const res = await fetch(`https://api.datamuse.com/words?rel_syn=${encodeURIComponent(word)}&max=6`);
+    const data = await res.json();
+    return data.map(d=>d.word);
+  }catch(e){ return []; }
+}
+
+async function fetchViTranslation(word){
+  try{
+    const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|vi`);
+    const data = await res.json();
+    return data.responseData && data.responseData.translatedText ? data.responseData.translatedText : '';
+  }catch(e){ return ''; }
+}
+
+const apiLookupBtn = document.getElementById('apiLookupBtn');
+const apiWordInput = document.getElementById('apiWordInput');
+const apiLookupResult = document.getElementById('apiLookupResult');
+
+async function doApiLookup(){
+  const word = apiWordInput.value.trim();
+  if(!word) return;
+  apiLookupResult.innerHTML = `<div class="alb-result">🌐 Đang tra "${word}"...</div>`;
+  try{
+    const [defData, synonyms, viText] = await Promise.all([
+      fetchWordDefinition(word),
+      fetchSynonyms(word),
+      fetchViTranslation(word)
+    ]);
+    apiLookupResult.innerHTML = `
+      <div class="alb-result">
+        <span class="alb-word">${defData.word}</span>
+        <span class="alb-ipa">${defData.ipa}</span>
+        <span class="alb-type">${defData.type}</span>
+        <div class="alb-meaning">${defData.meanings.join('; ')}</div>
+        ${viText ? `<div class="alb-meaning">🇻🇳 ${viText}</div>` : ''}
+        ${synonyms.length ? `<div class="alb-synonyms">Từ đồng nghĩa: ${synonyms.join(', ')}</div>` : ''}
+        <button class="alb-save-btn" id="saveWordBtn">💾 Lưu vào Từ Vựng Của Tôi</button>
+      </div>
+    `;
+    document.getElementById('saveWordBtn').addEventListener('click', function(){
+      const list = loadMyWords();
+      if(!list.find(w=>w.word.toLowerCase() === defData.word.toLowerCase())){
+        list.push({word: defData.word, meaning: (viText || defData.meanings[0] || '')});
+        saveMyWordsList(list);
+      }
+      this.textContent = '✅ Đã lưu! Tải lại trang để xem trong nhóm "Từ Vựng Của Tôi"';
+      this.disabled = true;
+    });
+  }catch(err){
+    apiLookupResult.innerHTML = `<div class="alb-result">❌ Không tìm thấy "${word}" hoặc mất kết nối internet. Kiểm tra lại chính tả.</div>`;
+  }
+}
+apiLookupBtn.addEventListener('click', doApiLookup);
+apiWordInput.addEventListener('keypress', (e)=>{ if(e.key === 'Enter') doApiLookup(); });
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const progressBar = document.getElementById('progressBar');
+const toTopBtn = document.getElementById('toTop');
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

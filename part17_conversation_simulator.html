@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 17: Conversation Simulator (Mô Phỏng Hội Thoại)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08); --sidebar-w: 290px;
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .ipa, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.app{display:flex; min-height:100vh;}
+.sidebar{width:var(--sidebar-w); flex-shrink:0; background:var(--ink); color:#EDEFF4; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; padding:24px 18px 40px; z-index:900; transition:transform .3s ease;}
+.sidebar::-webkit-scrollbar{width:6px;} .sidebar::-webkit-scrollbar-thumb{background:var(--teal-dark); border-radius:3px;}
+.brand{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+.brand h1{font-size:1.05rem; color:#fff; margin:0; line-height:1.25;}
+.brand small{display:block; color:var(--amber); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; margin-top:2px;}
+.sidebar-meter{margin:18px 0 22px; padding:12px; background:rgba(255,255,255,0.05); border-radius:10px;}
+.sidebar-meter .label{font-size:.72rem; color:#B7C2D6; margin-bottom:6px; display:flex; justify-content:space-between;}
+.meter-track{height:6px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;}
+.meter-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:4px; transition:width .2s ease;}
+.toc-group{margin-bottom:4px;}
+.toc-title{font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:#8496B4; margin:18px 0 8px;}
+.toc-link{display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; color:#CBD5E6; text-decoration:none; font-size:.86rem; margin-bottom:2px; transition:background .2s, color .2s;}
+.toc-link:hover{background:rgba(255,255,255,0.07); color:#fff;}
+.toc-link.active{background:var(--teal-dark); color:#fff; font-weight:600;}
+.toc-num{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--amber); width:20px;}
+.main{margin-left:var(--sidebar-w); flex:1; min-width:0;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.topbar-title{font-size:.85rem; color:var(--text-soft); font-weight:500;}
+.controls{display:flex; gap:10px; align-items:center;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{padding:36px 48px 100px; max-width:920px;}
+.hero{padding:38px 34px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:40px; box-shadow:var(--shadow); position:relative; overflow:hidden;}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.1rem; margin:10px 0 14px;}
+.hero p{color:#C9D3E4; line-height:1.7; max-width:680px; font-size:.98rem;}
+.hero .waveform{margin-top:18px;}
+section.chapter{margin-bottom:56px; scroll-margin-top:90px;}
+.chapter-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px;}
+.chapter-head .num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:1rem; font-weight:700;}
+.chapter-head h2{margin:0; font-size:1.6rem;}
+.chapter-sub{color:var(--text-soft); margin-bottom:22px; font-size:.95rem;}
+p{line-height:1.75; font-size:.98rem;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid; font-size:.92rem; line-height:1.65;}
+.box .box-title{font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:.86rem; text-transform:uppercase; letter-spacing:.04em;}
+.box.note{background:rgba(47,143,134,0.08); border-color:var(--teal);} .box.note .box-title{color:var(--teal-dark);}
+.box.tip{background:rgba(217,164,65,0.1); border-color:var(--amber);} .box.tip .box-title{color:#A3781F;}
+[data-theme="dark"] .box.tip .box-title{color:var(--amber);}
+.box.warning{background:rgba(226,96,79,0.08); border-color:var(--coral);} .box.warning .box-title{color:var(--coral);}
+.box.important{background:rgba(22,36,61,0.06); border-color:var(--ink);}
+[data-theme="dark"] .box.important{background:rgba(255,255,255,0.05);}
+.box.important .box-title{color:var(--ink);}
+[data-theme="dark"] .box.important .box-title{color:var(--text);}
+.summary-card{background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:#fff; border-radius:14px; padding:22px 24px; margin-top:24px;}
+.summary-card h3{color:#fff; margin-top:0;}
+.summary-card ul{margin:8px 0 0; padding-left:20px; line-height:1.8;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900; transition:transform .2s ease, background .2s;}
+#toTop:hover{background:var(--teal-dark); transform:translateY(-3px);}
+.fade-in{animation:fadeIn .6s ease both;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+.menu-toggle{display:none;}
+@media (max-width: 980px){
+  .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;} .menu-toggle{display:flex;} .content{padding:28px 20px 100px;}
+}
+
+/* ===== CONVERSATION SIMULATOR STYLES ===== */
+.sim-card{background:var(--paper-2); border:1px solid var(--line); border-radius:18px; padding:26px; margin:18px 0; box-shadow:var(--shadow);}
+.sim-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
+.sim-tab{border:1px solid var(--line); background:var(--paper); color:var(--text); padding:8px 16px; border-radius:20px; font-size:.85rem; cursor:pointer; transition:.2s;}
+.sim-tab.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+.chat-window{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:20px; min-height:220px; max-height:420px; overflow-y:auto; margin-bottom:16px;}
+.chat-bubble{max-width:78%; padding:10px 16px; border-radius:14px; margin-bottom:10px; font-size:.92rem; line-height:1.6; position:relative;}
+.chat-bubble.bot{background:var(--ink); color:#fff; border-bottom-left-radius:4px;}
+.chat-bubble.user{background:var(--teal); color:#fff; margin-left:auto; border-bottom-right-radius:4px;}
+.chat-bubble .vi-hint{display:block; font-size:.76rem; color:#B7C2D6; margin-top:4px;}
+.chat-bubble.user .vi-hint{color:#D9F0EC;}
+.sim-controls{display:flex; gap:10px; flex-wrap:wrap; justify-content:center;}
+.sim-btn{border:none; padding:12px 22px; border-radius:12px; font-size:.92rem; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:8px; transition:transform .15s ease, opacity .2s;}
+.sim-btn:hover{transform:translateY(-2px);}
+.sim-btn:disabled{opacity:.5; cursor:not-allowed; transform:none;}
+.btn-hearbot{background:var(--amber); color:#1a1200;}
+.btn-myturn{background:var(--teal); color:#fff;}
+.btn-myturn.recording{background:var(--coral); animation:pulse 1.2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(226,96,79,0.5);} 50%{box-shadow:0 0 0 10px rgba(226,96,79,0);}}
+.btn-restart{background:var(--ink-2); color:#fff;}
+.progress-dots{display:flex; gap:6px; justify-content:center; margin:14px 0;}
+.progress-dots span{width:9px; height:9px; border-radius:50%; background:var(--line);}
+.progress-dots span.done{background:var(--teal);}
+.progress-dots span.current{background:var(--amber);}
+.hint-box{background:var(--paper); border:1px dashed var(--line); border-radius:10px; padding:10px 14px; margin-top:8px; font-size:.85rem; color:var(--text-soft); text-align:center;}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 17</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Conversation Simulator</a>
+      <a class="toc-link" href="#ch80"><span class="toc-num">80</span> Mô phỏng hội thoại theo kịch bản</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Đã học</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 1-16 ✓</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 17 / Conversation Simulator</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Công cụ luyện nói #2</span>
+          <h1>Conversation Simulator — Mô Phỏng Hội Thoại Thật</h1>
+          <p>
+            Nối tiếp Speaking Studio (Phần 16), công cụ này cho bạn <b>luyện cả một cuộc hội thoại hai chiều</b>:
+            máy sẽ "nói" một vế (đóng vai nhân viên nhà hàng, nhà tuyển dụng, lễ tân khách sạn...), bạn nghe rồi
+            <b>nói phản hồi bằng giọng thật của mình</b> — hệ thống ghi nhận và cho bạn thấy mình đã nói gì, giúp bạn
+            luyện phản xạ hội thoại gần với thực tế nhất có thể trước khi giao tiếp với người thật.
+          </p>
+        </div>
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Cũng như Speaking Studio, công cụ này cần <b>Google Chrome</b> và quyền truy cập <b>micro</b> để hoạt động
+          đầy đủ. Ở mỗi lượt của bạn, hệ thống gợi ý sẵn một số cách trả lời mẫu — bạn có thể dùng nguyên mẫu đó hoặc
+          tự trả lời theo ý mình, miễn là nói được bằng tiếng Anh.
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 80: CONVERSATION SIMULATOR -->
+      <section id="ch80" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">80</span><h2>Mô Phỏng Hội Thoại Theo Kịch Bản</h2></div>
+        <div class="chapter-sub">Chọn 1 trong 4 tình huống thực tế, hoàn thành cả cuộc hội thoại bằng giọng nói của bạn.</div>
+
+        <div class="sim-card">
+          <div class="sim-tabs" id="scenarioTabs"></div>
+
+          <div class="progress-dots" id="progressDots"></div>
+
+          <div class="chat-window" id="chatWindow"></div>
+
+          <div class="hint-box" id="hintBox" style="display:none;"></div>
+
+          <div class="sim-controls">
+            <button class="sim-btn btn-hearbot" id="btnHearBot">🔊 Nghe lời thoại</button>
+            <button class="sim-btn btn-myturn" id="btnMyTurn">🎙️ Đến lượt tôi nói</button>
+            <button class="sim-btn btn-restart" id="btnRestart">🔄 Bắt đầu lại</button>
+          </div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Nếu chưa tự tin, hãy bấm "Nghe lời thoại" để nghe câu gợi ý mẫu ở khung màu xám bên dưới, luyện nói theo mẫu
+          đó vài lần trước, sau đó thử tự trả lời theo cách diễn đạt của riêng bạn.
+        </div>
+
+        <div class="summary-card">
+          <h3>🎯 4 Kịch bản hội thoại có sẵn</h3>
+          <ul>
+            <li><b>Nhà hàng</b> — gọi món, hỏi thực đơn, thanh toán.</li>
+            <li><b>Phỏng vấn xin việc</b> — áp dụng lại kiến thức từ Phần 15.</li>
+            <li><b>Khách sạn</b> — nhận phòng, hỏi tiện ích, yêu cầu hỗ trợ.</li>
+            <li><b>Họp công việc</b> — thảo luận tiến độ dự án, đề xuất ý kiến.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 17</div>
+          Bạn đã có bộ công cụ luyện nói hoàn chỉnh: Speaking Studio (luyện câu đơn + minimal pairs + phản xạ tự do)
+          và Conversation Simulator (luyện hội thoại hai chiều). Hãy luyện tập đều đặn để biến kiến thức thành phản
+          xạ nói tiếng Anh tự nhiên. Chúc bạn thành công!
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+/* ============ SCENARIOS DATA ============ */
+const scenarios = {
+  "🍽️ Nhà hàng": [
+    {bot:"Good evening! Welcome to our restaurant. Do you have a reservation?", vi:"Chào buổi tối! Chào mừng đến nhà hàng. Bạn có đặt bàn trước không?", hint:"Yes, I have a reservation under the name Huy. / No, we don't, is a table for two available?"},
+    {bot:"Great, right this way please. Here are your menus. Can I get you started with something to drink?", vi:"Mời đi lối này. Đây là thực đơn. Bạn muốn uống gì trước không?", hint:"Just water for now, thank you. / I'll have an iced tea, please."},
+    {bot:"Sure. Are you ready to order, or do you need a few more minutes?", vi:"Được ạ. Bạn đã sẵn sàng gọi món chưa, hay cần thêm thời gian?", hint:"I think we're ready. I'd like to order the grilled chicken, please."},
+    {bot:"Excellent choice! Will that be all for you today?", vi:"Lựa chọn tuyệt vời! Bạn còn muốn gọi thêm gì không?", hint:"That's all, thank you. Could we also get the bill after the meal?"}
+  ],
+  "💼 Phỏng vấn xin việc": [
+    {bot:"Good morning, thank you for coming in today. Could you start by telling me about yourself?", vi:"Chào buổi sáng, cảm ơn bạn đã đến. Bạn có thể giới thiệu về bản thân không?", hint:"I'm currently a second-year IT student specializing in Full Stack Development with Java and Spring Boot."},
+    {bot:"That's impressive. Can you walk me through one of your recent projects?", vi:"Ấn tượng đấy. Bạn có thể trình bày một dự án gần đây không?", hint:"Sure, I built a full-stack e-commerce platform using Spring Boot and React with JWT authentication."},
+    {bot:"Interesting. What would you say is your greatest strength?", vi:"Thú vị đấy. Điểm mạnh lớn nhất của bạn là gì?", hint:"I'd say my greatest strength is problem-solving, especially when debugging complex issues."},
+    {bot:"Great. Do you have any questions for me before we wrap up?", vi:"Được rồi. Bạn có câu hỏi gì cho tôi trước khi kết thúc không?", hint:"Yes, what technologies does your development team currently use?"}
+  ],
+  "🏨 Khách sạn": [
+    {bot:"Good afternoon, welcome to our hotel. Do you have a reservation with us?", vi:"Chào buổi chiều, chào mừng đến khách sạn. Bạn có đặt phòng trước không?", hint:"Yes, I have a reservation under the name Nguyen. It's for two nights."},
+    {bot:"Perfect, let me check that for you. Would you like a room with a city view or a garden view?", vi:"Được rồi, để tôi kiểm tra. Bạn muốn phòng view thành phố hay view vườn?", hint:"A city view would be great, thank you."},
+    {bot:"Great choice. Breakfast is served from 6:30 to 10 AM. Is there anything else I can help you with?", vi:"Lựa chọn tốt. Bữa sáng phục vụ từ 6:30 đến 10 giờ. Bạn cần hỗ trợ gì thêm không?", hint:"Could you tell me the Wi-Fi password, please? Also, is there a gym in the hotel?"},
+    {bot:"Of course, here's your key card and the Wi-Fi details. Enjoy your stay!", vi:"Được ạ, đây là thẻ phòng và thông tin Wi-Fi. Chúc bạn có kỳ nghỉ vui vẻ!", hint:"Thank you very much for your help!"}
+  ],
+  "📊 Họp công việc": [
+    {bot:"Let's get started. Can you give us a quick update on the project's progress?", vi:"Bắt đầu nhé. Bạn có thể cập nhật nhanh tiến độ dự án không?", hint:"Sure, we've completed the backend API and are currently working on frontend integration."},
+    {bot:"Sounds good. Are there any blockers the team is facing right now?", vi:"Nghe tốt đấy. Team có gặp trở ngại gì hiện tại không?", hint:"Yes, we're facing a delay due to a third-party API integration issue, but we expect to resolve it by Friday."},
+    {bot:"Understood. What support do you need from the rest of the team?", vi:"Hiểu rồi. Bạn cần hỗ trợ gì từ team không?", hint:"It would help if someone could review our API documentation before we finalize it."},
+    {bot:"Noted, I'll assign someone to help with that. Anything else before we wrap up?", vi:"Đã ghi nhận, tôi sẽ giao ai đó hỗ trợ. Còn gì trước khi kết thúc không?", hint:"That's all from my side, thank you."}
+  ]
+};
+
+let currentScenario = "🍽️ Nhà hàng";
+let turnIndex = 0;
+
+const scenarioTabs = document.getElementById('scenarioTabs');
+Object.keys(scenarios).forEach(name=>{
+  const tab = document.createElement('button');
+  tab.className = 'sim-tab' + (name===currentScenario ? ' active':'');
+  tab.textContent = name;
+  tab.onclick = ()=>{
+    currentScenario = name;
+    turnIndex = 0;
+    document.querySelectorAll('.sim-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    resetChat();
+  };
+  scenarioTabs.appendChild(tab);
+});
+
+const chatWindow = document.getElementById('chatWindow');
+const hintBox = document.getElementById('hintBox');
+const progressDots = document.getElementById('progressDots');
+
+function renderDots(){
+  progressDots.innerHTML = '';
+  const total = scenarios[currentScenario].length;
+  for(let i=0;i<total;i++){
+    const dot = document.createElement('span');
+    if(i < turnIndex) dot.className = 'done';
+    else if(i === turnIndex) dot.className = 'current';
+    progressDots.appendChild(dot);
+  }
+}
+
+function addBubble(text, vi, who){
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble ' + who;
+  bubble.innerHTML = `${text}${vi ? `<span class="vi-hint">${vi}</span>` : ''}`;
+  chatWindow.appendChild(bubble);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function resetChat(){
+  chatWindow.innerHTML = '';
+  hintBox.style.display = 'none';
+  turnIndex = 0;
+  renderDots();
+  const first = scenarios[currentScenario][0];
+  addBubble(first.bot, first.vi, 'bot');
+}
+resetChat();
+
+document.getElementById('btnRestart').addEventListener('click', resetChat);
+
+document.getElementById('btnHearBot').addEventListener('click', ()=>{
+  const turn = scenarios[currentScenario][turnIndex];
+  if(!turn) return;
+  speakText(turn.bot, 0.9);
+  hintBox.style.display = 'block';
+  hintBox.textContent = "💬 Gợi ý trả lời: " + turn.hint;
+});
+
+function speakText(text, rate){
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'en-US';
+  utter.rate = rate || 1;
+  const voices = window.speechSynthesis.getVoices();
+  const enVoice = voices.find(v=>v.lang && v.lang.startsWith('en'));
+  if(enVoice) utter.voice = enVoice;
+  window.speechSynthesis.speak(utter);
+}
+
+/* Speech recognition for user's turn */
+const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+let simRecognition = null;
+const btnMyTurn = document.getElementById('btnMyTurn');
+
+if(!SpeechRecognitionAPI){
+  btnMyTurn.disabled = true;
+  btnMyTurn.textContent = "🎙️ (Cần Chrome để dùng)";
+} else {
+  simRecognition = new SpeechRecognitionAPI();
+  simRecognition.lang = 'en-US';
+  simRecognition.interimResults = false;
+  simRecognition.maxAlternatives = 1;
+
+  btnMyTurn.addEventListener('click', ()=>{
+    if(btnMyTurn.classList.contains('recording')) return;
+    btnMyTurn.classList.add('recording');
+    btnMyTurn.textContent = '🎙️ Đang nghe...';
+    try{ simRecognition.start(); }catch(e){}
+  });
+
+  simRecognition.onresult = function(event){
+    const spokenText = event.results[0][0].transcript;
+    addBubble(spokenText, null, 'user');
+    hintBox.style.display = 'none';
+    turnIndex++;
+    renderDots();
+    const nextTurn = scenarios[currentScenario][turnIndex];
+    if(nextTurn){
+      setTimeout(()=>{
+        addBubble(nextTurn.bot, nextTurn.vi, 'bot');
+      }, 500);
+    } else {
+      setTimeout(()=>{
+        addBubble("🎉 Great job! You've completed this conversation.", "Tuyệt vời! Bạn đã hoàn thành cuộc hội thoại này.", 'bot');
+      }, 500);
+    }
+  };
+  simRecognition.onerror = function(){
+    addBubble("(Không nhận diện được giọng nói, hãy thử lại)", null, 'user');
+  };
+  simRecognition.onend = function(){
+    btnMyTurn.classList.remove('recording');
+    btnMyTurn.textContent = '🎙️ Đến lượt tôi nói';
+  };
+}
+
+/* ============ DARK MODE / PRINT / MOBILE ============ */
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+/* ============ SCROLL: PROGRESS BAR + ACTIVE LINK + BACK TO TOP ============ */
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

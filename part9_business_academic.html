@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 9: Business English & Academic English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08); --sidebar-w: 290px;
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .ipa, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.app{display:flex; min-height:100vh;}
+.sidebar{width:var(--sidebar-w); flex-shrink:0; background:var(--ink); color:#EDEFF4; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; padding:24px 18px 40px; z-index:900; transition:transform .3s ease;}
+.sidebar::-webkit-scrollbar{width:6px;} .sidebar::-webkit-scrollbar-thumb{background:var(--teal-dark); border-radius:3px;}
+.brand{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+.brand h1{font-size:1.05rem; color:#fff; margin:0; line-height:1.25;}
+.brand small{display:block; color:var(--amber); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; margin-top:2px;}
+.sidebar-meter{margin:18px 0 22px; padding:12px; background:rgba(255,255,255,0.05); border-radius:10px;}
+.sidebar-meter .label{font-size:.72rem; color:#B7C2D6; margin-bottom:6px; display:flex; justify-content:space-between;}
+.meter-track{height:6px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;}
+.meter-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:4px; transition:width .2s ease;}
+.toc-group{margin-bottom:4px;}
+.toc-title{font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:#8496B4; margin:18px 0 8px;}
+.toc-link{display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; color:#CBD5E6; text-decoration:none; font-size:.86rem; margin-bottom:2px; transition:background .2s, color .2s;}
+.toc-link:hover{background:rgba(255,255,255,0.07); color:#fff;}
+.toc-link.active{background:var(--teal-dark); color:#fff; font-weight:600;}
+.toc-num{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--amber); width:20px;}
+.main{margin-left:var(--sidebar-w); flex:1; min-width:0;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.topbar-title{font-size:.85rem; color:var(--text-soft); font-weight:500;}
+.controls{display:flex; gap:10px; align-items:center;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{padding:36px 48px 100px; max-width:920px;}
+.hero{padding:38px 34px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:40px; box-shadow:var(--shadow); position:relative; overflow:hidden;}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.1rem; margin:10px 0 14px;}
+.hero p{color:#C9D3E4; line-height:1.7; max-width:680px; font-size:.98rem;}
+.hero .waveform{margin-top:18px;}
+.roadmap{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:24px;}
+.roadmap .rm-item{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:12px 14px;}
+.roadmap .rm-item b{color:var(--amber); font-size:.72rem; text-transform:uppercase; letter-spacing:.06em;}
+.roadmap .rm-item div{font-size:.86rem; color:#E4E9F2; margin-top:4px;}
+section.chapter{margin-bottom:56px; scroll-margin-top:90px;}
+.chapter-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px;}
+.chapter-head .num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:1rem; font-weight:700;}
+.chapter-head h2{margin:0; font-size:1.6rem;}
+.chapter-sub{color:var(--text-soft); margin-bottom:22px; font-size:.95rem;}
+p{line-height:1.75; font-size:.98rem;}
+.section-block{margin:20px 0;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid; font-size:.92rem; line-height:1.65;}
+.box .box-title{font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:.86rem; text-transform:uppercase; letter-spacing:.04em;}
+.box.note{background:rgba(47,143,134,0.08); border-color:var(--teal);} .box.note .box-title{color:var(--teal-dark);}
+.box.tip{background:rgba(217,164,65,0.1); border-color:var(--amber);} .box.tip .box-title{color:#A3781F;}
+[data-theme="dark"] .box.tip .box-title{color:var(--amber);}
+.box.warning{background:rgba(226,96,79,0.08); border-color:var(--coral);} .box.warning .box-title{color:var(--coral);}
+.box.important{background:rgba(22,36,61,0.06); border-color:var(--ink);}
+[data-theme="dark"] .box.important{background:rgba(255,255,255,0.05);}
+.box.important .box-title{color:var(--ink);}
+[data-theme="dark"] .box.important .box-title{color:var(--text);}
+.table-wrap{overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px;}
+table{border-collapse:collapse; width:100%; font-size:.9rem;}
+th,td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--line);}
+th{background:var(--paper-2); color:var(--ink); font-family:'Fraunces',serif; font-weight:600;}
+[data-theme="dark"] th{color:var(--text);}
+tr:last-child td{border-bottom:none;}
+.example-block{background:var(--ink); color:#EAF0F8; border-radius:12px; padding:16px 18px; margin:16px 0; position:relative; font-size:.9rem; line-height:1.7;}
+.example-block .copy-btn{position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.1); color:#fff; border:none; padding:5px 10px; border-radius:6px; font-size:.72rem; cursor:pointer; transition:background .2s;}
+.example-block .copy-btn:hover{background:var(--teal);}
+.example-block .ex-line{margin-bottom:6px;}
+.example-block .ex-en{color:#fff;}
+.example-block .ex-vi{color:#9FB0C8; font-size:.85rem;}
+.accordion{border:1px solid var(--line); border-radius:12px; margin:14px 0; overflow:hidden; background:var(--paper-2);}
+.acc-head{padding:14px 18px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-family:'Fraunces',serif; font-size:1rem;}
+.acc-head:hover{background:rgba(47,143,134,0.08);}
+.acc-icon{transition:transform .25s ease; color:var(--teal-dark); font-size:1.1rem;}
+.accordion.open .acc-icon{transform:rotate(45deg);}
+.acc-body{max-height:0; overflow:hidden; transition:max-height .35s ease; padding:0 18px;}
+.accordion.open .acc-body{padding:4px 18px 18px;}
+.ex-item{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px;}
+.ex-item .q{font-weight:600; margin-bottom:6px;}
+.ex-answer{display:none; margin-top:8px; padding:10px 12px; background:rgba(47,143,134,0.1); border-radius:8px; font-size:.88rem;}
+.ex-answer.show{display:block;}
+.reveal-btn{border:1px solid var(--teal); color:var(--teal-dark); background:transparent; padding:5px 12px; border-radius:8px; font-size:.8rem; cursor:pointer; transition:.2s;}
+.reveal-btn:hover{background:var(--teal); color:#fff;}
+.quiz-box{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:20px; margin:16px 0;}
+.quiz-q{margin-bottom:14px; padding-bottom:14px; border-bottom:1px dashed var(--line);}
+.quiz-q:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+.quiz-q p{font-weight:600; margin:0 0 8px;}
+.quiz-opts{display:grid; gap:8px;}
+.quiz-opt{border:1px solid var(--line); background:var(--paper); padding:9px 14px; border-radius:8px; cursor:pointer; font-size:.9rem; transition:.15s;}
+.quiz-opt:hover{border-color:var(--teal);}
+.quiz-opt.correct{background:rgba(47,143,134,0.18); border-color:var(--teal); font-weight:600;}
+.quiz-opt.wrong{background:rgba(226,96,79,0.18); border-color:var(--coral);}
+.quiz-score{margin-top:14px; font-weight:600; color:var(--teal-dark);}
+.summary-card{background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:#fff; border-radius:14px; padding:22px 24px; margin-top:24px;}
+.summary-card h3{color:#fff; margin-top:0;}
+.summary-card ul{margin:8px 0 0; padding-left:20px; line-height:1.8;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900; transition:transform .2s ease, background .2s;}
+#toTop:hover{background:var(--teal-dark); transform:translateY(-3px);}
+.fade-in{animation:fadeIn .6s ease both;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+.menu-toggle{display:none;}
+.vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; margin:14px 0;}
+.vocab-card{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px;}
+.vocab-card .vc-en{font-weight:700; font-family:'Fraunces',serif; font-size:1.02rem;}
+.vocab-card .vc-vi{color:var(--text-soft); font-size:.85rem; margin-top:2px;}
+@media (max-width: 980px){
+  .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;} .menu-toggle{display:flex;} .content{padding:28px 20px 100px;}
+}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 9</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 9</a>
+      <a class="toc-link" href="#ch46"><span class="toc-num">46</span> Business English — họp &amp; thuyết trình</a>
+      <a class="toc-link" href="#ch47"><span class="toc-num">47</span> Business English — đàm phán &amp; email công việc</a>
+      <a class="toc-link" href="#ch48"><span class="toc-num">48</span> Academic English — từ vựng học thuật</a>
+      <a class="toc-link" href="#ch49"><span class="toc-num">49</span> Academic English — trình bày &amp; trích dẫn</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Đã học</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 1-8 ✓</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Sắp tới (gõ "Tiếp tục")</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 10 · TOEIC &amp; IELTS chuyên sâu</a>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 11 · Mẹo ghi nhớ &amp; Phương pháp tự học</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 9 / Business &amp; Academic English</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần 9 / N</span>
+          <h1>Business English &amp; Academic English</h1>
+          <p>
+            Hai lĩnh vực tiếng Anh chuyên biệt cực kỳ quan trọng cho mục tiêu <b>làm kỹ sư IT tại Nhật</b> của bạn:
+            <b>Business English</b> — ngôn ngữ dùng trong họp, thuyết trình, đàm phán, email công việc; và
+            <b>Academic English</b> — ngôn ngữ dùng trong nghiên cứu, báo cáo khoa học, trình bày học thuật. Cả hai đều
+            đòi hỏi văn phong trang trọng, chính xác, và có cấu trúc rõ ràng hơn tiếng Anh giao tiếp thông thường.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 46</b><div>Business English — mẫu câu họp &amp; thuyết trình chuyên nghiệp</div></div>
+            <div class="rm-item"><b>Chương 47</b><div>Business English — đàm phán, email công việc nâng cao</div></div>
+            <div class="rm-item"><b>Chương 48</b><div>Academic English — 20 từ vựng học thuật (Academic Word List)</div></div>
+            <div class="rm-item"><b>Chương 49</b><div>Academic English — trình bày báo cáo &amp; trích dẫn nguồn</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 46: BUSINESS - MEETINGS & PRESENTATIONS -->
+      <section id="ch46" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">46</span><h2>Business English — Họp &amp; Thuyết Trình</h2></div>
+        <div class="chapter-sub">Mẫu câu chuyên nghiệp cho các tình huống công sở thường gặp nhất.</div>
+
+        <div class="section-block">
+          <h3>46.1 Mẫu câu điều hành cuộc họp (Meeting Management)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tình huống</th><th>Mẫu câu</th></tr></thead>
+              <tbody>
+                <tr><td>Bắt đầu họp</td><td class="mono">Let's get started. / Shall we begin?</td></tr>
+                <tr><td>Nêu chương trình họp</td><td class="mono">Today's agenda includes three main items.</td></tr>
+                <tr><td>Xin phép ngắt lời</td><td class="mono">Sorry to interrupt, but may I add something?</td></tr>
+                <tr><td>Hỏi ý kiến người khác</td><td class="mono">What are your thoughts on this? / Does anyone have any concerns?</td></tr>
+                <tr><td>Chuyển sang chủ đề tiếp theo</td><td class="mono">Let's move on to the next point.</td></tr>
+                <tr><td>Kết thúc họp</td><td class="mono">Let's wrap up. To summarize today's discussion...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>46.2 Cấu trúc thuyết trình chuyên nghiệp</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Phần</th><th>Mẫu câu mở đầu</th></tr></thead>
+              <tbody>
+                <tr><td>Mở đầu (Introduction)</td><td class="mono">Good morning everyone, thank you for being here today. I'm going to talk about...</td></tr>
+                <tr><td>Nêu bố cục</td><td class="mono">My presentation is divided into three parts. First,... Second,... Finally,...</td></tr>
+                <tr><td>Chuyển ý (Transition)</td><td class="mono">Now let's move on to... / That brings me to my next point.</td></tr>
+                <tr><td>Nhấn mạnh</td><td class="mono">I'd like to draw your attention to... / It's worth noting that...</td></tr>
+                <tr><td>Kết luận</td><td class="mono">To sum up, ... Thank you for your attention. I'm happy to take any questions.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Good afternoon everyone. Today, I'll be presenting our progress on the traffic light control system project. My presentation has three parts: the problem statement, our solution, and the results.</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Luôn chuẩn bị sẵn 2-3 câu chuyển ý (transitions) để bài thuyết trình liền mạch — đây là điểm khiến người
+          nghe cảm nhận được bạn tự tin và có sự chuẩn bị kỹ lưỡng.
+        </div>
+
+        <h3>46.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Viết câu mở đầu cuộc họp về kế hoạch dự án quý tới.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Let's get started. Today's agenda is to discuss our project plan for next quarter."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu chuyển ý sang phần tiếp theo trong bài thuyết trình.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Now let's move on to the technical challenges we encountered."</div>
+        </div>
+
+        <h3>46.4 Quiz trắc nghiệm — Chương 46</h3>
+        <div class="quiz-box" id="quiz46"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 46</h3>
+          <ul>
+            <li>Học các mẫu câu chuyên nghiệp cho từng giai đoạn cuộc họp/thuyết trình.</li>
+            <li>Chuẩn bị sẵn câu chuyển ý giúp bài nói mạch lạc, chuyên nghiệp hơn.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 47: BUSINESS - NEGOTIATION & EMAILS -->
+      <section id="ch47" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">47</span><h2>Business English — Đàm Phán &amp; Email Công Việc</h2></div>
+        <div class="chapter-sub">Ngôn ngữ ngoại giao, khéo léo trong thương lượng và trao đổi công việc.</div>
+
+        <div class="section-block">
+          <h3>47.1 Mẫu câu đàm phán (Negotiation Language)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Mục đích</th><th>Mẫu câu</th></tr></thead>
+              <tbody>
+                <tr><td>Đề xuất</td><td class="mono">I'd like to propose... / What if we...?</td></tr>
+                <tr><td>Đồng ý một phần</td><td class="mono">That sounds reasonable, but could we also consider...?</td></tr>
+                <tr><td>Từ chối lịch sự</td><td class="mono">I'm afraid that won't work for us, mainly because...</td></tr>
+                <tr><td>Thỏa hiệp</td><td class="mono">Let's meet in the middle. / How about a compromise?</td></tr>
+                <tr><td>Chốt thỏa thuận</td><td class="mono">So, we're agreed on... Let's finalize the details.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>47.2 Email công việc theo tình huống nâng cao</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tình huống</th><th>Mẫu câu</th></tr></thead>
+              <tbody>
+                <tr><td>Theo dõi email trước đó (Follow-up)</td><td class="mono">I just wanted to follow up on my previous email regarding...</td></tr>
+                <tr><td>Đính kèm tài liệu</td><td class="mono">Please find attached the report for your review.</td></tr>
+                <tr><td>Yêu cầu thông tin</td><td class="mono">Could you please provide more details on...?</td></tr>
+                <tr><td>Xin lỗi vì phản hồi trễ</td><td class="mono">I apologize for the delayed response.</td></tr>
+                <tr><td>Đề xuất cuộc gọi</td><td class="mono">Would you be available for a quick call to discuss this further?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Trong văn hóa công sở Nhật Bản, sự <b>lịch sự và gián tiếp (indirectness)</b> trong giao tiếp được đánh giá
+          cao — thay vì nói thẳng "No", hãy dùng cách diễn đạt nhẹ nhàng hơn như "That might be a bit difficult" hoặc
+          "Let me check and get back to you."
+        </div>
+
+        <h3>47.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Viết câu từ chối lịch sự một đề xuất tăng giá từ đối tác.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "I'm afraid that won't work for us at this time, mainly due to budget constraints."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết email follow-up ngắn cho một email chưa nhận được phản hồi 3 ngày trước.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "I just wanted to follow up on my previous email regarding the project timeline. Please let me know if you need any further information."</div>
+        </div>
+
+        <h3>47.4 Quiz trắc nghiệm — Chương 47</h3>
+        <div class="quiz-box" id="quiz47"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 47</h3>
+          <ul>
+            <li>Học mẫu câu đàm phán: đề xuất, đồng ý một phần, từ chối lịch sự, thỏa hiệp.</li>
+            <li>Email công việc nâng cao: follow-up, đính kèm, xin lỗi trễ hẹn.</li>
+            <li>Văn hóa công sở Nhật ưu tiên cách diễn đạt gián tiếp, lịch sự.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 48: ACADEMIC VOCABULARY -->
+      <section id="ch48" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">48</span><h2>Academic English — Từ Vựng Học Thuật</h2></div>
+        <div class="chapter-sub">Academic Word List — vốn từ bắt buộc cho luận văn, báo cáo, bài thi IELTS Academic.</div>
+
+        <div class="section-block">
+          <h3>48.1 Vì sao cần học từ vựng học thuật riêng?</h3>
+          <p>
+            Văn phong học thuật đòi hỏi <b>tính khách quan, trang trọng, và chính xác</b> hơn nhiều so với giao tiếp
+            hàng ngày. Nhiều từ thông dụng cần được thay bằng từ học thuật tương đương:
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Từ thông dụng</th><th>Từ học thuật tương đương</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">show</td><td class="mono">demonstrate, indicate, illustrate</td></tr>
+                <tr><td class="mono">big</td><td class="mono">significant, substantial, considerable</td></tr>
+                <tr><td class="mono">get</td><td class="mono">obtain, acquire, gain</td></tr>
+                <tr><td class="mono">a lot of</td><td class="mono">numerous, a substantial amount of</td></tr>
+                <tr><td class="mono">because</td><td class="mono">due to, owing to, as a result of</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="accordion open">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>48.2 20 từ vựng học thuật thiết yếu (Academic Word List)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body" style="max-height:900px;">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">analyze</div><div class="vc-vi">phân tích</div></div>
+              <div class="vocab-card"><div class="vc-en">approach</div><div class="vc-vi">cách tiếp cận</div></div>
+              <div class="vocab-card"><div class="vc-en">concept</div><div class="vc-vi">khái niệm</div></div>
+              <div class="vocab-card"><div class="vc-en">criteria</div><div class="vc-vi">tiêu chí</div></div>
+              <div class="vocab-card"><div class="vc-en">data</div><div class="vc-vi">dữ liệu</div></div>
+              <div class="vocab-card"><div class="vc-en">evaluate</div><div class="vc-vi">đánh giá</div></div>
+              <div class="vocab-card"><div class="vc-en">factor</div><div class="vc-vi">yếu tố</div></div>
+              <div class="vocab-card"><div class="vc-en">hypothesis</div><div class="vc-vi">giả thuyết</div></div>
+              <div class="vocab-card"><div class="vc-en">methodology</div><div class="vc-vi">phương pháp luận</div></div>
+              <div class="vocab-card"><div class="vc-en">significant</div><div class="vc-vi">đáng kể, quan trọng</div></div>
+              <div class="vocab-card"><div class="vc-en">subsequent</div><div class="vc-vi">sau đó, tiếp theo</div></div>
+              <div class="vocab-card"><div class="vc-en">variable</div><div class="vc-vi">biến số</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">This study aims to analyze the significant factors that influence student performance in online learning environments.</div>
+          <div class="ex-line ex-vi">→ Câu văn học thuật sử dụng "analyze", "significant factors", "influence" thay vì các từ thông dụng đơn giản.</div>
+        </div>
+
+        <h3>48.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Thay từ "big" bằng từ học thuật trong câu: "There was a big increase in sales."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "There was a significant/substantial increase in sales."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Đặt câu học thuật dùng từ "hypothesis" và "data".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "The data collected did not fully support the initial hypothesis."</div>
+        </div>
+
+        <h3>48.4 Quiz trắc nghiệm — Chương 48</h3>
+        <div class="quiz-box" id="quiz48"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 48</h3>
+          <ul>
+            <li>Văn phong học thuật cần từ vựng trang trọng, chính xác hơn giao tiếp thường ngày.</li>
+            <li>Ghi nhớ các cặp từ thay thế: show→demonstrate, big→significant, get→obtain...</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 49: ACADEMIC PRESENTING & CITATIONS -->
+      <section id="ch49" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">49</span><h2>Academic English — Trình Bày &amp; Trích Dẫn</h2></div>
+        <div class="chapter-sub">Cách trình bày báo cáo khoa học và trích dẫn nguồn đúng chuẩn học thuật.</div>
+
+        <div class="section-block">
+          <h3>49.1 Cấu trúc báo cáo/luận văn khoa học chuẩn</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Phần</th><th>Nội dung</th></tr></thead>
+              <tbody>
+                <tr><td>Abstract</td><td>Tóm tắt ngắn gọn toàn bộ nghiên cứu (mục tiêu, phương pháp, kết quả chính)</td></tr>
+                <tr><td>Introduction</td><td>Giới thiệu vấn đề, mục tiêu nghiên cứu</td></tr>
+                <tr><td>Literature Review</td><td>Tổng quan các nghiên cứu liên quan trước đó</td></tr>
+                <tr><td>Methodology</td><td>Mô tả phương pháp thực hiện nghiên cứu</td></tr>
+                <tr><td>Results</td><td>Trình bày kết quả thu được (số liệu, biểu đồ)</td></tr>
+                <tr><td>Discussion</td><td>Phân tích, lý giải ý nghĩa của kết quả</td></tr>
+                <tr><td>Conclusion</td><td>Kết luận, hạn chế của nghiên cứu, hướng phát triển</td></tr>
+                <tr><td>References</td><td>Danh sách tài liệu tham khảo</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>49.2 Cụm từ chuyển ý học thuật (Academic Transitions)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">As mentioned above... / It is important to note that... / This finding is consistent with previous research by... / However, further research is needed to confirm...</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>49.3 Trích dẫn nguồn (Citations) — nguyên lý cơ bản</h3>
+          <p>
+            Khi tham khảo ý tưởng/số liệu từ nguồn khác, luôn phải trích dẫn để tránh đạo văn (plagiarism).
+            Hai cách trích dẫn phổ biến:
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Kiểu</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Trích dẫn trực tiếp (Direct quote)</td><td class="mono">According to Smith (2020), "climate change is the defining issue of our generation" (p. 15).</td></tr>
+                <tr><td>Diễn giải (Paraphrase)</td><td class="mono">Smith (2020) argues that climate change is the most critical challenge facing the current generation.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning</div>
+            Đạo văn (plagiarism) — sử dụng ý tưởng/câu chữ của người khác mà không trích dẫn nguồn — là lỗi nghiêm
+            trọng trong môi trường học thuật quốc tế, có thể dẫn đến việc bị đánh trượt hoặc kỷ luật.
+          </div>
+        </div>
+
+        <h3>49.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Sắp xếp đúng thứ tự các phần của một báo cáo khoa học: Results, Introduction, Methodology, Conclusion.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Introduction → Methodology → Results → Conclusion.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết một câu diễn giải (paraphrase) cho ý tưởng: "AI is transforming the way people work" (giả sử của tác giả Nguyen, 2024).</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Nguyen (2024) suggests that artificial intelligence is fundamentally changing how people approach their work."</div>
+        </div>
+
+        <h3>49.5 Quiz trắc nghiệm — Chương 49</h3>
+        <div class="quiz-box" id="quiz49"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 49</h3>
+          <ul>
+            <li>Báo cáo khoa học chuẩn: Abstract → Introduction → Literature Review → Methodology → Results → Discussion → Conclusion → References.</li>
+            <li>Luôn trích dẫn nguồn khi tham khảo ý tưởng/số liệu để tránh đạo văn.</li>
+            <li>2 kiểu trích dẫn: trực tiếp (quote) và diễn giải (paraphrase).</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 9</div>
+          Bạn đã trang bị Business English và Academic English! Gõ <b>"Tiếp tục"</b> để nhận
+          <b>Phần 10: TOEIC &amp; IELTS Chuyên Sâu</b>.
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz46: [
+    {q:"Câu nào dùng để bắt đầu cuộc họp?", opts:["Let's wrap up.","Let's get started.","Thank you for your attention.","That sounds reasonable."], correct:1},
+    {q:"Câu nào dùng để chuyển sang phần tiếp theo trong thuyết trình?", opts:["Let's move on to the next point.","I'm afraid that won't work.","Let's meet in the middle.","Please find attached."], correct:0},
+    {q:"Câu nào phù hợp để kết thúc thuyết trình?", opts:["Let's get started.","To sum up, thank you for your attention.","What are your thoughts?","Sorry to interrupt."], correct:1}
+  ],
+  quiz47: [
+    {q:"Câu nào dùng để từ chối lịch sự?", opts:["I'm afraid that won't work for us.","Let's get started.","That sounds great!","I'll take it."], correct:0},
+    {q:"Văn hóa công sở Nhật ưu tiên cách giao tiếp như thế nào?", opts:["Trực tiếp, thẳng thắn","Gián tiếp, lịch sự","Không quan trọng","Chỉ dùng email"], correct:1},
+    {q:"'Please find attached' thường dùng khi nào?", opts:["Khi từ chối","Khi đính kèm tài liệu","Khi xin lỗi","Khi kết thúc họp"], correct:1}
+  ],
+  quiz48: [
+    {q:"Từ học thuật nào thay thế cho 'big'?", opts:["huge","significant","large","great"], correct:1},
+    {q:"'obtain' là từ học thuật thay thế cho từ nào?", opts:["get","give","take","make"], correct:0},
+    {q:"'hypothesis' nghĩa là gì?", opts:["dữ liệu","giả thuyết","kết luận","phương pháp"], correct:1}
+  ],
+  quiz49: [
+    {q:"Phần nào đứng đầu tiên trong báo cáo khoa học?", opts:["Conclusion","Abstract/Introduction","References","Discussion"], correct:1},
+    {q:"Trích dẫn trực tiếp (direct quote) là gì?", opts:["Diễn giải ý tưởng bằng lời văn riêng","Trích nguyên văn câu chữ của tác giả gốc","Không cần trích dẫn nguồn","Chỉ dùng trong email"], correct:1},
+    {q:"Đạo văn (plagiarism) là gì?", opts:["Trích dẫn nguồn đầy đủ","Sử dụng ý tưởng người khác mà không trích dẫn","Viết bài dài","Không liên quan gì"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container) return;
+  let score = 0; let answered = 0;
+  data.forEach((item, qi)=>{
+    const qDiv = document.createElement('div');
+    qDiv.className='quiz-q';
+    qDiv.innerHTML = `<p>Câu ${qi+1}. ${item.q}</p>`;
+    const optsDiv = document.createElement('div');
+    optsDiv.className='quiz-opts';
+    item.opts.forEach((opt, oi)=>{
+      const b = document.createElement('button');
+      b.className='quiz-opt';
+      b.textContent = opt;
+      b.onclick = ()=>{
+        if(b.dataset.locked) return;
+        [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+        if(oi === item.correct){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
+        answered++;
+        updateScore();
+      };
+      optsDiv.appendChild(b);
+    });
+    qDiv.appendChild(optsDiv);
+    container.appendChild(qDiv);
+  });
+  const scoreEl = document.createElement('div');
+  scoreEl.className='quiz-score';
+  container.appendChild(scoreEl);
+  function updateScore(){
+    scoreEl.textContent = `Điểm hiện tại: ${score}/${data.length} (${answered}/${data.length} câu đã trả lời)`;
+  }
+  updateScore();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

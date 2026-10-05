@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 2: Từ Vựng Chủ Đề & Ngữ Pháp Cơ Bản</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08); --sidebar-w: 290px;
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .ipa, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.app{display:flex; min-height:100vh;}
+.sidebar{width:var(--sidebar-w); flex-shrink:0; background:var(--ink); color:#EDEFF4; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; padding:24px 18px 40px; z-index:900; transition:transform .3s ease;}
+.sidebar::-webkit-scrollbar{width:6px;} .sidebar::-webkit-scrollbar-thumb{background:var(--teal-dark); border-radius:3px;}
+.brand{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+.brand h1{font-size:1.05rem; color:#fff; margin:0; line-height:1.25;}
+.brand small{display:block; color:var(--amber); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; margin-top:2px;}
+.sidebar-meter{margin:18px 0 22px; padding:12px; background:rgba(255,255,255,0.05); border-radius:10px;}
+.sidebar-meter .label{font-size:.72rem; color:#B7C2D6; margin-bottom:6px; display:flex; justify-content:space-between;}
+.meter-track{height:6px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;}
+.meter-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:4px; transition:width .2s ease;}
+.toc-group{margin-bottom:4px;}
+.toc-title{font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:#8496B4; margin:18px 0 8px;}
+.toc-link{display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; color:#CBD5E6; text-decoration:none; font-size:.86rem; margin-bottom:2px; transition:background .2s, color .2s;}
+.toc-link:hover{background:rgba(255,255,255,0.07); color:#fff;}
+.toc-link.active{background:var(--teal-dark); color:#fff; font-weight:600;}
+.toc-num{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--amber); width:20px;}
+.main{margin-left:var(--sidebar-w); flex:1; min-width:0;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.topbar-title{font-size:.85rem; color:var(--text-soft); font-weight:500;}
+.controls{display:flex; gap:10px; align-items:center;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{padding:36px 48px 100px; max-width:920px;}
+.hero{padding:38px 34px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:40px; box-shadow:var(--shadow); position:relative; overflow:hidden;}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.1rem; margin:10px 0 14px;}
+.hero p{color:#C9D3E4; line-height:1.7; max-width:680px; font-size:.98rem;}
+.hero .waveform{margin-top:18px;}
+.roadmap{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:24px;}
+.roadmap .rm-item{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:12px 14px;}
+.roadmap .rm-item b{color:var(--amber); font-size:.72rem; text-transform:uppercase; letter-spacing:.06em;}
+.roadmap .rm-item div{font-size:.86rem; color:#E4E9F2; margin-top:4px;}
+section.chapter{margin-bottom:56px; scroll-margin-top:90px;}
+.chapter-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px;}
+.chapter-head .num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:1rem; font-weight:700;}
+.chapter-head h2{margin:0; font-size:1.6rem;}
+.chapter-sub{color:var(--text-soft); margin-bottom:22px; font-size:.95rem;}
+p{line-height:1.75; font-size:.98rem;}
+.section-block{margin:20px 0;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid; font-size:.92rem; line-height:1.65;}
+.box .box-title{font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:.86rem; text-transform:uppercase; letter-spacing:.04em;}
+.box.note{background:rgba(47,143,134,0.08); border-color:var(--teal);} .box.note .box-title{color:var(--teal-dark);}
+.box.tip{background:rgba(217,164,65,0.1); border-color:var(--amber);} .box.tip .box-title{color:#A3781F;}
+[data-theme="dark"] .box.tip .box-title{color:var(--amber);}
+.box.warning{background:rgba(226,96,79,0.08); border-color:var(--coral);} .box.warning .box-title{color:var(--coral);}
+.box.important{background:rgba(22,36,61,0.06); border-color:var(--ink);}
+[data-theme="dark"] .box.important{background:rgba(255,255,255,0.05);}
+.box.important .box-title{color:var(--ink);}
+[data-theme="dark"] .box.important .box-title{color:var(--text);}
+.table-wrap{overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px;}
+table{border-collapse:collapse; width:100%; font-size:.9rem;}
+th,td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--line);}
+th{background:var(--paper-2); color:var(--ink); font-family:'Fraunces',serif; font-weight:600;}
+[data-theme="dark"] th{color:var(--text);}
+tr:last-child td{border-bottom:none;}
+td .ipa{color:var(--teal-dark); font-weight:600;}
+.example-block{background:var(--ink); color:#EAF0F8; border-radius:12px; padding:16px 18px; margin:16px 0; position:relative; font-size:.9rem; line-height:1.7;}
+.example-block .copy-btn{position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.1); color:#fff; border:none; padding:5px 10px; border-radius:6px; font-size:.72rem; cursor:pointer; transition:background .2s;}
+.example-block .copy-btn:hover{background:var(--teal);}
+.example-block .ex-line{margin-bottom:6px;}
+.example-block .ex-en{color:#fff;}
+.example-block .ex-vi{color:#9FB0C8; font-size:.85rem;}
+.accordion{border:1px solid var(--line); border-radius:12px; margin:14px 0; overflow:hidden; background:var(--paper-2);}
+.acc-head{padding:14px 18px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-family:'Fraunces',serif; font-size:1rem;}
+.acc-head:hover{background:rgba(47,143,134,0.08);}
+.acc-icon{transition:transform .25s ease; color:var(--teal-dark); font-size:1.1rem;}
+.accordion.open .acc-icon{transform:rotate(45deg);}
+.acc-body{max-height:0; overflow:hidden; transition:max-height .35s ease; padding:0 18px;}
+.accordion.open .acc-body{padding:4px 18px 18px;}
+.ex-item{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px;}
+.ex-item .q{font-weight:600; margin-bottom:6px;}
+.ex-answer{display:none; margin-top:8px; padding:10px 12px; background:rgba(47,143,134,0.1); border-radius:8px; font-size:.88rem;}
+.ex-answer.show{display:block;}
+.reveal-btn{border:1px solid var(--teal); color:var(--teal-dark); background:transparent; padding:5px 12px; border-radius:8px; font-size:.8rem; cursor:pointer; transition:.2s;}
+.reveal-btn:hover{background:var(--teal); color:#fff;}
+.quiz-box{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:20px; margin:16px 0;}
+.quiz-q{margin-bottom:14px; padding-bottom:14px; border-bottom:1px dashed var(--line);}
+.quiz-q:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+.quiz-q p{font-weight:600; margin:0 0 8px;}
+.quiz-opts{display:grid; gap:8px;}
+.quiz-opt{border:1px solid var(--line); background:var(--paper); padding:9px 14px; border-radius:8px; cursor:pointer; font-size:.9rem; transition:.15s;}
+.quiz-opt:hover{border-color:var(--teal);}
+.quiz-opt.correct{background:rgba(47,143,134,0.18); border-color:var(--teal); font-weight:600;}
+.quiz-opt.wrong{background:rgba(226,96,79,0.18); border-color:var(--coral);}
+.quiz-score{margin-top:14px; font-weight:600; color:var(--teal-dark);}
+.summary-card{background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:#fff; border-radius:14px; padding:22px 24px; margin-top:24px;}
+.summary-card h3{color:#fff; margin-top:0;}
+.summary-card ul{margin:8px 0 0; padding-left:20px; line-height:1.8;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900; transition:transform .2s ease, background .2s;}
+#toTop:hover{background:var(--teal-dark); transform:translateY(-3px);}
+.fade-in{animation:fadeIn .6s ease both;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+.badge{display:inline-block; background:var(--paper-2); border:1px solid var(--line); color:var(--text-soft); font-size:.72rem; padding:3px 9px; border-radius:20px; margin-right:6px;}
+.menu-toggle{display:none;}
+.vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; margin:14px 0;}
+.vocab-card{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px;}
+.vocab-card .vc-en{font-weight:700; font-family:'Fraunces',serif; font-size:1.02rem;}
+.vocab-card .vc-ipa{color:var(--teal-dark); font-family:'JetBrains Mono',monospace; font-size:.78rem;}
+.vocab-card .vc-vi{color:var(--text-soft); font-size:.85rem; margin-top:2px;}
+@media (max-width: 980px){
+  .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;} .menu-toggle{display:flex;} .content{padding:28px 20px 100px;}
+}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 2</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 2</a>
+      <a class="toc-link" href="#ch5"><span class="toc-num">05</span> Từ loại (Parts of Speech)</a>
+      <a class="toc-link" href="#ch6"><span class="toc-num">06</span> Danh từ (Nouns)</a>
+      <a class="toc-link" href="#ch7"><span class="toc-num">07</span> Mạo từ (Articles)</a>
+      <a class="toc-link" href="#ch8"><span class="toc-num">08</span> Đại từ (Pronouns)</a>
+      <a class="toc-link" href="#ch9"><span class="toc-num">09</span> Tính từ &amp; Trạng từ</a>
+      <a class="toc-link" href="#ch10"><span class="toc-num">10</span> Giới từ (Prepositions)</a>
+      <a class="toc-link" href="#ch11"><span class="toc-num">11</span> Cấu trúc câu cơ bản</a>
+      <a class="toc-link" href="#ch12"><span class="toc-num">12</span> Từ vựng theo chủ đề</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Đã học</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 1 · Nền tảng âm thanh ✓</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Sắp tới (gõ "Tiếp tục")</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 3 · Các thì (Tenses)</a>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 4 · Modal Verbs &amp; Câu điều kiện</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 2 / Từ vựng &amp; Ngữ pháp cơ bản</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần 2 / N</span>
+          <h1>Từ Vựng Theo Chủ Đề &amp; Ngữ Pháp Cơ Bản</h1>
+          <p>
+            Sau khi vững nền tảng âm thanh ở Phần 1, giờ là lúc xây dựng "khung xương" của câu tiếng Anh: <b>từ loại</b>,
+            <b>danh từ</b>, <b>mạo từ</b>, <b>đại từ</b>, <b>tính từ – trạng từ</b>, <b>giới từ</b>, và <b>cấu trúc câu cơ bản</b>
+            (câu khẳng định – phủ định – nghi vấn với "to be" và "there is/are"). Cuối phần, bạn sẽ có một kho
+            <b>từ vựng theo 10 chủ đề thiết yếu</b> (gia đình, số đếm, màu sắc, thời gian, đồ vật, nghề nghiệp, thức ăn,
+            địa điểm, thời tiết, cảm xúc) để bắt đầu giao tiếp ngay.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 05</b><div>Từ loại — 8 loại từ nền tảng trong câu tiếng Anh</div></div>
+            <div class="rm-item"><b>Chương 06</b><div>Danh từ — đếm được/không đếm được, số nhiều, sở hữu cách</div></div>
+            <div class="rm-item"><b>Chương 07</b><div>Mạo từ — a/an/the và khi nào không dùng mạo từ</div></div>
+            <div class="rm-item"><b>Chương 08</b><div>Đại từ — chủ ngữ, tân ngữ, sở hữu, phản thân</div></div>
+            <div class="rm-item"><b>Chương 09</b><div>Tính từ &amp; Trạng từ — vị trí, thứ tự, so sánh cơ bản</div></div>
+            <div class="rm-item"><b>Chương 10</b><div>Giới từ — thời gian, nơi chốn, chuyển động</div></div>
+            <div class="rm-item"><b>Chương 11</b><div>Cấu trúc câu — to be, there is/are, câu hỏi cơ bản</div></div>
+            <div class="rm-item"><b>Chương 12</b><div>Từ vựng — 10 chủ đề với bảng từ + IPA + ví dụ</div></div>
+          </div>
+        </div>
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Ngữ pháp trong phần này là <b>nền móng bắt buộc</b> trước khi học Thì (Tenses) ở Phần 3. Đừng bỏ qua phần
+          "Cấu trúc câu cơ bản" — đây là khuôn mẫu bạn sẽ dùng lại ở mọi thì trong tiếng Anh.
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 5: PARTS OF SPEECH -->
+      <section id="ch5" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">05</span><h2>Từ Loại (Parts of Speech)</h2></div>
+        <div class="chapter-sub">8 loại từ nền tảng — biết phân loại từ giúp bạn hiểu cấu trúc câu nhanh hơn gấp nhiều lần.</div>
+
+        <div class="section-block">
+          <h3>5.1 Lý thuyết tổng quan</h3>
+          <p>
+            Mọi từ trong câu tiếng Anh đều thuộc một trong <b>8 từ loại (parts of speech)</b>. Hiểu từ loại giúp bạn
+            biết một từ đóng vai trò gì trong câu, từ đó chia đúng thì, đặt đúng vị trí, và tránh lỗi ngữ pháp cơ bản.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Từ loại</th><th>Chức năng</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td><b>Noun</b> (Danh từ)</td><td>Chỉ người, vật, sự việc, khái niệm</td><td class="mono">student, book, happiness</td></tr>
+                <tr><td><b>Verb</b> (Động từ)</td><td>Chỉ hành động, trạng thái</td><td class="mono">run, study, be, seem</td></tr>
+                <tr><td><b>Adjective</b> (Tính từ)</td><td>Miêu tả danh từ</td><td class="mono">beautiful, tall, happy</td></tr>
+                <tr><td><b>Adverb</b> (Trạng từ)</td><td>Bổ nghĩa cho động từ, tính từ, cả câu</td><td class="mono">quickly, very, often</td></tr>
+                <tr><td><b>Pronoun</b> (Đại từ)</td><td>Thay thế danh từ</td><td class="mono">he, she, it, they, this</td></tr>
+                <tr><td><b>Preposition</b> (Giới từ)</td><td>Chỉ mối quan hệ vị trí, thời gian</td><td class="mono">in, on, at, under, before</td></tr>
+                <tr><td><b>Conjunction</b> (Liên từ)</td><td>Nối từ, cụm từ, mệnh đề</td><td class="mono">and, but, or, because</td></tr>
+                <tr><td><b>Interjection</b> (Thán từ)</td><td>Biểu lộ cảm xúc</td><td class="mono">Wow!, Oh!, Ouch!</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box note">
+            <div class="box-title">📝 Note</div>
+            <b>Article (mạo từ)</b> — a, an, the — đôi khi được xếp là từ loại thứ 9, hoặc được coi là một loại
+            "determiner" đặc biệt. Chúng ta sẽ học riêng ở Chương 7 vì đây là điểm người Việt hay sai nhất.
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">The (article) smart (adj) student (noun) quickly (adv) finished (verb) her (pronoun) homework (noun) and (conj) said (verb), "Wow!" (interjection)</div>
+          <div class="ex-line ex-vi">→ Một câu có thể chứa gần như đủ 8 từ loại — hãy tập nhận diện từng từ thuộc loại nào.</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Cùng một từ có thể thuộc nhiều từ loại khác nhau tùy ngữ cảnh: <i>"I <b>work</b> hard"</i> (verb) vs
+          <i>"I have a lot of <b>work</b>"</i> (noun). Luôn xác định từ loại dựa trên <b>vai trò trong câu</b>, không dựa vào mặt chữ.
+        </div>
+
+        <h3>5.2 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Xác định từ loại của từ in đậm: "She sings <b>beautifully</b>."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Adverb (trạng từ) — bổ nghĩa cho động từ "sings".</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Trong câu "I need some <b>water</b>", từ "water" là danh từ hay động từ?</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Danh từ (noun) — chỉ vật thể/chất lỏng.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Từ "and" trong câu "I like tea and coffee" thuộc từ loại nào?</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Conjunction (liên từ) — nối hai danh từ "tea" và "coffee".</div>
+        </div>
+
+        <h3>5.3 Quiz trắc nghiệm — Chương 5</h3>
+        <div class="quiz-box" id="quiz5"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 5</h3>
+          <ul>
+            <li>8 từ loại chính: Noun, Verb, Adjective, Adverb, Pronoun, Preposition, Conjunction, Interjection.</li>
+            <li>Một từ có thể thuộc nhiều từ loại tùy vai trò trong câu.</li>
+            <li>Xác định đúng từ loại giúp chia thì và đặt câu chính xác hơn.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 6: NOUNS -->
+      <section id="ch6" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">06</span><h2>Danh Từ (Nouns)</h2></div>
+        <div class="chapter-sub">Đếm được / không đếm được, số nhiều, sở hữu cách — nền tảng cho mọi câu.</div>
+
+        <div class="section-block">
+          <h3>6.1 Phân loại danh từ</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Loại</th><th>Định nghĩa</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Danh từ đếm được (Countable)</td><td>Đếm được số lượng cụ thể, có số ít/số nhiều</td><td class="mono">a book → two books</td></tr>
+                <tr><td>Danh từ không đếm được (Uncountable)</td><td>Không đếm trực tiếp, không có số nhiều</td><td class="mono">water, rice, information, advice</td></tr>
+                <tr><td>Danh từ riêng (Proper noun)</td><td>Tên riêng, luôn viết hoa</td><td class="mono">Vietnam, John, Monday</td></tr>
+                <tr><td>Danh từ chung (Common noun)</td><td>Tên chung của sự vật</td><td class="mono">city, boy, day</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning</div>
+            Người Việt hay sai với danh từ không đếm được vì trong tiếng Việt hầu như mọi thứ đều "đếm được" qua loại từ
+            (một cái bàn, hai ly nước). Nhớ: <i>information, advice, furniture, news, homework</i> KHÔNG có dạng số nhiều
+            (không có "informations" hay "advices").
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>6.2 Quy tắc thêm -s/-es tạo số nhiều</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Quy tắc</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Thông thường: thêm -s</td><td class="mono">book → books, cat → cats</td></tr>
+                <tr><td>Kết thúc -s, -ss, -sh, -ch, -x, -z: thêm -es</td><td class="mono">bus → buses, box → boxes, watch → watches</td></tr>
+                <tr><td>Kết thúc phụ âm + y: đổi y → i, thêm -es</td><td class="mono">city → cities, baby → babies</td></tr>
+                <tr><td>Kết thúc nguyên âm + y: thêm -s</td><td class="mono">boy → boys, day → days</td></tr>
+                <tr><td>Kết thúc -f/-fe: đổi thành -ves</td><td class="mono">leaf → leaves, knife → knives</td></tr>
+                <tr><td>Kết thúc -o: thêm -es (một số từ)</td><td class="mono">tomato → tomatoes, potato → potatoes</td></tr>
+                <tr><td>Bất quy tắc (irregular)</td><td class="mono">man → men, child → children, foot → feet, mouse → mice</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>6.3 Sở hữu cách (Possessive Case)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">Huy's book (số ít, thêm 's) — the students' books (số nhiều kết thúc s, chỉ thêm ') — the children's toys (số nhiều bất quy tắc, thêm 's)</div>
+            <div class="ex-line ex-vi">→ Quy tắc: danh từ số ít hoặc số nhiều bất quy tắc thêm 's; danh từ số nhiều có sẵn -s chỉ thêm dấu nháy đơn (').</div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>6.4 Danh từ không đếm được phổ biến cần ghi nhớ</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">information</div><div class="vc-ipa">/ˌɪnfərˈmeɪʃn/</div><div class="vc-vi">thông tin</div></div>
+              <div class="vocab-card"><div class="vc-en">advice</div><div class="vc-ipa">/ədˈvaɪs/</div><div class="vc-vi">lời khuyên</div></div>
+              <div class="vocab-card"><div class="vc-en">furniture</div><div class="vc-ipa">/ˈfɜːrnɪtʃər/</div><div class="vc-vi">đồ nội thất</div></div>
+              <div class="vocab-card"><div class="vc-en">news</div><div class="vc-ipa">/nuːz/</div><div class="vc-vi">tin tức</div></div>
+              <div class="vocab-card"><div class="vc-en">homework</div><div class="vc-ipa">/ˈhoʊmwɜːrk/</div><div class="vc-vi">bài tập về nhà</div></div>
+              <div class="vocab-card"><div class="vc-en">luggage</div><div class="vc-ipa">/ˈlʌɡɪdʒ/</div><div class="vc-vi">hành lý</div></div>
+              <div class="vocab-card"><div class="vc-en">money</div><div class="vc-ipa">/ˈmʌni/</div><div class="vc-vi">tiền</div></div>
+              <div class="vocab-card"><div class="vc-en">traffic</div><div class="vc-ipa">/ˈtræfɪk/</div><div class="vc-vi">giao thông</div></div>
+            </div>
+            <p style="margin-top:10px;">Muốn đếm số lượng danh từ không đếm được, dùng cụm từ định lượng: <span class="mono">a piece of advice, a cup of water, a bit of information</span>.</p>
+          </div>
+        </div>
+
+        <h3>6.5 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Viết số nhiều của "knife", "city", "child".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ knives, cities, children</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Sửa lỗi: "I need some informations about the course."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "I need some information about the course." — "information" không đếm được, không thêm -s.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Viết đúng sở hữu cách: "the toys of the children" → ?</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "the children's toys"</div>
+        </div>
+
+        <h3>6.6 Quiz trắc nghiệm — Chương 6</h3>
+        <div class="quiz-box" id="quiz6"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 6</h3>
+          <ul>
+            <li>Phân biệt danh từ đếm được và không đếm được — không thêm -s cho danh từ không đếm được.</li>
+            <li>Nắm các quy tắc thêm -s/-es và các trường hợp bất quy tắc phổ biến.</li>
+            <li>Sở hữu cách: 's cho số ít/bất quy tắc, ' cho số nhiều có -s sẵn.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 7: ARTICLES -->
+      <section id="ch7" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">07</span><h2>Mạo Từ (Articles: a / an / the)</h2></div>
+        <div class="chapter-sub">Điểm ngữ pháp người Việt sai nhiều nhất vì tiếng Việt không có mạo từ.</div>
+
+        <div class="section-block">
+          <h3>7.1 Mạo từ không xác định: a / an</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Quy tắc</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Dùng "a" trước từ bắt đầu bằng <b>âm phụ âm</b></td><td class="mono">a book, a university (âm /j/), a car</td></tr>
+                <tr><td>Dùng "an" trước từ bắt đầu bằng <b>âm nguyên âm</b></td><td class="mono">an apple, an hour (âm /aʊ/, "h" câm), an umbrella</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box important">
+            <div class="box-title">📌 Important</div>
+            Quy tắc dựa trên <b>ÂM ĐỌC</b>, không dựa trên chữ cái viết! Đó là lý do "an hour" (h câm → âm /aʊ/) nhưng
+            "a university" (âm /j/ dù bắt đầu bằng nguyên âm "u").
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>7.2 Mạo từ xác định: the</h3>
+          <ul>
+            <li>Dùng khi người nghe/đọc đã biết rõ vật/người được nhắc đến: <span class="mono">The book on the table is mine.</span></li>
+            <li>Dùng khi nhắc lại một danh từ đã đề cập trước đó: <span class="mono">I saw a dog. The dog was brown.</span></li>
+            <li>Dùng với vật thể duy nhất: <span class="mono">the sun, the moon, the Internet</span></li>
+            <li>Dùng với tên sông, biển, quần đảo, tên nước số nhiều: <span class="mono">the Mekong River, the Philippines</span></li>
+          </ul>
+        </div>
+
+        <div class="section-block">
+          <h3>7.3 Khi nào KHÔNG dùng mạo từ (Zero Article)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Trường hợp</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Danh từ số nhiều chung chung</td><td class="mono">Dogs are loyal animals. (không phải "The dogs")</td></tr>
+                <tr><td>Danh từ không đếm được chung chung</td><td class="mono">Water is essential for life.</td></tr>
+                <tr><td>Tên riêng (người, hầu hết quốc gia, thành phố)</td><td class="mono">Vietnam, Hanoi, Japan, Huy</td></tr>
+                <tr><td>Bữa ăn, môn thể thao, ngôn ngữ (khi nói chung)</td><td class="mono">have breakfast, play football, speak English</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">I bought a book yesterday. The book is very interesting. I read books every day.</div>
+          <div class="ex-line ex-vi">→ "a book" (lần đầu nhắc, chưa xác định) → "The book" (đã xác định, nhắc lại) → "books" (chung chung, không mạo từ).</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip — Mẹo ghi nhớ</div>
+          Hỏi bản thân: "Người nghe có biết chính xác tôi đang nói về CÁI GÌ không?" — Nếu CÓ → dùng "the". Nếu chỉ là
+          MỘT trong nhiều cái, chưa xác định → dùng "a/an". Nếu nói CHUNG CHUNG, không cụ thể → không dùng mạo từ.
+        </div>
+
+        <h3>7.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Điền a/an/the hoặc để trống: "She wants to be ___ doctor in ___ future."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "a doctor" (chưa xác định cụ thể là ai) / "the future" (khái niệm xác định, cách nói cố định "in the future").</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chọn đúng: "___ hour" hay "a hour"?</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "an hour" — vì "h" câm, âm bắt đầu là nguyên âm /aʊ/.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Sửa lỗi: "The Vietnam is a beautiful country."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Vietnam is a beautiful country." — tên quốc gia số ít không dùng "the".</div>
+        </div>
+
+        <h3>7.5 Quiz trắc nghiệm — Chương 7</h3>
+        <div class="quiz-box" id="quiz7"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 7</h3>
+          <ul>
+            <li>a/an dựa vào ÂM ĐỌC, không dựa vào chữ cái.</li>
+            <li>"the" dùng khi vật/người đã xác định hoặc duy nhất.</li>
+            <li>Không dùng mạo từ với danh từ số nhiều/không đếm được nói chung, và hầu hết tên riêng.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 8: PRONOUNS -->
+      <section id="ch8" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">08</span><h2>Đại Từ (Pronouns)</h2></div>
+        <div class="chapter-sub">Thay thế danh từ để câu văn không lặp lại rườm rà.</div>
+
+        <div class="section-block">
+          <h3>8.1 Bảng đại từ đầy đủ</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Chủ ngữ<br>(Subject)</th><th>Tân ngữ<br>(Object)</th><th>Sở hữu tính từ<br>(Possessive Adj.)</th><th>Sở hữu đại từ<br>(Possessive Pronoun)</th><th>Phản thân<br>(Reflexive)</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">I</td><td class="mono">me</td><td class="mono">my</td><td class="mono">mine</td><td class="mono">myself</td></tr>
+                <tr><td class="mono">you</td><td class="mono">you</td><td class="mono">your</td><td class="mono">yours</td><td class="mono">yourself</td></tr>
+                <tr><td class="mono">he</td><td class="mono">him</td><td class="mono">his</td><td class="mono">his</td><td class="mono">himself</td></tr>
+                <tr><td class="mono">she</td><td class="mono">her</td><td class="mono">her</td><td class="mono">hers</td><td class="mono">herself</td></tr>
+                <tr><td class="mono">it</td><td class="mono">it</td><td class="mono">its</td><td class="mono">—</td><td class="mono">itself</td></tr>
+                <tr><td class="mono">we</td><td class="mono">us</td><td class="mono">our</td><td class="mono">ours</td><td class="mono">ourselves</td></tr>
+                <tr><td class="mono">they</td><td class="mono">them</td><td class="mono">their</td><td class="mono">theirs</td><td class="mono">themselves</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box note">
+            <div class="box-title">📝 Note</div>
+            Phân biệt <b>Possessive Adjective</b> (đứng trước danh từ: <i>my book</i>) và <b>Possessive Pronoun</b>
+            (đứng một mình, thay thế cả cụm danh từ: <i>This book is mine</i> = This book is my book).
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Huy loves his job. He does it himself, without help. It is his own choice.</div>
+          <div class="ex-line ex-vi">→ "his" (sở hữu tính từ + job), "He" (chủ ngữ thay cho Huy), "himself" (phản thân), "his" (sở hữu đại từ - "his own choice").</div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>8.2 Đại từ chỉ định &amp; bất định (Demonstrative &amp; Indefinite Pronouns)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <table style="width:100%;">
+              <tr><td class="mono">this / these</td><td>gần, số ít/số nhiều</td><td>This is my pen. These are my books.</td></tr>
+              <tr><td class="mono">that / those</td><td>xa, số ít/số nhiều</td><td>That is her car. Those are her shoes.</td></tr>
+              <tr><td class="mono">someone, something, anybody, nothing</td><td>bất định</td><td>Someone is knocking on the door.</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <h3>8.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Điền đại từ đúng: "___ (Huy and I) are going to the party. They invited ___ (we)."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "We are going to the party. They invited us."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chọn đúng: "This book is (my/mine)."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "mine" — vì đứng một mình, không đứng trước danh từ.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Viết lại câu dùng đại từ phản thân: "I did the project alone, without any help."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "I did the project myself."</div>
+        </div>
+
+        <h3>8.4 Quiz trắc nghiệm — Chương 8</h3>
+        <div class="quiz-box" id="quiz8"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 8</h3>
+          <ul>
+            <li>5 loại đại từ chính: chủ ngữ, tân ngữ, sở hữu tính từ, sở hữu đại từ, phản thân.</li>
+            <li>Possessive Adjective đứng trước danh từ; Possessive Pronoun đứng độc lập.</li>
+            <li>Đại từ chỉ định this/that/these/those phân biệt theo khoảng cách và số lượng.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 9: ADJECTIVES & ADVERBS -->
+      <section id="ch9" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">09</span><h2>Tính Từ &amp; Trạng Từ (Adjectives &amp; Adverbs)</h2></div>
+        <div class="chapter-sub">Miêu tả sự vật, hành động — và học cách so sánh cơ bản.</div>
+
+        <div class="section-block">
+          <h3>9.1 Vị trí của tính từ</h3>
+          <ul>
+            <li>Đứng trước danh từ: <span class="mono">a <b>beautiful</b> girl</span></li>
+            <li>Đứng sau động từ "to be" hoặc động từ liên kết (linking verbs: seem, look, feel...): <span class="mono">She is <b>happy</b>. The soup smells <b>delicious</b>.</span></li>
+          </ul>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning</div>
+            Không thêm "-s" vào tính từ dù danh từ là số nhiều: <span class="mono">beautiful girls</span> (ĐÚNG), không phải
+            "beautifuls girls".
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>9.2 Thứ tự tính từ (Order of Adjectives)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>1. Ý kiến</th><th>2. Kích thước</th><th>3. Tuổi</th><th>4. Hình dạng</th><th>5. Màu sắc</th><th>6. Xuất xứ</th><th>7. Chất liệu</th><th>Danh từ</th></tr></thead>
+              <tbody>
+                <tr><td>lovely</td><td>small</td><td>old</td><td>round</td><td>red</td><td>Vietnamese</td><td>wooden</td><td>table</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">a lovely small old round red Vietnamese wooden table</div>
+            <div class="ex-line ex-vi">→ Trong thực tế ít khi dùng hết 7 tính từ, nhưng khi có 2-3 tính từ, hãy theo đúng thứ tự này.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>9.3 Trạng từ (Adverbs) — cách hình thành và vị trí</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Quy tắc</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Tính từ + ly</td><td class="mono">quick → quickly, careful → carefully</td></tr>
+                <tr><td>Tính từ kết thúc -y: đổi y → i + ly</td><td class="mono">happy → happily, easy → easily</td></tr>
+                <tr><td>Tính từ kết thúc -le: bỏ e, thêm y</td><td class="mono">simple → simply, gentle → gently</td></tr>
+                <tr><td>Bất quy tắc</td><td class="mono">good → well, fast → fast, hard → hard</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>9.4 So sánh hơn &amp; so sánh nhất (cơ bản)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Loại tính từ</th><th>So sánh hơn</th><th>So sánh nhất</th></tr></thead>
+              <tbody>
+                <tr><td>Ngắn (1 âm tiết)</td><td class="mono">tall → taller</td><td class="mono">tall → the tallest</td></tr>
+                <tr><td>Ngắn, kết thúc phụ âm+nguyên âm+phụ âm</td><td class="mono">big → bigger</td><td class="mono">big → the biggest</td></tr>
+                <tr><td>Dài (2+ âm tiết)</td><td class="mono">beautiful → more beautiful</td><td class="mono">beautiful → the most beautiful</td></tr>
+                <tr><td>Bất quy tắc</td><td class="mono">good → better, bad → worse</td><td class="mono">good → the best, bad → the worst</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box note">
+            <div class="box-title">📝 Note</div>
+            Chủ điểm so sánh nâng cao (so sánh bằng, gấp N lần, câu so sánh phức tạp) sẽ được học chi tiết trong
+            phần Ngữ pháp nâng cao ở các Phần sau.
+          </div>
+        </div>
+
+        <h3>9.5 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Sắp xếp đúng thứ tự: "she bought (leather / a / black / new) jacket."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "she bought a new black leather jacket." (tuổi/mới → màu sắc → chất liệu)</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chuyển "careful" thành trạng từ và đặt câu.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "carefully" — "She crosses the street carefully."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. So sánh hơn và so sánh nhất của "good".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ better / the best (bất quy tắc)</div>
+        </div>
+
+        <h3>9.6 Quiz trắc nghiệm — Chương 9</h3>
+        <div class="quiz-box" id="quiz9"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 9</h3>
+          <ul>
+            <li>Tính từ đứng trước danh từ hoặc sau linking verb, không chia số nhiều.</li>
+            <li>Thứ tự tính từ: Ý kiến → Kích thước → Tuổi → Hình dạng → Màu sắc → Xuất xứ → Chất liệu.</li>
+            <li>Trạng từ thường thêm -ly, nhưng có nhiều trường hợp bất quy tắc (good→well).</li>
+            <li>So sánh hơn/nhất: -er/-est cho từ ngắn, more/most cho từ dài.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 10: PREPOSITIONS -->
+      <section id="ch10" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">10</span><h2>Giới Từ (Prepositions)</h2></div>
+        <div class="chapter-sub">Chỉ mối quan hệ thời gian, nơi chốn, chuyển động — nhỏ nhưng gây lỗi nhiều nhất.</div>
+
+        <div class="section-block">
+          <h3>10.1 Giới từ chỉ thời gian (in / on / at)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Giới từ</th><th>Dùng cho</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">at</td><td>giờ cụ thể, một số thời điểm cố định</td><td class="mono">at 7 o'clock, at night, at noon</td></tr>
+                <tr><td class="mono">on</td><td>ngày, ngày trong tuần, ngày lễ cụ thể</td><td class="mono">on Monday, on July 7th, on my birthday</td></tr>
+                <tr><td class="mono">in</td><td>tháng, năm, mùa, buổi (sáng/chiều/tối), khoảng thời gian dài</td><td class="mono">in July, in 2026, in the morning, in summer</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>10.2 Giới từ chỉ nơi chốn (in / on / at)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Giới từ</th><th>Dùng cho</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">at</td><td>một điểm/địa chỉ cụ thể</td><td class="mono">at the bus stop, at 123 Main Street</td></tr>
+                <tr><td class="mono">on</td><td>bề mặt, đường phố</td><td class="mono">on the table, on Nguyen Hue Street</td></tr>
+                <tr><td class="mono">in</td><td>không gian kín, thành phố, quốc gia</td><td class="mono">in the box, in Ho Chi Minh City, in Vietnam</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>10.3 Giới từ chỉ chuyển động (Movement)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">to (đến), from (từ), into (vào trong), out of (ra khỏi), through (xuyên qua), across (băng qua), along (dọc theo), towards (hướng về)</div>
+            <div class="ex-line ex-vi">→ Ví dụ: "She walked into the room and looked through the window towards the garden."</div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>10.4 Cụm giới từ cố định thường gặp (Prepositional Phrases)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <table style="width:100%;">
+              <tr><td class="mono">interested in</td><td>quan tâm đến</td><td>She is interested in music.</td></tr>
+              <tr><td class="mono">good at</td><td>giỏi về</td><td>He is good at math.</td></tr>
+              <tr><td class="mono">afraid of</td><td>sợ</td><td>I am afraid of dogs.</td></tr>
+              <tr><td class="mono">depend on</td><td>phụ thuộc vào</td><td>It depends on the weather.</td></tr>
+              <tr><td class="mono">arrive at/in</td><td>đến (nơi nhỏ/thành phố-quốc gia)</td><td>arrive at the airport / arrive in Japan</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <h3>10.5 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Điền giới từ đúng: "I was born ___ 2004, ___ July, ___ the 7th."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "I was born in 2004, in July, on the 7th."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chọn đúng: "She is good ___ speaking English." (at/in/on)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "at" — cụm cố định "good at doing something".</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Điền giới từ chuyển động: "He walked ___ the tunnel and came out on the other side." (through/across)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "through" — xuyên qua một không gian có 2 đầu (tunnel).</div>
+        </div>
+
+        <h3>10.6 Quiz trắc nghiệm — Chương 10</h3>
+        <div class="quiz-box" id="quiz10"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 10</h3>
+          <ul>
+            <li>in/on/at cho thời gian: at (giờ) → on (ngày) → in (tháng/năm/mùa).</li>
+            <li>in/on/at cho nơi chốn: at (điểm) → on (bề mặt) → in (không gian kín/thành phố/quốc gia).</li>
+            <li>Học các cụm giới từ cố định (collocations) theo cả cụm, không dịch word-by-word từ tiếng Việt.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 11: BASIC SENTENCE STRUCTURE -->
+      <section id="ch11" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">11</span><h2>Cấu Trúc Câu Cơ Bản</h2></div>
+        <div class="chapter-sub">To be, There is/are, và cách đặt câu khẳng định – phủ định – nghi vấn.</div>
+
+        <div class="section-block">
+          <h3>11.1 Trật tự từ cơ bản: S + V + O</h3>
+          <p>Câu tiếng Anh cơ bản theo trật tự <b>Subject (Chủ ngữ) + Verb (Động từ) + Object (Tân ngữ)</b>:</p>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">I (S) + love (V) + English (O).</div>
+            <div class="ex-line ex-vi">→ Khác với tiếng Việt vốn linh hoạt hơn, tiếng Anh gần như luôn giữ trật tự S-V-O này.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>11.2 Động từ "to be" (am/is/are)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Chủ ngữ</th><th>To be</th><th>Câu khẳng định</th><th>Câu phủ định</th><th>Câu hỏi</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">I</td><td class="mono">am</td><td class="mono">I am a student.</td><td class="mono">I am not a student.</td><td class="mono">Am I a student?</td></tr>
+                <tr><td class="mono">He/She/It</td><td class="mono">is</td><td class="mono">She is happy.</td><td class="mono">She is not (isn't) happy.</td><td class="mono">Is she happy?</td></tr>
+                <tr><td class="mono">You/We/They</td><td class="mono">are</td><td class="mono">They are here.</td><td class="mono">They are not (aren't) here.</td><td class="mono">Are they here?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>11.3 There is / There are</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">There is a cat on the sofa. There are three books on the desk. Is there any milk left? There isn't any bread.</div>
+            <div class="ex-line ex-vi">→ "There is" cho danh từ số ít/không đếm được; "There are" cho danh từ số nhiều — dùng để diễn tả sự tồn tại của vật/người.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>11.4 Câu phủ định &amp; câu hỏi với động từ thường (do/does)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Dạng câu</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Khẳng định</td><td class="mono">S + V(s/es) + O</td><td class="mono">She likes coffee.</td></tr>
+                <tr><td>Phủ định</td><td class="mono">S + do/does + not + V(bare) + O</td><td class="mono">She does not (doesn't) like coffee.</td></tr>
+                <tr><td>Nghi vấn</td><td class="mono">Do/Does + S + V(bare) + O?</td><td class="mono">Does she like coffee?</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box important">
+            <div class="box-title">📌 Important</div>
+            Chi tiết đầy đủ về chia động từ theo các Thì (hiện tại đơn, quá khứ đơn, tương lai...) sẽ được học chuyên sâu
+            ở <b>Phần 3 — Các Thì (Tenses)</b>. Chương này chỉ giới thiệu khung cấu trúc câu cơ bản nhất.
+          </div>
+        </div>
+
+        <h3>11.5 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Viết câu phủ định: "There are some apples in the basket."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "There aren't any apples in the basket."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu hỏi từ: "He plays football every weekend."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Does he play football every weekend?"</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Điền to be đúng: "___ you a teacher? No, I ___ not."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Are you a teacher? No, I am not."</div>
+        </div>
+
+        <h3>11.6 Quiz trắc nghiệm — Chương 11</h3>
+        <div class="quiz-box" id="quiz11"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 11</h3>
+          <ul>
+            <li>Trật tự câu cơ bản: S + V + O.</li>
+            <li>To be: am/is/are — chia theo chủ ngữ, phủ định thêm "not", câu hỏi đảo ngữ.</li>
+            <li>There is/are diễn tả sự tồn tại — chia theo danh từ đi sau.</li>
+            <li>Động từ thường cần trợ động từ do/does cho câu phủ định và nghi vấn.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 12: TỪ VỰNG THEO CHỦ ĐỀ -->
+      <section id="ch12" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">12</span><h2>Từ Vựng Theo Chủ Đề</h2></div>
+        <div class="chapter-sub">10 chủ đề thiết yếu để bắt đầu giao tiếp — mỗi từ kèm IPA và nghĩa tiếng Việt.</div>
+
+        <div class="accordion open">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.1 Gia đình (Family)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body" style="max-height:800px;">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">parents</div><div class="vc-ipa">/ˈperənts/</div><div class="vc-vi">cha mẹ</div></div>
+              <div class="vocab-card"><div class="vc-en">father</div><div class="vc-ipa">/ˈfɑːðər/</div><div class="vc-vi">bố</div></div>
+              <div class="vocab-card"><div class="vc-en">mother</div><div class="vc-ipa">/ˈmʌðər/</div><div class="vc-vi">mẹ</div></div>
+              <div class="vocab-card"><div class="vc-en">sibling</div><div class="vc-ipa">/ˈsɪblɪŋ/</div><div class="vc-vi">anh chị em ruột</div></div>
+              <div class="vocab-card"><div class="vc-en">brother</div><div class="vc-ipa">/ˈbrʌðər/</div><div class="vc-vi">anh/em trai</div></div>
+              <div class="vocab-card"><div class="vc-en">sister</div><div class="vc-ipa">/ˈsɪstər/</div><div class="vc-vi">chị/em gái</div></div>
+              <div class="vocab-card"><div class="vc-en">grandparents</div><div class="vc-ipa">/ˈɡrænperənts/</div><div class="vc-vi">ông bà</div></div>
+              <div class="vocab-card"><div class="vc-en">spouse</div><div class="vc-ipa">/spaʊs/</div><div class="vc-vi">vợ/chồng</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.2 Số đếm (Numbers)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">one / first</div><div class="vc-ipa">/wʌn/ /fɜːrst/</div><div class="vc-vi">một / thứ nhất</div></div>
+              <div class="vocab-card"><div class="vc-en">ten</div><div class="vc-ipa">/ten/</div><div class="vc-vi">mười</div></div>
+              <div class="vocab-card"><div class="vc-en">twenty</div><div class="vc-ipa">/ˈtwenti/</div><div class="vc-vi">hai mươi</div></div>
+              <div class="vocab-card"><div class="vc-en">hundred</div><div class="vc-ipa">/ˈhʌndrəd/</div><div class="vc-vi">một trăm</div></div>
+              <div class="vocab-card"><div class="vc-en">thousand</div><div class="vc-ipa">/ˈθaʊzənd/</div><div class="vc-vi">một nghìn</div></div>
+              <div class="vocab-card"><div class="vc-en">million</div><div class="vc-ipa">/ˈmɪljən/</div><div class="vc-vi">một triệu</div></div>
+            </div>
+            <div class="box tip"><div class="box-title">💡 Tip</div>Số thứ tự (ordinal numbers) thường thêm "-th": fourth, fifth... trừ ngoại lệ first, second, third.</div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.3 Màu sắc (Colors)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">red</div><div class="vc-ipa">/red/</div><div class="vc-vi">đỏ</div></div>
+              <div class="vocab-card"><div class="vc-en">blue</div><div class="vc-ipa">/bluː/</div><div class="vc-vi">xanh dương</div></div>
+              <div class="vocab-card"><div class="vc-en">green</div><div class="vc-ipa">/ɡriːn/</div><div class="vc-vi">xanh lá</div></div>
+              <div class="vocab-card"><div class="vc-en">yellow</div><div class="vc-ipa">/ˈjeloʊ/</div><div class="vc-vi">vàng</div></div>
+              <div class="vocab-card"><div class="vc-en">purple</div><div class="vc-ipa">/ˈpɜːrpl/</div><div class="vc-vi">tím</div></div>
+              <div class="vocab-card"><div class="vc-en">orange</div><div class="vc-ipa">/ˈɔːrɪndʒ/</div><div class="vc-vi">cam</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.4 Thời gian &amp; Ngày tháng (Time &amp; Date)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">yesterday</div><div class="vc-ipa">/ˈjestərdeɪ/</div><div class="vc-vi">hôm qua</div></div>
+              <div class="vocab-card"><div class="vc-en">tomorrow</div><div class="vc-ipa">/təˈmɔːroʊ/</div><div class="vc-vi">ngày mai</div></div>
+              <div class="vocab-card"><div class="vc-en">weekday</div><div class="vc-ipa">/ˈwiːkdeɪ/</div><div class="vc-vi">ngày trong tuần</div></div>
+              <div class="vocab-card"><div class="vc-en">weekend</div><div class="vc-ipa">/ˈwiːkend/</div><div class="vc-vi">cuối tuần</div></div>
+              <div class="vocab-card"><div class="vc-en">o'clock</div><div class="vc-ipa">/əˈklɒk/</div><div class="vc-vi">giờ chẵn</div></div>
+              <div class="vocab-card"><div class="vc-en">deadline</div><div class="vc-ipa">/ˈdedlaɪn/</div><div class="vc-vi">hạn chót</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.5 Đồ vật trong nhà (Household Items)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">refrigerator</div><div class="vc-ipa">/rɪˈfrɪdʒəreɪtər/</div><div class="vc-vi">tủ lạnh</div></div>
+              <div class="vocab-card"><div class="vc-en">wardrobe</div><div class="vc-ipa">/ˈwɔːrdroʊb/</div><div class="vc-vi">tủ quần áo</div></div>
+              <div class="vocab-card"><div class="vc-en">mattress</div><div class="vc-ipa">/ˈmætrəs/</div><div class="vc-vi">nệm</div></div>
+              <div class="vocab-card"><div class="vc-en">curtain</div><div class="vc-ipa">/ˈkɜːrtn/</div><div class="vc-vi">rèm cửa</div></div>
+              <div class="vocab-card"><div class="vc-en">faucet</div><div class="vc-ipa">/ˈfɔːsɪt/</div><div class="vc-vi">vòi nước</div></div>
+              <div class="vocab-card"><div class="vc-en">broom</div><div class="vc-ipa">/bruːm/</div><div class="vc-vi">cây chổi</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.6 Nghề nghiệp (Jobs)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">software engineer</div><div class="vc-ipa">/ˈsɔːftwer ˌendʒɪˈnɪr/</div><div class="vc-vi">kỹ sư phần mềm</div></div>
+              <div class="vocab-card"><div class="vc-en">accountant</div><div class="vc-ipa">/əˈkaʊntənt/</div><div class="vc-vi">kế toán</div></div>
+              <div class="vocab-card"><div class="vc-en">lawyer</div><div class="vc-ipa">/ˈlɔːjər/</div><div class="vc-vi">luật sư</div></div>
+              <div class="vocab-card"><div class="vc-en">nurse</div><div class="vc-ipa">/nɜːrs/</div><div class="vc-vi">y tá</div></div>
+              <div class="vocab-card"><div class="vc-en">architect</div><div class="vc-ipa">/ˈɑːrkɪtekt/</div><div class="vc-vi">kiến trúc sư</div></div>
+              <div class="vocab-card"><div class="vc-en">translator</div><div class="vc-ipa">/trænsˈleɪtər/</div><div class="vc-vi">phiên dịch viên</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.7 Thức ăn &amp; Đồ uống (Food &amp; Drinks)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">noodle soup</div><div class="vc-ipa">/ˈnuːdl suːp/</div><div class="vc-vi">phở/mì nước</div></div>
+              <div class="vocab-card"><div class="vc-en">vegetable</div><div class="vc-ipa">/ˈvedʒtəbl/</div><div class="vc-vi">rau củ</div></div>
+              <div class="vocab-card"><div class="vc-en">grilled</div><div class="vc-ipa">/ɡrɪld/</div><div class="vc-vi">nướng</div></div>
+              <div class="vocab-card"><div class="vc-en">beverage</div><div class="vc-ipa">/ˈbevərɪdʒ/</div><div class="vc-vi">đồ uống</div></div>
+              <div class="vocab-card"><div class="vc-en">dessert</div><div class="vc-ipa">/dɪˈzɜːrt/</div><div class="vc-vi">tráng miệng</div></div>
+              <div class="vocab-card"><div class="vc-en">leftovers</div><div class="vc-ipa">/ˈleftoʊvərz/</div><div class="vc-vi">đồ ăn thừa</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.8 Địa điểm (Places)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">airport</div><div class="vc-ipa">/ˈerpɔːrt/</div><div class="vc-vi">sân bay</div></div>
+              <div class="vocab-card"><div class="vc-en">pharmacy</div><div class="vc-ipa">/ˈfɑːrməsi/</div><div class="vc-vi">nhà thuốc</div></div>
+              <div class="vocab-card"><div class="vc-en">intersection</div><div class="vc-ipa">/ˌɪntərˈsekʃn/</div><div class="vc-vi">giao lộ, ngã tư</div></div>
+              <div class="vocab-card"><div class="vc-en">dormitory</div><div class="vc-ipa">/ˈdɔːrmətɔːri/</div><div class="vc-vi">ký túc xá</div></div>
+              <div class="vocab-card"><div class="vc-en">campus</div><div class="vc-ipa">/ˈkæmpəs/</div><div class="vc-vi">khuôn viên trường</div></div>
+              <div class="vocab-card"><div class="vc-en">neighborhood</div><div class="vc-ipa">/ˈneɪbərhʊd/</div><div class="vc-vi">khu phố</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.9 Thời tiết (Weather)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">humid</div><div class="vc-ipa">/ˈhjuːmɪd/</div><div class="vc-vi">ẩm ướt</div></div>
+              <div class="vocab-card"><div class="vc-en">drizzle</div><div class="vc-ipa">/ˈdrɪzl/</div><div class="vc-vi">mưa phùn</div></div>
+              <div class="vocab-card"><div class="vc-en">thunderstorm</div><div class="vc-ipa">/ˈθʌndərstɔːrm/</div><div class="vc-vi">giông bão</div></div>
+              <div class="vocab-card"><div class="vc-en">scorching</div><div class="vc-ipa">/ˈskɔːrtʃɪŋ/</div><div class="vc-vi">nóng như thiêu đốt</div></div>
+              <div class="vocab-card"><div class="vc-en">breeze</div><div class="vc-ipa">/briːz/</div><div class="vc-vi">gió nhẹ</div></div>
+              <div class="vocab-card"><div class="vc-en">forecast</div><div class="vc-ipa">/ˈfɔːrkæst/</div><div class="vc-vi">dự báo</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>12.10 Cảm xúc &amp; Tính cách (Emotions &amp; Personality)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">confident</div><div class="vc-ipa">/ˈkɑːnfɪdənt/</div><div class="vc-vi">tự tin</div></div>
+              <div class="vocab-card"><div class="vc-en">anxious</div><div class="vc-ipa">/ˈæŋkʃəs/</div><div class="vc-vi">lo lắng</div></div>
+              <div class="vocab-card"><div class="vc-en">generous</div><div class="vc-ipa">/ˈdʒenərəs/</div><div class="vc-vi">hào phóng</div></div>
+              <div class="vocab-card"><div class="vc-en">stubborn</div><div class="vc-ipa">/ˈstʌbərn/</div><div class="vc-vi">bướng bỉnh</div></div>
+              <div class="vocab-card"><div class="vc-en">exhausted</div><div class="vc-ipa">/ɪɡˈzɔːstɪd/</div><div class="vc-vi">kiệt sức</div></div>
+              <div class="vocab-card"><div class="vc-en">optimistic</div><div class="vc-ipa">/ˌɑːptɪˈmɪstɪk/</div><div class="vc-vi">lạc quan</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box tip" style="margin-top:20px;">
+          <div class="box-title">💡 Tip — Mẹo ghi nhớ từ vựng</div>
+          Dùng phương pháp <b>Spaced Repetition</b> (lặp lại ngắt quãng, ví dụ qua Anki/Quizlet) và luôn học từ theo
+          <b>cụm (collocations)</b> thay vì từ đơn lẻ — ví dụ học "make a decision" thay vì chỉ học "decision".
+          Chủ điểm "Mẹo ghi nhớ từ vựng" sẽ được đào sâu ở phần riêng sau này.
+        </div>
+
+        <h3>12.11 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Dịch sang tiếng Anh: "Bố mẹ tôi rất hào phóng."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "My parents are very generous."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Đặt câu với từ "exhausted".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "After studying all night, I feel exhausted."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Chọn giới từ đúng và điền từ chủ đề thời tiết: "It's ___ (scorching/drizzle) hot today."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "It's scorching hot today."</div>
+        </div>
+
+        <h3>12.12 Quiz trắc nghiệm — Chương 12</h3>
+        <div class="quiz-box" id="quiz12"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 12</h3>
+          <ul>
+            <li>10 chủ đề từ vựng nền tảng: Gia đình, Số đếm, Màu sắc, Thời gian, Đồ vật trong nhà, Nghề nghiệp, Thức ăn, Địa điểm, Thời tiết, Cảm xúc.</li>
+            <li>Luôn học từ kèm IPA để phát âm đúng ngay từ đầu.</li>
+            <li>Ưu tiên học theo cụm từ (collocations) để dùng tự nhiên hơn.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 2</div>
+          Bạn đã hoàn thành ngữ pháp cơ bản và 10 chủ đề từ vựng nền tảng! Gõ <b>"Tiếp tục"</b> để nhận
+          <b>Phần 3: Các Thì (Tenses) trong tiếng Anh</b>.
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz5: [
+    {q:"Từ 'quickly' trong câu 'She runs quickly' thuộc từ loại nào?", opts:["Adjective","Adverb","Noun","Verb"], correct:1},
+    {q:"Từ nối 'because' thuộc từ loại nào?", opts:["Preposition","Conjunction","Pronoun","Interjection"], correct:1},
+    {q:"Có tất cả bao nhiêu từ loại chính trong tiếng Anh?", opts:["6","7","8","9"], correct:2}
+  ],
+  quiz6: [
+    {q:"Danh từ nào KHÔNG đếm được?", opts:["book","information","chair","apple"], correct:1},
+    {q:"Số nhiều của 'child' là gì?", opts:["childs","childes","children","child's"], correct:2},
+    {q:"Sở hữu cách đúng của 'the students' (số nhiều)?", opts:["the student's","the students's","the students'","the student"], correct:2}
+  ],
+  quiz7: [
+    {q:"Chọn đúng: '___ hour ago' ", opts:["a","an","the","(không điền)"], correct:1},
+    {q:"Khi nào dùng 'the'?", opts:["Khi nói chung chung","Khi vật đã xác định/duy nhất","Với mọi danh từ số nhiều","Với tên quốc gia"], correct:1},
+    {q:"Câu nào đúng?", opts:["The Vietnam is beautiful.","Vietnam is a beautiful country.","A Vietnam is beautiful.","Vietnam is the beautiful country."], correct:1}
+  ],
+  quiz8: [
+    {q:"Đại từ phản thân của 'they' là gì?", opts:["themself","theirself","themselves","theirselves"], correct:2},
+    {q:"'This book is ___' - chọn đại từ sở hữu đúng.", opts:["my","mine","me","I"], correct:1},
+    {q:"'her' có thể đóng vai trò nào?", opts:["Chỉ tân ngữ","Chỉ sở hữu tính từ","Cả tân ngữ và sở hữu tính từ","Chỉ chủ ngữ"], correct:2}
+  ],
+  quiz9: [
+    {q:"Trạng từ của 'happy' là gì?", opts:["happyly","happily","happly","happy"], correct:1},
+    {q:"So sánh nhất của 'good' là gì?", opts:["goodest","the goodest","the best","better"], correct:2},
+    {q:"Thứ tự tính từ đúng là gì?", opts:["Màu sắc → Kích thước → Ý kiến","Ý kiến → Kích thước → Màu sắc","Chất liệu → Ý kiến → Kích thước","Kích thước → Chất liệu → Ý kiến"], correct:1}
+  ],
+  quiz10: [
+    {q:"Chọn đúng: 'I was born ___ 2004.'", opts:["at","on","in","by"], correct:2},
+    {q:"Chọn đúng: 'She lives ___ Hanoi.'", opts:["at","on","in","to"], correct:2},
+    {q:"Cụm từ cố định đúng là gì?", opts:["good in math","good at math","good on math","good for math"], correct:1}
+  ],
+  quiz11: [
+    {q:"Câu hỏi đúng cho 'He plays football' là gì?", opts:["Is he play football?","Does he play football?","Do he plays football?","Play he football?"], correct:1},
+    {q:"'There ___ some milk in the fridge.' chọn đúng.", opts:["is","are","be","am"], correct:0},
+    {q:"Trật tự câu cơ bản trong tiếng Anh là gì?", opts:["V+S+O","O+S+V","S+V+O","S+O+V"], correct:2}
+  ],
+  quiz12: [
+    {q:"'exhausted' có nghĩa là gì?", opts:["tự tin","kiệt sức","lạc quan","hào phóng"], correct:1},
+    {q:"'weekday' nghĩa là gì?", opts:["cuối tuần","ngày lễ","ngày trong tuần","ngày mai"], correct:2},
+    {q:"'pharmacy' nghĩa là gì?", opts:["sân bay","nhà thuốc","ký túc xá","khu phố"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container) return;
+  let score = 0; let answered = 0;
+  data.forEach((item, qi)=>{
+    const qDiv = document.createElement('div');
+    qDiv.className='quiz-q';
+    qDiv.innerHTML = `<p>Câu ${qi+1}. ${item.q}</p>`;
+    const optsDiv = document.createElement('div');
+    optsDiv.className='quiz-opts';
+    item.opts.forEach((opt, oi)=>{
+      const b = document.createElement('button');
+      b.className='quiz-opt';
+      b.textContent = opt;
+      b.onclick = ()=>{
+        if(b.dataset.locked) return;
+        [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+        if(oi === item.correct){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
+        answered++;
+        updateScore();
+      };
+      optsDiv.appendChild(b);
+    });
+    qDiv.appendChild(optsDiv);
+    container.appendChild(qDiv);
+  });
+  const scoreEl = document.createElement('div');
+  scoreEl.className='quiz-score';
+  container.appendChild(scoreEl);
+  function updateScore(){
+    scoreEl.textContent = `Điểm hiện tại: ${score}/${data.length} (${answered}/${data.length} câu đã trả lời)`;
+  }
+  updateScore();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

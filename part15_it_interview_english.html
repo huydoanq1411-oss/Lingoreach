@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 15: Tiếng Anh Phỏng Vấn Xin Việc IT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08); --sidebar-w: 290px;
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .ipa, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.app{display:flex; min-height:100vh;}
+.sidebar{width:var(--sidebar-w); flex-shrink:0; background:var(--ink); color:#EDEFF4; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; padding:24px 18px 40px; z-index:900; transition:transform .3s ease;}
+.sidebar::-webkit-scrollbar{width:6px;} .sidebar::-webkit-scrollbar-thumb{background:var(--teal-dark); border-radius:3px;}
+.brand{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+.brand h1{font-size:1.05rem; color:#fff; margin:0; line-height:1.25;}
+.brand small{display:block; color:var(--amber); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; margin-top:2px;}
+.sidebar-meter{margin:18px 0 22px; padding:12px; background:rgba(255,255,255,0.05); border-radius:10px;}
+.sidebar-meter .label{font-size:.72rem; color:#B7C2D6; margin-bottom:6px; display:flex; justify-content:space-between;}
+.meter-track{height:6px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;}
+.meter-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:4px; transition:width .2s ease;}
+.toc-group{margin-bottom:4px;}
+.toc-title{font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:#8496B4; margin:18px 0 8px;}
+.toc-link{display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; color:#CBD5E6; text-decoration:none; font-size:.86rem; margin-bottom:2px; transition:background .2s, color .2s;}
+.toc-link:hover{background:rgba(255,255,255,0.07); color:#fff;}
+.toc-link.active{background:var(--teal-dark); color:#fff; font-weight:600;}
+.toc-num{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--amber); width:20px;}
+.main{margin-left:var(--sidebar-w); flex:1; min-width:0;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.topbar-title{font-size:.85rem; color:var(--text-soft); font-weight:500;}
+.controls{display:flex; gap:10px; align-items:center;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{padding:36px 48px 100px; max-width:920px;}
+.hero{padding:38px 34px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:40px; box-shadow:var(--shadow); position:relative; overflow:hidden;}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.1rem; margin:10px 0 14px;}
+.hero p{color:#C9D3E4; line-height:1.7; max-width:680px; font-size:.98rem;}
+.hero .waveform{margin-top:18px;}
+.roadmap{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:24px;}
+.roadmap .rm-item{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:12px 14px;}
+.roadmap .rm-item b{color:var(--amber); font-size:.72rem; text-transform:uppercase; letter-spacing:.06em;}
+.roadmap .rm-item div{font-size:.86rem; color:#E4E9F2; margin-top:4px;}
+section.chapter{margin-bottom:56px; scroll-margin-top:90px;}
+.chapter-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px;}
+.chapter-head .num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:1rem; font-weight:700;}
+.chapter-head h2{margin:0; font-size:1.6rem;}
+.chapter-sub{color:var(--text-soft); margin-bottom:22px; font-size:.95rem;}
+p{line-height:1.75; font-size:.98rem;}
+.section-block{margin:20px 0;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid; font-size:.92rem; line-height:1.65;}
+.box .box-title{font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:.86rem; text-transform:uppercase; letter-spacing:.04em;}
+.box.note{background:rgba(47,143,134,0.08); border-color:var(--teal);} .box.note .box-title{color:var(--teal-dark);}
+.box.tip{background:rgba(217,164,65,0.1); border-color:var(--amber);} .box.tip .box-title{color:#A3781F;}
+[data-theme="dark"] .box.tip .box-title{color:var(--amber);}
+.box.warning{background:rgba(226,96,79,0.08); border-color:var(--coral);} .box.warning .box-title{color:var(--coral);}
+.box.important{background:rgba(22,36,61,0.06); border-color:var(--ink);}
+[data-theme="dark"] .box.important{background:rgba(255,255,255,0.05);}
+.box.important .box-title{color:var(--ink);}
+[data-theme="dark"] .box.important .box-title{color:var(--text);}
+.table-wrap{overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px;}
+table{border-collapse:collapse; width:100%; font-size:.9rem;}
+th,td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--line);}
+th{background:var(--paper-2); color:var(--ink); font-family:'Fraunces',serif; font-weight:600;}
+[data-theme="dark"] th{color:var(--text);}
+tr:last-child td{border-bottom:none;}
+.example-block{background:var(--ink); color:#EAF0F8; border-radius:12px; padding:16px 18px; margin:16px 0; position:relative; font-size:.9rem; line-height:1.7;}
+.example-block .copy-btn{position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.1); color:#fff; border:none; padding:5px 10px; border-radius:6px; font-size:.72rem; cursor:pointer; transition:background .2s;}
+.example-block .copy-btn:hover{background:var(--teal);}
+.example-block .ex-line{margin-bottom:6px;}
+.example-block .ex-en{color:#fff;}
+.example-block .ex-vi{color:#9FB0C8; font-size:.85rem;}
+.accordion{border:1px solid var(--line); border-radius:12px; margin:14px 0; overflow:hidden; background:var(--paper-2);}
+.acc-head{padding:14px 18px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-family:'Fraunces',serif; font-size:1rem;}
+.acc-head:hover{background:rgba(47,143,134,0.08);}
+.acc-icon{transition:transform .25s ease; color:var(--teal-dark); font-size:1.1rem;}
+.accordion.open .acc-icon{transform:rotate(45deg);}
+.acc-body{max-height:0; overflow:hidden; transition:max-height .35s ease; padding:0 18px;}
+.accordion.open .acc-body{padding:4px 18px 18px;}
+.ex-item{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px;}
+.ex-item .q{font-weight:600; margin-bottom:6px;}
+.ex-answer{display:none; margin-top:8px; padding:10px 12px; background:rgba(47,143,134,0.1); border-radius:8px; font-size:.88rem;}
+.ex-answer.show{display:block;}
+.reveal-btn{border:1px solid var(--teal); color:var(--teal-dark); background:transparent; padding:5px 12px; border-radius:8px; font-size:.8rem; cursor:pointer; transition:.2s;}
+.reveal-btn:hover{background:var(--teal); color:#fff;}
+.quiz-box{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:20px; margin:16px 0;}
+.quiz-q{margin-bottom:14px; padding-bottom:14px; border-bottom:1px dashed var(--line);}
+.quiz-q:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+.quiz-q p{font-weight:600; margin:0 0 8px;}
+.quiz-opts{display:grid; gap:8px;}
+.quiz-opt{border:1px solid var(--line); background:var(--paper); padding:9px 14px; border-radius:8px; cursor:pointer; font-size:.9rem; transition:.15s;}
+.quiz-opt:hover{border-color:var(--teal);}
+.quiz-opt.correct{background:rgba(47,143,134,0.18); border-color:var(--teal); font-weight:600;}
+.quiz-opt.wrong{background:rgba(226,96,79,0.18); border-color:var(--coral);}
+.quiz-score{margin-top:14px; font-weight:600; color:var(--teal-dark);}
+.summary-card{background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:#fff; border-radius:14px; padding:22px 24px; margin-top:24px;}
+.summary-card h3{color:#fff; margin-top:0;}
+.summary-card ul{margin:8px 0 0; padding-left:20px; line-height:1.8;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900; transition:transform .2s ease, background .2s;}
+#toTop:hover{background:var(--teal-dark); transform:translateY(-3px);}
+.fade-in{animation:fadeIn .6s ease both;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+.menu-toggle{display:none;}
+.step-list{counter-reset:step; list-style:none; padding:0; margin:14px 0;}
+.step-list li{counter-increment:step; position:relative; padding-left:42px; margin-bottom:14px; line-height:1.65;}
+.step-list li::before{content:counter(step); position:absolute; left:0; top:0; width:28px; height:28px; background:var(--teal); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.85rem;}
+.interview-card{background:var(--paper-2); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin:14px 0;}
+.interview-card .iq{font-weight:700; font-family:'Fraunces',serif; font-size:1.05rem; color:var(--ink); margin-bottom:8px;}
+[data-theme="dark"] .interview-card .iq{color:var(--text);}
+.interview-card .ia{font-size:.9rem; line-height:1.7;}
+.interview-card .ia .en{color:var(--text);}
+.interview-card .ia .vi{color:var(--text-soft); font-size:.85rem; margin-top:4px;}
+@media (max-width: 980px){
+  .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;} .menu-toggle{display:flex;} .content{padding:28px 20px 100px;}
+}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 15</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 15</a>
+      <a class="toc-link" href="#ch72"><span class="toc-num">72</span> Câu hỏi giới thiệu bản thân &amp; động lực</a>
+      <a class="toc-link" href="#ch73"><span class="toc-num">73</span> Phương pháp STAR — câu hỏi hành vi</a>
+      <a class="toc-link" href="#ch74"><span class="toc-num">74</span> Câu hỏi kỹ thuật &amp; giải thích dự án</a>
+      <a class="toc-link" href="#ch75"><span class="toc-num">75</span> Đàm phán lương &amp; câu hỏi ngược lại NTD</a>
+      <a class="toc-link" href="#ch76"><span class="toc-num">76</span> Mock Interview hoàn chỉnh &amp; Email theo sau</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Đã học</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 1-14 ✓</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 15 / Tiếng Anh Phỏng Vấn Xin Việc IT</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần mở rộng nghề nghiệp</span>
+          <h1>Tiếng Anh Phỏng Vấn Xin Việc IT</h1>
+          <p>
+            Đây là phần thực chiến nhất, áp dụng trực tiếp mọi kỹ năng đã học vào tình huống <b>phỏng vấn xin việc/
+            thực tập IT bằng tiếng Anh</b> — mục tiêu cụ thể của bạn khi hướng đến làm việc tại Nhật Bản. Bạn sẽ học
+            cách trả lời câu hỏi giới thiệu bản thân, áp dụng phương pháp STAR cho câu hỏi hành vi, trình bày dự án kỹ
+            thuật (Spring Boot, React, thuật toán), đàm phán lương, và có một bài Mock Interview hoàn chỉnh để luyện tập.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 72</b><div>Giới thiệu bản thân &amp; động lực ứng tuyển</div></div>
+            <div class="rm-item"><b>Chương 73</b><div>Phương pháp STAR cho câu hỏi hành vi (Behavioral)</div></div>
+            <div class="rm-item"><b>Chương 74</b><div>Câu hỏi kỹ thuật &amp; cách trình bày dự án cá nhân</div></div>
+            <div class="rm-item"><b>Chương 75</b><div>Đàm phán lương &amp; câu hỏi ngược lại nhà tuyển dụng</div></div>
+            <div class="rm-item"><b>Chương 76</b><div>Mock Interview hoàn chỉnh &amp; Email cảm ơn sau phỏng vấn</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 72: SELF-INTRO & MOTIVATION -->
+      <section id="ch72" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">72</span><h2>Câu Hỏi Giới Thiệu Bản Thân &amp; Động Lực</h2></div>
+        <div class="chapter-sub">Ấn tượng đầu tiên quyết định 80% cảm nhận của nhà tuyển dụng.</div>
+
+        <div class="section-block">
+          <h3>72.1 Cấu trúc trả lời "Tell me about yourself"</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Phần</th><th>Nội dung (công thức Present-Past-Future)</th></tr></thead>
+              <tbody>
+                <tr><td><b>Present</b></td><td>Bạn là ai hiện tại (vai trò, chuyên môn)</td></tr>
+                <tr><td><b>Past</b></td><td>Kinh nghiệm/học vấn liên quan dẫn đến hiện tại</td></tr>
+                <tr><td><b>Future</b></td><td>Vì sao bạn quan tâm đến vị trí này và mục tiêu tương lai</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="interview-card">
+          <div class="iq">Q: Tell me about yourself.</div>
+          <div class="ia">
+            <div class="en">A: "I'm currently a second-year IT student specializing in Full Stack Development with Java and Spring Boot. Over the past year, I've built several projects, including an e-commerce platform using Spring Boot and React. I'm particularly interested in this position because it combines backend development with the opportunity to work in an international environment, which aligns with my long-term goal of becoming an IT engineer in Japan."</div>
+            <div class="vi">→ Theo đúng cấu trúc Present (đang là gì) → Past (đã làm gì) → Future (vì sao quan tâm vị trí này).</div>
+          </div>
+        </div>
+
+        <div class="interview-card">
+          <div class="iq">Q: Why do you want to work for our company?</div>
+          <div class="ia">
+            <div class="en">A: "I've researched your company's projects, and I'm impressed by your focus on scalable backend systems. I believe my experience with Spring Boot and my eagerness to learn would allow me to contribute meaningfully to your team while growing as an engineer."</div>
+            <div class="vi">→ Thể hiện đã tìm hiểu về công ty (research) + liên kết kỹ năng bản thân với nhu cầu công ty.</div>
+          </div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Luôn nghiên cứu trước về công ty (sản phẩm, công nghệ sử dụng, văn hóa) trước khi phỏng vấn — câu trả lời cụ
+          thể, có dẫn chứng luôn ấn tượng hơn câu trả lời chung chung.
+        </div>
+
+        <h3>72.2 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Viết câu trả lời "Tell me about yourself" theo công thức Present-Past-Future cho chính bạn (3-4 câu).</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Không có đáp án cố định — hãy áp dụng công thức và luyện nói to trong 1 phút.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu trả lời cho "What are your strengths?" liên quan đến kỹ năng lập trình.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "One of my key strengths is problem-solving — I enjoy breaking down complex bugs into smaller parts, as I did when debugging a traffic light control system using Assembly."</div>
+        </div>
+
+        <h3>72.3 Quiz trắc nghiệm — Chương 72</h3>
+        <div class="quiz-box" id="quiz72"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 72</h3>
+          <ul>
+            <li>Cấu trúc Present-Past-Future giúp trả lời "Tell me about yourself" mạch lạc.</li>
+            <li>Luôn nghiên cứu công ty trước phỏng vấn để trả lời cụ thể, có dẫn chứng.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 73: STAR METHOD -->
+      <section id="ch73" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">73</span><h2>Phương Pháp STAR — Câu Hỏi Hành Vi</h2></div>
+        <div class="chapter-sub">Kỹ thuật trả lời chuẩn cho các câu hỏi "Kể về một lần bạn..."</div>
+
+        <div class="section-block">
+          <h3>73.1 Cấu trúc STAR</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Bước</th><th>Nội dung</th></tr></thead>
+              <tbody>
+                <tr><td><b>S</b>ituation</td><td>Mô tả bối cảnh, tình huống cụ thể</td></tr>
+                <tr><td><b>T</b>ask</td><td>Nhiệm vụ/mục tiêu bạn cần đạt được</td></tr>
+                <tr><td><b>A</b>ction</td><td>Hành động cụ thể bạn đã thực hiện</td></tr>
+                <tr><td><b>R</b>esult</td><td>Kết quả đạt được (nên có số liệu cụ thể nếu có thể)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="interview-card">
+          <div class="iq">Q: Tell me about a time you faced a difficult technical problem.</div>
+          <div class="ia">
+            <div class="en">A: "<b>Situation:</b> While working on my traffic light control system project using the AT89C51 microcontroller, I encountered a bug where the countdown timer displayed incorrect values. <b>Task:</b> I needed to identify and fix the root cause before the project deadline. <b>Action:</b> I systematically reviewed the Assembly code, tested each module separately, and discovered an off-by-one error in the countdown logic. <b>Result:</b> After fixing it, the system worked correctly, and I documented the bug and fix for future reference, which also helped me understand interrupt handling much better."</div>
+            <div class="vi">→ Ví dụ hoàn chỉnh áp dụng đúng 4 bước STAR, dùng chính kinh nghiệm dự án Assembly của bạn.</div>
+          </div>
+        </div>
+
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Luôn chuẩn bị sẵn 3-5 câu chuyện STAR có thể tái sử dụng cho nhiều loại câu hỏi khác nhau (giải quyết vấn đề,
+          làm việc nhóm, xử lý áp lực, mắc lỗi và sửa sai) — không cần chuẩn bị câu chuyện riêng cho từng câu hỏi.
+        </div>
+
+        <h3>73.2 Các câu hỏi hành vi phổ biến</h3>
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Tell me about a time you worked in a team. — Describe a situation where you had to meet a tight deadline. — Give an example of a time you made a mistake and how you handled it.</div>
+        </div>
+
+        <h3>73.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Áp dụng STAR để trả lời: "Tell me about a time you worked in a team."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Không có đáp án cố định — hãy nhớ lại một dự án nhóm cụ thể và áp dụng 4 bước S-T-A-R.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Vì sao nên chuẩn bị sẵn nhiều câu chuyện STAR "tái sử dụng" thay vì học thuộc từng câu trả lời riêng?</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Vì phỏng vấn có nhiều biến thể câu hỏi khác nhau nhưng bản chất đều kiểm tra các kỹ năng tương tự — chuẩn bị vài câu chuyện linh hoạt giúp bạn tự tin ứng biến với nhiều câu hỏi.</div>
+        </div>
+
+        <h3>73.4 Quiz trắc nghiệm — Chương 73</h3>
+        <div class="quiz-box" id="quiz73"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 73</h3>
+          <ul>
+            <li>STAR = Situation, Task, Action, Result.</li>
+            <li>Chuẩn bị sẵn 3-5 câu chuyện có thể tái sử dụng cho nhiều loại câu hỏi hành vi.</li>
+            <li>Luôn kết thúc bằng Result cụ thể, có dẫn chứng/số liệu nếu có thể.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 74: TECHNICAL QUESTIONS -->
+      <section id="ch74" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">74</span><h2>Câu Hỏi Kỹ Thuật &amp; Giải Thích Dự Án</h2></div>
+        <div class="chapter-sub">Trình bày dự án cá nhân và trả lời câu hỏi kỹ thuật bằng tiếng Anh rõ ràng.</div>
+
+        <div class="section-block">
+          <h3>74.1 Cấu trúc trình bày dự án (Project Walkthrough)</h3>
+          <ol class="step-list">
+            <li><b>Overview</b> — Giới thiệu ngắn gọn dự án là gì, giải quyết vấn đề gì.</li>
+            <li><b>Tech Stack</b> — Công nghệ sử dụng (ngôn ngữ, framework, database).</li>
+            <li><b>Your Role</b> — Vai trò cụ thể của bạn trong dự án (đặc biệt quan trọng nếu là dự án nhóm).</li>
+            <li><b>Challenges</b> — Khó khăn gặp phải và cách giải quyết.</li>
+            <li><b>Outcome</b> — Kết quả đạt được, bài học rút ra.</li>
+          </ol>
+        </div>
+
+        <div class="interview-card">
+          <div class="iq">Q: Can you walk me through one of your projects?</div>
+          <div class="ia">
+            <div class="en">A: "Sure. I built a full-stack e-commerce platform using Spring Boot for the backend and React for the frontend, with MySQL as the database. I was responsible for designing the RESTful API and implementing JWT-based authentication. One challenge I faced was handling concurrent order requests without causing data inconsistency, which I solved using database transactions. In the end, the system successfully handled the core features of product browsing, cart management, and order processing."</div>
+            <div class="vi">→ Áp dụng đủ 5 bước: Overview → Tech Stack → Your Role → Challenges → Outcome.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>74.2 Mẫu câu trả lời câu hỏi kỹ thuật khó</h3>
+          <div class="box tip">
+            <div class="box-title">💡 Tip — Khi chưa chắc chắn câu trả lời</div>
+            Đừng im lặng hoặc đoán bừa — hãy thể hiện quá trình tư duy của bạn:
+            <span class="mono">"I'm not entirely sure, but based on my understanding, I would approach it by..."</span>
+            Nhà tuyển dụng thường đánh giá cao khả năng tư duy logic hơn là việc biết chính xác đáp án.
+          </div>
+        </div>
+
+        <h3>74.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Áp dụng cấu trúc 5 bước để trình bày dự án traffic light control system (AT89C51) của bạn bằng tiếng Anh.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "This project simulates a traffic light intersection using an AT89C51 microcontroller programmed in Assembly. I was responsible for both the hardware design in Proteus and the firmware logic. One major challenge was fixing incorrect digit-select polarity for the display, which I resolved by analyzing the circuit schematic carefully. The final system correctly controls traffic light timing for both directions."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu trả lời khi không chắc chắn về một câu hỏi kỹ thuật khó.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "I haven't worked with that specific technology before, but based on similar concepts I've learned, I believe the approach would involve..."</div>
+        </div>
+
+        <h3>74.4 Quiz trắc nghiệm — Chương 74</h3>
+        <div class="quiz-box" id="quiz74"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 74</h3>
+          <ul>
+            <li>Trình bày dự án theo 5 bước: Overview, Tech Stack, Your Role, Challenges, Outcome.</li>
+            <li>Khi chưa chắc chắn, thể hiện quá trình tư duy thay vì im lặng hoặc đoán bừa.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 75: SALARY NEGOTIATION -->
+      <section id="ch75" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">75</span><h2>Đàm Phán Lương &amp; Câu Hỏi Ngược Lại Nhà Tuyển Dụng</h2></div>
+        <div class="chapter-sub">Kết thúc phỏng vấn một cách chuyên nghiệp và tự tin.</div>
+
+        <div class="section-block">
+          <h3>75.1 Mẫu câu đàm phán lương</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tình huống</th><th>Mẫu câu</th></tr></thead>
+              <tbody>
+                <tr><td>Hỏi về mức lương mong muốn</td><td class="mono">Based on my research and experience, I'm looking for a salary in the range of...</td></tr>
+                <tr><td>Chưa muốn nêu con số cụ thể</td><td class="mono">I'm open to discussing salary based on the full compensation package and growth opportunities.</td></tr>
+                <tr><td>Thương lượng thêm</td><td class="mono">Is there any flexibility in the salary range for this position?</td></tr>
+                <tr><td>Chấp nhận đề nghị</td><td class="mono">Thank you for the offer, I'm happy to accept these terms.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>75.2 Câu hỏi ngược lại nhà tuyển dụng (luôn nên hỏi ít nhất 1-2 câu)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">What does a typical day look like for someone in this role? — What technologies does the team currently use? — What opportunities are there for professional development? — How would you describe the team culture?</div>
+          </div>
+          <div class="box important">
+            <div class="box-title">📌 Important</div>
+            KHÔNG hỏi câu hỏi ngược lại là một dấu hiệu tiêu cực — nhà tuyển dụng thường đánh giá đây là dấu hiệu ứng
+            viên thiếu sự quan tâm thực sự đến vị trí. Luôn chuẩn bị sẵn ít nhất 2-3 câu hỏi.
+          </div>
+        </div>
+
+        <h3>75.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Viết câu trả lời khéo léo khi được hỏi mức lương mong muốn nhưng bạn chưa muốn nêu con số cụ thể.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "I'd like to learn more about the full role and responsibilities first, but I'm confident we can find a number that works for both of us."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết 2 câu hỏi bạn sẽ hỏi ngược lại nhà tuyển dụng về công nghệ team đang sử dụng.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "What technologies and frameworks does the development team currently use?" / "How does the team handle code reviews and knowledge sharing?"</div>
+        </div>
+
+        <h3>75.4 Quiz trắc nghiệm — Chương 75</h3>
+        <div class="quiz-box" id="quiz75"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 75</h3>
+          <ul>
+            <li>Đàm phán lương nên dựa trên nghiên cứu thị trường, không nêu con số quá vội vàng.</li>
+            <li>Luôn chuẩn bị 2-3 câu hỏi ngược lại nhà tuyển dụng để thể hiện sự quan tâm thực sự.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 76: MOCK INTERVIEW & FOLLOW-UP -->
+      <section id="ch76" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">76</span><h2>Mock Interview Hoàn Chỉnh &amp; Email Theo Sau</h2></div>
+        <div class="chapter-sub">Kịch bản luyện tập đầy đủ và cách viết email cảm ơn chuyên nghiệp sau phỏng vấn.</div>
+
+        <div class="section-block">
+          <h3>76.1 Kịch bản Mock Interview đầy đủ (10 câu hỏi)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>Câu hỏi</th><th>Loại</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td class="mono">Tell me about yourself.</td><td>Giới thiệu bản thân</td></tr>
+                <tr><td>2</td><td class="mono">Why do you want to work here?</td><td>Động lực</td></tr>
+                <tr><td>3</td><td class="mono">What are your greatest strengths and weaknesses?</td><td>Tự đánh giá</td></tr>
+                <tr><td>4</td><td class="mono">Tell me about a challenging project you worked on.</td><td>STAR</td></tr>
+                <tr><td>5</td><td class="mono">Can you walk me through your e-commerce project?</td><td>Kỹ thuật</td></tr>
+                <tr><td>6</td><td class="mono">How do you handle tight deadlines?</td><td>STAR</td></tr>
+                <tr><td>7</td><td class="mono">Describe a time you disagreed with a teammate.</td><td>STAR</td></tr>
+                <tr><td>8</td><td class="mono">Where do you see yourself in 5 years?</td><td>Định hướng nghề nghiệp</td></tr>
+                <tr><td>9</td><td class="mono">What salary range are you expecting?</td><td>Đàm phán</td></tr>
+                <tr><td>10</td><td class="mono">Do you have any questions for us?</td><td>Câu hỏi ngược lại</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box tip">
+            <div class="box-title">💡 Tip — Cách luyện tập</div>
+            Đặt hẹn giờ, tự trả lời từng câu trong 1-2 phút, ghi âm lại toàn bộ buổi luyện tập, sau đó nghe lại và so
+            sánh với các mẫu câu đã học ở Chương 72-75. Lặp lại bài tập này 2-3 lần/tuần cho đến khi trả lời trôi chảy.
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>76.2 Email cảm ơn sau phỏng vấn (Thank-you Email)</h3>
+          <div class="interview-card">
+            <div class="iq">Mẫu Email</div>
+            <div class="ia">
+              <div class="en">
+                Subject: Thank You – [Position Name] Interview<br><br>
+                Dear [Interviewer's Name],<br><br>
+                Thank you for taking the time to meet with me today to discuss the [Position Name] role. I really
+                enjoyed learning more about your team's approach to backend development and the projects I would be
+                working on.<br><br>
+                Our conversation confirmed my enthusiasm for this opportunity, and I'm confident that my experience
+                with Spring Boot and React would allow me to contribute effectively to your team.<br><br>
+                Please let me know if you need any additional information from me. I look forward to hearing from you.<br><br>
+                Best regards,<br>Nguyen Van Huy
+              </div>
+              <div class="vi">→ Nên gửi trong vòng 24 giờ sau phỏng vấn — thể hiện sự chuyên nghiệp và quan tâm thực sự.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>76.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Tự luyện tập trả lời cả 10 câu hỏi Mock Interview trên trong 1 buổi, ghi âm lại.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Không có đáp án cố định — đây là bài tập thực hành cần bạn tự thực hiện và tự đánh giá.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết một email cảm ơn ngắn gọn sau buổi phỏng vấn thực tập tại một công ty Nhật Bản.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Áp dụng mẫu ở trên, thay đổi tên công ty/vị trí cụ thể phù hợp với tình huống thực tế của bạn.</div>
+        </div>
+
+        <h3>76.4 Quiz trắc nghiệm — Chương 76</h3>
+        <div class="quiz-box" id="quiz76"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 76</h3>
+          <ul>
+            <li>Luyện tập Mock Interview đầy đủ 10 câu hỏi, ghi âm và tự đánh giá định kỳ.</li>
+            <li>Luôn gửi email cảm ơn trong vòng 24 giờ sau phỏng vấn.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 15</div>
+          Bạn đã sẵn sàng cho các buổi phỏng vấn xin việc/thực tập IT bằng tiếng Anh! Đây là phần mở rộng thực chiến
+          nhất của bộ giáo trình, kết hợp toàn bộ kỹ năng đã học từ Phần 1-14. Chúc bạn tự tin chinh phục nhà tuyển
+          dụng và sớm đạt được mục tiêu trở thành IT Engineer tại Nhật Bản!
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz72: [
+    {q:"Công thức trả lời 'Tell me about yourself' là gì?", opts:["Past-Present-Future","Present-Past-Future","Future-Past-Present","Không có công thức cố định"], correct:1},
+    {q:"Vì sao nên nghiên cứu về công ty trước phỏng vấn?", opts:["Không cần thiết","Để trả lời cụ thể, có dẫn chứng, gây ấn tượng tốt","Chỉ để biết địa chỉ công ty","Không liên quan đến phỏng vấn"], correct:1}
+  ],
+  quiz73: [
+    {q:"STAR là viết tắt của gì?", opts:["Situation-Task-Action-Result","Skill-Time-Ability-Result","Start-Try-Act-Repeat","Situation-Time-Action-Review"], correct:0},
+    {q:"Phần nào trong STAR nên có số liệu/dẫn chứng cụ thể nếu có thể?", opts:["Situation","Task","Action","Result"], correct:3},
+    {q:"Vì sao nên chuẩn bị sẵn 3-5 câu chuyện STAR tái sử dụng?", opts:["Để tiết kiệm thời gian chuẩn bị và ứng biến linh hoạt","Không có lý do gì","Chỉ để nói cho có","Vì bắt buộc phải làm vậy"], correct:0}
+  ],
+  quiz74: [
+    {q:"Bước đầu tiên khi trình bày dự án là gì?", opts:["Challenges","Overview","Outcome","Your Role"], correct:1},
+    {q:"Khi không chắc chắn câu trả lời kỹ thuật, nên làm gì?", opts:["Im lặng","Đoán bừa một đáp án","Thể hiện quá trình tư duy logic","Từ chối trả lời"], correct:2}
+  ],
+  quiz75: [
+    {q:"Khi chưa muốn nêu mức lương cụ thể, nên nói gì?", opts:["Từ chối trả lời","Tôi cần thời gian tìm hiểu thêm về vai trò và trách nhiệm trước","Nói mức lương rất cao","Im lặng không nói gì"], correct:1},
+    {q:"Việc không hỏi câu hỏi ngược lại nhà tuyển dụng thể hiện điều gì?", opts:["Sự tự tin","Thiếu quan tâm thực sự đến vị trí","Sự chuyên nghiệp","Không ảnh hưởng gì"], correct:1}
+  ],
+  quiz76: [
+    {q:"Nên gửi email cảm ơn sau phỏng vấn trong khoảng thời gian nào?", opts:["1 tuần sau","24 giờ sau","1 tháng sau","Không cần gửi"], correct:1},
+    {q:"Ghi âm lại buổi luyện Mock Interview có lợi ích gì?", opts:["Không có lợi ích","Giúp tự đánh giá và cải thiện qua thời gian","Chỉ để giải trí","Làm mất thời gian"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container) return;
+  let score = 0; let answered = 0;
+  data.forEach((item, qi)=>{
+    const qDiv = document.createElement('div');
+    qDiv.className='quiz-q';
+    qDiv.innerHTML = `<p>Câu ${qi+1}. ${item.q}</p>`;
+    const optsDiv = document.createElement('div');
+    optsDiv.className='quiz-opts';
+    item.opts.forEach((opt, oi)=>{
+      const b = document.createElement('button');
+      b.className='quiz-opt';
+      b.textContent = opt;
+      b.onclick = ()=>{
+        if(b.dataset.locked) return;
+        [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+        if(oi === item.correct){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
+        answered++;
+        updateScore();
+      };
+      optsDiv.appendChild(b);
+    });
+    qDiv.appendChild(optsDiv);
+    container.appendChild(qDiv);
+  });
+  const scoreEl = document.createElement('div');
+  scoreEl.className='quiz-score';
+  container.appendChild(scoreEl);
+  function updateScore(){
+    scoreEl.textContent = `Điểm hiện tại: ${score}/${data.length} (${answered}/${data.length} câu đã trả lời)`;
+  }
+  updateScore();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

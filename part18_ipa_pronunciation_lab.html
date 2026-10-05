@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 18: IPA Pronunciation Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08); --sidebar-w: 290px;
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .ipa, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.app{display:flex; min-height:100vh;}
+.sidebar{width:var(--sidebar-w); flex-shrink:0; background:var(--ink); color:#EDEFF4; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; padding:24px 18px 40px; z-index:900; transition:transform .3s ease;}
+.sidebar::-webkit-scrollbar{width:6px;} .sidebar::-webkit-scrollbar-thumb{background:var(--teal-dark); border-radius:3px;}
+.brand{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+.brand h1{font-size:1.05rem; color:#fff; margin:0; line-height:1.25;}
+.brand small{display:block; color:var(--amber); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; margin-top:2px;}
+.sidebar-meter{margin:18px 0 22px; padding:12px; background:rgba(255,255,255,0.05); border-radius:10px;}
+.sidebar-meter .label{font-size:.72rem; color:#B7C2D6; margin-bottom:6px; display:flex; justify-content:space-between;}
+.meter-track{height:6px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;}
+.meter-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:4px; transition:width .2s ease;}
+.toc-group{margin-bottom:4px;}
+.toc-title{font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:#8496B4; margin:18px 0 8px;}
+.toc-link{display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; color:#CBD5E6; text-decoration:none; font-size:.86rem; margin-bottom:2px; transition:background .2s, color .2s;}
+.toc-link:hover{background:rgba(255,255,255,0.07); color:#fff;}
+.toc-link.active{background:var(--teal-dark); color:#fff; font-weight:600;}
+.toc-num{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--amber); width:20px;}
+.main{margin-left:var(--sidebar-w); flex:1; min-width:0;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.topbar-title{font-size:.85rem; color:var(--text-soft); font-weight:500;}
+.controls{display:flex; gap:10px; align-items:center;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{padding:36px 48px 100px; max-width:920px;}
+.hero{padding:38px 34px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:40px; box-shadow:var(--shadow); position:relative; overflow:hidden;}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.1rem; margin:10px 0 14px;}
+.hero p{color:#C9D3E4; line-height:1.7; max-width:680px; font-size:.98rem;}
+.hero .waveform{margin-top:18px;}
+section.chapter{margin-bottom:56px; scroll-margin-top:90px;}
+.chapter-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px;}
+.chapter-head .num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:1rem; font-weight:700;}
+.chapter-head h2{margin:0; font-size:1.6rem;}
+.chapter-sub{color:var(--text-soft); margin-bottom:22px; font-size:.95rem;}
+p{line-height:1.75; font-size:.98rem;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid; font-size:.92rem; line-height:1.65;}
+.box .box-title{font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:.86rem; text-transform:uppercase; letter-spacing:.04em;}
+.box.note{background:rgba(47,143,134,0.08); border-color:var(--teal);} .box.note .box-title{color:var(--teal-dark);}
+.box.tip{background:rgba(217,164,65,0.1); border-color:var(--amber);} .box.tip .box-title{color:#A3781F;}
+[data-theme="dark"] .box.tip .box-title{color:var(--amber);}
+.box.warning{background:rgba(226,96,79,0.08); border-color:var(--coral);} .box.warning .box-title{color:var(--coral);}
+.box.important{background:rgba(22,36,61,0.06); border-color:var(--ink);}
+[data-theme="dark"] .box.important{background:rgba(255,255,255,0.05);}
+.box.important .box-title{color:var(--ink);}
+[data-theme="dark"] .box.important .box-title{color:var(--text);}
+.summary-card{background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:#fff; border-radius:14px; padding:22px 24px; margin-top:24px;}
+.summary-card h3{color:#fff; margin-top:0;}
+.summary-card ul{margin:8px 0 0; padding-left:20px; line-height:1.8;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900; transition:transform .2s ease, background .2s;}
+#toTop:hover{background:var(--teal-dark); transform:translateY(-3px);}
+.fade-in{animation:fadeIn .6s ease both;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+.menu-toggle{display:none;}
+@media (max-width: 980px){
+  .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;} .menu-toggle{display:flex;} .content{padding:28px 20px 100px;}
+}
+
+/* ===== IPA LAB STYLES ===== */
+.lab-card{background:var(--paper-2); border:1px solid var(--line); border-radius:18px; padding:26px; margin:18px 0; box-shadow:var(--shadow);}
+.sound-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(76px,1fr)); gap:8px; margin-bottom:20px;}
+.sound-chip{background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:10px 4px; text-align:center; cursor:pointer; transition:.2s; font-family:'JetBrains Mono',monospace; font-size:.95rem;}
+.sound-chip:hover{border-color:var(--teal);}
+.sound-chip.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+.sound-detail{background:var(--ink); color:#fff; border-radius:14px; padding:26px; text-align:center; margin-bottom:18px;}
+.sound-detail .big-ipa{font-family:'JetBrains Mono',monospace; font-size:2.4rem; color:var(--amber); font-weight:700;}
+.sound-detail .desc{color:#C9D3E4; font-size:.9rem; margin-top:8px; max-width:520px; margin-left:auto; margin-right:auto;}
+.word-examples{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:16px;}
+.word-chip{background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; padding:8px 14px; border-radius:10px; cursor:pointer; font-size:.9rem; transition:.2s;}
+.word-chip:hover{background:var(--teal);}
+.lab-controls{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:18px 0;}
+.lab-btn{border:none; padding:11px 20px; border-radius:12px; font-size:.9rem; font-weight:600; cursor:pointer; transition:transform .15s ease;}
+.lab-btn:hover{transform:translateY(-2px);}
+.lab-btn:disabled{opacity:.5; cursor:not-allowed; transform:none;}
+.btn-hear{background:var(--amber); color:#1a1200;}
+.btn-try{background:var(--teal); color:#fff;}
+.btn-try.recording{background:var(--coral); animation:pulse 1.2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(226,96,79,0.5);} 50%{box-shadow:0 0 0 10px rgba(226,96,79,0);}}
+.feedback-box{text-align:center; margin-top:10px; font-size:.92rem; min-height:24px;}
+.feedback-ok{color:var(--teal-dark); font-weight:700;}
+.feedback-bad{color:var(--coral); font-weight:700;}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 18</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu IPA Pronunciation Lab</a>
+      <a class="toc-link" href="#ch81"><span class="toc-num">81</span> Luyện 44 âm IPA — nghe, thử, chấm điểm</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Đã học</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 1-17 ✓</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 18 / IPA Pronunciation Lab</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Công cụ luyện nói #3</span>
+          <h1>IPA Pronunciation Lab</h1>
+          <p>
+            Công cụ thứ 3 trong bộ Speaking Toolkit — quay lại tận gốc rễ đã học ở Chương 2 (Phần 1): luyện phát âm
+            <b>từng âm IPA riêng lẻ</b> trong số 44 âm của tiếng Anh. Bấm vào từng ký hiệu IPA để xem mô tả khẩu hình,
+            nghe các từ ví dụ, và tự nói thử để được chấm điểm mức độ chính xác.
+          </p>
+        </div>
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Chức năng chấm điểm hoạt động tốt nhất với <b>Google Chrome</b> và cần quyền truy cập micro. Việc chấm điểm
+          âm đơn lẻ có độ chính xác hạn chế hơn so với chấm cả câu (vì công cụ nhận diện giọng nói được thiết kế cho
+          từ/câu, không phải âm vị đơn lẻ) — hãy dùng kết quả như một gợi ý tham khảo, không phải đánh giá tuyệt đối.
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 81: IPA LAB -->
+      <section id="ch81" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">81</span><h2>Luyện 44 Âm IPA — Nghe, Thử, Chấm Điểm</h2></div>
+        <div class="chapter-sub">Bấm vào từng âm để bắt đầu luyện tập.</div>
+
+        <div class="lab-card">
+          <div class="sound-grid" id="soundGrid"></div>
+
+          <div class="sound-detail">
+            <div class="big-ipa" id="bigIpa">/iː/</div>
+            <div class="desc" id="soundDesc">Nguyên âm dài, giống "i" kéo dài, môi banh rộng sang hai bên.</div>
+            <div class="word-examples" id="wordExamples"></div>
+          </div>
+
+          <div class="lab-controls">
+            <button class="lab-btn btn-hear" id="btnHearWord">🔊 Nghe từ đã chọn</button>
+            <button class="lab-btn btn-try" id="btnTryWord">🎙️ Thử phát âm</button>
+          </div>
+          <div class="feedback-box" id="feedbackBox"></div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Với mỗi âm, hãy nghe đi nghe lại 3-4 từ ví dụ trước, chú ý cảm nhận khẩu hình miệng, rồi mới thử tự nói.
+          Nếu công cụ liên tục báo "chưa khớp", đừng nản — hãy quay lại phần mô tả khẩu hình ở Chương 2 (Phần 1) để
+          hiểu rõ cách tạo ra âm đó trước khi luyện tiếp.
+        </div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Phần 18</h3>
+          <ul>
+            <li>44 âm IPA được tổ chức thành lưới chọn nhanh — bấm để xem chi tiết từng âm.</li>
+            <li>Mỗi âm có 3-4 từ ví dụ để nghe và luyện theo.</li>
+            <li>Chức năng "Thử phát âm" cho phản hồi tức thời dựa trên nhận diện giọng nói.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Bộ Speaking Toolkit hoàn chỉnh</div>
+          Với Phần 16 (Speaking Studio), Phần 17 (Conversation Simulator), và Phần 18 (IPA Pronunciation Lab), bạn giờ
+          có đầy đủ 3 công cụ luyện nói tương tác — từ luyện âm đơn lẻ, đến luyện câu, đến luyện cả hội thoại. Hãy kết
+          hợp cả 3 công cụ này vào lịch học hàng ngày của bạn!
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+/* ============ IPA SOUND DATA ============ */
+const ipaSounds = [
+  {ipa:"iː", desc:"Nguyên âm dài, giống \"i\" kéo dài, môi banh rộng sang hai bên.", words:["see","tree","key"]},
+  {ipa:"ɪ", desc:"Nguyên âm ngắn, giống \"i\" ngắn, gần âm \"ị\".", words:["sit","bit","gym"]},
+  {ipa:"e", desc:"Nguyên âm ngắn, giống \"e\" trong từ \"em\".", words:["bed","red","said"]},
+  {ipa:"æ", desc:"Nguyên âm ngắn, giữa \"e\" và \"a\", miệng mở rộng.", words:["cat","hat","apple"]},
+  {ipa:"ɑː", desc:"Nguyên âm dài, \"a\" dài, giọng sâu trong họng.", words:["car","father","park"]},
+  {ipa:"ɒ", desc:"Nguyên âm ngắn (Anh-Anh), \"o\" ngắn, tròn môi.", words:["hot","dog","box"]},
+  {ipa:"ɔː", desc:"Nguyên âm dài, \"o\" dài, tròn môi.", words:["saw","talk","door"]},
+  {ipa:"ʊ", desc:"Nguyên âm ngắn, \"u\" ngắn, môi hơi tròn.", words:["book","put","could"]},
+  {ipa:"uː", desc:"Nguyên âm dài, \"u\" dài, môi tròn kéo dài.", words:["food","blue","moon"]},
+  {ipa:"ʌ", desc:"Nguyên âm ngắn, gần \"ă\", âm ngắn giữa khoang miệng.", words:["cup","love","sun"]},
+  {ipa:"ɜː", desc:"Nguyên âm dài, \"ơ\" dài, giọng giữ trong họng.", words:["bird","work","learn"]},
+  {ipa:"ə", desc:"Âm schwa, âm yếu, phổ biến nhất trong tiếng Anh.", words:["about","sofa","teacher"]},
+  {ipa:"eɪ", desc:"Nguyên âm đôi, \"ê-i\" lướt nhanh.", words:["cake","day","they"]},
+  {ipa:"aɪ", desc:"Nguyên âm đôi, \"a-i\" lướt nhanh.", words:["time","my","like"]},
+  {ipa:"ɔɪ", desc:"Nguyên âm đôi, \"o-i\" lướt nhanh.", words:["boy","coin","voice"]},
+  {ipa:"aʊ", desc:"Nguyên âm đôi, \"a-u\" lướt nhanh.", words:["house","now","cloud"]},
+  {ipa:"oʊ", desc:"Nguyên âm đôi (Anh-Mỹ), \"ô-u\" lướt nhanh.", words:["go","home","know"]},
+  {ipa:"p", desc:"Phụ âm bật hơi, môi khép rồi bật ra.", words:["pen","cup","paper"]},
+  {ipa:"b", desc:"Phụ âm rung dây thanh, môi khép rồi bật ra.", words:["book","cab","baby"]},
+  {ipa:"t", desc:"Phụ âm bật hơi, đầu lưỡi chạm lợi trên.", words:["top","cat","time"]},
+  {ipa:"d", desc:"Phụ âm rung dây thanh, đầu lưỡi chạm lợi trên.", words:["dog","bad","day"]},
+  {ipa:"k", desc:"Phụ âm bật hơi, gốc lưỡi chạm vòm miệng.", words:["cat","key","school"]},
+  {ipa:"g", desc:"Phụ âm rung dây thanh, gốc lưỡi chạm vòm miệng.", words:["go","big","game"]},
+  {ipa:"f", desc:"Phụ âm ma sát, răng trên chạm môi dưới.", words:["fan","laugh","phone"]},
+  {ipa:"v", desc:"Phụ âm ma sát rung, răng trên chạm môi dưới.", words:["van","love","very"]},
+  {ipa:"θ", desc:"Phụ âm ma sát, đầu lưỡi đặt giữa hai hàm răng (âm \"th\" vô thanh).", words:["think","bath","three"]},
+  {ipa:"ð", desc:"Phụ âm ma sát rung, đầu lưỡi đặt giữa hai hàm răng (âm \"th\" hữu thanh).", words:["this","mother","that"]},
+  {ipa:"s", desc:"Phụ âm ma sát, đầu lưỡi gần lợi trên, hơi thoát ra hình chữ S.", words:["sun","bus","see"]},
+  {ipa:"z", desc:"Phụ âm ma sát rung, giống /s/ nhưng có rung dây thanh.", words:["zoo","buzz","zero"]},
+  {ipa:"ʃ", desc:"Phụ âm ma sát, giống âm \"sh\", môi hơi tròn.", words:["she","wish","shoe"]},
+  {ipa:"ʒ", desc:"Phụ âm ma sát rung, giống /ʃ/ nhưng có rung dây thanh.", words:["vision","measure","usual"]},
+  {ipa:"tʃ", desc:"Phụ âm ghép, giống \"ch\" trong \"chair\".", words:["chair","watch","teach"]},
+  {ipa:"dʒ", desc:"Phụ âm ghép rung, giống \"j\" trong \"job\".", words:["job","bridge","large"]},
+  {ipa:"m", desc:"Phụ âm mũi, hai môi khép lại.", words:["man","swim","music"]},
+  {ipa:"n", desc:"Phụ âm mũi, đầu lưỡi chạm lợi trên.", words:["no","sun","name"]},
+  {ipa:"ŋ", desc:"Phụ âm mũi, gốc lưỡi chạm vòm miệng (âm \"ng\").", words:["sing","thank","long"]},
+  {ipa:"h", desc:"Phụ âm ma sát nhẹ, hơi thở ra tự do.", words:["hat","home","happy"]},
+  {ipa:"l", desc:"Phụ âm bên, đầu lưỡi chạm lợi trên, hơi thoát 2 bên lưỡi.", words:["leg","ball","love"]},
+  {ipa:"r", desc:"Phụ âm rung nhẹ, đầu lưỡi cong lên nhưng không chạm vòm miệng.", words:["red","car","right"]},
+  {ipa:"w", desc:"Bán nguyên âm, môi tròn rồi mở nhanh.", words:["we","water","away"]},
+  {ipa:"j", desc:"Bán nguyên âm, giống âm \"y\" trong tiếng Việt.", words:["yes","yellow","use"]}
+];
+
+const soundGrid = document.getElementById('soundGrid');
+let currentSoundIndex = 0;
+let currentWordIndex = 0;
+
+ipaSounds.forEach((s, idx)=>{
+  const chip = document.createElement('div');
+  chip.className = 'sound-chip' + (idx===0 ? ' active':'');
+  chip.textContent = '/' + s.ipa + '/';
+  chip.onclick = ()=>{
+    currentSoundIndex = idx;
+    currentWordIndex = 0;
+    document.querySelectorAll('.sound-chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    loadSound();
+  };
+  soundGrid.appendChild(chip);
+});
+
+function loadSound(){
+  const s = ipaSounds[currentSoundIndex];
+  document.getElementById('bigIpa').textContent = '/' + s.ipa + '/';
+  document.getElementById('soundDesc').textContent = s.desc;
+  const wordEx = document.getElementById('wordExamples');
+  wordEx.innerHTML = '';
+  s.words.forEach((w, wi)=>{
+    const chip = document.createElement('div');
+    chip.className = 'word-chip';
+    chip.textContent = w;
+    chip.onclick = ()=>{ currentWordIndex = wi; speakText(w, 0.85); };
+    wordEx.appendChild(chip);
+  });
+  document.getElementById('feedbackBox').innerHTML = '';
+}
+loadSound();
+
+function speakText(text, rate){
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'en-US';
+  utter.rate = rate || 1;
+  const voices = window.speechSynthesis.getVoices();
+  const enVoice = voices.find(v=>v.lang && v.lang.startsWith('en'));
+  if(enVoice) utter.voice = enVoice;
+  window.speechSynthesis.speak(utter);
+}
+
+document.getElementById('btnHearWord').addEventListener('click', ()=>{
+  const s = ipaSounds[currentSoundIndex];
+  speakText(s.words[currentWordIndex], 0.85);
+});
+
+/* Speech recognition for single word attempt */
+const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+const btnTryWord = document.getElementById('btnTryWord');
+let ipaRecognition = null;
+
+if(!SpeechRecognitionAPI){
+  btnTryWord.disabled = true;
+  btnTryWord.textContent = "🎙️ (Cần Chrome để dùng)";
+} else {
+  ipaRecognition = new SpeechRecognitionAPI();
+  ipaRecognition.lang = 'en-US';
+  ipaRecognition.interimResults = false;
+  ipaRecognition.maxAlternatives = 3;
+
+  btnTryWord.addEventListener('click', ()=>{
+    if(btnTryWord.classList.contains('recording')) return;
+    btnTryWord.classList.add('recording');
+    btnTryWord.textContent = '🎙️ Đang nghe...';
+    document.getElementById('feedbackBox').innerHTML = '';
+    try{ ipaRecognition.start(); }catch(e){}
+  });
+
+  ipaRecognition.onresult = function(event){
+    const targetWord = ipaSounds[currentSoundIndex].words[currentWordIndex].toLowerCase();
+    let matched = false;
+    for(let i=0;i<event.results[0].length;i++){
+      const alt = event.results[0][i].transcript.toLowerCase().trim().replace(/[.,!?]/g,'');
+      if(alt === targetWord || alt.includes(targetWord)){ matched = true; break; }
+    }
+    const box = document.getElementById('feedbackBox');
+    if(matched){
+      box.innerHTML = '<span class="feedback-ok">✅ Tốt lắm! Phát âm khớp với từ mẫu.</span>';
+    } else {
+      const heard = event.results[0][0].transcript;
+      box.innerHTML = `<span class="feedback-bad">❌ Chưa khớp — hệ thống nghe thấy: "${heard}". Hãy thử lại!</span>`;
+    }
+  };
+  ipaRecognition.onerror = function(){
+    document.getElementById('feedbackBox').innerHTML = '<span class="feedback-bad">Không nhận diện được giọng nói, hãy thử lại.</span>';
+  };
+  ipaRecognition.onend = function(){
+    btnTryWord.classList.remove('recording');
+    btnTryWord.textContent = '🎙️ Thử phát âm';
+  };
+}
+
+/* ============ DARK MODE / PRINT / MOBILE ============ */
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+/* ============ SCROLL: PROGRESS BAR + ACTIVE LINK + BACK TO TOP ============ */
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

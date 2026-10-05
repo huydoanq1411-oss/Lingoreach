@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 37: Tra Từ Vựng</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#191a1e; --bg-2:#212227; --blue:#2f7dfa; --blue-dark:#1f5fd6;
+  --line:#33343b; --text:#eef0f4; --text-soft:#9aa0ac; --amber:#e8be6b; --coral:#f0827a; --teal:#4cbbaf;
+}
+*{box-sizing:border-box;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh;}
+.mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--blue); text-decoration:none;}
+.topbar{display:flex; justify-content:space-between; align-items:center; padding:14px 5vw; border-bottom:1px solid var(--line);}
+.tb-left{display:flex; align-items:center; gap:8px; font-weight:700; color:var(--text-soft); font-size:.9rem;}
+.icon-btn{border:1px solid var(--line); background:var(--bg-2); color:var(--text); width:36px; height:36px; border-radius:9px; display:flex; align-items:center; justify-content:center; cursor:pointer; text-decoration:none; font-size:.95rem;}
+.icon-btn:hover{border-color:var(--blue);}
+
+.hero-wrap{padding:60px 5vw 30px; text-align:center;}
+.logo-row{display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:8px;}
+.logo-icon{width:44px; height:44px;}
+.logo-text{font-size:2.6rem; font-weight:800; color:var(--blue); letter-spacing:-0.02em;}
+.tagline{color:var(--text-soft); font-size:.92rem; margin-bottom:32px;}
+
+.search-wrap{max-width:760px; margin:0 auto; display:flex; gap:0; border:2px solid var(--blue); border-radius:10px; overflow:hidden; background:var(--bg-2);}
+.search-input{flex:1; border:none; background:transparent; color:var(--text); font-size:1.05rem; padding:16px 20px; outline:none;}
+.search-select{border:none; background:transparent; color:var(--text-soft); font-size:.92rem; padding:0 14px; border-left:1px solid var(--line); cursor:pointer;}
+.search-btn{border:none; background:var(--blue); color:#fff; font-weight:700; font-size:1rem; padding:0 34px; cursor:pointer; transition:background .15s;}
+.search-btn:hover{background:var(--blue-dark);}
+
+.suggestions{max-width:760px; margin:10px auto 0; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
+.autocomplete-list{position:absolute; top:calc(100% + 6px); left:0; right:0; background:var(--bg-2); border:1px solid var(--line); border-radius:10px; overflow:hidden; z-index:100; display:none; box-shadow:0 10px 30px rgba(0,0,0,0.4); text-align:left;}
+.autocomplete-list.show{display:block;}
+.ac-item{padding:11px 20px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line);}
+.ac-item:last-child{border-bottom:none;}
+.ac-item:hover, .ac-item.active{background:rgba(47,125,250,0.12);}
+.ac-word{font-weight:600; color:var(--text);}
+.ac-word b{color:var(--blue);}
+.ac-meaning{color:var(--text-soft); font-size:.82rem;}
+.ac-type{font-size:.68rem; color:var(--text-soft); background:rgba(255,255,255,0.06); padding:2px 8px; border-radius:10px; margin-left:8px;}
+.did-you-mean{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;}
+.dym-chip{border:1px solid var(--blue); color:var(--blue); background:rgba(47,125,250,0.08); padding:6px 14px; border-radius:16px; font-size:.85rem; cursor:pointer;}
+.dym-chip:hover{background:var(--blue); color:#fff;}
+.sugg-chip{border:1px solid var(--line); background:var(--bg-2); color:var(--text-soft); padding:5px 13px; border-radius:16px; font-size:.78rem; cursor:pointer;}
+.sugg-chip:hover{border-color:var(--blue); color:var(--blue);}
+
+.results-wrap{max-width:760px; margin:32px auto 80px; padding:0 5vw;}
+.result-card{background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:26px 28px; margin-bottom:16px;}
+.rc-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+.rc-word{font-size:1.7rem; font-weight:800; color:var(--text);}
+.rc-ipa{color:var(--text-soft); font-family:'JetBrains Mono',monospace; font-size:1rem;}
+.rc-type-tag{display:inline-block; background:rgba(47,125,250,0.15); color:var(--blue); border:1px solid rgba(47,125,250,0.4); padding:3px 12px; border-radius:14px; font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em;}
+.rc-meaning-list{margin:14px 0 0; padding-left:20px; color:var(--text); line-height:1.9; font-size:.98rem;}
+.rc-example{background:rgba(255,255,255,0.03); border-left:3px solid var(--blue); padding:10px 16px; margin-top:14px; border-radius:0 8px 8px 0; font-size:.9rem; color:var(--text-soft); font-style:italic;}
+.no-result{text-align:center; color:var(--text-soft); padding:50px 20px;}
+.no-result .nr-icon{font-size:2.5rem; margin-bottom:10px;}
+.multi-hint{color:var(--text-soft); font-size:.85rem; text-align:center; margin-bottom:14px;}
+
+.box{border:1px solid var(--line); background:var(--bg-2); border-radius:12px; padding:16px 20px; margin:20px auto; max-width:760px; font-size:.88rem; color:var(--text-soft); line-height:1.65;}
+.box b{color:var(--text);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-left">📘 Giáo Trình Tiếng Anh — Phần 42</div>
+  <div style="display:flex; gap:8px;">
+    <a class="icon-btn" href="index_hub.html" title="Về trang chủ">🏠</a>
+  </div>
+</div>
+
+<div class="hero-wrap">
+  <div class="logo-row">
+    <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 8 L24 8 L42 8 L42 24 C42 34 34 40 24 44 C14 40 6 34 6 24 Z" stroke="#2f7dfa" stroke-width="3" fill="none"/>
+      <path d="M10 12 L24 22 L38 12" stroke="#2f7dfa" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="logo-text">Dictionary</span>
+  </div>
+  <div class="tagline">Tra từ vựng tiếng Anh — hiện nghĩa tiếng Việt và từ loại (word type) ngay lập tức</div>
+  <div class="tagline" id="entryCountLine" style="margin-top:-24px; margin-bottom:32px; font-size:.8rem;"></div>
+
+  <div class="search-wrap-outer" style="max-width:760px; margin:0 auto; position:relative;">
+    <div class="search-wrap" style="max-width:none;">
+      <input type="text" class="search-input" id="searchInput" placeholder="Nhập từ tiếng Anh cần tra..." autocomplete="off">
+      <select class="search-select" id="langSelect">
+        <option>Anh - Việt</option>
+      </select>
+      <button class="search-btn" id="searchBtn">Tra từ</button>
+    </div>
+    <div id="autocompleteList" class="autocomplete-list"></div>
+  </div>
+
+  <div class="suggestions">
+    <span class="sugg-chip" data-w="meticulous">meticulous</span>
+    <span class="sugg-chip" data-w="facilitate">facilitate</span>
+    <span class="sugg-chip" data-w="resilience">resilience</span>
+    <span class="sugg-chip" data-w="subsequently">subsequently</span>
+    <span class="sugg-chip" data-w="deforestation">deforestation</span>
+  </div>
+</div>
+
+<div class="results-wrap" id="resultsWrap"></div>
+
+<div class="box">
+  💡 <b>Về công cụ này:</b> Đã tra được 2 lớp — (1) <b>Kho dữ liệu nội bộ 190+ từ</b> có nghĩa tiếng Việt do người
+  biên soạn, hiển thị tức thì, không cần internet; (2) Nếu không có trong kho nội bộ, công cụ tự động <b>tra cứu
+  trực tuyến</b> qua Free Dictionary API (định nghĩa/IPA/từ loại tiếng Anh) kết hợp MyMemory Translation API (dịch
+  máy sang tiếng Việt) — <b>chỉ hoạt động khi máy có kết nối internet</b>. Nghĩa tiếng Việt ở lớp online là dịch máy
+  tự động nên có thể không hoàn toàn chính xác về ngữ cảnh — với từ quan trọng, nên đối chiếu thêm.
+</div>
+
+<script>
+/* ============ DICTIONARY DATABASE (word, ipa, type, meanings[], example) ============ */
+const dict = [
+  // NOUNS
+  {w:"relative", ipa:"/ˈrelətɪv/", type:"danh từ", meanings:["họ hàng"], ex:"He invited all his relatives to the wedding."},
+  {w:"sibling", ipa:"/ˈsɪblɪŋ/", type:"danh từ", meanings:["anh chị em ruột"], ex:"She has two siblings, a brother and a sister."},
+  {w:"entrepreneur", ipa:"/ˌɒntrəprəˈnɜːr/", type:"danh từ", meanings:["doanh nhân khởi nghiệp"], ex:"He became a successful entrepreneur at a young age."},
+  {w:"consultant", ipa:"/kənˈsʌltənt/", type:"danh từ", meanings:["nhà tư vấn"], ex:"She works as a consultant for a tech company."},
+  {w:"container", ipa:"/kənˈteɪnər/", type:"danh từ", meanings:["hộp đựng","thùng chứa"], ex:"Put the leftovers in a plastic container."},
+  {w:"facility", ipa:"/fəˈsɪləti/", type:"danh từ", meanings:["cơ sở vật chất"], ex:"The gym has excellent facilities for members."},
+  {w:"anxiety", ipa:"/æŋˈzaɪəti/", type:"danh từ", meanings:["sự lo âu"], ex:"She felt a wave of anxiety before the exam."},
+  {w:"gratitude", ipa:"/ˈɡrætɪtuːd/", type:"danh từ", meanings:["lòng biết ơn"], ex:"He expressed his gratitude for their support."},
+  {w:"ecosystem", ipa:"/ˈiːkoʊsɪstəm/", type:"danh từ", meanings:["hệ sinh thái"], ex:"Coral reefs are a vital marine ecosystem."},
+  {w:"infrastructure", ipa:"/ˈɪnfrəstrʌktʃər/", type:"danh từ", meanings:["cơ sở hạ tầng"], ex:"The city invested heavily in digital infrastructure."},
+  {w:"ingredient", ipa:"/ɪnˈɡriːdiənt/", type:"danh từ", meanings:["nguyên liệu"], ex:"Fresh ingredients make a big difference in cooking."},
+  {w:"stamina", ipa:"/ˈstæmɪnə/", type:"danh từ", meanings:["sức bền"], ex:"Marathon runners need incredible stamina."},
+  {w:"commute", ipa:"/kəˈmjuːt/", type:"danh từ / động từ", meanings:["việc đi lại (đi làm)","đi lại hàng ngày"], ex:"My commute to work takes about 40 minutes."},
+  {w:"congestion", ipa:"/kənˈdʒestʃən/", type:"danh từ", meanings:["tắc nghẽn giao thông"], ex:"Traffic congestion is a major issue in big cities."},
+  {w:"deforestation", ipa:"/diːˌfɒrɪˈsteɪʃn/", type:"danh từ", meanings:["nạn phá rừng"], ex:"Deforestation contributes significantly to climate change."},
+  {w:"resilience", ipa:"/rɪˈzɪliəns/", type:"danh từ", meanings:["khả năng phục hồi","kiên cường"], ex:"Her resilience helped her recover from the setback."},
+  {w:"authenticity", ipa:"/ˌɔːθenˈtɪsəti/", type:"danh từ", meanings:["tính chân thực"], ex:"Customers value authenticity in a brand."},
+
+  // VERBS
+  {w:"clarify", ipa:"/ˈklærɪfaɪ/", type:"động từ", meanings:["làm rõ"], ex:"Could you clarify what you mean by that?"},
+  {w:"negotiate", ipa:"/nɪˈɡoʊʃieɪt/", type:"động từ", meanings:["đàm phán"], ex:"They negotiated a better price for the contract."},
+  {w:"assume", ipa:"/əˈsuːm/", type:"động từ", meanings:["giả định"], ex:"I assumed you already knew about the meeting."},
+  {w:"evaluate", ipa:"/ɪˈvæljueɪt/", type:"động từ", meanings:["đánh giá"], ex:"Teachers evaluate students' progress every semester."},
+  {w:"delegate", ipa:"/ˈdelɪɡeɪt/", type:"động từ", meanings:["ủy quyền","giao việc"], ex:"A good manager knows how to delegate tasks."},
+  {w:"facilitate", ipa:"/fəˈsɪlɪteɪt/", type:"động từ", meanings:["tạo điều kiện thuận lợi"], ex:"Technology can facilitate remote learning."},
+  {w:"optimize", ipa:"/ˈɒptɪmaɪz/", type:"động từ", meanings:["tối ưu hóa"], ex:"We need to optimize this code for better performance."},
+  {w:"overwhelm", ipa:"/ˌoʊvərˈwelm/", type:"động từ", meanings:["áp đảo","choáng ngợp"], ex:"The amount of homework overwhelmed her."},
+  {w:"evolve", ipa:"/ɪˈvɒlv/", type:"động từ", meanings:["tiến hóa","phát triển dần"], ex:"Technology continues to evolve rapidly."},
+  {w:"implement", ipa:"/ˈɪmplɪment/", type:"động từ", meanings:["triển khai","thực thi"], ex:"The company plans to implement a new policy next month."},
+  {w:"streamline", ipa:"/ˈstriːmlaɪn/", type:"động từ", meanings:["tinh gọn hóa quy trình"], ex:"They streamlined the approval process to save time."},
+  {w:"reconcile", ipa:"/ˈrekənsaɪl/", type:"động từ", meanings:["hòa giải"], ex:"The two sides finally reconciled after months of conflict."},
+  {w:"perceive", ipa:"/pərˈsiːv/", type:"động từ", meanings:["nhận thức","cảm nhận"], ex:"People perceive risk differently depending on experience."},
+  {w:"justify", ipa:"/ˈdʒʌstɪfaɪ/", type:"động từ", meanings:["biện minh","chứng minh hợp lý"], ex:"He couldn't justify the extra expense."},
+
+  // ADJECTIVES
+  {w:"meticulous", ipa:"/məˈtɪkjələs/", type:"tính từ", meanings:["tỉ mỉ","cẩn thận"], ex:"She is meticulous about checking every detail."},
+  {w:"ambitious", ipa:"/æmˈbɪʃəs/", type:"tính từ", meanings:["tham vọng","có hoài bão"], ex:"He has ambitious plans for his startup."},
+  {w:"resilient", ipa:"/rɪˈzɪliənt/", type:"tính từ", meanings:["kiên cường","phục hồi nhanh"], ex:"Children can be remarkably resilient after hardship."},
+  {w:"versatile", ipa:"/ˈvɜːrsətl/", type:"tính từ", meanings:["đa năng","linh hoạt"], ex:"She is a versatile employee who can handle many roles."},
+  {w:"intricate", ipa:"/ˈɪntrɪkət/", type:"tính từ", meanings:["phức tạp","tinh vi"], ex:"The watch has an intricate mechanical design."},
+  {w:"subtle", ipa:"/ˈsʌtl/", type:"tính từ", meanings:["tinh tế","khó nhận ra"], ex:"There's a subtle difference between the two words."},
+  {w:"feasible", ipa:"/ˈfiːzəbl/", type:"tính từ", meanings:["khả thi"], ex:"Is it feasible to finish this project by Friday?"},
+  {w:"comprehensive", ipa:"/ˌkɒmprɪˈhensɪv/", type:"tính từ", meanings:["toàn diện"], ex:"The report offers a comprehensive analysis of the market."},
+  {w:"substantial", ipa:"/səbˈstænʃl/", type:"tính từ", meanings:["đáng kể"], ex:"There has been a substantial increase in sales."},
+  {w:"negligible", ipa:"/ˈneɡlɪdʒəbl/", type:"tính từ", meanings:["không đáng kể"], ex:"The difference in price is negligible."},
+  {w:"redundant", ipa:"/rɪˈdʌndənt/", type:"tính từ", meanings:["dư thừa","dôi dư nhân sự"], ex:"Some phrases in the essay are redundant and should be removed."},
+  {w:"authentic", ipa:"/ɔːˈθentɪk/", type:"tính từ", meanings:["chân thực","nguyên bản"], ex:"This restaurant serves authentic Japanese cuisine."},
+  {w:"innovative", ipa:"/ˈɪnəveɪtɪv/", type:"tính từ", meanings:["sáng tạo","đổi mới"], ex:"The company is known for its innovative products."},
+
+  // ADVERBS
+  {w:"undoubtedly", ipa:"/ʌnˈdaʊtɪdli/", type:"trạng từ", meanings:["chắc chắn","không nghi ngờ gì"], ex:"This is undoubtedly the best solution available."},
+  {w:"considerably", ipa:"/kənˈsɪdərəbli/", type:"trạng từ", meanings:["đáng kể"], ex:"Prices have risen considerably this year."},
+  {w:"subsequently", ipa:"/ˈsʌbsɪkwəntli/", type:"trạng từ", meanings:["sau đó"], ex:"He failed the first attempt but subsequently passed."},
+  {w:"gradually", ipa:"/ˈɡrædʒuəli/", type:"trạng từ", meanings:["dần dần"], ex:"The weather gradually improved throughout the week."},
+  {w:"thoroughly", ipa:"/ˈθʌrəli/", type:"trạng từ", meanings:["kỹ lưỡng","triệt để"], ex:"Please review the document thoroughly before signing."},
+  {w:"arguably", ipa:"/ˈɑːrɡjuəbli/", type:"trạng từ", meanings:["có thể lập luận rằng"], ex:"This is arguably the best film of the year."},
+  {w:"ultimately", ipa:"/ˈʌltɪmətli/", type:"trạng từ", meanings:["cuối cùng","xét cho cùng"], ex:"Ultimately, the decision is up to you."},
+  {w:"consistently", ipa:"/kənˈsɪstəntli/", type:"trạng từ", meanings:["nhất quán"], ex:"She consistently performs well in exams."},
+
+  // PREPOSITIONS / OTHER
+  {w:"despite", ipa:"/dɪˈspaɪt/", type:"giới từ", meanings:["mặc dù","bất chấp"], ex:"Despite the rain, the event went ahead as planned."},
+  {w:"regarding", ipa:"/rɪˈɡɑːrdɪŋ/", type:"giới từ", meanings:["liên quan đến","về việc"], ex:"I'm writing regarding your recent application."},
+  {w:"throughout", ipa:"/θruːˈaʊt/", type:"giới từ", meanings:["xuyên suốt","khắp"], ex:"The theme is consistent throughout the book."},
+  {w:"nevertheless", ipa:"/ˌnevərðəˈles/", type:"liên từ", meanings:["tuy nhiên","dù vậy"], ex:"The plan was risky; nevertheless, they proceeded."},
+  {w:"whereas", ipa:"/werˈæz/", type:"liên từ", meanings:["trong khi","trái lại"], ex:"She prefers tea, whereas I prefer coffee."},
+
+  // Topic-related common words
+  {w:"carbon footprint", ipa:"/ˈkɑːrbən ˈfʊtprɪnt/", type:"cụm danh từ", meanings:["lượng khí thải carbon"], ex:"Using public transport reduces your carbon footprint."},
+  {w:"renewable energy", ipa:"/rɪˈnuːəbl ˈenərdʒi/", type:"cụm danh từ", meanings:["năng lượng tái tạo"], ex:"The government is investing more in renewable energy."},
+  {w:"income inequality", ipa:"/ˈɪnkʌm ˌɪnɪˈkwɒləti/", type:"cụm danh từ", meanings:["bất bình đẳng thu nhập"], ex:"Income inequality remains a pressing global issue."},
+  {w:"job displacement", ipa:"/dʒɒb dɪsˈpleɪsmənt/", type:"cụm danh từ", meanings:["mất việc do công nghệ thay thế"], ex:"Automation has raised concerns about job displacement."},
+  {w:"self-esteem", ipa:"/self ɪˈstiːm/", type:"cụm danh từ", meanings:["lòng tự trọng"], ex:"Positive feedback can boost a child's self-esteem."},
+  {w:"credit score", ipa:"/ˈkredɪt skɔːr/", type:"cụm danh từ", meanings:["điểm tín dụng"], ex:"A high credit score makes it easier to get a loan."},
+
+  // MORE NOUNS
+  {w:"achievement", ipa:"/əˈtʃiːvmənt/", type:"danh từ", meanings:["thành tích","thành tựu"], ex:"Graduating with honors was a major achievement for her."},
+  {w:"opportunity", ipa:"/ˌɒpərˈtuːnəti/", type:"danh từ", meanings:["cơ hội"], ex:"This internship is a great opportunity to gain experience."},
+  {w:"consequence", ipa:"/ˈkɒnsɪkwəns/", type:"danh từ", meanings:["hậu quả","kết quả"], ex:"He didn't think about the consequences of his actions."},
+  {w:"perspective", ipa:"/pərˈspektɪv/", type:"danh từ", meanings:["quan điểm","góc nhìn"], ex:"Traveling gives you a new perspective on life."},
+  {w:"obstacle", ipa:"/ˈɒbstəkl/", type:"danh từ", meanings:["chướng ngại vật","trở ngại"], ex:"Lack of funding was the biggest obstacle to the project."},
+  {w:"assumption", ipa:"/əˈsʌmpʃn/", type:"danh từ", meanings:["giả định"], ex:"We shouldn't make assumptions without evidence."},
+  {w:"initiative", ipa:"/ɪˈnɪʃətɪv/", type:"danh từ", meanings:["sáng kiến","tính chủ động"], ex:"She showed great initiative by proposing the new plan."},
+  {w:"reputation", ipa:"/ˌrepjuˈteɪʃn/", type:"danh từ", meanings:["danh tiếng","uy tín"], ex:"The company has built a strong reputation for quality."},
+  {w:"deadline", ipa:"/ˈdedlaɪn/", type:"danh từ", meanings:["hạn chót"], ex:"We need to submit the report before the deadline."},
+  {w:"feedback", ipa:"/ˈfiːdbæk/", type:"danh từ", meanings:["phản hồi"], ex:"Thank you for your valuable feedback on my presentation."},
+  {w:"outcome", ipa:"/ˈaʊtkʌm/", type:"danh từ", meanings:["kết quả"], ex:"We are satisfied with the outcome of the negotiation."},
+  {w:"insight", ipa:"/ˈɪnsaɪt/", type:"danh từ", meanings:["sự hiểu biết sâu sắc"], ex:"The data provided valuable insight into customer behavior."},
+
+  // MORE VERBS
+  {w:"accomplish", ipa:"/əˈkɒmplɪʃ/", type:"động từ", meanings:["hoàn thành","đạt được"], ex:"She accomplished all her goals this year."},
+  {w:"acquire", ipa:"/əˈkwaɪər/", type:"động từ", meanings:["tiếp thu","có được"], ex:"He acquired fluent English within two years."},
+  {w:"anticipate", ipa:"/ænˈtɪsɪpeɪt/", type:"động từ", meanings:["dự đoán trước"], ex:"We anticipate strong demand for this product."},
+  {w:"collaborate", ipa:"/kəˈlæbəreɪt/", type:"động từ", meanings:["hợp tác"], ex:"The two teams collaborated on the new project."},
+  {w:"emphasize", ipa:"/ˈemfəsaɪz/", type:"động từ", meanings:["nhấn mạnh"], ex:"The teacher emphasized the importance of practice."},
+  {w:"enhance", ipa:"/ɪnˈhæns/", type:"động từ", meanings:["nâng cao","cải thiện"], ex:"This feature will enhance the user experience."},
+  {w:"generate", ipa:"/ˈdʒenəreɪt/", type:"động từ", meanings:["tạo ra"], ex:"The campaign generated a lot of interest."},
+  {w:"identify", ipa:"/aɪˈdentɪfaɪ/", type:"động từ", meanings:["xác định","nhận diện"], ex:"We need to identify the root cause of the problem."},
+  {w:"maintain", ipa:"/meɪnˈteɪn/", type:"động từ", meanings:["duy trì"], ex:"It's important to maintain a healthy lifestyle."},
+  {w:"pursue", ipa:"/pərˈsuː/", type:"động từ", meanings:["theo đuổi"], ex:"She decided to pursue a career in medicine."},
+  {w:"resolve", ipa:"/rɪˈzɒlv/", type:"động từ", meanings:["giải quyết"], ex:"They resolved the conflict through negotiation."},
+  {w:"undermine", ipa:"/ˌʌndərˈmaɪn/", type:"động từ", meanings:["làm suy yếu","phá hoại ngầm"], ex:"Constant criticism can undermine someone's confidence."},
+
+  // MORE ADJECTIVES
+  {w:"crucial", ipa:"/ˈkruːʃl/", type:"tính từ", meanings:["quan trọng","then chốt"], ex:"Good communication is crucial for teamwork."},
+  {w:"inevitable", ipa:"/ɪnˈevɪtəbl/", type:"tính từ", meanings:["không thể tránh khỏi"], ex:"Change is inevitable in a fast-growing company."},
+  {w:"profound", ipa:"/prəˈfaʊnd/", type:"tính từ", meanings:["sâu sắc"], ex:"The book had a profound impact on my thinking."},
+  {w:"reluctant", ipa:"/rɪˈlʌktənt/", type:"tính từ", meanings:["miễn cưỡng"], ex:"He was reluctant to accept the new position."},
+  {w:"thorough", ipa:"/ˈθʌroʊ/", type:"tính từ", meanings:["kỹ lưỡng","triệt để"], ex:"She did a thorough review before submitting the report."},
+  {w:"ambiguous", ipa:"/æmˈbɪɡjuəs/", type:"tính từ", meanings:["mơ hồ","không rõ ràng"], ex:"The instructions were ambiguous and confusing."},
+  {w:"prevalent", ipa:"/ˈprevələnt/", type:"tính từ", meanings:["phổ biến","thịnh hành"], ex:"This disease is more prevalent in certain regions."},
+  {w:"tedious", ipa:"/ˈtiːdiəs/", type:"tính từ", meanings:["nhàm chán","tẻ nhạt"], ex:"Data entry can be a tedious task."},
+  {w:"vulnerable", ipa:"/ˈvʌlnərəbl/", type:"tính từ", meanings:["dễ bị tổn thương"], ex:"Elderly people are more vulnerable to certain illnesses."},
+  {w:"tremendous", ipa:"/trəˈmendəs/", type:"tính từ", meanings:["to lớn","khủng khiếp (mức độ)"], ex:"The event was a tremendous success."},
+
+  // MORE ADVERBS
+  {w:"inevitably", ipa:"/ɪnˈevɪtəbli/", type:"trạng từ", meanings:["một cách tất yếu"], ex:"Prices will inevitably rise due to inflation."},
+  {w:"presumably", ipa:"/prɪˈzuːməbli/", type:"trạng từ", meanings:["có lẽ","theo suy đoán"], ex:"Presumably, the meeting will be rescheduled."},
+  {w:"invariably", ipa:"/ɪnˈveriəbli/", type:"trạng từ", meanings:["luôn luôn, không thay đổi"], ex:"He invariably arrives early for meetings."},
+  {w:"deliberately", ipa:"/dɪˈlɪbərətli/", type:"trạng từ", meanings:["cố ý"], ex:"She deliberately avoided the topic during the interview."},
+
+  // PHRASAL VERBS / IDIOMS
+  {w:"give up", ipa:"/ɡɪv ʌp/", type:"cụm động từ", meanings:["từ bỏ"], ex:"Don't give up on your dreams, no matter how hard it gets."},
+  {w:"figure out", ipa:"/ˈfɪɡjər aʊt/", type:"cụm động từ", meanings:["tìm ra","hiểu ra"], ex:"I finally figured out how to fix the bug."},
+  {w:"look into", ipa:"/lʊk ˈɪntuː/", type:"cụm động từ", meanings:["tìm hiểu, điều tra"], ex:"The manager promised to look into the complaint."},
+  {w:"break the ice", ipa:"/breɪk ði aɪs/", type:"thành ngữ", meanings:["phá vỡ sự ngại ngùng ban đầu"], ex:"He told a joke to break the ice at the meeting."},
+  {w:"piece of cake", ipa:"/piːs əv keɪk/", type:"thành ngữ", meanings:["việc rất dễ dàng"], ex:"Don't worry, the test was a piece of cake."},
+  {w:"under the weather", ipa:"/ˈʌndər ðə ˈweðər/", type:"thành ngữ", meanings:["cảm thấy không khỏe"], ex:"I'm feeling a bit under the weather today."},
+  {w:"cost an arm and a leg", ipa:"/kɒst ən ɑːrm ənd ə leɡ/", type:"thành ngữ", meanings:["rất đắt đỏ"], ex:"That new laptop cost an arm and a leg."},
+
+  // ===== COMMON EVERYDAY VOCABULARY =====
+  {w:"dog", ipa:"/dɒɡ/", type:"danh từ", meanings:["con chó"], ex:"My dog loves playing in the park."},
+  {w:"cat", ipa:"/kæt/", type:"danh từ", meanings:["con mèo"], ex:"The cat is sleeping on the sofa."},
+  {w:"house", ipa:"/haʊs/", type:"danh từ", meanings:["ngôi nhà"], ex:"They bought a new house last year."},
+  {w:"water", ipa:"/ˈwɔːtər/", type:"danh từ", meanings:["nước"], ex:"Please drink more water every day."},
+  {w:"food", ipa:"/fuːd/", type:"danh từ", meanings:["thức ăn"], ex:"The food at this restaurant is delicious."},
+  {w:"friend", ipa:"/frend/", type:"danh từ", meanings:["bạn bè"], ex:"She is my best friend since childhood."},
+  {w:"family", ipa:"/ˈfæməli/", type:"danh từ", meanings:["gia đình"], ex:"I spend every weekend with my family."},
+  {w:"school", ipa:"/skuːl/", type:"danh từ", meanings:["trường học"], ex:"My children walk to school every morning."},
+  {w:"work", ipa:"/wɜːrk/", type:"danh từ / động từ", meanings:["công việc","làm việc"], ex:"I have a lot of work to finish today."},
+  {w:"money", ipa:"/ˈmʌni/", type:"danh từ", meanings:["tiền"], ex:"He saved enough money to buy a car."},
+  {w:"time", ipa:"/taɪm/", type:"danh từ", meanings:["thời gian"], ex:"I don't have time to watch TV today."},
+  {w:"day", ipa:"/deɪ/", type:"danh từ", meanings:["ngày"], ex:"It was a beautiful sunny day."},
+  {w:"night", ipa:"/naɪt/", type:"danh từ", meanings:["đêm"], ex:"We stayed up late last night."},
+  {w:"morning", ipa:"/ˈmɔːrnɪŋ/", type:"danh từ", meanings:["buổi sáng"], ex:"I always drink coffee in the morning."},
+  {w:"weather", ipa:"/ˈweðər/", type:"danh từ", meanings:["thời tiết"], ex:"The weather is really nice today."},
+
+  {w:"eat", ipa:"/iːt/", type:"động từ", meanings:["ăn"], ex:"We usually eat dinner at 7 PM."},
+  {w:"drink", ipa:"/drɪŋk/", type:"động từ", meanings:["uống"], ex:"She drinks tea every morning."},
+  {w:"sleep", ipa:"/sliːp/", type:"động từ", meanings:["ngủ"], ex:"I need to sleep at least 7 hours a night."},
+  {w:"buy", ipa:"/baɪ/", type:"động từ", meanings:["mua"], ex:"I want to buy a new phone next month."},
+  {w:"sell", ipa:"/sel/", type:"động từ", meanings:["bán"], ex:"They sell fresh vegetables at the market."},
+  {w:"walk", ipa:"/wɔːk/", type:"động từ", meanings:["đi bộ"], ex:"I like to walk in the park every evening."},
+  {w:"run", ipa:"/rʌn/", type:"động từ", meanings:["chạy"], ex:"He runs five kilometers every morning."},
+  {w:"talk", ipa:"/tɔːk/", type:"động từ", meanings:["nói chuyện"], ex:"Can we talk for a minute?"},
+  {w:"listen", ipa:"/ˈlɪsn/", type:"động từ", meanings:["lắng nghe"], ex:"I listen to music while working."},
+  {w:"watch", ipa:"/wɒtʃ/", type:"động từ", meanings:["xem"], ex:"We watched a movie last night."},
+  {w:"read", ipa:"/riːd/", type:"động từ", meanings:["đọc"], ex:"She reads a book every night before bed."},
+  {w:"write", ipa:"/raɪt/", type:"động từ", meanings:["viết"], ex:"He is writing an email to his manager."},
+  {w:"learn", ipa:"/lɜːrn/", type:"động từ", meanings:["học"], ex:"I'm learning English every day."},
+  {w:"teach", ipa:"/tiːtʃ/", type:"động từ", meanings:["dạy"], ex:"She teaches math at a local school."},
+  {w:"help", ipa:"/help/", type:"động từ", meanings:["giúp đỡ"], ex:"Can you help me with this problem?"},
+  {w:"need", ipa:"/niːd/", type:"động từ", meanings:["cần"], ex:"I need more time to finish this."},
+  {w:"want", ipa:"/wɒnt/", type:"động từ", meanings:["muốn"], ex:"She wants to travel to Japan someday."},
+  {w:"like", ipa:"/laɪk/", type:"động từ", meanings:["thích"], ex:"I really like this song."},
+  {w:"play", ipa:"/pleɪ/", type:"động từ", meanings:["chơi"], ex:"The kids are playing in the garden."},
+  {w:"drive", ipa:"/draɪv/", type:"động từ", meanings:["lái xe"], ex:"He drives to work every day."},
+  {w:"cook", ipa:"/kʊk/", type:"động từ", meanings:["nấu ăn"], ex:"My mother cooks dinner every evening."},
+  {w:"clean", ipa:"/kliːn/", type:"động từ / tính từ", meanings:["dọn dẹp","sạch sẽ"], ex:"I need to clean my room this weekend."},
+  {w:"open", ipa:"/ˈoʊpən/", type:"động từ / tính từ", meanings:["mở","mở cửa"], ex:"Please open the window, it's hot in here."},
+  {w:"close", ipa:"/kloʊz/", type:"động từ", meanings:["đóng"], ex:"Could you close the door, please?"},
+  {w:"start", ipa:"/stɑːrt/", type:"động từ", meanings:["bắt đầu"], ex:"The meeting will start at 9 AM."},
+  {w:"finish", ipa:"/ˈfɪnɪʃ/", type:"động từ", meanings:["kết thúc"], ex:"I finished my homework an hour ago."},
+  {w:"travel", ipa:"/ˈtrævl/", type:"động từ", meanings:["du lịch, đi lại"], ex:"They love to travel to new countries."},
+  {w:"rest", ipa:"/rest/", type:"động từ / danh từ", meanings:["nghỉ ngơi"], ex:"You should rest after such a long trip."},
+
+  {w:"happy", ipa:"/ˈhæpi/", type:"tính từ", meanings:["vui vẻ, hạnh phúc"], ex:"She looks very happy today."},
+  {w:"sad", ipa:"/sæd/", type:"tính từ", meanings:["buồn"], ex:"He felt sad after hearing the news."},
+  {w:"big", ipa:"/bɪɡ/", type:"tính từ", meanings:["to, lớn"], ex:"They live in a big house near the city."},
+  {w:"small", ipa:"/smɔːl/", type:"tính từ", meanings:["nhỏ"], ex:"This is a small but cozy apartment."},
+  {w:"fast", ipa:"/fæst/", type:"tính từ / trạng từ", meanings:["nhanh"], ex:"He drives very fast on the highway."},
+  {w:"slow", ipa:"/sloʊ/", type:"tính từ", meanings:["chậm"], ex:"The traffic was very slow this morning."},
+  {w:"hot", ipa:"/hɒt/", type:"tính từ", meanings:["nóng"], ex:"It's really hot outside today."},
+  {w:"cold", ipa:"/koʊld/", type:"tính từ", meanings:["lạnh"], ex:"I need a jacket, it's cold today."},
+  {w:"easy", ipa:"/ˈiːzi/", type:"tính từ", meanings:["dễ"], ex:"This exercise is very easy."},
+  {w:"difficult", ipa:"/ˈdɪfɪkəlt/", type:"tính từ", meanings:["khó"], ex:"That was a difficult decision to make."},
+  {w:"important", ipa:"/ɪmˈpɔːrtənt/", type:"tính từ", meanings:["quan trọng"], ex:"This is an important meeting for our team."},
+  {w:"beautiful", ipa:"/ˈbjuːtɪfl/", type:"tính từ", meanings:["đẹp"], ex:"The sunset over the ocean was beautiful."},
+  {w:"strong", ipa:"/strɒŋ/", type:"tính từ", meanings:["mạnh, khỏe"], ex:"He is very strong after months of training."},
+  {w:"weak", ipa:"/wiːk/", type:"tính từ", meanings:["yếu"], ex:"She felt weak after being sick for a week."},
+  {w:"rich", ipa:"/rɪtʃ/", type:"tính từ", meanings:["giàu có"], ex:"His family is very rich."},
+  {w:"poor", ipa:"/pʊər/", type:"tính từ", meanings:["nghèo"], ex:"They grew up in a poor neighborhood."},
+  {w:"young", ipa:"/jʌŋ/", type:"tính từ", meanings:["trẻ"], ex:"She looks very young for her age."},
+  {w:"old", ipa:"/oʊld/", type:"tính từ", meanings:["già, cũ"], ex:"This is a very old building."},
+  {w:"new", ipa:"/nuː/", type:"tính từ", meanings:["mới"], ex:"I just bought a new laptop."},
+  {w:"same", ipa:"/seɪm/", type:"tính từ", meanings:["giống nhau"], ex:"We had the same idea at the same time."},
+  {w:"different", ipa:"/ˈdɪfrənt/", type:"tính từ", meanings:["khác nhau"], ex:"Their opinions are quite different."},
+  {w:"true", ipa:"/truː/", type:"tính từ", meanings:["đúng, thật"], ex:"Is it true that you're moving to Japan?"},
+  {w:"false", ipa:"/fɔːls/", type:"tính từ", meanings:["sai, giả"], ex:"That statement is completely false."},
+  {w:"safe", ipa:"/seɪf/", type:"tính từ", meanings:["an toàn"], ex:"Make sure you feel safe at home."},
+  {w:"dangerous", ipa:"/ˈdeɪndʒərəs/", type:"tính từ", meanings:["nguy hiểm"], ex:"Driving too fast is dangerous."},
+  {w:"busy", ipa:"/ˈbɪzi/", type:"tính từ", meanings:["bận rộn"], ex:"I'm really busy this week with exams."},
+  {w:"tired", ipa:"/ˈtaɪərd/", type:"tính từ", meanings:["mệt mỏi"], ex:"I'm so tired after that long flight."},
+  {w:"hungry", ipa:"/ˈhʌŋɡri/", type:"tính từ", meanings:["đói"], ex:"Let's eat, I'm really hungry."},
+  {w:"sick", ipa:"/sɪk/", type:"tính từ", meanings:["ốm, bệnh"], ex:"He stayed home because he felt sick."},
+  {w:"angry", ipa:"/ˈæŋɡri/", type:"tính từ", meanings:["tức giận"], ex:"She was angry about the delay."},
+  {w:"afraid", ipa:"/əˈfreɪd/", type:"tính từ", meanings:["sợ hãi"], ex:"I'm afraid of heights."},
+  {w:"surprised", ipa:"/sərˈpraɪzd/", type:"tính từ", meanings:["ngạc nhiên"], ex:"I was surprised by the good news."},
+  {w:"bored", ipa:"/bɔːrd/", type:"tính từ", meanings:["chán"], ex:"The kids got bored during the long trip."},
+  {w:"excited", ipa:"/ɪkˈsaɪtɪd/", type:"tính từ", meanings:["hào hứng"], ex:"We're excited about the upcoming trip."},
+  {w:"proud", ipa:"/praʊd/", type:"tính từ", meanings:["tự hào"], ex:"Her parents are very proud of her."},
+  {w:"kind", ipa:"/kaɪnd/", type:"tính từ", meanings:["tốt bụng"], ex:"He is always kind to everyone he meets."},
+  {w:"honest", ipa:"/ˈɒnɪst/", type:"tính từ", meanings:["trung thực"], ex:"She is always honest with her friends."},
+  {w:"lazy", ipa:"/ˈleɪzi/", type:"tính từ", meanings:["lười biếng"], ex:"Don't be lazy, finish your homework first."},
+  {w:"patient", ipa:"/ˈpeɪʃnt/", type:"tính từ / danh từ", meanings:["kiên nhẫn","bệnh nhân"], ex:"You need to be patient while learning a language."},
+  {w:"confident", ipa:"/ˈkɒnfɪdənt/", type:"tính từ", meanings:["tự tin"], ex:"He felt confident before the interview."},
+  {w:"shy", ipa:"/ʃaɪ/", type:"tính từ", meanings:["nhút nhát"], ex:"She was too shy to speak in front of the class."}
+];
+
+/* Build index for quick search */
+const dictIndex = {};
+dict.forEach(entry=>{ dictIndex[entry.w.toLowerCase()] = entry; });
+document.getElementById('entryCountLine').textContent = `📚 Kho dữ liệu hiện có ${dict.length} mục từ`;
+
+function renderResult(entry){
+  return `
+    <div class="result-card">
+      <div class="rc-head">
+        <span class="rc-word">${entry.w}</span>
+        <span class="rc-ipa">${entry.ipa}</span>
+        <span class="rc-type-tag">${entry.type}</span>
+      </div>
+      <ul class="rc-meaning-list">
+        ${entry.meanings.map(m=>`<li>${m}</li>`).join('')}
+      </ul>
+      <div class="rc-example">"${entry.ex}"</div>
+    </div>
+  `;
+}
+
+function renderOnlineResult(entry){
+  return `
+    <div class="result-card">
+      <div class="rc-head">
+        <span class="rc-word">${entry.w}</span>
+        <span class="rc-ipa">${entry.ipa || ''}</span>
+        <span class="rc-type-tag">${entry.type}</span>
+        <span class="rc-type-tag" style="background:rgba(76,187,175,0.15); color:#4cbbaf; border-color:rgba(76,187,175,0.4);">🌐 Tra online</span>
+      </div>
+      <ul class="rc-meaning-list">
+        ${entry.meanings.map(m=>`<li>${m}</li>`).join('')}
+      </ul>
+      ${entry.ex ? `<div class="rc-example">"${entry.ex}"</div>` : ''}
+      ${entry.viGuess ? `<div class="rc-example" style="border-color:#4cbbaf;">🇻🇳 Nghĩa tiếng Việt (dịch máy): ${entry.viGuess}</div>` : ''}
+    </div>
+  `;
+}
+
+const posMap = {noun:"danh từ", verb:"động từ", adjective:"tính từ", adverb:"trạng từ", preposition:"giới từ", conjunction:"liên từ", pronoun:"đại từ", interjection:"thán từ", exclamation:"thán từ", determiner:"từ hạn định"};
+
+async function fetchOnlineDefinition(word){
+  const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
+  if(!res.ok) throw new Error('not found');
+  const data = await res.json();
+  const first = data[0];
+  const ipa = (first.phonetics.find(p=>p.text) || {}).text || '';
+  const meanings = [];
+  let type = '';
+  let example = '';
+  first.meanings.slice(0,2).forEach(m=>{
+    if(!type) type = posMap[m.partOfSpeech] || m.partOfSpeech;
+    m.definitions.slice(0,2).forEach(d=>{
+      meanings.push(d.definition);
+      if(!example && d.example) example = d.example;
+    });
+  });
+  return {w: word, ipa, type: type || 'từ vựng', meanings, ex: example};
+}
+
+async function fetchTranslation(word){
+  try{
+    const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|vi`);
+    const data = await res.json();
+    return data.responseData && data.responseData.translatedText ? data.responseData.translatedText : null;
+  }catch(e){ return null; }
+}
+
+/* Levenshtein distance for "did you mean" suggestions */
+function levenshtein(a, b){
+  const m = a.length, n = b.length;
+  const dp = Array.from({length:m+1}, ()=> new Array(n+1).fill(0));
+  for(let i=0;i<=m;i++) dp[i][0] = i;
+  for(let j=0;j<=n;j++) dp[0][j] = j;
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      if(a[i-1]===b[j-1]) dp[i][j] = dp[i-1][j-1];
+      else dp[i][j] = 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+    }
+  }
+  return dp[m][n];
+}
+
+function findClosestWords(term, limit){
+  const scored = dict.map(e=>{
+    const w = e.w.toLowerCase();
+    const dist = levenshtein(term, w);
+    return {entry: e, dist, ratio: dist / Math.max(term.length, w.length)};
+  });
+  scored.sort((a,b)=> a.dist - b.dist);
+  return scored.filter(s => s.ratio <= 0.5).slice(0, limit || 5);
+}
+
+function renderDidYouMean(term, closest){
+  if(closest.length === 0) return '';
+  return `
+    <div class="multi-hint" style="margin-top:16px;">Có phải bạn muốn tìm:</div>
+    <div class="did-you-mean">
+      ${closest.map(c=>`<span class="dym-chip" data-w="${c.entry.w}">${c.entry.w}</span>`).join('')}
+    </div>
+  `;
+}
+
+async function searchOnline(term, resultsWrap){
+  resultsWrap.innerHTML = `<div class="no-result"><div class="nr-icon">🌐</div>Đang tra cứu trực tuyến cho "${term}"...</div>`;
+  try{
+    const [defEntry, viGuess] = await Promise.all([
+      fetchOnlineDefinition(term),
+      fetchTranslation(term)
+    ]);
+    defEntry.viGuess = viGuess;
+    resultsWrap.innerHTML = renderOnlineResult(defEntry);
+  }catch(err){
+    const closest = findClosestWords(term, 5);
+    resultsWrap.innerHTML = `
+      <div class="no-result">
+        <div class="nr-icon">🔍</div>
+        Không tìm thấy "<b>${term}</b>" — cả trong kho dữ liệu nội bộ lẫn tra cứu trực tuyến.<br>
+        Kiểm tra lại chính tả, hoặc đảm bảo máy đang có kết nối internet.
+      </div>
+      ${renderDidYouMean(term, closest)}
+    `;
+    document.querySelectorAll('.dym-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        document.getElementById('searchInput').value = chip.dataset.w;
+        search(chip.dataset.w);
+      });
+    });
+  }
+}
+
+function search(term){
+  const resultsWrap = document.getElementById('resultsWrap');
+  const cleaned = term.trim().toLowerCase();
+  if(!cleaned){
+    resultsWrap.innerHTML = '';
+    return;
+  }
+
+  // exact match first (instant, curated, has Vietnamese meaning)
+  if(dictIndex[cleaned]){
+    resultsWrap.innerHTML = renderResult(dictIndex[cleaned]);
+    return;
+  }
+
+  // partial matches in local dict
+  const matches = dict.filter(e => e.w.toLowerCase().includes(cleaned));
+  if(matches.length > 0){
+    resultsWrap.innerHTML =
+      `<div class="multi-hint">Tìm thấy ${matches.length} kết quả gần đúng với "${term}" trong kho nội bộ:</div>` +
+      matches.slice(0, 8).map(renderResult).join('');
+    return;
+  }
+
+  // fallback: live online lookup (needs internet)
+  searchOnline(cleaned, resultsWrap);
+}
+
+document.getElementById('searchBtn').addEventListener('click', ()=>{
+  hideAutocomplete();
+  search(document.getElementById('searchInput').value);
+});
+document.getElementById('searchInput').addEventListener('keypress', (e)=>{
+  if(e.key === 'Enter'){
+    hideAutocomplete();
+    search(e.target.value);
+  }
+});
+document.querySelectorAll('.sugg-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.getElementById('searchInput').value = chip.dataset.w;
+    hideAutocomplete();
+    search(chip.dataset.w);
+  });
+});
+
+/* ============ AUTOCOMPLETE / TYPEAHEAD ============ */
+const acList = document.getElementById('autocompleteList');
+const searchInputEl = document.getElementById('searchInput');
+let acActiveIndex = -1;
+let acItems = [];
+
+function hideAutocomplete(){
+  acList.classList.remove('show');
+  acList.innerHTML = '';
+  acActiveIndex = -1;
+  acItems = [];
+}
+
+function showAutocomplete(term){
+  const cleaned = term.trim().toLowerCase();
+  if(!cleaned){ hideAutocomplete(); return; }
+
+  // prioritize words starting with the typed term, then words containing it
+  const starts = dict.filter(e => e.w.toLowerCase().startsWith(cleaned));
+  const contains = dict.filter(e => !e.w.toLowerCase().startsWith(cleaned) && e.w.toLowerCase().includes(cleaned));
+  acItems = [...starts, ...contains].slice(0, 7);
+
+  if(acItems.length === 0){ hideAutocomplete(); return; }
+
+  acList.innerHTML = acItems.map((entry, i)=>{
+    const idx = entry.w.toLowerCase().indexOf(cleaned);
+    const highlighted = idx >= 0
+      ? entry.w.slice(0, idx) + '<b>' + entry.w.slice(idx, idx+cleaned.length) + '</b>' + entry.w.slice(idx+cleaned.length)
+      : entry.w;
+    return `
+      <div class="ac-item" data-index="${i}">
+        <div>
+          <span class="ac-word">${highlighted}</span>
+          <span class="ac-meaning"> — ${entry.meanings[0]}</span>
+        </div>
+        <span class="ac-type">${entry.type}</span>
+      </div>
+    `;
+  }).join('');
+  acList.classList.add('show');
+  acActiveIndex = -1;
+
+  acList.querySelectorAll('.ac-item').forEach(item=>{
+    item.addEventListener('click', ()=>{
+      const entry = acItems[parseInt(item.dataset.index, 10)];
+      searchInputEl.value = entry.w;
+      hideAutocomplete();
+      search(entry.w);
+    });
+  });
+}
+
+searchInputEl.addEventListener('input', (e)=>{
+  showAutocomplete(e.target.value);
+});
+
+searchInputEl.addEventListener('keydown', (e)=>{
+  if(!acList.classList.contains('show')) return;
+  const items = acList.querySelectorAll('.ac-item');
+  if(e.key === 'ArrowDown'){
+    e.preventDefault();
+    acActiveIndex = Math.min(acActiveIndex + 1, items.length - 1);
+    items.forEach((it,i)=> it.classList.toggle('active', i===acActiveIndex));
+    if(acActiveIndex >= 0) searchInputEl.value = acItems[acActiveIndex].w;
+  } else if(e.key === 'ArrowUp'){
+    e.preventDefault();
+    acActiveIndex = Math.max(acActiveIndex - 1, 0);
+    items.forEach((it,i)=> it.classList.toggle('active', i===acActiveIndex));
+    if(acActiveIndex >= 0) searchInputEl.value = acItems[acActiveIndex].w;
+  } else if(e.key === 'Escape'){
+    hideAutocomplete();
+  }
+});
+
+document.addEventListener('click', (e)=>{
+  if(!e.target.closest('.search-wrap-outer')) hideAutocomplete();
+});
+</script>
+</body>
+</html>

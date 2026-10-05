@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 12: Từ Vựng Chuyên Ngành IT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08); --sidebar-w: 290px;
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .ipa, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.app{display:flex; min-height:100vh;}
+.sidebar{width:var(--sidebar-w); flex-shrink:0; background:var(--ink); color:#EDEFF4; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; padding:24px 18px 40px; z-index:900; transition:transform .3s ease;}
+.sidebar::-webkit-scrollbar{width:6px;} .sidebar::-webkit-scrollbar-thumb{background:var(--teal-dark); border-radius:3px;}
+.brand{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+.brand h1{font-size:1.05rem; color:#fff; margin:0; line-height:1.25;}
+.brand small{display:block; color:var(--amber); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; margin-top:2px;}
+.sidebar-meter{margin:18px 0 22px; padding:12px; background:rgba(255,255,255,0.05); border-radius:10px;}
+.sidebar-meter .label{font-size:.72rem; color:#B7C2D6; margin-bottom:6px; display:flex; justify-content:space-between;}
+.meter-track{height:6px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;}
+.meter-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); border-radius:4px; transition:width .2s ease;}
+.toc-group{margin-bottom:4px;}
+.toc-title{font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:#8496B4; margin:18px 0 8px;}
+.toc-link{display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; color:#CBD5E6; text-decoration:none; font-size:.86rem; margin-bottom:2px; transition:background .2s, color .2s;}
+.toc-link:hover{background:rgba(255,255,255,0.07); color:#fff;}
+.toc-link.active{background:var(--teal-dark); color:#fff; font-weight:600;}
+.toc-num{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--amber); width:20px;}
+.main{margin-left:var(--sidebar-w); flex:1; min-width:0;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.topbar-title{font-size:.85rem; color:var(--text-soft); font-weight:500;}
+.controls{display:flex; gap:10px; align-items:center;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{padding:36px 48px 100px; max-width:920px;}
+.hero{padding:38px 34px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:40px; box-shadow:var(--shadow); position:relative; overflow:hidden;}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.1rem; margin:10px 0 14px;}
+.hero p{color:#C9D3E4; line-height:1.7; max-width:680px; font-size:.98rem;}
+.hero .waveform{margin-top:18px;}
+.roadmap{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:24px;}
+.roadmap .rm-item{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:12px 14px;}
+.roadmap .rm-item b{color:var(--amber); font-size:.72rem; text-transform:uppercase; letter-spacing:.06em;}
+.roadmap .rm-item div{font-size:.86rem; color:#E4E9F2; margin-top:4px;}
+section.chapter{margin-bottom:56px; scroll-margin-top:90px;}
+.chapter-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px;}
+.chapter-head .num{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:1rem; font-weight:700;}
+.chapter-head h2{margin:0; font-size:1.6rem;}
+.chapter-sub{color:var(--text-soft); margin-bottom:22px; font-size:.95rem;}
+p{line-height:1.75; font-size:.98rem;}
+.section-block{margin:20px 0;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid; font-size:.92rem; line-height:1.65;}
+.box .box-title{font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:.86rem; text-transform:uppercase; letter-spacing:.04em;}
+.box.note{background:rgba(47,143,134,0.08); border-color:var(--teal);} .box.note .box-title{color:var(--teal-dark);}
+.box.tip{background:rgba(217,164,65,0.1); border-color:var(--amber);} .box.tip .box-title{color:#A3781F;}
+[data-theme="dark"] .box.tip .box-title{color:var(--amber);}
+.box.warning{background:rgba(226,96,79,0.08); border-color:var(--coral);} .box.warning .box-title{color:var(--coral);}
+.box.important{background:rgba(22,36,61,0.06); border-color:var(--ink);}
+[data-theme="dark"] .box.important{background:rgba(255,255,255,0.05);}
+.box.important .box-title{color:var(--ink);}
+[data-theme="dark"] .box.important .box-title{color:var(--text);}
+.table-wrap{overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px;}
+table{border-collapse:collapse; width:100%; font-size:.9rem;}
+th,td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--line);}
+th{background:var(--paper-2); color:var(--ink); font-family:'Fraunces',serif; font-weight:600;}
+[data-theme="dark"] th{color:var(--text);}
+tr:last-child td{border-bottom:none;}
+.example-block{background:var(--ink); color:#EAF0F8; border-radius:12px; padding:16px 18px; margin:16px 0; position:relative; font-size:.9rem; line-height:1.7;}
+.example-block .copy-btn{position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.1); color:#fff; border:none; padding:5px 10px; border-radius:6px; font-size:.72rem; cursor:pointer; transition:background .2s;}
+.example-block .copy-btn:hover{background:var(--teal);}
+.example-block .ex-line{margin-bottom:6px;}
+.example-block .ex-en{color:#fff;}
+.example-block .ex-vi{color:#9FB0C8; font-size:.85rem;}
+.accordion{border:1px solid var(--line); border-radius:12px; margin:14px 0; overflow:hidden; background:var(--paper-2);}
+.acc-head{padding:14px 18px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-family:'Fraunces',serif; font-size:1rem;}
+.acc-head:hover{background:rgba(47,143,134,0.08);}
+.acc-icon{transition:transform .25s ease; color:var(--teal-dark); font-size:1.1rem;}
+.accordion.open .acc-icon{transform:rotate(45deg);}
+.acc-body{max-height:0; overflow:hidden; transition:max-height .35s ease; padding:0 18px;}
+.accordion.open .acc-body{padding:4px 18px 18px;}
+.ex-item{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px;}
+.ex-item .q{font-weight:600; margin-bottom:6px;}
+.ex-answer{display:none; margin-top:8px; padding:10px 12px; background:rgba(47,143,134,0.1); border-radius:8px; font-size:.88rem;}
+.ex-answer.show{display:block;}
+.reveal-btn{border:1px solid var(--teal); color:var(--teal-dark); background:transparent; padding:5px 12px; border-radius:8px; font-size:.8rem; cursor:pointer; transition:.2s;}
+.reveal-btn:hover{background:var(--teal); color:#fff;}
+.quiz-box{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:20px; margin:16px 0;}
+.quiz-q{margin-bottom:14px; padding-bottom:14px; border-bottom:1px dashed var(--line);}
+.quiz-q:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+.quiz-q p{font-weight:600; margin:0 0 8px;}
+.quiz-opts{display:grid; gap:8px;}
+.quiz-opt{border:1px solid var(--line); background:var(--paper); padding:9px 14px; border-radius:8px; cursor:pointer; font-size:.9rem; transition:.15s;}
+.quiz-opt:hover{border-color:var(--teal);}
+.quiz-opt.correct{background:rgba(47,143,134,0.18); border-color:var(--teal); font-weight:600;}
+.quiz-opt.wrong{background:rgba(226,96,79,0.18); border-color:var(--coral);}
+.quiz-score{margin-top:14px; font-weight:600; color:var(--teal-dark);}
+.summary-card{background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:#fff; border-radius:14px; padding:22px 24px; margin-top:24px;}
+.summary-card h3{color:#fff; margin-top:0;}
+.summary-card ul{margin:8px 0 0; padding-left:20px; line-height:1.8;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900; transition:transform .2s ease, background .2s;}
+#toTop:hover{background:var(--teal-dark); transform:translateY(-3px);}
+.fade-in{animation:fadeIn .6s ease both;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+.menu-toggle{display:none;}
+.vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; margin:14px 0;}
+.vocab-card{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px;}
+.vocab-card .vc-en{font-weight:700; font-family:'Fraunces',serif; font-size:1.02rem;}
+.vocab-card .vc-ipa{color:var(--teal-dark); font-family:'JetBrains Mono',monospace; font-size:.78rem;}
+.vocab-card .vc-vi{color:var(--text-soft); font-size:.85rem; margin-top:2px;}
+.email-card{background:var(--paper-2); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin:16px 0; font-size:.92rem; line-height:1.7;}
+.email-card .em-label{font-size:.72rem; text-transform:uppercase; color:var(--teal-dark); font-weight:700; letter-spacing:.05em; margin-bottom:4px;}
+@media (max-width: 980px){
+  .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;} .menu-toggle{display:flex;} .content{padding:28px 20px 100px;}
+}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 12</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 12</a>
+      <a class="toc-link" href="#ch59"><span class="toc-num">59</span> Lập trình &amp; Thuật toán cơ bản</a>
+      <a class="toc-link" href="#ch60"><span class="toc-num">60</span> Web Development (Frontend/Backend/DB)</a>
+      <a class="toc-link" href="#ch61"><span class="toc-num">61</span> Software Engineering &amp; DevOps</a>
+      <a class="toc-link" href="#ch62"><span class="toc-num">62</span> Giao tiếp nhóm IT — Agile/Scrum</a>
+      <a class="toc-link" href="#ch63"><span class="toc-num">63</span> Viết tài liệu kỹ thuật &amp; Báo lỗi</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Đã học</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 1-11 ✓ (Giáo trình cốt lõi hoàn tất)</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 12 / Từ Vựng Chuyên Ngành IT</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần mở rộng chuyên ngành</span>
+          <h1>Từ Vựng Chuyên Ngành IT Bằng Tiếng Anh</h1>
+          <p>
+            Phần mở rộng này được thiết kế riêng cho định hướng nghề nghiệp của bạn — dựa trên nền tảng
+            <b>C++, Java, Spring Boot, React, cơ sở dữ liệu, và thuật toán</b> bạn đang học. Mục tiêu là giúp bạn
+            <b>đọc tài liệu kỹ thuật tiếng Anh trôi chảy, giao tiếp trong nhóm phát triển quốc tế, và viết tài liệu/báo
+            lỗi chuyên nghiệp</b> — kỹ năng bắt buộc khi làm việc tại các công ty Nhật Bản hoặc môi trường IT quốc tế.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 59</b><div>Thuật ngữ lập trình &amp; thuật toán cơ bản</div></div>
+            <div class="rm-item"><b>Chương 60</b><div>Web Development — Frontend, Backend, Database</div></div>
+            <div class="rm-item"><b>Chương 61</b><div>Software Engineering &amp; DevOps</div></div>
+            <div class="rm-item"><b>Chương 62</b><div>Giao tiếp nhóm IT — Agile/Scrum, code review</div></div>
+            <div class="rm-item"><b>Chương 63</b><div>Viết tài liệu kỹ thuật &amp; báo cáo lỗi (Bug Reports)</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 59: PROGRAMMING & ALGORITHMS -->
+      <section id="ch59" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">59</span><h2>Thuật Ngữ Lập Trình &amp; Thuật Toán Cơ Bản</h2></div>
+        <div class="chapter-sub">Vốn từ nền tảng xuất hiện trong mọi tài liệu kỹ thuật, bất kể ngôn ngữ lập trình.</div>
+
+        <div class="accordion open">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>59.1 Khái niệm lập trình cơ bản</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body" style="max-height:800px;">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">variable</div><div class="vc-ipa">/ˈveriəbl/</div><div class="vc-vi">biến</div></div>
+              <div class="vocab-card"><div class="vc-en">function/method</div><div class="vc-ipa">/ˈfʌŋkʃn/ /ˈmeθəd/</div><div class="vc-vi">hàm/phương thức</div></div>
+              <div class="vocab-card"><div class="vc-en">loop</div><div class="vc-ipa">/luːp/</div><div class="vc-vi">vòng lặp</div></div>
+              <div class="vocab-card"><div class="vc-en">condition</div><div class="vc-ipa">/kənˈdɪʃn/</div><div class="vc-vi">điều kiện</div></div>
+              <div class="vocab-card"><div class="vc-en">inheritance</div><div class="vc-ipa">/ɪnˈherɪtəns/</div><div class="vc-vi">tính kế thừa</div></div>
+              <div class="vocab-card"><div class="vc-en">polymorphism</div><div class="vc-ipa">/ˌpɒliˈmɔːrfɪzəm/</div><div class="vc-vi">tính đa hình</div></div>
+              <div class="vocab-card"><div class="vc-en">abstract class</div><div class="vc-ipa">/ˈæbstrækt klæs/</div><div class="vc-vi">lớp trừu tượng</div></div>
+              <div class="vocab-card"><div class="vc-en">interface</div><div class="vc-ipa">/ˈɪntərfeɪs/</div><div class="vc-vi">giao diện (lập trình)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>59.2 Thuật toán &amp; Cấu trúc dữ liệu</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">algorithm</div><div class="vc-ipa">/ˈælɡərɪðəm/</div><div class="vc-vi">thuật toán</div></div>
+              <div class="vocab-card"><div class="vc-en">time complexity</div><div class="vc-ipa">/taɪm kəmˈpleksəti/</div><div class="vc-vi">độ phức tạp thời gian</div></div>
+              <div class="vocab-card"><div class="vc-en">recursion</div><div class="vc-ipa">/rɪˈkɜːrʒn/</div><div class="vc-vi">đệ quy</div></div>
+              <div class="vocab-card"><div class="vc-en">array</div><div class="vc-ipa">/əˈreɪ/</div><div class="vc-vi">mảng</div></div>
+              <div class="vocab-card"><div class="vc-en">linked list</div><div class="vc-ipa">/lɪŋkt lɪst/</div><div class="vc-vi">danh sách liên kết</div></div>
+              <div class="vocab-card"><div class="vc-en">binary tree</div><div class="vc-ipa">/ˈbaɪnəri triː/</div><div class="vc-vi">cây nhị phân</div></div>
+              <div class="vocab-card"><div class="vc-en">sorting</div><div class="vc-ipa">/ˈsɔːrtɪŋ/</div><div class="vc-vi">sắp xếp</div></div>
+              <div class="vocab-card"><div class="vc-en">hash table</div><div class="vc-ipa">/hæʃ ˈteɪbl/</div><div class="vc-vi">bảng băm</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">This sorting algorithm has a time complexity of O(n log n), which is more efficient than the previous recursive approach.</div>
+        </div>
+
+        <h3>59.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Dịch sang tiếng Anh: "Lớp trừu tượng Employee có 4 lớp con kế thừa."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "The abstract class Employee has 4 derived classes that inherit from it."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Giải thích ngắn gọn bằng tiếng Anh sự khác biệt giữa "array" và "linked list".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "An array stores elements in contiguous memory with fixed size, while a linked list stores elements as nodes connected by pointers, allowing dynamic resizing."</div>
+        </div>
+
+        <h3>59.4 Quiz trắc nghiệm — Chương 59</h3>
+        <div class="quiz-box" id="quiz59"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 59</h3>
+          <ul>
+            <li>Vốn từ OOP: inheritance, polymorphism, abstract class, interface.</li>
+            <li>Vốn từ thuật toán: algorithm, time complexity, recursion, sorting.</li>
+            <li>Cấu trúc dữ liệu: array, linked list, binary tree, hash table.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 60: WEB DEVELOPMENT -->
+      <section id="ch60" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">60</span><h2>Web Development — Frontend, Backend, Database</h2></div>
+        <div class="chapter-sub">Thuật ngữ trong hệ sinh thái Spring Boot + React bạn đang theo học.</div>
+
+        <div class="accordion open">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>60.1 Frontend (React)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body" style="max-height:800px;">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">component</div><div class="vc-vi">thành phần giao diện</div></div>
+              <div class="vocab-card"><div class="vc-en">state management</div><div class="vc-vi">quản lý trạng thái</div></div>
+              <div class="vocab-card"><div class="vc-en">rendering</div><div class="vc-vi">kết xuất giao diện</div></div>
+              <div class="vocab-card"><div class="vc-en">responsive design</div><div class="vc-vi">thiết kế đáp ứng (đa thiết bị)</div></div>
+              <div class="vocab-card"><div class="vc-en">event handler</div><div class="vc-vi">trình xử lý sự kiện</div></div>
+              <div class="vocab-card"><div class="vc-en">props</div><div class="vc-vi">thuộc tính truyền vào component</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>60.2 Backend (Spring Boot)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">endpoint</div><div class="vc-vi">điểm cuối API</div></div>
+              <div class="vocab-card"><div class="vc-en">authentication</div><div class="vc-vi">xác thực người dùng</div></div>
+              <div class="vocab-card"><div class="vc-en">authorization</div><div class="vc-vi">phân quyền truy cập</div></div>
+              <div class="vocab-card"><div class="vc-en">middleware</div><div class="vc-vi">tầng trung gian xử lý</div></div>
+              <div class="vocab-card"><div class="vc-en">dependency injection</div><div class="vc-vi">tiêm phụ thuộc</div></div>
+              <div class="vocab-card"><div class="vc-en">RESTful API</div><div class="vc-vi">API theo kiến trúc REST</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>60.3 Database (MySQL)</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">schema</div><div class="vc-vi">lược đồ cơ sở dữ liệu</div></div>
+              <div class="vocab-card"><div class="vc-en">foreign key</div><div class="vc-vi">khóa ngoại</div></div>
+              <div class="vocab-card"><div class="vc-en">query</div><div class="vc-vi">câu truy vấn</div></div>
+              <div class="vocab-card"><div class="vc-en">normalization</div><div class="vc-vi">chuẩn hóa dữ liệu</div></div>
+              <div class="vocab-card"><div class="vc-en">transaction</div><div class="vc-vi">giao dịch (đảm bảo tính toàn vẹn)</div></div>
+              <div class="vocab-card"><div class="vc-en">index</div><div class="vc-vi">chỉ mục (tăng tốc truy vấn)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">The backend exposes a RESTful API with JWT-based authentication, while the React frontend manages state using hooks and renders components responsively.</div>
+        </div>
+
+        <h3>60.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Giải thích bằng tiếng Anh mục đích của "authentication" và "authorization".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Authentication verifies who the user is, while authorization determines what actions that user is allowed to perform."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết một câu mô tả dự án e-commerce của bạn dùng ít nhất 3 thuật ngữ đã học.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "I built a RESTful API backend with Spring Boot, using JWT for authentication, and designed a normalized database schema in MySQL."</div>
+        </div>
+
+        <h3>60.5 Quiz trắc nghiệm — Chương 60</h3>
+        <div class="quiz-box" id="quiz60"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 60</h3>
+          <ul>
+            <li>Frontend: component, state management, rendering, props.</li>
+            <li>Backend: endpoint, authentication/authorization, middleware, RESTful API.</li>
+            <li>Database: schema, foreign key, query, normalization, transaction.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 61: SOFTWARE ENGINEERING & DEVOPS -->
+      <section id="ch61" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">61</span><h2>Software Engineering &amp; DevOps</h2></div>
+        <div class="chapter-sub">Từ vựng vòng đời phát triển phần mềm và triển khai hệ thống.</div>
+
+        <div class="section-block">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Thuật ngữ</th><th>Nghĩa tiếng Việt</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">version control</td><td>quản lý phiên bản (Git)</td></tr>
+                <tr><td class="mono">repository</td><td>kho lưu trữ mã nguồn</td></tr>
+                <tr><td class="mono">branch / merge</td><td>nhánh / hợp nhất mã nguồn</td></tr>
+                <tr><td class="mono">continuous integration (CI)</td><td>tích hợp liên tục</td></tr>
+                <tr><td class="mono">continuous deployment (CD)</td><td>triển khai liên tục</td></tr>
+                <tr><td class="mono">unit testing</td><td>kiểm thử đơn vị</td></tr>
+                <tr><td class="mono">refactor</td><td>tái cấu trúc mã nguồn</td></tr>
+                <tr><td class="mono">technical debt</td><td>nợ kỹ thuật</td></tr>
+                <tr><td class="mono">scalability</td><td>khả năng mở rộng hệ thống</td></tr>
+                <tr><td class="mono">deployment pipeline</td><td>quy trình triển khai tự động</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Before merging this branch, please make sure all unit tests pass and the CI pipeline is green.</div>
+          <div class="ex-line ex-vi">→ Câu điển hình xuất hiện trong quy trình code review thực tế.</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Khi làm việc với team quốc tế, hãy quen với việc viết <b>commit message</b> bằng tiếng Anh ngắn gọn, rõ ràng:
+          <span class="mono">"Fix null pointer exception in UPDATE_DIGITS routine"</span> thay vì mô tả chung chung.
+        </div>
+
+        <h3>61.1 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Viết một commit message tiếng Anh cho việc sửa lỗi countdown timer bị lệch 1 giây.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Fix off-by-one error in countdown timer logic"</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Giải thích bằng tiếng Anh khái niệm "technical debt".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Technical debt refers to the extra work created when developers choose a quick, easy solution instead of a better approach that would take longer."</div>
+        </div>
+
+        <h3>61.2 Quiz trắc nghiệm — Chương 61</h3>
+        <div class="quiz-box" id="quiz61"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 61</h3>
+          <ul>
+            <li>Ghi nhớ vòng đời CI/CD, version control, testing trong quy trình phát triển phần mềm.</li>
+            <li>Luyện viết commit message và mô tả kỹ thuật ngắn gọn bằng tiếng Anh.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 62: TEAM COMMUNICATION -->
+      <section id="ch62" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">62</span><h2>Giao Tiếp Nhóm IT — Agile/Scrum</h2></div>
+        <div class="chapter-sub">Ngôn ngữ dùng trong các buổi họp Scrum và code review hàng ngày.</div>
+
+        <div class="section-block">
+          <h3>62.1 Thuật ngữ Agile/Scrum</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Thuật ngữ</th><th>Nghĩa</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">sprint</td><td>chu kỳ phát triển ngắn hạn (thường 1-2 tuần)</td></tr>
+                <tr><td class="mono">backlog</td><td>danh sách công việc cần làm</td></tr>
+                <tr><td class="mono">daily stand-up</td><td>họp ngắn hàng ngày</td></tr>
+                <tr><td class="mono">sprint retrospective</td><td>họp tổng kết, rút kinh nghiệm sau sprint</td></tr>
+                <tr><td class="mono">user story</td><td>mô tả yêu cầu từ góc nhìn người dùng</td></tr>
+                <tr><td class="mono">story points</td><td>đơn vị ước lượng độ khó công việc</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>62.2 Mẫu câu cho Daily Stand-up</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">Yesterday, I finished implementing the login API. Today, I'll work on writing unit tests for it. I don't have any blockers at the moment.</div>
+            <div class="ex-line ex-vi">→ Cấu trúc chuẩn của một câu trả lời trong daily stand-up: Hôm qua đã làm gì → Hôm nay sẽ làm gì → Có gặp trở ngại (blocker) gì không.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>62.3 Mẫu câu Code Review</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tình huống</th><th>Mẫu câu</th></tr></thead>
+              <tbody>
+                <tr><td>Đề xuất thay đổi</td><td class="mono">Could you consider using a more descriptive variable name here?</td></tr>
+                <tr><td>Khen ngợi</td><td class="mono">Nice solution! This is much cleaner than the previous approach.</td></tr>
+                <tr><td>Nêu vấn đề tiềm ẩn</td><td class="mono">This might cause a null pointer exception if the input is empty.</td></tr>
+                <tr><td>Yêu cầu giải thích</td><td class="mono">Can you explain the reasoning behind this implementation?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3>62.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Viết câu trả lời daily stand-up cho việc đã hoàn thành phần debug traffic light, hôm nay sẽ viết báo cáo.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Yesterday, I finished debugging the traffic light control logic. Today, I'll be writing the technical report. No blockers so far."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết một comment code review lịch sự đề xuất đổi tên biến "x" thành tên rõ nghĩa hơn.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Could you consider renaming 'x' to something more descriptive, like 'countdownSeconds'?"</div>
+        </div>
+
+        <h3>62.5 Quiz trắc nghiệm — Chương 62</h3>
+        <div class="quiz-box" id="quiz62"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 62</h3>
+          <ul>
+            <li>Nắm vững thuật ngữ Agile/Scrum: sprint, backlog, stand-up, retrospective.</li>
+            <li>Cấu trúc trả lời stand-up: hôm qua → hôm nay → blocker.</li>
+            <li>Code review: dùng ngôn ngữ lịch sự, mang tính xây dựng, không chỉ trích cá nhân.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 63: TECHNICAL WRITING & BUG REPORTS -->
+      <section id="ch63" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">63</span><h2>Viết Tài Liệu Kỹ Thuật &amp; Báo Cáo Lỗi</h2></div>
+        <div class="chapter-sub">Kỹ năng viết bug report và tài liệu kỹ thuật rõ ràng, chuyên nghiệp.</div>
+
+        <div class="section-block">
+          <h3>63.1 Cấu trúc Bug Report chuẩn</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Phần</th><th>Nội dung</th></tr></thead>
+              <tbody>
+                <tr><td><b>Title</b></td><td>Tóm tắt ngắn gọn lỗi gặp phải</td></tr>
+                <tr><td><b>Steps to Reproduce</b></td><td>Các bước cụ thể để tái hiện lỗi</td></tr>
+                <tr><td><b>Expected Behavior</b></td><td>Hành vi mong đợi đúng</td></tr>
+                <tr><td><b>Actual Behavior</b></td><td>Hành vi thực tế xảy ra (lỗi)</td></tr>
+                <tr><td><b>Environment</b></td><td>Thông tin môi trường (OS, browser, version)</td></tr>
+                <tr><td><b>Screenshots/Logs</b></td><td>Ảnh chụp màn hình hoặc log lỗi đính kèm</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="email-card">
+          <div class="em-label">Ví dụ — Bug Report mẫu</div>
+          <b>Title:</b> Countdown timer displays incorrect value after page refresh<br><br>
+          <b>Steps to Reproduce:</b><br>
+          1. Open the traffic light simulator<br>
+          2. Let the countdown run for 5 seconds<br>
+          3. Refresh the page<br><br>
+          <b>Expected Behavior:</b> The countdown should reset to the initial value (30 seconds).<br><br>
+          <b>Actual Behavior:</b> The countdown displays "NaN" instead of resetting.<br><br>
+          <b>Environment:</b> Chrome 126, Windows 11<br>
+        </div>
+
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Bug report càng <b>cụ thể, khách quan, có thể tái hiện lại được</b> càng giúp đội ngũ kỹ thuật xử lý nhanh
+          hơn. Tránh viết mơ hồ như "It doesn't work" — luôn mô tả chính xác điều gì xảy ra và trong hoàn cảnh nào.
+        </div>
+
+        <h3>63.2 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Viết tiêu đề (Title) cho lỗi: nút "Submit" không phản hồi khi click trên Safari.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Submit button does not respond when clicked on Safari"</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết phần "Expected Behavior" và "Actual Behavior" cho lỗi form validation không hiển thị thông báo lỗi.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Expected Behavior: An error message should appear when the email field is left empty. Actual Behavior: The form submits without any validation error message."</div>
+        </div>
+
+        <h3>63.3 Quiz trắc nghiệm — Chương 63</h3>
+        <div class="quiz-box" id="quiz63"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 63</h3>
+          <ul>
+            <li>Bug report chuẩn gồm: Title, Steps to Reproduce, Expected/Actual Behavior, Environment.</li>
+            <li>Viết cụ thể, khách quan, có thể tái hiện được — tránh mô tả mơ hồ.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 12</div>
+          Bạn đã có vốn từ vựng IT thực chiến để làm việc trong môi trường quốc tế! Đây là phần mở rộng cuối cùng của
+          bộ giáo trình. Chúc bạn áp dụng thành công vào công việc và con đường trở thành IT Engineer tại Nhật Bản.
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz59: [
+    {q:"'inheritance' trong OOP nghĩa là gì?", opts:["Tính đa hình","Tính kế thừa","Tính đóng gói","Tính trừu tượng"], correct:1},
+    {q:"'time complexity' dùng để đo lường điều gì?", opts:["Số dòng code","Độ phức tạp thời gian của thuật toán","Số lượng biến","Kích thước file"], correct:1},
+    {q:"'hash table' là gì?", opts:["Cây nhị phân","Bảng băm","Danh sách liên kết","Mảng"], correct:1}
+  ],
+  quiz60: [
+    {q:"'RESTful API' là gì?", opts:["Ngôn ngữ lập trình","API theo kiến trúc REST","Cơ sở dữ liệu","Framework CSS"], correct:1},
+    {q:"'foreign key' trong database dùng để làm gì?", opts:["Mã hóa dữ liệu","Liên kết giữa các bảng dữ liệu","Xóa dữ liệu","Sao lưu dữ liệu"], correct:1},
+    {q:"'component' trong React là gì?", opts:["Cơ sở dữ liệu","Thành phần giao diện tái sử dụng","Máy chủ","Giao thức mạng"], correct:1}
+  ],
+  quiz61: [
+    {q:"'CI/CD' là viết tắt của gì?", opts:["Continuous Integration/Continuous Deployment","Code Inspection/Code Debugging","Client Interface/Client Design","Central Index/Central Database"], correct:0},
+    {q:"'technical debt' nghĩa là gì?", opts:["Nợ tài chính công ty","Hệ quả từ giải pháp nhanh nhưng chưa tối ưu","Lỗi bảo mật","Chi phí máy chủ"], correct:1},
+    {q:"'refactor' nghĩa là gì?", opts:["Xóa code","Tái cấu trúc mã nguồn","Viết tài liệu","Kiểm thử"], correct:1}
+  ],
+  quiz62: [
+    {q:"'sprint' trong Scrum là gì?", opts:["Cuộc chạy đua","Chu kỳ phát triển ngắn hạn","Một loại bug","Tên công cụ"], correct:1},
+    {q:"Cấu trúc trả lời daily stand-up gồm những phần nào?", opts:["Chỉ nói về hôm nay","Hôm qua - Hôm nay - Blocker","Chỉ nói về blocker","Không có cấu trúc cố định"], correct:1},
+    {q:"Trong code review, nên dùng ngôn ngữ như thế nào?", opts:["Chỉ trích trực tiếp cá nhân","Lịch sự và mang tính xây dựng","Không cần giải thích gì","Chỉ dùng emoji"], correct:1}
+  ],
+  quiz63: [
+    {q:"Phần nào KHÔNG thuộc cấu trúc Bug Report chuẩn?", opts:["Steps to Reproduce","Expected Behavior","Personal Opinion","Environment"], correct:2},
+    {q:"Bug report tốt cần có đặc điểm gì?", opts:["Mơ hồ, chung chung","Cụ thể, khách quan, có thể tái hiện","Dài dòng không cần thiết","Không cần môi trường cụ thể"], correct:1},
+    {q:"'Actual Behavior' trong bug report mô tả điều gì?", opts:["Hành vi mong muốn","Hành vi thực tế xảy ra (lỗi)","Môi trường test","Tên người báo lỗi"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container) return;
+  let score = 0; let answered = 0;
+  data.forEach((item, qi)=>{
+    const qDiv = document.createElement('div');
+    qDiv.className='quiz-q';
+    qDiv.innerHTML = `<p>Câu ${qi+1}. ${item.q}</p>`;
+    const optsDiv = document.createElement('div');
+    optsDiv.className='quiz-opts';
+    item.opts.forEach((opt, oi)=>{
+      const b = document.createElement('button');
+      b.className='quiz-opt';
+      b.textContent = opt;
+      b.onclick = ()=>{
+        if(b.dataset.locked) return;
+        [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+        if(oi === item.correct){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
+        answered++;
+        updateScore();
+      };
+      optsDiv.appendChild(b);
+    });
+    qDiv.appendChild(optsDiv);
+    container.appendChild(qDiv);
+  });
+  const scoreEl = document.createElement('div');
+  scoreEl.className='quiz-score';
+  container.appendChild(scoreEl);
+  function updateScore(){
+    scoreEl.textContent = `Điểm hiện tại: ${score}/${data.length} (${answered}/${data.length} câu đã trả lời)`;
+  }
+  updateScore();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

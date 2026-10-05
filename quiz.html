@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Quiz (Ngân Hàng Câu Hỏi Tổng Hợp)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16243D; --ink-2:#233757; --paper:#FBF7EF; --paper-2:#F2ECDF;
+  --teal:#2F8F86; --teal-dark:#1F6C64; --amber:#D9A441; --coral:#E2604F;
+  --line:#DED5C1; --text:#20304A; --text-soft:#5A6B85;
+  --shadow: 0 8px 24px rgba(22,36,61,0.08);
+}
+[data-theme="dark"]{
+  --ink:#0F1B2D; --ink-2:#16243D; --paper:#0D1729; --paper-2:#132238;
+  --teal:#4CBBAF; --teal-dark:#2F8F86; --amber:#E8BE6B; --coral:#F08272;
+  --line:#233757; --text:#E7EDF6; --text-soft:#9AAAC4; --shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--paper); color:var(--text); transition:background .3s ease, color .3s ease;}
+h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01em;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
+code, .mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--teal-dark);}
+.waveform{display:flex; align-items:center; gap:3px; height:22px;}
+.waveform span{width:3px; background:var(--teal); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
+.waveform span:nth-child(1){height:40%; animation-delay:0s;} .waveform span:nth-child(2){height:80%; animation-delay:.1s;}
+.waveform span:nth-child(3){height:100%; animation-delay:.2s;} .waveform span:nth-child(4){height:60%; animation-delay:.3s;}
+.waveform span:nth-child(5){height:90%; animation-delay:.4s;} .waveform span:nth-child(6){height:45%; animation-delay:.5s;}
+.waveform span:nth-child(7){height:70%; animation-delay:.6s;}
+@keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
+#progressBarWrap{position:fixed; top:0; left:0; width:100%; height:4px; background:transparent; z-index:1000;}
+#progressBar{height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--amber)); transition:width .1s ease;}
+.topbar{position:sticky; top:0; z-index:800; display:flex; justify-content:space-between; align-items:center; padding:14px 5vw; background:var(--paper); border-bottom:1px solid var(--line); backdrop-filter:blur(6px);}
+.brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:700;}
+.controls{display:flex; gap:10px;}
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s; text-decoration:none;}
+.icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
+.content{max-width:1000px; margin:0 auto; padding:32px 5vw 100px;}
+.hero{padding:34px 32px; border-radius:20px; background:linear-gradient(135deg, var(--ink), var(--ink-2)); color:#fff; margin-bottom:26px; box-shadow:var(--shadow);}
+.hero .eyebrow{color:var(--amber); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;}
+.hero h1{color:#fff; font-size:2.2rem; margin:10px 0 12px;}
+.hero p{color:#C9D3E4; line-height:1.7; font-size:.95rem;}
+.stat-row{display:flex; gap:24px; margin-top:20px; flex-wrap:wrap;}
+.stat-pill{background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:10px 18px; text-align:center;}
+.stat-pill b{display:block; font-family:'JetBrains Mono',monospace; font-size:1.3rem; color:var(--amber);}
+.stat-pill span{font-size:.72rem; color:#C9D3E4; text-transform:uppercase;}
+.category-filter{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; position:sticky; top:70px; z-index:50; background:var(--paper); padding:10px 0;}
+.cat-chip{border:1px solid var(--line); background:var(--paper-2); color:var(--text); padding:8px 16px; border-radius:18px; font-size:.82rem; cursor:pointer;}
+.cat-chip.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+.setup-row{display:flex; gap:14px; align-items:center; flex-wrap:wrap; background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:16px 20px; margin-bottom:22px;}
+.setup-row label{font-size:.85rem; color:var(--text-soft);}
+.setup-row select, .setup-row input{padding:8px 12px; border-radius:8px; border:1px solid var(--line); background:var(--paper); color:var(--text); font-size:.88rem;}
+.start-btn{background:var(--teal); color:#fff; border:none; padding:10px 22px; border-radius:10px; font-weight:700; cursor:pointer; margin-left:auto;}
+.start-btn:hover{background:var(--teal-dark);}
+.timer-display{font-family:'JetBrains Mono',monospace; font-size:1.1rem; font-weight:700; color:var(--amber); background:var(--ink); padding:6px 16px; border-radius:10px; display:none;}
+.quiz-box{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:22px; margin:16px 0;}
+.quiz-q{margin-bottom:16px; padding-bottom:16px; border-bottom:1px dashed var(--line);}
+.quiz-q:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+.quiz-q .qmeta{font-size:.72rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px;}
+.quiz-q p{font-weight:600; margin:0 0 10px; font-size:.98rem;}
+.quiz-opts{display:grid; gap:8px;}
+.quiz-opt{border:1px solid var(--line); background:var(--paper); padding:10px 14px; border-radius:8px; cursor:pointer; font-size:.9rem; transition:.15s;}
+.quiz-opt:hover{border-color:var(--teal);}
+.quiz-opt.correct{background:rgba(47,143,134,0.18); border-color:var(--teal); font-weight:600;}
+.quiz-opt.wrong{background:rgba(226,96,79,0.18); border-color:var(--coral);}
+.quiz-explain{font-size:.82rem; color:var(--text-soft); margin-top:8px; display:none; background:rgba(217,164,65,0.08); padding:8px 12px; border-radius:8px;}
+.quiz-explain.show{display:block;}
+.final-score{text-align:center; padding:40px 20px; background:linear-gradient(135deg, var(--teal-dark), var(--teal)); color:#fff; border-radius:16px; margin:20px 0; display:none;}
+.final-score.show{display:block;}
+.final-score h2{color:#fff; font-size:2.4rem; margin:0;}
+.final-score p{color:#DCEFEC; margin:8px 0 0;}
+#toTop{position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%; background:var(--teal); color:#fff; border:none; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none; align-items:center; justify-content:center; z-index:900;}
+.box{border-radius:12px; padding:16px 18px; margin:18px 0; border-left:4px solid var(--amber); background:rgba(217,164,65,0.1); font-size:.9rem; line-height:1.6;}
+.box .box-title{font-weight:700; color:#A3781F; margin-bottom:6px; font-size:.85rem; text-transform:uppercase;}
+[data-theme="dark"] .box .box-title{color:var(--amber);}
+</style>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<nav class="topbar">
+  <div class="brand">
+    <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+    Giáo Trình Tiếng Anh — Quiz
+  </div>
+  <div class="controls">
+    <a class="icon-btn" href="index_hub.html" title="Về trang chủ">🏠</a>
+    <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+    <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="hero">
+    <span class="eyebrow">Giáo trình tiếng Anh toàn diện · Ngân Hàng Câu Hỏi Tổng Hợp</span>
+    <h1>📝 Quiz</h1>
+    <p>
+      File này gộp <b>toàn bộ câu hỏi trắc nghiệm</b> từng nằm rải rác trong các bài học thành <b>một ngân hàng câu
+      hỏi duy nhất</b> — câu hỏi bằng tiếng Anh, kèm giải thích đáp án song ngữ Anh-Việt. Chọn chủ đề, số lượng câu,
+      có thể bật giờ đếm ngược để luyện phản xạ như thi thật.
+    </p>
+    <div class="stat-row">
+      <div class="stat-pill"><b id="statCategories">0</b><span>Chủ đề</span></div>
+      <div class="stat-pill"><b id="statQuestions">0</b><span>Câu hỏi</span></div>
+    </div>
+  </div>
+
+  <div class="category-filter" id="categoryFilter"></div>
+
+  <div class="setup-row">
+    <label>Số câu hỏi:
+      <select id="numQuestions">
+        <option value="10">10 câu</option>
+        <option value="20" selected>20 câu</option>
+        <option value="30">30 câu</option>
+        <option value="9999">Tất cả</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="enableTimer"> Bật đếm giờ (30 giây/câu)</label>
+    <span class="timer-display" id="timerDisplay">00:00</span>
+    <button class="start-btn" id="startBtn">▶️ Bắt đầu làm bài</button>
+  </div>
+
+  <div class="final-score" id="finalScore">
+    <h2 id="finalScoreText">0/0</h2>
+    <p id="finalScoreMsg"></p>
+  </div>
+
+  <div id="quizContainer"></div>
+
+  <div class="box">
+    <div class="box-title">💡 Cách dùng</div>
+    Chọn chủ đề (hoặc "Tất cả"), chọn số câu muốn làm, bấm "Bắt đầu làm bài". Trả lời từng câu bằng cách bấm vào đáp
+    án — hệ thống chấm ngay và hiện giải thích. Cuối bài sẽ hiện điểm tổng kết.
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+/* ============ QUESTION BANK (English question + Vietnamese explanation) ============ */
+const questionBank = [
+  // GRAMMAR — TENSES
+  {cat:"Grammar — Tenses", q:"She ___ to Japan three times this year.", opts:["has been","was","is","had been"], correct:0, explain:"Dùng hiện tại hoàn thành (has been) vì hành động lặp lại tính đến hiện tại, chưa xác định thời điểm cụ thể."},
+  {cat:"Grammar — Tenses", q:"By the time we arrived, the movie ___ already started.", opts:["has","have","had","was"], correct:2, explain:"Quá khứ hoàn thành (had started) diễn tả hành động xảy ra trước một mốc thời gian khác trong quá khứ."},
+  {cat:"Grammar — Tenses", q:"I ___ dinner when the phone rang.", opts:["cook","was cooking","cooked","have cooked"], correct:1, explain:"Quá khứ tiếp diễn (was cooking) diễn tả hành động đang xảy ra thì bị hành động khác (rang) xen vào."},
+  {cat:"Grammar — Tenses", q:"This time next week, I ___ on a beach in Da Nang.", opts:["will lie","will be lying","lie","am lying"], correct:1, explain:"Tương lai tiếp diễn (will be lying) diễn tả hành động đang diễn ra tại một thời điểm xác định trong tương lai."},
+  {cat:"Grammar — Tenses", q:"They ___ in this house since 2015.", opts:["live","lived","have lived","are living"], correct:2, explain:"Hiện tại hoàn thành (have lived) diễn tả trạng thái bắt đầu trong quá khứ và tiếp tục đến hiện tại, dùng với 'since'."},
+  {cat:"Grammar — Tenses", q:"If I ___ more time, I would learn to play the piano.", opts:["have","had","will have","having"], correct:1, explain:"Câu điều kiện loại 2 dùng quá khứ đơn (had) ở mệnh đề if để diễn tả giả định không có thật ở hiện tại."},
+
+  // GRAMMAR — PASSIVE & REPORTED SPEECH
+  {cat:"Grammar — Passive & Reported", q:"The report ___ by the team before the deadline.", opts:["completed","was completed","completes","completing"], correct:1, explain:"Câu bị động quá khứ đơn: was + completed, vì chủ thể thực hiện không quan trọng bằng đối tượng bị tác động."},
+  {cat:"Grammar — Passive & Reported", q:"She said that she ___ tired the day before.", opts:["is","was","has been","will be"], correct:1, explain:"Trong câu tường thuật, thì hiện tại đơn (is) lùi về quá khứ đơn (was) theo quy tắc backshift."},
+  {cat:"Grammar — Passive & Reported", q:"He asked me where ___.", opts:["did I live","I lived","I live","do I live"], correct:1, explain:"Câu hỏi tường thuật giữ trật tự từ như câu khẳng định (I lived), không đảo ngữ như câu hỏi trực tiếp."},
+  {cat:"Grammar — Passive & Reported", q:"The bridge ___ next year.", opts:["will build","will be built","builds","is building"], correct:1, explain:"Bị động ở thì tương lai đơn: will be + built."},
+
+  // GRAMMAR — MODALS & CONDITIONALS
+  {cat:"Grammar — Modals & Conditionals", q:"You ___ have called me earlier; I was worried all night.", opts:["should","must","can","may"], correct:0, explain:"'should have + V3' diễn tả sự tiếc nuối/trách móc về việc đã không xảy ra trong quá khứ."},
+  {cat:"Grammar — Modals & Conditionals", q:"If it rains tomorrow, we ___ the picnic.", opts:["cancel","will cancel","would cancel","canceled"], correct:1, explain:"Câu điều kiện loại 1: If + hiện tại đơn, mệnh đề chính dùng will + V để nói về khả năng có thật ở tương lai."},
+  {cat:"Grammar — Modals & Conditionals", q:"I wish I ___ harder for the exam last week.", opts:["study","studied","had studied","have studied"], correct:2, explain:"'wish + had + V3' diễn tả sự tiếc nuối về một việc đã xảy ra (hoặc không xảy ra) trong quá khứ."},
+  {cat:"Grammar — Modals & Conditionals", q:"She ___ be at home; her car isn't in the driveway.", opts:["must","can't","should","would"], correct:1, explain:"'can't' dùng để suy đoán phủ định mạnh mẽ ở hiện tại (chắc chắn KHÔNG phải vậy)."},
+
+  // GRAMMAR — ADVANCED (Gerund, Relative Clauses, Articles)
+  {cat:"Grammar — Advanced", q:"She suggested ___ a different approach to the problem.", opts:["to try","trying","try","tried"], correct:1, explain:"Động từ 'suggest' luôn theo sau bởi V-ing (danh động từ), không dùng to-V."},
+  {cat:"Grammar — Advanced", q:"My brother, ___ lives in Osaka, is visiting us next month.", opts:["that","who","which","whom"], correct:1, explain:"Mệnh đề quan hệ không xác định (có dấu phẩy) dùng 'who' cho người, không dùng 'that'."},
+  {cat:"Grammar — Advanced", q:"He plays ___ guitar every evening after work.", opts:["a","an","the","(no article)"], correct:2, explain:"Khi nói về việc chơi nhạc cụ, luôn dùng mạo từ 'the' (the guitar, the piano...)."},
+  {cat:"Grammar — Advanced", q:"The more you practice speaking, ___ you become.", opts:["the good","the better","better","good"], correct:1, explain:"Cấu trúc so sánh kép: 'The + so sánh hơn..., the + so sánh hơn...' diễn tả 2 sự việc thay đổi song song."},
+  {cat:"Grammar — Advanced", q:"Never ___ such a beautiful sunset before.", opts:["I have seen","have I seen","I saw","did I saw"], correct:1, explain:"Khi câu bắt đầu bằng trạng từ phủ định (Never), cần đảo ngữ: trợ động từ đứng trước chủ ngữ."},
+
+  // VOCABULARY — WORD FORMATION & MEANING
+  {cat:"Vocabulary — Word Formation", q:"The company's approach to sustainability is truly ___ (innovate).", opts:["innovate","innovative","innovation","innovatively"], correct:1, explain:"Sau 'is truly' cần tính từ để bổ nghĩa cho danh từ 'approach' — 'innovative' là dạng tính từ đúng."},
+  {cat:"Vocabulary — Word Formation", q:"Her ___ (decide) to study abroad changed her life completely.", opts:["decide","decision","decisive","decisively"], correct:1, explain:"Sau tính từ sở hữu 'Her' cần danh từ — 'decision' (quyết định) là dạng danh từ của 'decide'."},
+  {cat:"Vocabulary — Word Formation", q:"The word 'unhappiness' contains how many morphemes?", opts:["1","2","3","4"], correct:2, explain:"un- (tiền tố phủ định) + happy (gốc) + -ness (hậu tố tạo danh từ) = 3 morpheme."},
+  {cat:"Vocabulary — Word Formation", q:"Which suffix typically creates an adverb from an adjective?", opts:["-tion","-ly","-ness","-ment"], correct:1, explain:"Hậu tố '-ly' biến tính từ thành trạng từ, VD: quick → quickly, careful → carefully."},
+
+  // VOCABULARY — SYNONYMS/COLLOCATIONS/PHRASAL VERBS
+  {cat:"Vocabulary — Synonyms & Collocations", q:"Which word is closest in meaning to 'meticulous'?", opts:["careless","thorough","quick","lazy"], correct:1, explain:"'meticulous' (tỉ mỉ) gần nghĩa nhất với 'thorough' (kỹ lưỡng)."},
+  {cat:"Vocabulary — Synonyms & Collocations", q:"Complete the collocation: 'make a ___'", opts:["decision","decide","deciding","decisive"], correct:0, explain:"'make a decision' là collocation chuẩn (đưa ra quyết định), không dùng 'make a decide'."},
+  {cat:"Vocabulary — Synonyms & Collocations", q:"'to give up' most closely means:", opts:["to continue","to start","to stop trying","to succeed"], correct:2, explain:"Phrasal verb 'give up' nghĩa là từ bỏ, ngừng cố gắng."},
+  {cat:"Vocabulary — Synonyms & Collocations", q:"'a piece of cake' is an idiom meaning:", opts:["a difficult task","something delicious","something very easy","a small amount"], correct:2, explain:"'a piece of cake' là thành ngữ nghĩa là việc rất dễ dàng, không liên quan đến bánh."},
+  {cat:"Vocabulary — Synonyms & Collocations", q:"Which noun is uncountable?", opts:["book","information","idea","chair"], correct:1, explain:"'information' là danh từ không đếm được, không có dạng số nhiều 'informations'."},
+
+  // PRONUNCIATION
+  {cat:"Pronunciation", q:"Which word contains the sound /θ/?", opts:["this","think","the","they"], correct:1, explain:"'think' chứa âm /θ/ (th vô thanh); 'this/the/they' chứa âm /ð/ (th hữu thanh)."},
+  {cat:"Pronunciation", q:"In the phrase 'a cup of tea', the word 'of' is typically pronounced:", opts:["/ɒv/ (strong form)","/əv/ (weak form)","/ɒf/","silent"], correct:1, explain:"Từ chức năng không nhấn mạnh như 'of' giữa câu thường dùng Weak Form /əv/."},
+  {cat:"Pronunciation", q:"Which pair is an example of a minimal pair?", opts:["cat / dog","ship / sheep","house / home","big / small"], correct:1, explain:"'ship /ʃɪp/' và 'sheep /ʃiːp/' chỉ khác nhau 1 âm (nguyên âm ngắn/dài) — đây là minimal pair."},
+  {cat:"Pronunciation", q:"The schwa sound /ə/ is typically:", opts:["stressed and long","unstressed and short","only found in British English","always spelled with 'a'"], correct:1, explain:"Âm schwa /ə/ là âm yếu, không nhấn, ngắn — âm phổ biến nhất trong tiếng Anh nói tự nhiên."},
+
+  // IELTS / TOEIC
+  {cat:"IELTS & TOEIC", q:"In IELTS Writing Task 1, which phrase best describes a sharp increase?", opts:["remained stable","fluctuated slightly","surged dramatically","declined gradually"], correct:2, explain:"'surged dramatically' mô tả sự tăng mạnh, đột ngột — phù hợp để mô tả xu hướng tăng nhanh trong biểu đồ."},
+  {cat:"IELTS & TOEIC", q:"Which is a band 8+ paraphrase of 'many people think'?", opts:["a lot of people think","it is widely believed","people say","some think"], correct:1, explain:"'it is widely believed' là cách diễn đạt học thuật, trang trọng hơn 'many people think' hay 'people say'."},
+  {cat:"IELTS & TOEIC", q:"TOEIC Speaking tasks are typically completed:", opts:["with a live examiner","by writing only","by speaking into a microphone, recorded for later scoring","in a group discussion"], correct:2, explain:"TOEIC/TOEFL Speaking thường ghi âm câu trả lời vào máy tính để chấm sau, không có giám khảo trực tiếp như IELTS."},
+  {cat:"IELTS & TOEIC", q:"Which connector is most appropriate for adding a contrasting idea in academic writing?", opts:["and","however","so","because"], correct:1, explain:"'however' dùng để nêu ý tương phản/đối lập với ý trước đó, phù hợp văn phong học thuật."},
+
+  // CULTURE & COMMUNICATION
+  {cat:"Culture & Communication", q:"In Japanese workplace culture, saying 'it's a bit difficult' often actually means:", opts:["It's easy to do","A polite way of saying no","They need more information","They agree completely"], correct:1, explain:"Đây là cách từ chối lịch sự trong văn hóa Nhật, không nên hiểu theo nghĩa đen."},
+  {cat:"Culture & Communication", q:"Which is the most polite way to ask a superior for a favor?", opts:["Give me the report.","Can you give me the report?","Would it be possible for you to send me the report?","Send me the report now."], correct:2, explain:"Câu hỏi gián tiếp với 'Would it be possible...' là cách nhờ vả lịch sự và trang trọng nhất."},
+  {cat:"Culture & Communication", q:"'Honne' in Japanese culture refers to:", opts:["Public/formal opinion","One's true feelings","A business meeting","A greeting custom"], correct:1, explain:"'Honne' (本音) là suy nghĩ/cảm xúc thật sự của một người, khác với 'Tatemae' (lời nói xã giao công khai)."},
+
+  // LINGUISTICS
+  {cat:"Linguistics Basics", q:"Phonetics studies:", opts:["Sentence structure","The physical nature of speech sounds","Word meaning","Social context of language use"], correct:1, explain:"Phonetics (Ngữ âm học) nghiên cứu bản chất vật lý của âm thanh lời nói."},
+  {cat:"Linguistics Basics", q:"'Can you pass the salt?' being understood as a request rather than a literal question is an example of:", opts:["Syntax","Semantics","Pragmatics","Morphology"], correct:2, explain:"Pragmatics (Ngữ dụng học) nghiên cứu nghĩa thực tế của câu nói theo ngữ cảnh, khác với nghĩa đen (Semantics)."},
+
+  // WRITING & SPEAKING SKILLS
+  {cat:"Writing & Speaking Skills", q:"What is the main purpose of a topic sentence in a paragraph?", opts:["To conclude the paragraph","To introduce the main idea of the paragraph","To give an example","To ask a question"], correct:1, explain:"Câu chủ đề (topic sentence) thường đứng đầu đoạn văn, nêu ý chính mà cả đoạn sẽ triển khai."},
+  {cat:"Writing & Speaking Skills", q:"In the STAR method for behavioral interview questions, 'R' stands for:", opts:["Reason","Result","Review","Request"], correct:1, explain:"STAR = Situation, Task, Action, Result — 'Result' là kết quả đạt được sau hành động."},
+  {cat:"Writing & Speaking Skills", q:"The 'Rule of Three' in public speaking refers to:", opts:["Speaking for exactly 3 minutes","Grouping ideas into three main points","Using 3 slides only","Repeating a phrase 3 times"], correct:1, explain:"Rule of Three: nhóm ý tưởng thành 3 điểm chính giúp khán giả dễ theo dõi và ghi nhớ hơn."}
+];
+
+const container = document.getElementById('quizContainer');
+const categories = [...new Set(questionBank.map(q=>q.cat))];
+document.getElementById('statCategories').textContent = categories.length;
+document.getElementById('statQuestions').textContent = questionBank.length;
+
+const categoryFilter = document.getElementById('categoryFilter');
+let selectedCategory = 'all';
+const allChip = document.createElement('button');
+allChip.className = 'cat-chip active';
+allChip.textContent = 'Tất cả';
+allChip.dataset.cat = 'all';
+categoryFilter.appendChild(allChip);
+categories.forEach(cat=>{
+  const chip = document.createElement('button');
+  chip.className = 'cat-chip';
+  chip.textContent = cat;
+  chip.dataset.cat = cat;
+  categoryFilter.appendChild(chip);
+});
+categoryFilter.addEventListener('click', (e)=>{
+  const chip = e.target.closest('.cat-chip');
+  if(!chip) return;
+  categoryFilter.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  selectedCategory = chip.dataset.cat;
+});
+
+let currentQuestions = [];
+let currentIndex = 0;
+let score = 0;
+let timerInterval = null;
+let timeLeft = 0;
+
+function shuffle(arr){
+  const a = [...arr];
+  for(let i = a.length -1; i>0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  const pool = selectedCategory === 'all' ? questionBank : questionBank.filter(q=>q.cat === selectedCategory);
+  const numWanted = parseInt(document.getElementById('numQuestions').value, 10);
+  currentQuestions = shuffle(pool).slice(0, numWanted);
+  currentIndex = 0;
+  score = 0;
+  document.getElementById('finalScore').classList.remove('show');
+  renderAllQuestions();
+  if(document.getElementById('enableTimer').checked){
+    startTimer(currentQuestions.length * 30);
+  } else {
+    document.getElementById('timerDisplay').style.display = 'none';
+    clearInterval(timerInterval);
+  }
+});
+
+function startTimer(seconds){
+  timeLeft = seconds;
+  const display = document.getElementById('timerDisplay');
+  display.style.display = 'inline-block';
+  clearInterval(timerInterval);
+  updateTimerDisplay();
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    updateTimerDisplay();
+    if(timeLeft <= 0){
+      clearInterval(timerInterval);
+      showFinalScore();
+    }
+  }, 1000);
+}
+function updateTimerDisplay(){
+  const m = Math.floor(timeLeft/60).toString().padStart(2,'0');
+  const s = (timeLeft%60).toString().padStart(2,'0');
+  document.getElementById('timerDisplay').textContent = `${m}:${s}`;
+}
+
+function renderAllQuestions(){
+  container.innerHTML = '';
+  const box = document.createElement('div');
+  box.className = 'quiz-box';
+  let answeredCount = 0;
+
+  currentQuestions.forEach((item, qi)=>{
+    const qDiv = document.createElement('div');
+    qDiv.className = 'quiz-q';
+    qDiv.innerHTML = `<div class="qmeta">${item.cat}</div><p>Câu ${qi+1}. ${item.q}</p>`;
+    const optsDiv = document.createElement('div');
+    optsDiv.className = 'quiz-opts';
+    item.opts.forEach((opt, oi)=>{
+      const b = document.createElement('button');
+      b.className = 'quiz-opt';
+      b.textContent = opt;
+      b.addEventListener('click', ()=>{
+        if(b.dataset.locked) return;
+        [...optsDiv.children].forEach(c=>c.dataset.locked = "1");
+        if(oi === item.correct){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
+        explainDiv.classList.add('show');
+        answeredCount++;
+        if(answeredCount === currentQuestions.length){
+          clearInterval(timerInterval);
+          showFinalScore();
+        }
+      });
+      optsDiv.appendChild(b);
+    });
+    qDiv.appendChild(optsDiv);
+    const explainDiv = document.createElement('div');
+    explainDiv.className = 'quiz-explain';
+    explainDiv.textContent = '💡 ' + item.explain;
+    qDiv.appendChild(explainDiv);
+    box.appendChild(qDiv);
+  });
+  container.appendChild(box);
+}
+
+function showFinalScore(){
+  const finalScore = document.getElementById('finalScore');
+  const pct = Math.round((score/currentQuestions.length)*100);
+  document.getElementById('finalScoreText').textContent = `${score}/${currentQuestions.length}`;
+  let msg = '';
+  if(pct >= 90) msg = '🎉 Xuất sắc! Bạn nắm kiến thức rất vững.';
+  else if(pct >= 70) msg = '👍 Khá tốt! Xem lại phần giải thích cho các câu sai nhé.';
+  else msg = '💪 Cần ôn tập thêm — hãy xem lại các chương liên quan trong giáo trình.';
+  document.getElementById('finalScoreMsg').textContent = msg + ` (${pct}%)`;
+  finalScore.classList.add('show');
+  finalScore.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+/* ============ DARK MODE / PRINT ============ */
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const progressBar = document.getElementById('progressBar');
+const toTopBtn = document.getElementById('toTop');
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>
