@@ -209,7 +209,21 @@ const questionBank = [
   // WRITING & SPEAKING SKILLS
   {cat:"Writing & Speaking Skills", q:"What is the main purpose of a topic sentence in a paragraph?", opts:["To conclude the paragraph","To introduce the main idea of the paragraph","To give an example","To ask a question"], correct:1, explain:"Câu chủ đề (topic sentence) thường đứng đầu đoạn văn, nêu ý chính mà cả đoạn sẽ triển khai."},
   {cat:"Writing & Speaking Skills", q:"In the STAR method for behavioral interview questions, 'R' stands for:", opts:["Reason","Result","Review","Request"], correct:1, explain:"STAR = Situation, Task, Action, Result — 'Result' là kết quả đạt được sau hành động."},
-  {cat:"Writing & Speaking Skills", q:"The 'Rule of Three' in public speaking refers to:", opts:["Speaking for exactly 3 minutes","Grouping ideas into three main points","Using 3 slides only","Repeating a phrase 3 times"], correct:1, explain:"Rule of Three: nhóm ý tưởng thành 3 điểm chính giúp khán giả dễ theo dõi và ghi nhớ hơn."}
+  {cat:"Writing & Speaking Skills", q:"The 'Rule of Three' in public speaking refers to:", opts:["Speaking for exactly 3 minutes","Grouping ideas into three main points","Using 3 slides only","Repeating a phrase 3 times"], correct:1, explain:"Rule of Three: nhóm ý tưởng thành 3 điểm chính giúp khán giả dễ theo dõi và ghi nhớ hơn."},
+
+  // ACADEMIC VOCABULARY — CRITICAL THINKING
+  {cat:"Vocabulary — Academic Thinking", q:"A claim supported by reliable data is best described as:", opts:["evidence-based","time-consuming","self-evident","short-lived"], correct:0, explain:"Evidence-based nghĩa là dựa trên bằng chứng hoặc dữ liệu đáng tin cậy."},
+  {cat:"Vocabulary — Academic Thinking", q:"A counterargument is:", opts:["a repeated example","an opposing argument considered in a discussion","a final summary","a numerical prediction"], correct:1, explain:"Counterargument là lập luận phản biện hoặc ý kiến đối lập được xem xét trong bài viết."},
+  {cat:"Vocabulary — Academic Thinking", q:"If a proposal is feasible, it is:", opts:["possible and practical to carry out","guaranteed to be popular","unrelated to the problem","already completed"], correct:0, explain:"Feasible có nghĩa là khả thi, có thể thực hiện trong điều kiện thực tế."},
+  {cat:"Vocabulary — Academic Thinking", q:"A trade-off occurs when you:", opts:["gain every benefit without cost","accept one disadvantage to obtain another benefit","repeat the same decision","avoid comparing options"], correct:1, explain:"Trade-off là sự đánh đổi giữa các lợi ích hoặc hạn chế."},
+  {cat:"Vocabulary — Academic Thinking", q:"An unintended consequence is an outcome that:", opts:["was deliberately planned","was not expected or intended","has no effect","happened before a decision"], correct:1, explain:"Unintended consequence là hệ quả không được dự tính trước."},
+  {cat:"Vocabulary — Academic Thinking", q:"Resource allocation refers to:", opts:["how resources are distributed among needs or projects","how a resource is discovered","how prices are advertised","how results are translated"], correct:0, explain:"Resource allocation là việc phân bổ nguồn lực cho các nhu cầu hoặc dự án."},
+  {cat:"Vocabulary — Academic Thinking", q:"A cost-effective solution provides:", opts:["good results for a reasonable cost","the highest possible price","no measurable benefit","a short-term expense only"], correct:0, explain:"Cost-effective mô tả giải pháp đạt kết quả tốt so với chi phí bỏ ra."},
+  {cat:"Vocabulary — Academic Thinking", q:"Correlation between two variables means that they:", opts:["are associated in some way","must have a cause-and-effect relationship","are exactly the same","cannot be measured"], correct:0, explain:"Correlation chỉ cho thấy hai biến có liên hệ; điều đó chưa chứng minh quan hệ nhân quả."},
+  {cat:"Vocabulary — Academic Thinking", q:"Causation means that:", opts:["one factor produces or contributes to a change in another","two events happened at the same time","a result is unknown","a pattern is accidental"], correct:0, explain:"Causation nói về quan hệ nguyên nhân và kết quả."},
+  {cat:"Vocabulary — Academic Thinking", q:"A risk assessment is used to:", opts:["identify and evaluate possible risks","remove all uncertainty permanently","choose a topic sentence","measure language fluency"], correct:0, explain:"Risk assessment là quá trình nhận diện và đánh giá các rủi ro có thể xảy ra."},
+  {cat:"Vocabulary — Academic Thinking", q:"A policy intervention is:", opts:["an action taken by authorities to address an issue","a private disagreement with no action","a summary of research findings","a change in pronunciation"], correct:0, explain:"Policy intervention là hành động hoặc biện pháp chính sách nhằm giải quyết một vấn đề."},
+  {cat:"Vocabulary — Academic Thinking", q:"The long-term impact of a decision is its effect:", opts:["over an extended period","only at the moment it is made","on one person only","before the decision"], correct:0, explain:"Long-term impact là tác động trong một khoảng thời gian dài."}
 ];
 
 const container = document.getElementById('quizContainer');
@@ -244,6 +258,7 @@ let currentIndex = 0;
 let score = 0;
 let timerInterval = null;
 let timeLeft = 0;
+let lastAttemptSignature = '';
 
 function shuffle(arr){
   const a = [...arr];
@@ -254,10 +269,29 @@ function shuffle(arr){
   return a;
 }
 
+function createQuizAttempt(pool, count){
+  const attempt = shuffle(pool).slice(0, count).map(item=>{
+    const options = shuffle(item.opts.map((text,index)=>({text, isCorrect:index===item.correct})));
+    return {...item, opts:options.map(option=>option.text), correct:options.findIndex(option=>option.isCorrect)};
+  });
+  let signature = JSON.stringify(attempt.map(item=>[item.q,item.opts]));
+  if(signature === lastAttemptSignature && attempt.length){
+    const first = attempt[0];
+    [first.opts[0],first.opts[1]]=[first.opts[1],first.opts[0]];
+    // Recompute the answer index after changing the option order.
+    const original = pool.find(item=>item.q===first.q);
+    const correctText = original.opts[original.correct];
+    first.correct = first.opts.indexOf(correctText);
+    signature = JSON.stringify(attempt.map(item=>[item.q,item.opts]));
+  }
+  lastAttemptSignature = signature;
+  return attempt;
+}
+
 document.getElementById('startBtn').addEventListener('click', ()=>{
   const pool = selectedCategory === 'all' ? questionBank : questionBank.filter(q=>q.cat === selectedCategory);
   const numWanted = parseInt(document.getElementById('numQuestions').value, 10);
-  currentQuestions = shuffle(pool).slice(0, numWanted);
+  currentQuestions = createQuizAttempt(pool, Math.min(numWanted, pool.length));
   currentIndex = 0;
   score = 0;
   document.getElementById('finalScore').classList.remove('show');

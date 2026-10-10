@@ -140,7 +140,7 @@ tr:last-child td{border-bottom:none;}
   <aside class="sidebar" id="sidebar">
     <div class="brand">
       <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
-      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
     </div>
     <div class="sidebar-meter">
       <div class="label"><span>Tiến độ Phần 34</span><span id="progressPct">0%</span></div>
@@ -153,10 +153,6 @@ tr:last-child td{border-bottom:none;}
       <a class="toc-link" href="#ch148"><span class="toc-num">148</span> Tỉnh lược (Ellipsis) &amp; Thay thế (Substitution)</a>
       <a class="toc-link" href="#ch149"><span class="toc-num">149</span> Danh động từ vs. Động từ nguyên mẫu (Gerund vs Infinitive)</a>
       <a class="toc-link" href="#ch150"><span class="toc-num">150</span> 30 Cặp Từ Dễ Nhầm Lẫn Nhất</a>
-    </div>
-    <div class="toc-group">
-      <div class="toc-title">Đã học</div>
-      <a class="toc-link" style="opacity:.5" href="#">Phần 1-33 ✓</a>
     </div>
   </aside>
 
@@ -498,38 +494,82 @@ const quizData = {
 
 function buildQuiz(id, data){
   const container = document.getElementById(id);
-  if(!container) return;
-  let score = 0; let answered = 0;
-  data.forEach((item, qi)=>{
-    const qDiv = document.createElement('div');
-    qDiv.className='quiz-q';
-    qDiv.innerHTML = `<p>Câu ${qi+1}. ${item.q}</p>`;
-    const optsDiv = document.createElement('div');
-    optsDiv.className='quiz-opts';
-    item.opts.forEach((opt, oi)=>{
-      const b = document.createElement('button');
-      b.className='quiz-opt';
-      b.textContent = opt;
-      b.onclick = ()=>{
-        if(b.dataset.locked) return;
-        [...optsDiv.children].forEach(c=>c.dataset.locked="1");
-        if(oi === item.correct){ b.classList.add('correct'); score++; }
-        else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
-        answered++;
-        updateScore();
-      };
-      optsDiv.appendChild(b);
-    });
-    qDiv.appendChild(optsDiv);
-    container.appendChild(qDiv);
-  });
-  const scoreEl = document.createElement('div');
-  scoreEl.className='quiz-score';
-  container.appendChild(scoreEl);
-  function updateScore(){
-    scoreEl.textContent = `Điểm hiện tại: ${score}/${data.length} (${answered}/${data.length} câu đã trả lời)`;
+  if(!container || !Array.isArray(data) || data.length === 0) return;
+
+  let lastAttemptSignature = '';
+  function shuffleQuizItems(items){
+    const shuffled = [...items];
+    for(let i=shuffled.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];
+    }
+    return shuffled;
   }
-  updateScore();
+
+  function renderAttempt(){
+    container.innerHTML = '';
+    let score = 0;
+    let answered = 0;
+    const questionCount = data.length > 2 ? Math.max(2, Math.floor(data.length * 0.7)) : data.length;
+    const selected = shuffleQuizItems(data).slice(0, questionCount);
+    const attempt = selected.map(item=>({
+      item,
+      options: shuffleQuizItems(item.opts.map((text,index)=>({text, isCorrect:index===item.correct})))
+    }));
+    let signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    if(signature === lastAttemptSignature && attempt.length){
+      if(attempt.length > 1) [attempt[0],attempt[1]]=[attempt[1],attempt[0]];
+      else [attempt[0].options[0],attempt[0].options[1]]=[attempt[0].options[1],attempt[0].options[0]];
+      signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    }
+    lastAttemptSignature = signature;
+
+    attempt.forEach((row,qi)=>{
+      const item = row.item;
+      const qDiv = document.createElement('div');
+      qDiv.className='quiz-q';
+      const questionText = item.q.replace(/^\d+\.\s*/, '');
+      qDiv.innerHTML = '<p>Câu ' + (qi+1) + '. ' + questionText + '</p>';
+      const optsDiv = document.createElement('div');
+      optsDiv.className='quiz-opts';
+      row.options.forEach(option=>{
+        const b = document.createElement('button');
+        b.className='quiz-opt';
+        b.textContent = option.text;
+        b.onclick = ()=>{
+          if(b.dataset.locked) return;
+          [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+          if(option.isCorrect){ b.classList.add('correct'); score++; }
+          else {
+            b.classList.add('wrong');
+            const correctIndex = row.options.findIndex(candidate=>candidate.isCorrect);
+            optsDiv.children[correctIndex].classList.add('correct');
+          }
+          answered++;
+          updateScore();
+        };
+        optsDiv.appendChild(b);
+      });
+      qDiv.appendChild(optsDiv);
+      container.appendChild(qDiv);
+    });
+
+    const scoreEl = document.createElement('div');
+    scoreEl.className='quiz-score';
+    container.appendChild(scoreEl);
+    const retryButton = document.createElement('button');
+    retryButton.type='button';
+    retryButton.className='quiz-retry-btn';
+    retryButton.textContent='🔄 Làm bộ câu khác';
+    retryButton.style.cssText='margin:12px 0;padding:10px 16px;border:0;border-radius:8px;background:var(--teal);color:#fff;font-weight:700;cursor:pointer;';
+    retryButton.addEventListener('click',renderAttempt);
+    container.appendChild(retryButton);
+    function updateScore(){
+      scoreEl.textContent = 'Điểm hiện tại: ' + score + '/' + attempt.length + ' (' + answered + '/' + attempt.length + ' câu đã trả lời)';
+    }
+    updateScore();
+  }
+  renderAttempt();
 }
 Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
 

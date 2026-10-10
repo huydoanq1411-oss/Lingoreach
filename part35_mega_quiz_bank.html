@@ -120,7 +120,7 @@ p{line-height:1.75; font-size:.98rem;}
   <aside class="sidebar" id="sidebar">
     <div class="brand">
       <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
-      <div><h1>Giáo Trình Tiếng Anh</h1><small>Lộ trình Anh ngữ toàn diện</small></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
     </div>
     <div class="sidebar-meter">
       <div class="label"><span>Tiến độ Phần 35</span><span id="progressPct">0%</span></div>
@@ -130,10 +130,6 @@ p{line-height:1.75; font-size:.98rem;}
       <div class="toc-title">Điều hướng</div>
       <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Ngân Hàng Quiz</a>
       <a class="toc-link" href="#ch151"><span class="toc-num">151</span> Quiz tổng hợp — chọn chủ đề &amp; bấm giờ</a>
-    </div>
-    <div class="toc-group">
-      <div class="toc-title">Đã học</div>
-      <a class="toc-link" style="opacity:.5" href="#">Phần 1-34 ✓</a>
     </div>
   </aside>
 
@@ -312,6 +308,20 @@ const questionBank = {
     {q:"The ideal word count for IELTS Writing Task 2 is:", opts:["100-150 words","150-200 words","250-290 words","400+ words"], correct:2},
     {q:"What does 'skimming' mean in reading strategy?", opts:["Reading word by word","Reading quickly for the main idea","Reading only the last paragraph","Memorizing the text"], correct:1}
   ],
+  "Từ vựng học thuật & tư duy phản biện": [
+    {q:"A claim supported by reliable data is:", opts:["evidence-based","self-evident","short-lived","time-consuming"], correct:0},
+    {q:"A counterargument is:", opts:["an opposing argument considered in a discussion","a final summary","a repeated example","a numerical prediction"], correct:0},
+    {q:"If a proposal is feasible, it is:", opts:["possible and practical to carry out","guaranteed to succeed","already completed","unrelated to the issue"], correct:0},
+    {q:"A trade-off means:", opts:["accepting one disadvantage to gain another benefit","getting every benefit at no cost","avoiding a decision","repeating an argument"], correct:0},
+    {q:"An unintended consequence is:", opts:["an outcome that was not expected","a planned target","a research method","a positive result only"], correct:0},
+    {q:"Resource allocation is the process of:", opts:["distributing resources among needs or projects","finding new vocabulary","measuring public opinion","removing all risks"], correct:0},
+    {q:"A cost-effective option gives:", opts:["good results for a reasonable cost","the highest price","no measurable result","only a short-term benefit"], correct:0},
+    {q:"Correlation shows that two variables:", opts:["are associated, without proving causation","always cause each other","are identical","cannot be measured"], correct:0},
+    {q:"Causation describes a relationship in which:", opts:["one factor produces or contributes to a change","two events merely coincide","a result cannot be measured","a pattern is unrelated"], correct:0},
+    {q:"A risk assessment helps people:", opts:["identify and evaluate possible risks","guarantee there is no uncertainty","write a conclusion","avoid collecting evidence"], correct:0},
+    {q:"A policy intervention is:", opts:["an action taken by authorities to address an issue","a personal preference","a research citation","an unexpected outcome"], correct:0},
+    {q:"Long-term impact refers to an effect:", opts:["over an extended period","only at the moment of a decision","before a decision is made","on one person only"], correct:0}
+  ],
   "IT & Chuyên ngành": [
     {q:"'inheritance' in OOP means:", opts:["tính đa hình","tính kế thừa","tính đóng gói","tính trừu tượng"], correct:1},
     {q:"'RESTful API' refers to:", opts:["A programming language","An architectural style for APIs","A database","A CSS framework"], correct:1},
@@ -360,6 +370,24 @@ function shuffle(arr){
   return a;
 }
 
+let lastAttemptSignature = '';
+function createQuizAttempt(pool, count){
+  const attempt = shuffle(pool).slice(0, count).map(item=>{
+    const options = shuffle(item.opts.map((text,index)=>({text, isCorrect:index===item.correct})));
+    return {...item, opts:options.map(option=>option.text), correct:options.findIndex(option=>option.isCorrect)};
+  });
+  let signature = JSON.stringify(attempt.map(item=>[item.q,item.opts]));
+  if(signature === lastAttemptSignature && attempt.length){
+    const first = attempt[0];
+    [first.opts[0],first.opts[1]]=[first.opts[1],first.opts[0]];
+    const original = pool.find(item=>item.q===first.q);
+    first.correct = first.opts.indexOf(original.opts[original.correct]);
+    signature = JSON.stringify(attempt.map(item=>[item.q,item.opts]));
+  }
+  lastAttemptSignature = signature;
+  return attempt;
+}
+
 const questionCountSelect = document.getElementById('questionCountSelect');
 function updateEstimate(){
   const pool = getPooledQuestions();
@@ -386,7 +414,7 @@ document.getElementById('btnStartQuiz').addEventListener('click', ()=>{
   }
   let count = parseInt(questionCountSelect.value, 10);
   if(count > pool.length) count = pool.length;
-  quizQuestions = shuffle(pool).slice(0, count);
+  quizQuestions = createQuizAttempt(pool, count);
   currentIdx = 0;
   score = 0;
   quizTimerSeconds = count * 30;

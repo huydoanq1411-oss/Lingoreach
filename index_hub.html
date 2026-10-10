@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Giáo Trình Tiếng Anh — Trang Chủ Lộ Trình Học</title>
+  <title>Giáo Trình Tiếng Anh Toàn Diện</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -25,6 +25,8 @@ h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); letter-spacing:-0.01
 [data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text);}
 a{color:inherit; text-decoration:none;}
 .mono{font-family:'JetBrains Mono',monospace;}
+button,input{font:inherit;}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--amber); outline-offset:3px;}
 
 .waveform{display:flex; align-items:center; gap:4px; height:34px;}
 .waveform span{width:4px; background:var(--amber); border-radius:2px; animation:wave 1.2s ease-in-out infinite;}
@@ -35,7 +37,7 @@ a{color:inherit; text-decoration:none;}
 @keyframes wave{0%,100%{transform:scaleY(0.5);} 50%{transform:scaleY(1);}}
 
 /* ===== TOP NAV ===== */
-.topnav{position:sticky; top:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:16px 5vw; background:rgba(251,247,239,0.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+.topnav{position:sticky; top:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:12px max(5vw, calc((100vw - 1200px)/2)); background:rgba(251,247,239,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
 [data-theme="dark"] .topnav{background:rgba(13,23,41,0.85);}
 .topnav .brand{display:flex; align-items:center; gap:12px; font-family:'Fraunces',serif; font-weight:700; font-size:1.1rem; color:var(--ink);}
 [data-theme="dark"] .topnav .brand{color:var(--text);}
@@ -44,54 +46,62 @@ a{color:inherit; text-decoration:none;}
 .icon-btn:hover{transform:translateY(-2px); background:var(--teal); color:#fff;}
 
 /* ===== HERO ===== */
-.hero-hub{padding:80px 5vw 60px; text-align:center; background:radial-gradient(ellipse at top, var(--ink-2), var(--ink)); color:#fff; position:relative; overflow:hidden;}
+.hero-hub{padding:76px 5vw 64px; text-align:center; background:radial-gradient(ellipse at 75% 0%, #356f70 0, var(--ink-2) 38%, var(--ink) 78%); color:#fff; position:relative; overflow:hidden;}
+.hero-hub::after{content:""; position:absolute; width:360px; height:360px; right:-110px; bottom:-245px; border:1px solid rgba(217,164,65,.3); border-radius:50%; box-shadow:0 0 0 34px rgba(217,164,65,.045),0 0 0 68px rgba(217,164,65,.035); pointer-events:none;}
 .hero-hub .eyebrow{color:var(--amber); font-size:.85rem; letter-spacing:.18em; text-transform:uppercase; font-weight:700;}
 .hero-hub h1{color:#fff; font-size:clamp(2.2rem, 5vw, 3.6rem); margin:18px 0 20px; line-height:1.1;}
 .hero-hub p{color:#C9D3E4; max-width:640px; margin:0 auto; font-size:1.05rem; line-height:1.75;}
 .hero-hub .waveform{justify-content:center; margin:26px 0 10px;}
-.hero-stats{display:flex; justify-content:center; gap:40px; margin-top:36px; flex-wrap:wrap;}
+.hero-stats{display:flex; justify-content:center; gap:0; margin:36px auto 0; flex-wrap:wrap; max-width:850px;}
+.hero-stat{min-width:170px; padding:0 24px; border-right:1px solid rgba(255,255,255,.16);}
+.hero-stat:last-child{border-right:0;}
 .hero-stat b{display:block; font-family:'Fraunces',serif; font-size:2.2rem; color:var(--amber);}
 .hero-stat span{font-size:.8rem; color:#B7C2D6; text-transform:uppercase; letter-spacing:.06em;}
 
 /* ===== SEARCH / FILTER ===== */
-.filter-bar{max-width:960px; margin:-30px auto 40px; padding:0 5vw; position:relative; z-index:20;}
-.filter-inner{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:16px 20px; box-shadow:var(--shadow); display:flex; gap:12px; flex-wrap:wrap; align-items:center;}
-.search-input{flex:1; min-width:200px; border:1px solid var(--line); background:var(--paper); color:var(--text); padding:10px 16px; border-radius:10px; font-size:.92rem;}
-.filter-chip{border:1px solid var(--line); background:var(--paper); color:var(--text); padding:8px 14px; border-radius:20px; font-size:.82rem; cursor:pointer; transition:.2s; white-space:nowrap;}
+.filter-bar{max-width:1040px; margin:-28px auto 34px; padding:0 5vw; position:relative; z-index:20;}
+.filter-inner{background:var(--paper-2); border:1px solid var(--line); border-radius:12px; padding:14px; box-shadow:var(--shadow); display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+.search-input{flex:1 1 100%; min-width:200px; border:1px solid var(--line); background:var(--paper); color:var(--text); padding:12px 15px; border-radius:8px; font-size:.92rem;}
+.search-count{width:100%; color:var(--text-soft); font-size:.8rem; padding:0 4px;}
+.filter-chip{border:1px solid var(--line); background:var(--paper); color:var(--text); padding:8px 14px; border-radius:8px; font-size:.82rem; cursor:pointer; transition:background .2s,border-color .2s,color .2s; white-space:nowrap;}
 .filter-chip.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+.filter-chip:hover:not(.active){border-color:var(--teal); color:var(--teal-dark);}
 
 /* ===== SECTION LABELS ===== */
-.section-wrap{max-width:1100px; margin:0 auto; padding:20px 5vw 60px;}
-.section-label{display:flex; align-items:center; gap:14px; margin:48px 0 20px;}
+.section-wrap{max-width:1200px; margin:0 auto; padding:20px 5vw 60px;}
+.section-label{display:flex; align-items:center; gap:14px; margin:48px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line);}
 .section-label .sl-num{font-family:'JetBrains Mono',monospace; color:var(--teal-dark); font-weight:700; font-size:.85rem; background:var(--paper-2); border:1px solid var(--line); padding:4px 12px; border-radius:20px;}
 .section-label h2{margin:0; font-size:1.5rem;}
 .section-desc{color:var(--text-soft); font-size:.92rem; margin:-12px 0 20px; max-width:640px;}
 
 /* ===== CARDS GRID ===== */
-.card-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:16px;}
-.part-card{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:22px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; display:flex; flex-direction:column; gap:10px; position:relative;}
-.part-card:hover{transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--teal);}
+.card-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr)); gap:12px;}
+.part-card{background:var(--paper-2); border:1px solid var(--line); border-radius:8px; padding:20px; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; display:flex; flex-direction:column; gap:10px; position:relative; min-height:252px;}
+.part-card:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--teal);}
 .part-card .pc-num{font-family:'JetBrains Mono',monospace; color:var(--teal-dark); font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.05em;}
-.part-card h3{margin:0; font-size:1.1rem; line-height:1.3;}
+.part-card h3{margin:0; padding-right:26px; font-size:1.05rem; line-height:1.4;}
 .part-card p{margin:0; font-size:.85rem; color:var(--text-soft); line-height:1.6; flex-grow:1;}
 .part-card .pc-tags{display:flex; gap:6px; flex-wrap:wrap;}
-.pc-tag{font-size:.7rem; background:var(--paper); border:1px solid var(--line); padding:2px 9px; border-radius:12px; color:var(--text-soft);}
+.pc-tag{font-size:.7rem; background:var(--paper); border:1px solid var(--line); padding:3px 9px; border-radius:6px; color:var(--text-soft);}
 .pc-tag.tool{background:var(--amber); color:#1a1200; border-color:var(--amber); font-weight:600;}
-.part-card .pc-open{margin-top:8px; align-self:flex-start; background:var(--ink); color:#fff; padding:8px 16px; border-radius:10px; font-size:.82rem; font-weight:600; transition:background .2s;}
+.part-card .pc-open{margin-top:8px; align-self:flex-start; background:var(--ink); color:#fff; padding:9px 13px; border-radius:6px; font-size:.82rem; font-weight:600; transition:background .2s;}
+.part-card .pc-open.unavailable{background:var(--line); color:var(--text-soft); cursor:not-allowed;}
+.part-card .pc-note{color:var(--text-soft); font-size:.76rem; line-height:1.5;}
+.part-card .pc-note a{color:var(--teal-dark); font-weight:700; text-decoration:underline; text-underline-offset:2px;}
 .part-card:hover .pc-open{background:var(--teal);}
 [data-theme="dark"] .part-card .pc-open{background:var(--teal-dark);}
 [data-theme="dark"] .part-card:hover .pc-open{background:var(--teal);}
 
 .hidden{display:none !important;}
 .part-card.completed{border-color:var(--teal); background:rgba(47,143,134,0.08);}
-.pc-check{position:absolute; top:18px; right:18px; width:26px; height:26px; border-radius:50%; border:2px solid var(--line); background:var(--paper); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:.85rem; color:transparent; transition:.2s; z-index:5;}
+.pc-check{position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:6px; border:2px solid var(--line); background:var(--paper); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:.85rem; color:transparent; transition:.2s; z-index:5;}
 .pc-check.done{background:var(--teal); border-color:var(--teal); color:#fff;}
-.overall-progress{max-width:1100px; margin:0 auto; padding:0 5vw;}
-.overall-progress .op-inner{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:18px 22px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+.overall-progress{max-width:1200px; margin:0 auto; padding:0 5vw;}
+.overall-progress .op-inner{background:var(--paper-2); border:1px solid var(--line); border-radius:8px; padding:16px 18px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
 .overall-progress .op-track{flex:1; min-width:180px; height:10px; background:var(--paper); border-radius:6px; overflow:hidden;}
 .overall-progress .op-fill{height:100%; background:linear-gradient(90deg,var(--teal),var(--amber)); width:0%; transition:width .3s ease;}
-.overall-progress .op-label{font-size:.85rem; color:var(--text-soft); white-space:nowrap;}
-.overall-progress .op-reset{border:1px solid var(--line); background:var(--paper); color:var(--text-soft); padding:6px 14px; border-radius:10px; font-size:.78rem; cursor:pointer;}
+.overall-progress .op-label{font-size:.85rem; color:var(--text-soft);}
+.overall-progress .op-reset{border:1px solid var(--line); background:var(--paper); color:var(--text-soft); padding:7px 12px; border-radius:6px; font-size:.78rem; cursor:pointer;}
 .overall-progress .op-reset:hover{border-color:var(--coral); color:var(--coral);}
 
 /* ===== FOOTER ===== */
@@ -99,9 +109,30 @@ a{color:inherit; text-decoration:none;}
 .footer-hub .fw{margin-bottom:14px;}
 
 @media (max-width: 640px){
-  .hero-hub{padding:60px 6vw 44px;}
-  .hero-stats{gap:24px;}
+  .topnav{padding:10px 5vw;}
+  .topnav .brand{font-size:.95rem; gap:8px;}
+  .waveform{height:27px;}
+  .hero-hub{padding:54px 6vw 42px;}
+  .hero-hub .eyebrow{font-size:.68rem; line-height:1.6; letter-spacing:.1em;}
+  .hero-hub h1{font-size:2.15rem;}
+  .hero-hub p{font-size:.94rem;}
+  .hero-stats{gap:18px 0; margin-top:28px;}
+  .hero-stat{width:50%; min-width:0; padding:0 8px; border-right:0;}
+  .hero-stat b{font-size:1.8rem;}
+  .hero-stat span{font-size:.67rem;}
+  .filter-bar{margin-top:-20px; margin-bottom:28px; padding:0 4vw;}
+  .filter-inner{gap:8px; padding:11px;}
+  .filter-chip{flex:1 1 calc(50% - 8px);}
+  .section-wrap{padding-left:5vw; padding-right:5vw;}
+  .section-label{gap:9px; margin-top:36px;}
+  .section-label h2{font-size:1.2rem;}
+  .section-label .sl-num{font-size:.7rem; padding:4px 8px;}
+  .part-card{min-height:0;}
+  .overall-progress .op-inner{gap:10px;}
+  .overall-progress .op-track{order:3; flex-basis:100%;}
+  .footer-hub{padding:42px 6vw 56px;}
 }
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}}
 </style>
 </head>
 <body data-theme="light">
@@ -119,56 +150,57 @@ a{color:inherit; text-decoration:none;}
 
 <header class="hero-hub">
   <span class="eyebrow">Bộ giáo trình tiếng Anh toàn diện · Từ số 0 đến sẵn sàng làm việc quốc tế</span>
-  <h1>Hành Trình Chinh Phục<br>Tiếng Anh Của Bạn</h1>
+  <h1>Tài Liệu Tiếng Anh<br>Cho Hành Trình Của Bạn</h1>
   <p>
-    41 phần, 164+ chương, 11 công cụ luyện tập tương tác — tất cả trong một nơi. Chọn phần bạn muốn học,
+    41 phần học, 164+ chương và các công cụ luyện tập tương tác — tất cả trong một nơi. Chọn phần bạn muốn học,
     hoặc dùng ô tìm kiếm bên dưới để tìm nhanh chủ đề cần ôn tập. Tiến độ học của bạn được lưu tự động ngay trên trình duyệt.
   </p>
   <div class="waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="hero-stats">
-    <div class="hero-stat"><b>41</b><span>Phần học</span></div>
+    <div class="hero-stat"><b id="partStat">41</b><span>Phần học</span></div>
     <div class="hero-stat"><b>164+</b><span>Chương</span></div>
-    <div class="hero-stat"><b>11</b><span>Công cụ luyện tập AI</span></div>
+    <div class="hero-stat"><b id="toolStat">12</b><span>Công cụ &amp; tiện ích</span></div>
     <div class="hero-stat"><b>550+</b><span>Bài tập &amp; Quiz</span></div>
   </div>
 </header>
 
-<div class="filter-bar">
+<div class="filter-bar" role="search">
   <div class="filter-inner">
-    <input type="text" class="search-input" id="searchInput" placeholder="🔍 Tìm phần học (VD: thì, phát âm, IELTS, phỏng vấn...)">
-    <button class="filter-chip active" data-filter="all">Tất cả</button>
-    <button class="filter-chip" data-filter="core">Cốt lõi</button>
-    <button class="filter-chip" data-filter="tool">Công cụ luyện nói</button>
-    <button class="filter-chip" data-filter="advanced">Nâng cao</button>
+    <input type="search" class="search-input" id="searchInput" aria-label="Tìm tài liệu theo tên, mô tả hoặc chủ đề" placeholder="Tìm theo chủ đề: thì, phát âm, IELTS, phỏng vấn...">
+    <button class="filter-chip active" data-filter="all" aria-pressed="true">Tất cả</button>
+    <button class="filter-chip" data-filter="core" aria-pressed="false">Cốt lõi</button>
+    <button class="filter-chip" data-filter="tool" aria-pressed="false">Công cụ</button>
+    <button class="filter-chip" data-filter="advanced" aria-pressed="false">Nâng cao</button>
+    <span class="search-count" id="searchCount" aria-live="polite"></span>
   </div>
 </div>
 
 <div class="overall-progress">
   <div class="op-inner">
-    <span class="op-label">🎯 Tiến độ tổng quan: <b id="opCountLabel">0/20</b> phần đã hoàn thành</span>
-    <div class="op-track"><div class="op-fill" id="opFill"></div></div>
+    <span class="op-label">Tiến độ tổng quan: <b id="opCountLabel">0/41</b> phần đã hoàn thành</span>
+    <div class="op-track" role="progressbar" aria-label="Tiến độ hoàn thành tài liệu" aria-valuemin="0" aria-valuemax="41" aria-valuenow="0"><div class="op-fill" id="opFill"></div></div>
     <button class="op-reset" id="opReset">Đặt lại tiến độ</button>
   </div>
 </div>
 
 <div class="section-wrap">
 
-  <div class="section-label"><span class="sl-num">01 — 15</span><h2>Giáo Trình Cốt Lõi</h2></div>
-  <p class="section-desc">Lộ trình tuần tự từ nền tảng âm thanh đến kỹ năng phỏng vấn xin việc — nên học theo đúng thứ tự.</p>
+  <div class="section-label"><span class="sl-num" data-category-count="core">15 mục</span><h2>Giáo Trình Cốt Lõi</h2></div>
+  <p class="section-desc">Học theo thứ tự từ nền tảng âm thanh đến kỹ năng phỏng vấn xin việc.</p>
   <div class="card-grid" id="coreGrid"></div>
 
-  <div class="section-label"><span class="sl-num">16 — 18</span><h2>Bộ Công Cụ Luyện Nói Tương Tác</h2></div>
-  <p class="section-desc">Dùng công nghệ nhận diện giọng nói của trình duyệt (cần Google Chrome) để luyện nói thực sự, có chấm điểm.</p>
+  <div class="section-label"><span class="sl-num" data-category-count="tool">12 mục</span><h2>Công Cụ &amp; Tài Liệu Tra Cứu</h2></div>
+  <p class="section-desc">Luyện phát âm, giao tiếp, viết, nghe hiểu, từ vựng và tự kiểm tra. Một số tính năng nhận diện giọng nói cần Google Chrome.</p>
   <div class="card-grid" id="toolGrid"></div>
 
-  <div class="section-label"><span class="sl-num">19</span><h2>Nâng Cao &amp; Chuyên Sâu</h2></div>
+  <div class="section-label"><span class="sl-num" data-category-count="advanced">14 mục</span><h2>Nâng Cao &amp; Chuyên Sâu</h2></div>
   <p class="section-desc">Mở rộng cho mục tiêu cụ thể: điểm số cao, chuyên ngành IT, và phỏng vấn xin việc quốc tế.</p>
   <div class="card-grid" id="advancedGrid"></div>
 
 </div>
 
 <footer class="footer-hub">
-  <div class="fw">🎓 Giáo Trình Tiếng Anh — Được thiết kế riêng cho hành trình trở thành IT Engineer tại Nhật Bản</div>
+  <div class="fw">Tài Liệu Tiếng Anh — Học tập, giao tiếp và làm việc quốc tế</div>
   <div>Mở từng file HTML bằng trình duyệt để bắt đầu học. Khuyến khích dùng Google Chrome để trải nghiệm đầy đủ các công cụ luyện nói.</div>
 </footer>
 
@@ -183,8 +215,8 @@ const parts = [
   {num:"07", file:"part7_listening_speaking.html", title:"Kỹ Năng Nghe – Nói", desc:"Chiến lược Listening, phương pháp Shadowing, cấu trúc PREP, luyện phản xạ.", tags:["Kỹ năng"], cat:"core"},
   {num:"08", file:"part8_reading_writing.html", title:"Kỹ Năng Đọc – Viết", desc:"Skimming/Scanning, viết Email chuyên nghiệp, cấu trúc Essay 5 đoạn.", tags:["Kỹ năng"], cat:"core"},
   {num:"09", file:"part9_business_academic.html", title:"Business &amp; Academic English", desc:"Họp, thuyết trình, đàm phán, Academic Word List, trích dẫn nguồn.", tags:["Chuyên ngành"], cat:"core"},
-  {num:"10", file:"part10_toeic_ielts.html", title:"TOEIC &amp; IELTS Chuyên Sâu", desc:"Cấu trúc đề thi, chiến lược từng phần, thang điểm Band Score.", tags:["Luyện thi"], cat:"core"},
-  {num:"11", file:"part11_tips_mistakes_selfstudy.html", title:"Mẹo Ghi Nhớ &amp; Tự Học", desc:"Spaced Repetition, lỗi thường gặp của người Việt, lộ trình 6 tháng.", tags:["Phương pháp"], cat:"core"},
+  {num:"10", file:"part10_toeic_ielts.html", title:"TOEIC &amp; IELTS Chuyên Sâu", desc:"Nội dung đang được cập nhật. Trong lúc chờ, bạn có thể luyện đề mẫu ở Phần 13.", tags:["Luyện thi","Đang cập nhật"], cat:"core", available:false},
+  {num:"11", file:"part11_tips_mistakes_selfstudy.html", title:"Mẹo Ghi Nhớ &amp; Tự Học", desc:"Spaced Repetition, lỗi thường gặp của người Việt, kế hoạch tự học 6 tháng.", tags:["Phương pháp"], cat:"core"},
   {num:"12", file:"part12_it_vocabulary.html", title:"Từ Vựng Chuyên Ngành IT", desc:"OOP, Web Dev (React/Spring Boot/MySQL), DevOps, Agile, Bug Reports.", tags:["Chuyên ngành","IT"], cat:"core"},
   {num:"13", file:"part13_toeic_ielts_practice.html", title:"Bộ Đề Luyện Tập TOEIC &amp; IELTS", desc:"Đề thi mẫu có bấm giờ: TOEIC Part 5/7, IELTS Writing/Speaking.", tags:["Luyện thi"], cat:"core"},
   {num:"14", file:"part14_phrasalverbs_idioms_extended.html", title:"Mở Rộng Phrasal Verbs &amp; Idioms", desc:"60 phrasal verbs + 50 idioms mới, có ô tìm kiếm nhanh.", tags:["Từ vựng"], cat:"core"},
@@ -211,7 +243,7 @@ const parts = [
   {num:"33", file:"part33_other_exams.html", title:"TOEFL, Cambridge, GRE/GMAT & PTE", desc:"Tổng quan các kỳ thi chứng chỉ khác ngoài IELTS/TOEIC — cấu trúc, khác biệt, và đối tượng phù hợp.", tags:["Luyện thi"], cat:"advanced"},
   {num:"34", file:"part34_grammar_nuances_confusing_pairs.html", title:"Ngữ Pháp Nâng Cao & Các Cặp Từ Dễ Nhầm", desc:"Thức giả định (Subjunctive), Tỉnh lược & Thay thế, Danh động từ vs Động từ nguyên mẫu, 30 cặp từ dễ nhầm nhất.", tags:["Ngữ pháp","Nâng cao"], cat:"advanced"},
   {num:"35", file:"part35_mega_quiz_bank.html", title:"Ngân Hàng Quiz Tổng Hợp", desc:"Quiz tổng hợp có bấm giờ, chọn theo chủ đề — ôn lại kiến thức toàn bộ giáo trình.", tags:["📝 Công cụ"], cat:"tool", isTool:true},
-  {num:"36", file:"part36_word_types_cefr_roadmap.html", title:"9 Loại Từ & Lộ Trình CEFR A1→C2", desc:"Bản đồ tổng quan 9 loại từ (5 chính + 4 phụ trợ) và lộ trình 6 cấp độ CEFR, đối chiếu với các phần trong giáo trình.", tags:["Tổng quan","Bản đồ lộ trình"], cat:"advanced"},
+  {num:"36", file:"part36_word_types_cefr_roadmap.html", title:"9 Loại Từ & Bản Đồ CEFR A1→C2", desc:"Tổng quan 9 loại từ và 6 cấp độ CEFR, đối chiếu với các phần trong giáo trình.", tags:["Tổng quan","CEFR"], cat:"advanced"},
   {num:"37", file:"tra_tu_vung.html", title:"Tra Từ Vựng — Dictionary", desc:"Từ điển tra cứu phong cách Anh-Việt (190+ mục từ nội bộ + tra cứu trực tuyến khi có internet): IPA, từ loại, nghĩa, ví dụ.", tags:["📘 Từ điển"], cat:"tool", isTool:true},
   {num:"38", file:"tu_vung.html", title:"📚 Từ Vựng (File Tổng Hợp Toàn Bộ)", desc:"Gộp TẤT CẢ từ vựng chủ đề vào 1 file: 44 chủ đề đời sống + IELTS + Phrasal Verbs + Idioms + Chuyên ngành + Theo từ loại + Bài tập điền từ. Có bộ lọc nhóm và tìm kiếm toàn văn.", tags:["⭐ Tổng hợp","Từ vựng"], cat:"tool", isTool:true},
   {num:"39", file:"quiz.html", title:"📝 Quiz (Ngân Hàng Câu Hỏi Tổng Hợp)", desc:"Gộp câu hỏi trắc nghiệm từ nhiều chủ đề: Grammar, Vocabulary, Pronunciation, IELTS/TOEIC, Văn hóa, Ngôn ngữ học. Có bộ lọc chủ đề, chọn số câu, bấm giờ, và chấm điểm tự động.", tags:["⭐ Tổng hợp","📝 Quiz"], cat:"tool", isTool:true},
@@ -229,12 +261,12 @@ function setCompleted(obj){
 
 function renderCard(p){
   return `
-    <div class="part-card" data-title="${p.title.toLowerCase()}" data-desc="${p.desc.toLowerCase()}" data-cat="${p.cat}" data-num="${p.num}" style="position:relative;">
-      <button class="pc-check" data-num="${p.num}" title="Đánh dấu đã hoàn thành">✓</button>
+    <div class="part-card" data-title="${p.title.toLowerCase()}" data-desc="${p.desc.toLowerCase()}" data-tags="${p.tags.join(' ').toLowerCase()}" data-cat="${p.cat}" data-num="${p.num}" style="position:relative;">
+      <button class="pc-check" data-num="${p.num}" aria-label="Đánh dấu Phần ${p.num} đã hoàn thành" title="Đánh dấu đã hoàn thành">✓</button>
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
       <div class="pc-tags">${p.tags.map(t=>`<span class="pc-tag ${p.isTool?'tool':''}">${t}</span>`).join('')}</div>
-      <a class="pc-open" href="${p.file}">Mở phần học →</a>
+      ${p.available === false ? '<span class="pc-open unavailable" aria-disabled="true">Đang cập nhật</span><small class="pc-note">Thay thế tạm thời: <a href="part13_toeic_ielts_practice.html">Luyện đề Phần 13</a></small>' : `<a class="pc-open" href="${p.file}">Mở phần học →</a>`}
     </div>
   `;
 }
@@ -250,19 +282,31 @@ parts.forEach(p=>{
   else advancedGrid.insertAdjacentHTML('beforeend', html);
 });
 
+document.getElementById('partStat').textContent = parts.length;
+document.getElementById('toolStat').textContent = parts.filter(part=>part.cat === 'tool').length;
+document.querySelectorAll('[data-category-count]').forEach(label=>{
+  label.textContent = `${parts.filter(part=>part.cat === label.dataset.categoryCount).length} mục`;
+});
+document.querySelector('.op-track').setAttribute('aria-valuemax', parts.length);
+
 /* Progress tracking */
 function refreshProgressUI(){
   const completed = getCompleted();
+  const validNumbers = new Set(parts.map(part=>part.num));
+  const doneCount = parts.filter(part=>completed[part.num]).length;
   document.querySelectorAll('.pc-check').forEach(chk=>{
     const num = chk.dataset.num;
     const isDone = !!completed[num];
     chk.classList.toggle('done', isDone);
     chk.closest('.part-card').classList.toggle('completed', isDone);
+    chk.setAttribute('aria-label', `Đánh dấu Phần ${num} ${isDone ? 'chưa hoàn thành' : 'đã hoàn thành'}`);
   });
   const total = parts.length;
-  const doneCount = Object.values(completed).filter(Boolean).length;
   document.getElementById('opCountLabel').textContent = `${doneCount}/${total}`;
   document.getElementById('opFill').style.width = (total ? (doneCount/total*100) : 0) + '%';
+  document.querySelector('.op-track').setAttribute('aria-valuenow', doneCount);
+  Object.keys(completed).forEach(num=>{ if(!validNumbers.has(num)) delete completed[num]; });
+  setCompleted(completed);
 }
 
 document.querySelectorAll('.pc-check').forEach(chk=>{
@@ -293,24 +337,29 @@ let activeFilter = 'all';
 
 function applyFilters(){
   const term = searchInput.value.toLowerCase().trim();
-  document.querySelectorAll('.part-card').forEach(card=>{
-    const matchesSearch = !term || card.dataset.title.includes(term) || card.dataset.desc.includes(term);
+  const cards = [...document.querySelectorAll('.part-card')];
+  cards.forEach(card=>{
+    const matchesSearch = !term || card.dataset.title.includes(term) || card.dataset.desc.includes(term) || card.dataset.tags.includes(term);
     const matchesFilter = activeFilter === 'all' || card.dataset.cat === activeFilter;
     card.classList.toggle('hidden', !(matchesSearch && matchesFilter));
   });
   // hide section labels if all cards within are hidden
-  [['coreGrid'], ['toolGrid'], ['advancedGrid']].forEach(([id])=>{
+  ['coreGrid', 'toolGrid', 'advancedGrid'].forEach(id=>{
     const grid = document.getElementById(id);
     const anyVisible = [...grid.children].some(c=>!c.classList.contains('hidden'));
-    grid.previousElementSibling && (grid.previousElementSibling.style.display = anyVisible ? '' : 'none');
+    grid.previousElementSibling.style.display = anyVisible ? '' : 'none';
+    grid.previousElementSibling.previousElementSibling.style.display = anyVisible ? '' : 'none';
     grid.style.display = anyVisible ? '' : 'none';
   });
+  const visibleCount = cards.filter(card=>!card.classList.contains('hidden')).length;
+  document.getElementById('searchCount').textContent = term || activeFilter !== 'all' ? `${visibleCount} / ${parts.length} tài liệu` : `${parts.length} tài liệu`;
 }
 searchInput.addEventListener('input', applyFilters);
 filterChips.forEach(chip=>{
   chip.addEventListener('click', ()=>{
     filterChips.forEach(c=>c.classList.remove('active'));
     chip.classList.add('active');
+    filterChips.forEach(c=>c.setAttribute('aria-pressed', String(c === chip)));
     activeFilter = chip.dataset.filter;
     applyFilters();
   });
@@ -322,6 +371,7 @@ function applyTheme(theme){
   document.body.setAttribute('data-theme', theme);
   if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
 }
+applyFilters();
 applyTheme(localStorage.getItem('empath_theme') || 'light');
 if(darkToggle){
   darkToggle.addEventListener('click', ()=>{
