@@ -1,0 +1,7 @@
+Hub: search, shortcut, empty state, filters, persisted progress, themes, 360/768/1440 layout
+Tenses: focus mode and responsive layout
+Flashcards: original flip and spaced-repetition persistence
+Quiz: question generation, answering, progress and perfect-score result
+Reduced motion and persisted effects switch
+All 41 nonempty pages fit a 360px viewport
+All 41 nonempty HTML pages load without JavaScript page errors

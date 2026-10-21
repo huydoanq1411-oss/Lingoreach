@@ -34,7 +34,11 @@ let shared=fs.readFileSync(sharedFile,'utf8');
 if(common.length){
   const previous=/\/\* shared legacy begin \*\/[\s\S]*?\/\* shared legacy end \*\/\s*/;
   const block='/* shared legacy begin */\n@layer legacy {\n'+common.join('\n')+'\n}\n/* shared legacy end */\n';
-  shared=previous.test(shared)?shared.replace(previous,block):block+shared;
+  if(previous.test(shared)){
+    const old=shared.match(previous)[0];
+    const additions=common.filter(rule=>!old.includes(rule));
+    if(additions.length)shared=shared.replace(previous,old.replace('\n}\n/* shared legacy end */','\n'+additions.join('\n')+'\n}\n/* shared legacy end */'));
+  }else shared=block+shared;
   fs.writeFileSync(sharedFile,shared);
 }
 const commonSet=new Set(common), report=[];
