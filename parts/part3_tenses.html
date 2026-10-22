@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 3: Các Thì (Tenses)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+td .ipa{color:var(--teal-dark); font-weight:600;}
+.badge{display:inline-block; background:var(--paper-2); border:1px solid var(--line); color:var(--text-soft); font-size:.72rem; padding:3px 9px; border-radius:20px; margin-right:6px;}
+.tense-formula{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin:16px 0;}
+.tf-card{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px;}
+.tf-card b{color:var(--teal-dark); display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+</style>
+<link rel="stylesheet" href="../assets/lingoreach.css">
+<script src="../assets/lingoreach.js" defer></script>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 3</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 3</a>
+      <a class="toc-link" href="#ch13"><span class="toc-num">13</span> Hiện tại đơn</a>
+      <a class="toc-link" href="#ch14"><span class="toc-num">14</span> Hiện tại tiếp diễn</a>
+      <a class="toc-link" href="#ch15"><span class="toc-num">15</span> Quá khứ đơn</a>
+      <a class="toc-link" href="#ch16"><span class="toc-num">16</span> Quá khứ tiếp diễn</a>
+      <a class="toc-link" href="#ch17"><span class="toc-num">17</span> Tương lai (will / going to)</a>
+      <a class="toc-link" href="#ch18"><span class="toc-num">18</span> Hiện tại hoàn thành</a>
+      <a class="toc-link" href="#ch19"><span class="toc-num">19</span> Hiện tại HT tiếp diễn</a>
+      <a class="toc-link" href="#ch20"><span class="toc-num">20</span> Quá khứ hoàn thành</a>
+      <a class="toc-link" href="#ch21"><span class="toc-num">21</span> Tổng hợp &amp; So sánh 12 thì</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Sắp tới (gõ "Tiếp tục")</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 4 · Modal Verbs &amp; Câu điều kiện</a>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 5 · Câu bị động &amp; Câu tường thuật</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 3 / Các Thì (Tenses)</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="../index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần 3 / N</span>
+          <h1>Các Thì (Tenses) Trong Tiếng Anh</h1>
+          <p>
+            Đây là phần ngữ pháp <b>quan trọng nhất</b> trong tiếng Anh — vì tiếng Việt không chia động từ theo thời gian
+            (chỉ thêm "đã/đang/sẽ"), người Việt thường gặp khó khăn khi phải nhớ cấu trúc, cách chia động từ, và ngữ cảnh
+            sử dụng của <b>12 thì cơ bản</b>. Phần này tập trung vào <b>8 thì thông dụng nhất</b>, xuất hiện tới hơn 90%
+            trong giao tiếp và các bài thi TOEIC/IELTS: Hiện tại đơn, Hiện tại tiếp diễn, Quá khứ đơn, Quá khứ tiếp diễn,
+            Tương lai (will/going to), Hiện tại hoàn thành, Hiện tại hoàn thành tiếp diễn, và Quá khứ hoàn thành.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 13</b><div>Present Simple — hiện tại đơn</div></div>
+            <div class="rm-item"><b>Chương 14</b><div>Present Continuous — hiện tại tiếp diễn</div></div>
+            <div class="rm-item"><b>Chương 15</b><div>Past Simple — quá khứ đơn</div></div>
+            <div class="rm-item"><b>Chương 16</b><div>Past Continuous — quá khứ tiếp diễn</div></div>
+            <div class="rm-item"><b>Chương 17</b><div>Future — will / be going to</div></div>
+            <div class="rm-item"><b>Chương 18</b><div>Present Perfect — hiện tại hoàn thành</div></div>
+            <div class="rm-item"><b>Chương 19</b><div>Present Perfect Continuous</div></div>
+            <div class="rm-item"><b>Chương 20</b><div>Past Perfect — quá khứ hoàn thành</div></div>
+            <div class="rm-item"><b>Chương 21</b><div>Tổng hợp &amp; so sánh toàn bộ 12 thì</div></div>
+          </div>
+        </div>
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Mỗi thì được học theo cấu trúc: <b>Công thức (khẳng định/phủ định/nghi vấn) → Cách dùng → Dấu hiệu nhận biết
+          (signal words) → Ví dụ → Bài tập → Quiz</b>. Hãy chú ý kỹ phần "dấu hiệu nhận biết" — đây là mẹo nhanh nhất
+          để chọn đúng thì khi làm bài thi.
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 13: PRESENT SIMPLE -->
+      <section id="ch13" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">13</span><h2>Hiện Tại Đơn (Present Simple)</h2></div>
+        <div class="chapter-sub">Thì cơ bản nhất — diễn tả thói quen, sự thật hiển nhiên, lịch trình cố định.</div>
+
+        <div class="section-block">
+          <h3>13.1 Công thức</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Khẳng định</b>S + V(s/es) + O<br><span class="mono">She works every day.</span></div>
+            <div class="tf-card"><b>Phủ định</b>S + do/does + not + V(bare)<br><span class="mono">She doesn't work on Sunday.</span></div>
+            <div class="tf-card"><b>Nghi vấn</b>Do/Does + S + V(bare)?<br><span class="mono">Does she work today?</span></div>
+          </div>
+          <div class="box note">
+            <div class="box-title">📝 Note</div>
+            Với chủ ngữ số ít (he/she/it), động từ thêm -s/-es: <span class="mono">go → goes, watch → watches, study → studies</span>.
+            Riêng "have" chia bất quy tắc thành "has".
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>13.2 Cách dùng &amp; dấu hiệu nhận biết</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Cách dùng</th><th>Ví dụ</th><th>Dấu hiệu nhận biết</th></tr></thead>
+              <tbody>
+                <tr><td>Thói quen, hành động lặp lại</td><td class="mono">I go to the gym every morning.</td><td class="mono">every day/week, usually, often, always</td></tr>
+                <tr><td>Sự thật hiển nhiên, chân lý</td><td class="mono">The sun rises in the east.</td><td>(không có dấu hiệu cụ thể)</td></tr>
+                <tr><td>Lịch trình cố định (tàu, xe, giờ học)</td><td class="mono">The train leaves at 8 AM.</td><td>lịch trình, thời khóa biểu</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Huy studies Java every evening. He doesn't play games on weekdays. Does he practice English every day? Yes, he does.</div>
+          <div class="ex-line ex-vi">→ Thói quen lặp lại hàng ngày → dùng hiện tại đơn.</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Trạng từ tần suất (always, usually, often, sometimes, rarely, never) thường đứng <b>trước động từ thường</b>
+          nhưng <b>sau động từ "to be"</b>: <span class="mono">She always <b>studies</b> hard. She is always <b>busy</b>.</span>
+        </div>
+
+        <h3>13.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng động từ: "He (not/like) coffee."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "He doesn't like coffee."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu hỏi: "They live in Ho Chi Minh City."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Do they live in Ho Chi Minh City?"</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Sửa lỗi: "She study English every day."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "She studies English every day." — chủ ngữ "she" cần thêm -es cho động từ tận cùng "y" sau phụ âm.</div>
+        </div>
+
+        <h3>13.4 Quiz trắc nghiệm — Chương 13</h3>
+        <div class="quiz-box" id="quiz13"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 13</h3>
+          <ul>
+            <li>Dùng cho thói quen, sự thật hiển nhiên, lịch trình cố định.</li>
+            <li>Chủ ngữ số ít (he/she/it) thêm -s/-es vào động từ.</li>
+            <li>Phủ định/nghi vấn dùng trợ động từ do/does + V nguyên mẫu.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 14: PRESENT CONTINUOUS -->
+      <section id="ch14" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">14</span><h2>Hiện Tại Tiếp Diễn (Present Continuous)</h2></div>
+        <div class="chapter-sub">Diễn tả hành động đang xảy ra ngay lúc nói hoặc kế hoạch gần trong tương lai.</div>
+
+        <div class="section-block">
+          <h3>14.1 Công thức</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Khẳng định</b>S + am/is/are + V-ing<br><span class="mono">She is studying now.</span></div>
+            <div class="tf-card"><b>Phủ định</b>S + am/is/are + not + V-ing<br><span class="mono">She isn't studying now.</span></div>
+            <div class="tf-card"><b>Nghi vấn</b>Am/Is/Are + S + V-ing?<br><span class="mono">Is she studying now?</span></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>14.2 Cách dùng &amp; dấu hiệu nhận biết</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Cách dùng</th><th>Ví dụ</th><th>Dấu hiệu</th></tr></thead>
+              <tbody>
+                <tr><td>Hành động đang xảy ra ngay lúc nói</td><td class="mono">I am writing an email right now.</td><td class="mono">now, right now, at the moment</td></tr>
+                <tr><td>Kế hoạch đã sắp xếp trong tương lai gần</td><td class="mono">We are meeting the client tomorrow.</td><td class="mono">tomorrow, next week (đã lên kế hoạch)</td></tr>
+                <tr><td>Xu hướng đang thay đổi</td><td class="mono">The climate is getting warmer.</td><td>getting, becoming + tính từ</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning — Động từ trạng thái (Stative Verbs)</div>
+            Một số động từ chỉ trạng thái/cảm xúc/nhận thức (know, like, love, want, believe, understand, own) thường
+            <b>KHÔNG</b> chia ở dạng tiếp diễn: nói "I know him" chứ không nói "I am knowing him".
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Huy is debugging his Assembly code right now. He is not watching a movie. Is he studying tonight?</div>
+          <div class="ex-line ex-vi">→ Hành động đang tiếp diễn tại thời điểm nói.</div>
+        </div>
+
+        <h3>14.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng: "Look! It (rain)."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Look! It is raining."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Sửa lỗi: "I am knowing the answer."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "I know the answer." — "know" là stative verb, không dùng dạng tiếp diễn.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Viết câu hỏi phủ định: "họ có đang không làm việc không?" (they/not/work)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Aren't they working?"</div>
+        </div>
+
+        <h3>14.4 Quiz trắc nghiệm — Chương 14</h3>
+        <div class="quiz-box" id="quiz14"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 14</h3>
+          <ul>
+            <li>Dùng cho hành động đang xảy ra, kế hoạch tương lai gần, xu hướng thay đổi.</li>
+            <li>Công thức: to be + V-ing.</li>
+            <li>Không dùng với động từ trạng thái (know, like, want...).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 15: PAST SIMPLE -->
+      <section id="ch15" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">15</span><h2>Quá Khứ Đơn (Past Simple)</h2></div>
+        <div class="chapter-sub">Diễn tả hành động đã xảy ra và kết thúc hoàn toàn trong quá khứ.</div>
+
+        <div class="section-block">
+          <h3>15.1 Công thức</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Khẳng định</b>S + V-ed / V2<br><span class="mono">She studied last night.</span></div>
+            <div class="tf-card"><b>Phủ định</b>S + did + not + V(bare)<br><span class="mono">She didn't study last night.</span></div>
+            <div class="tf-card"><b>Nghi vấn</b>Did + S + V(bare)?<br><span class="mono">Did she study last night?</span></div>
+          </div>
+          <div class="box note">
+            <div class="box-title">📝 Note</div>
+            Động từ có quy tắc thêm -ed; động từ bất quy tắc phải học thuộc dạng V2 riêng: <span class="mono">go → went, eat → ate, see → saw, have → had</span>.
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>15.2 Dấu hiệu nhận biết</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Dấu hiệu</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>yesterday, last night/week/year</td><td class="mono">I finished the report yesterday.</td></tr>
+                <tr><td>ago (mốc thời gian cụ thể trong quá khứ)</td><td class="mono">She graduated two years ago.</td></tr>
+                <tr><td>in + năm đã qua</td><td class="mono">He was born in 2004.</td></tr>
+                <tr><td>when + mệnh đề quá khứ</td><td class="mono">When I was young, I lived in Hanoi.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Huy fixed the traffic light bug yesterday. He didn't sleep well because of it. Did he test the circuit again?</div>
+          <div class="ex-line ex-vi">→ Hành động xảy ra và kết thúc hoàn toàn trong quá khứ (hôm qua).</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Học động từ bất quy tắc theo nhóm vần giống nhau để dễ nhớ hơn: <span class="mono">sing-sang-sung, ring-rang-rung, drink-drank-drunk</span>.
+        </div>
+
+        <h3>15.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng động từ bất quy tắc: "She (go) to Japan last summer."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "She went to Japan last summer."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu phủ định: "They finished the project on time."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "They didn't finish the project on time."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Sửa lỗi: "Did she went to the meeting?"</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Did she go to the meeting?" — sau "did" luôn dùng động từ nguyên mẫu, không chia quá khứ nữa.</div>
+        </div>
+
+        <h3>15.4 Quiz trắc nghiệm — Chương 15</h3>
+        <div class="quiz-box" id="quiz15"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 15</h3>
+          <ul>
+            <li>Dùng cho hành động đã hoàn toàn kết thúc trong quá khứ, có mốc thời gian rõ ràng.</li>
+            <li>Công thức: V-ed (có quy tắc) hoặc V2 (bất quy tắc).</li>
+            <li>Phủ định/nghi vấn dùng "did" + V nguyên mẫu.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 16: PAST CONTINUOUS -->
+      <section id="ch16" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">16</span><h2>Quá Khứ Tiếp Diễn (Past Continuous)</h2></div>
+        <div class="chapter-sub">Diễn tả hành động đang xảy ra tại một thời điểm xác định trong quá khứ.</div>
+
+        <div class="section-block">
+          <h3>16.1 Công thức</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Khẳng định</b>S + was/were + V-ing<br><span class="mono">I was sleeping at 11 PM.</span></div>
+            <div class="tf-card"><b>Phủ định</b>S + was/were + not + V-ing<br><span class="mono">I wasn't sleeping at 11 PM.</span></div>
+            <div class="tf-card"><b>Nghi vấn</b>Was/Were + S + V-ing?<br><span class="mono">Were you sleeping at 11 PM?</span></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>16.2 Cách dùng chính: kết hợp với Quá khứ đơn</h3>
+          <p>
+            Cách dùng phổ biến nhất là diễn tả <b>một hành động đang diễn ra (quá khứ tiếp diễn) thì bị một hành động
+            khác xen vào (quá khứ đơn)</b>:
+          </p>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">While I was coding, the power went out. — I was debugging the circuit when my teacher called.</div>
+            <div class="ex-line ex-vi">→ Hành động dài (was coding) bị hành động ngắn xen vào (went out) — dùng "while" cho hành động dài, "when" cho hành động ngắn.</div>
+          </div>
+        </div>
+
+        <div class="box note">
+          <div class="box-title">📝 Note</div>
+          Cũng dùng để diễn tả 2 hành động song song xảy ra cùng lúc trong quá khứ: <span class="mono">While she was cooking, he was cleaning the house.</span>
+        </div>
+
+        <h3>16.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng: "While I (study), my phone (ring)."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "While I was studying, my phone rang." (hành động dài tiếp diễn, hành động ngắn quá khứ đơn)</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu: diễn tả 2 hành động song song trong quá khứ (cook/clean).</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "While she was cooking, he was cleaning the house."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Sửa lỗi: "When the accident happened, I was driving was."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "When the accident happened, I was driving." — bỏ "was" thừa ở cuối.</div>
+        </div>
+
+        <h3>16.4 Quiz trắc nghiệm — Chương 16</h3>
+        <div class="quiz-box" id="quiz16"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 16</h3>
+          <ul>
+            <li>Công thức: was/were + V-ing.</li>
+            <li>Diễn tả hành động dài bị hành động ngắn xen vào (while... when...).</li>
+            <li>Cũng dùng cho 2 hành động song song trong quá khứ.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 17: FUTURE -->
+      <section id="ch17" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">17</span><h2>Thì Tương Lai (Will / Be Going To)</h2></div>
+        <div class="chapter-sub">Hai cách diễn tả tương lai phổ biến nhất — khác nhau về mức độ chắc chắn và kế hoạch.</div>
+
+        <div class="section-block">
+          <h3>17.1 Công thức</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Will</b>S + will + V(bare)<br><span class="mono">I will help you.</span></div>
+            <div class="tf-card"><b>Be going to</b>S + am/is/are + going to + V(bare)<br><span class="mono">I am going to visit Japan.</span></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>17.2 Phân biệt "will" và "be going to"</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Will</th><th>Be going to</th></tr></thead>
+              <tbody>
+                <tr><td>Quyết định ngay tại thời điểm nói</td><td>Kế hoạch đã dự định từ trước</td></tr>
+                <tr><td class="mono">The phone is ringing. I'll answer it.</td><td class="mono">I'm going to study abroad next year. (đã lên kế hoạch)</td></tr>
+                <tr><td>Dự đoán dựa trên ý kiến/cảm nhận cá nhân</td><td>Dự đoán dựa trên bằng chứng rõ ràng hiện tại</td></tr>
+                <tr><td class="mono">I think it will rain tomorrow.</td><td class="mono">Look at those clouds! It's going to rain.</td></tr>
+                <tr><td>Lời hứa, đề nghị, đe dọa</td><td>—</td></tr>
+                <tr><td class="mono">I promise I will call you.</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Huy is going to apply for a Japan internship next year (planned). I will help him prepare his resume (quyết định ngay lúc nói / lời hứa).</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Cả hai đều có thể dùng cho dự đoán, nhưng "be going to" chắc chắn hơn khi có bằng chứng cụ thể ngay trước mắt
+          (nhìn thấy mây đen → trời sắp mưa), còn "will" thường mang tính chủ quan, dựa vào suy đoán cá nhân.
+        </div>
+
+        <h3>17.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chọn đúng: "Look at the sky! It ___ (will rain / is going to rain)."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "is going to rain" — có bằng chứng rõ ràng (nhìn thấy bầu trời).</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chọn đúng: "I'm thirsty." — "I ___ (will get / am going to get) you some water." (quyết định ngay lúc nói)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "will get" — quyết định tức thời tại thời điểm nói.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Viết câu diễn tả kế hoạch đã định trước: "Huy / study / abroad / next year"</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Huy is going to study abroad next year."</div>
+        </div>
+
+        <h3>17.4 Quiz trắc nghiệm — Chương 17</h3>
+        <div class="quiz-box" id="quiz17"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 17</h3>
+          <ul>
+            <li>"will" cho quyết định tức thời, lời hứa, dự đoán chủ quan.</li>
+            <li>"be going to" cho kế hoạch đã định trước, dự đoán có bằng chứng rõ ràng.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 18: PRESENT PERFECT -->
+      <section id="ch18" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">18</span><h2>Hiện Tại Hoàn Thành (Present Perfect)</h2></div>
+        <div class="chapter-sub">Thì khó nhất với người Việt vì không có khái niệm tương đương — nối quá khứ với hiện tại.</div>
+
+        <div class="section-block">
+          <h3>18.1 Công thức</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Khẳng định</b>S + have/has + V3/ed<br><span class="mono">I have finished my homework.</span></div>
+            <div class="tf-card"><b>Phủ định</b>S + have/has + not + V3/ed<br><span class="mono">I haven't finished my homework.</span></div>
+            <div class="tf-card"><b>Nghi vấn</b>Have/Has + S + V3/ed?<br><span class="mono">Have you finished your homework?</span></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>18.2 Cách dùng &amp; dấu hiệu nhận biết</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Cách dùng</th><th>Ví dụ</th><th>Dấu hiệu</th></tr></thead>
+              <tbody>
+                <tr><td>Hành động xảy ra trong quá khứ nhưng còn ảnh hưởng/liên quan đến hiện tại</td><td class="mono">I have lost my keys. (giờ vẫn chưa tìm thấy)</td><td>—</td></tr>
+                <tr><td>Trải nghiệm đã từng làm (không quan trọng lúc nào)</td><td class="mono">She has visited Japan twice.</td><td class="mono">ever, never, before</td></tr>
+                <tr><td>Hành động bắt đầu trong quá khứ, tiếp tục đến hiện tại</td><td class="mono">I have lived here for 5 years.</td><td class="mono">for, since</td></tr>
+                <tr><td>Hành động vừa mới xảy ra</td><td class="mono">I have just finished the report.</td><td class="mono">just, already, yet</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box important">
+            <div class="box-title">📌 Important — Phân biệt "for" và "since"</div>
+            <b>for</b> + khoảng thời gian (for 5 years, for 2 months) — <b>since</b> + mốc thời gian (since 2020, since Monday).
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Huy has studied Java for two years. He has never worked in Japan, but he has already prepared his JLPT documents.</div>
+          <div class="ex-line ex-vi">→ Kinh nghiệm/quá trình kéo dài liên quan đến hiện tại — không nói rõ mốc thời gian cụ thể như quá khứ đơn.</div>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title">⚠️ Warning — Phân biệt Present Perfect vs Past Simple</div>
+          Quá khứ đơn cần mốc thời gian xác định đã kết thúc (yesterday, last year); hiện tại hoàn thành KHÔNG dùng với
+          mốc thời gian đã kết thúc: <span class="mono">✅ I visited Japan last year. ❌ I have visited Japan last year.</span>
+        </div>
+
+        <h3>18.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng: "She (live) in Ho Chi Minh City since 2015."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "She has lived in Ho Chi Minh City since 2015."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chọn đúng: "I ___ (have finished / finished) the report yesterday."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "finished" — có mốc thời gian xác định "yesterday" nên dùng quá khứ đơn, không dùng hiện tại hoàn thành.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Điền for/since: "They have been married ___ 10 years / ___ 2016."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "for 10 years" / "since 2016"</div>
+        </div>
+
+        <h3>18.4 Quiz trắc nghiệm — Chương 18</h3>
+        <div class="quiz-box" id="quiz18"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 18</h3>
+          <ul>
+            <li>Công thức: have/has + V3/ed.</li>
+            <li>Dùng cho kinh nghiệm, hành động còn liên quan đến hiện tại, hành động vừa xảy ra.</li>
+            <li>KHÔNG dùng với mốc thời gian đã kết thúc rõ ràng — đó là lãnh địa của quá khứ đơn.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 19: PRESENT PERFECT CONTINUOUS -->
+      <section id="ch19" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">19</span><h2>Hiện Tại Hoàn Thành Tiếp Diễn</h2></div>
+        <div class="chapter-sub">Nhấn mạnh tính liên tục, kéo dài của hành động cho đến hiện tại.</div>
+
+        <div class="section-block">
+          <h3>19.1 Công thức</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Khẳng định</b>S + have/has been + V-ing<br><span class="mono">I have been studying for 3 hours.</span></div>
+            <div class="tf-card"><b>Phủ định</b>S + have/has + not + been + V-ing<br><span class="mono">I haven't been sleeping well.</span></div>
+            <div class="tf-card"><b>Nghi vấn</b>Have/Has + S + been + V-ing?<br><span class="mono">Have you been waiting long?</span></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>19.2 So sánh với Hiện tại hoàn thành thường</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Hiện tại hoàn thành (thường)</th><th>Hiện tại hoàn thành tiếp diễn</th></tr></thead>
+              <tbody>
+                <tr><td>Nhấn mạnh <b>kết quả</b> của hành động</td><td>Nhấn mạnh <b>quá trình/tính liên tục</b> của hành động</td></tr>
+                <tr><td class="mono">I have written 5 pages. (kết quả: 5 trang)</td><td class="mono">I have been writing all morning. (nhấn mạnh quá trình kéo dài)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Huy has been debugging his Assembly code for 3 hours. That's why he looks so tired now.</div>
+          <div class="ex-line ex-vi">→ Nhấn mạnh quá trình kéo dài liên tục, giải thích kết quả/tình trạng hiện tại (tại sao anh ấy mệt).</div>
+        </div>
+
+        <h3>19.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng: "It (rain) since this morning." (nhấn mạnh tính liên tục)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "It has been raining since this morning."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Vì sao câu "I have been reading this book" khác với "I have read this book"?</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "have been reading" nhấn mạnh quá trình (có thể chưa đọc xong); "have read" nhấn mạnh kết quả (đã đọc xong).</div>
+        </div>
+
+        <h3>19.4 Quiz trắc nghiệm — Chương 19</h3>
+        <div class="quiz-box" id="quiz19"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 19</h3>
+          <ul>
+            <li>Công thức: have/has been + V-ing.</li>
+            <li>Nhấn mạnh tính liên tục/quá trình, thường giải thích cho một tình trạng hiện tại.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 20: PAST PERFECT -->
+      <section id="ch20" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">20</span><h2>Quá Khứ Hoàn Thành (Past Perfect)</h2></div>
+        <div class="chapter-sub">Diễn tả hành động xảy ra trước một hành động khác trong quá khứ — "quá khứ của quá khứ".</div>
+
+        <div class="section-block">
+          <h3>20.1 Công thức</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Khẳng định</b>S + had + V3/ed<br><span class="mono">I had finished before he arrived.</span></div>
+            <div class="tf-card"><b>Phủ định</b>S + had + not + V3/ed<br><span class="mono">I hadn't finished before he arrived.</span></div>
+            <div class="tf-card"><b>Nghi vấn</b>Had + S + V3/ed?<br><span class="mono">Had you finished before he arrived?</span></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>20.2 Cách dùng</h3>
+          <p>Dùng khi có <b>2 hành động trong quá khứ</b>, hành động nào xảy ra <b>trước</b> thì dùng quá khứ hoàn thành,
+          hành động xảy ra <b>sau</b> dùng quá khứ đơn:</p>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">When I arrived at school, the class had already started. — By the time Huy fixed the bug, the teacher had already left.</div>
+            <div class="ex-line ex-vi">→ "had started"/"had left" xảy ra TRƯỚC; "arrived"/"fixed" xảy ra SAU (quá khứ đơn).</div>
+          </div>
+        </div>
+
+        <h3>20.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng 2 động từ: "By the time she (call) me, I already (leave) home." </div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "By the time she called me, I had already left home."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Xác định hành động nào xảy ra trước: "The train had left when I arrived at the station."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "had left" (tàu đã rời đi) xảy ra TRƯỚC "arrived" (tôi đến ga).</div>
+        </div>
+
+        <h3>20.4 Quiz trắc nghiệm — Chương 20</h3>
+        <div class="quiz-box" id="quiz20"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 20</h3>
+          <ul>
+            <li>Công thức: had + V3/ed.</li>
+            <li>Dùng khi có 2 hành động quá khứ — hành động trước dùng quá khứ hoàn thành.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 21: TỔNG HỢP 12 THÌ -->
+      <section id="ch21" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">21</span><h2>Tổng Hợp &amp; So Sánh 12 Thì Cơ Bản</h2></div>
+        <div class="chapter-sub">Bảng tổng quan toàn bộ hệ thống thì trong tiếng Anh để ôn tập nhanh.</div>
+
+        <div class="section-block">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Nhóm</th><th>Thì</th><th>Công thức (khẳng định)</th></tr></thead>
+              <tbody>
+                <tr><td rowspan="4">Hiện tại</td><td>Simple</td><td class="mono">S + V(s/es)</td></tr>
+                <tr><td>Continuous</td><td class="mono">S + am/is/are + V-ing</td></tr>
+                <tr><td>Perfect</td><td class="mono">S + have/has + V3</td></tr>
+                <tr><td>Perfect Continuous</td><td class="mono">S + have/has been + V-ing</td></tr>
+                <tr><td rowspan="4">Quá khứ</td><td>Simple</td><td class="mono">S + V-ed/V2</td></tr>
+                <tr><td>Continuous</td><td class="mono">S + was/were + V-ing</td></tr>
+                <tr><td>Perfect</td><td class="mono">S + had + V3</td></tr>
+                <tr><td>Perfect Continuous</td><td class="mono">S + had been + V-ing</td></tr>
+                <tr><td rowspan="4">Tương lai</td><td>Simple</td><td class="mono">S + will + V(bare)</td></tr>
+                <tr><td>Continuous</td><td class="mono">S + will be + V-ing</td></tr>
+                <tr><td>Perfect</td><td class="mono">S + will have + V3</td></tr>
+                <tr><td>Perfect Continuous</td><td class="mono">S + will have been + V-ing</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box note">
+            <div class="box-title">📝 Note</div>
+            8 thì ở Chương 13-20 chiếm phần lớn giao tiếp và bài thi hàng ngày. 4 thì còn lại (Future Continuous, Future
+            Perfect, Future Perfect Continuous, Past Perfect Continuous) ít gặp hơn và sẽ được bổ sung ở phần ngữ pháp
+            nâng cao sau này nếu cần.
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>21.1 Sơ đồ chọn thì nhanh theo dấu hiệu nhận biết</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <table style="width:100%;">
+              <tr><td class="mono">every day, usually, always</td><td>→ Present Simple</td></tr>
+              <tr><td class="mono">now, right now, at the moment</td><td>→ Present Continuous</td></tr>
+              <tr><td class="mono">yesterday, last week, ago</td><td>→ Past Simple</td></tr>
+              <tr><td class="mono">while + quá khứ đang diễn ra</td><td>→ Past Continuous</td></tr>
+              <tr><td class="mono">for, since, already, just, ever, never</td><td>→ Present Perfect</td></tr>
+              <tr><td class="mono">by the time, before + quá khứ khác</td><td>→ Past Perfect</td></tr>
+              <tr><td class="mono">tomorrow, next week (kế hoạch)</td><td>→ Future (will/going to)</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <h3>21.2 Bài tập tổng hợp</h3>
+        <div class="ex-item">
+          <div class="q">1. Chọn thì đúng: "By the time we (arrive), the movie already (start)."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "By the time we arrived, the movie had already started." (Past Simple + Past Perfect)</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chọn thì đúng: "I (study) English for 3 years, and I (still study) it now."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "I have been studying English for 3 years, and I am still studying it now." (Present Perfect Continuous)</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Chọn thì đúng: "Look! The dog (chase) the cat!"</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Look! The dog is chasing the cat!" (Present Continuous — hành động đang diễn ra ngay lúc nói).</div>
+        </div>
+
+        <h3>21.3 Quiz trắc nghiệm — Chương 21</h3>
+        <div class="quiz-box" id="quiz21"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 21</h3>
+          <ul>
+            <li>Tiếng Anh có 12 thì cơ bản, chia theo 3 mốc thời gian (hiện tại/quá khứ/tương lai) × 4 khía cạnh (đơn/tiếp diễn/hoàn thành/hoàn thành tiếp diễn).</li>
+            <li>Dấu hiệu nhận biết (signal words) là công cụ nhanh nhất để chọn đúng thì trong bài thi.</li>
+            <li>Ưu tiên thành thạo 8 thì thông dụng trước khi học 4 thì còn lại.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 3</div>
+          Bạn đã nắm vững 8 thì quan trọng nhất trong tiếng Anh! Gõ <b>"Tiếp tục"</b> để nhận
+          <b>Phần 4: Modal Verbs &amp; Câu Điều Kiện (Conditional Sentences)</b>.
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz13: [
+    {q:"Chọn đúng: 'She ___ to work by bus every day.'", opts:["go","goes","going","went"], correct:1},
+    {q:"Câu hỏi đúng cho 'He plays football' là gì?", opts:["Does he plays football?","Does he play football?","Do he play football?","Is he play football?"], correct:1},
+    {q:"Dấu hiệu nào nhận biết thì hiện tại đơn?", opts:["now","every day","yesterday","tomorrow"], correct:1}
+  ],
+  quiz14: [
+    {q:"Chọn đúng: 'I ___ dinner right now.'", opts:["cook","cooks","am cooking","cooked"], correct:2},
+    {q:"Động từ nào KHÔNG dùng ở dạng tiếp diễn?", opts:["run","know","study","play"], correct:1},
+    {q:"'is getting warmer' diễn tả điều gì?", opts:["thói quen","xu hướng thay đổi","quá khứ","tương lai xa"], correct:1}
+  ],
+  quiz15: [
+    {q:"Quá khứ của 'go' là gì?", opts:["goed","went","gone","going"], correct:1},
+    {q:"Chọn đúng: 'Did she ___ the meeting?'", opts:["attend","attended","attends","attending"], correct:0},
+    {q:"Dấu hiệu nào của quá khứ đơn?", opts:["now","yesterday","already","since"], correct:1}
+  ],
+  quiz16: [
+    {q:"Chọn đúng: 'While I ___ , the phone rang.'", opts:["study","was studying","studied","have studied"], correct:1},
+    {q:"Công thức quá khứ tiếp diễn là gì?", opts:["was/were + V-ing","have + V3","will + V","V-ed"], correct:0},
+    {q:"'while' thường đi với thì nào?", opts:["Present Simple","Past Continuous","Future Simple","Present Perfect"], correct:1}
+  ],
+  quiz17: [
+    {q:"Chọn đúng cho quyết định tức thời: 'The bag is heavy. I ___ help you.'", opts:["am going to","will","was","am"], correct:1},
+    {q:"Chọn đúng cho kế hoạch đã định: 'I ___ visit my parents next week.' (đã lên kế hoạch từ trước)", opts:["will","am going to","was","did"], correct:1},
+    {q:"'Look at those clouds! It's going to rain' dùng vì lý do gì?", opts:["Lời hứa","Quyết định tức thời","Bằng chứng rõ ràng hiện tại","Thói quen"], correct:2}
+  ],
+  quiz18: [
+    {q:"Công thức hiện tại hoàn thành là gì?", opts:["have/has + V3","am/is/are + V-ing","V-ed","will + V"], correct:0},
+    {q:"Chọn đúng: 'I have lived here ___ 2015.'", opts:["for","since","ago","in"], correct:1},
+    {q:"Câu nào SAI?", opts:["I have visited Japan.","I have visited Japan last year.","I visited Japan last year.","I have never visited Japan."], correct:1}
+  ],
+  quiz19: [
+    {q:"Công thức hiện tại hoàn thành tiếp diễn là gì?", opts:["have/has been + V-ing","have/has + V3","am/is/are + V-ing","had + V3"], correct:0},
+    {q:"Thì này nhấn mạnh điều gì?", opts:["Kết quả","Quá trình/tính liên tục","Tương lai","Thói quen"], correct:1},
+    {q:"Chọn đúng: 'It ___ raining since this morning.'", opts:["is","has been","was","will be"], correct:1}
+  ],
+  quiz20: [
+    {q:"Công thức quá khứ hoàn thành là gì?", opts:["had + V3","have + V3","was/were + V-ing","would + V"], correct:0},
+    {q:"Hành động nào xảy ra trước trong câu 'The train had left when I arrived'?", opts:["arrived","had left","cả hai cùng lúc","không xác định"], correct:1},
+    {q:"'By the time' thường đi kèm với thì nào ở mệnh đề chính?", opts:["Present Simple","Past Perfect","Future Simple","Present Continuous"], correct:1}
+  ],
+  quiz21: [
+    {q:"Tiếng Anh có tổng cộng bao nhiêu thì cơ bản?", opts:["8","10","12","14"], correct:2},
+    {q:"Dấu hiệu 'for/since' thường đi với thì nào?", opts:["Past Simple","Present Perfect","Future Simple","Past Continuous"], correct:1},
+    {q:"'Look! The dog is chasing the cat!' thuộc thì nào?", opts:["Present Simple","Present Continuous","Past Continuous","Present Perfect"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container || !Array.isArray(data) || data.length === 0) return;
+
+  let lastAttemptSignature = '';
+  function shuffleQuizItems(items){
+    const shuffled = [...items];
+    for(let i=shuffled.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  function renderAttempt(){
+    container.innerHTML = '';
+    let score = 0;
+    let answered = 0;
+    const questionCount = data.length > 2 ? Math.max(2, Math.floor(data.length * 0.7)) : data.length;
+    const selected = shuffleQuizItems(data).slice(0, questionCount);
+    const attempt = selected.map(item=>({
+      item,
+      options: shuffleQuizItems(item.opts.map((text,index)=>({text, isCorrect:index===item.correct})))
+    }));
+    let signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    if(signature === lastAttemptSignature && attempt.length){
+      if(attempt.length > 1) [attempt[0],attempt[1]]=[attempt[1],attempt[0]];
+      else [attempt[0].options[0],attempt[0].options[1]]=[attempt[0].options[1],attempt[0].options[0]];
+      signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    }
+    lastAttemptSignature = signature;
+
+    attempt.forEach((row,qi)=>{
+      const item = row.item;
+      const qDiv = document.createElement('div');
+      qDiv.className='quiz-q';
+      const questionText = item.q.replace(/^\d+\.\s*/, '');
+      qDiv.innerHTML = '<p>Câu ' + (qi+1) + '. ' + questionText + '</p>';
+      const optsDiv = document.createElement('div');
+      optsDiv.className='quiz-opts';
+      row.options.forEach(option=>{
+        const b = document.createElement('button');
+        b.className='quiz-opt';
+        b.textContent = option.text;
+        b.onclick = ()=>{
+          if(b.dataset.locked) return;
+          [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+          if(option.isCorrect){ b.classList.add('correct'); score++; }
+          else {
+            b.classList.add('wrong');
+            const correctIndex = row.options.findIndex(candidate=>candidate.isCorrect);
+            optsDiv.children[correctIndex].classList.add('correct');
+          }
+          answered++;
+          updateScore();
+        };
+        optsDiv.appendChild(b);
+      });
+      qDiv.appendChild(optsDiv);
+      container.appendChild(qDiv);
+    });
+
+    const scoreEl = document.createElement('div');
+    scoreEl.className='quiz-score';
+    container.appendChild(scoreEl);
+    const retryButton = document.createElement('button');
+    retryButton.type='button';
+    retryButton.className='quiz-retry-btn';
+    retryButton.textContent='🔄 Làm bộ câu khác';
+    retryButton.style.cssText='margin:12px 0;padding:10px 16px;border:0;border-radius:8px;background:var(--teal);color:#fff;font-weight:700;cursor:pointer;';
+    retryButton.addEventListener('click',renderAttempt);
+    container.appendChild(retryButton);
+    function updateScore(){
+      scoreEl.textContent = 'Điểm hiện tại: ' + score + '/' + attempt.length + ' (' + answered + '/' + attempt.length + ' câu đã trả lời)';
+    }
+    updateScore();
+  }
+  renderAttempt();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

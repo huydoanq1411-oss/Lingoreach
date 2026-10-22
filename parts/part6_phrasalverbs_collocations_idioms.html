@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 6: Phrasal Verbs, Collocations & Idioms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+td .ipa{color:var(--teal-dark); font-weight:600;}
+.vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; margin:14px 0;}
+.vocab-card{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px;}
+.vocab-card .vc-en{font-weight:700; font-family:'Fraunces',serif; font-size:1.02rem;}
+.vocab-card .vc-ipa{color:var(--teal-dark); font-family:'JetBrains Mono',monospace; font-size:.78rem;}
+.vocab-card .vc-vi{color:var(--text-soft); font-size:.85rem; margin-top:2px;}
+</style>
+<link rel="stylesheet" href="../assets/lingoreach.css">
+<script src="../assets/lingoreach.js" defer></script>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 6</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 6</a>
+      <a class="toc-link" href="#ch33"><span class="toc-num">33</span> Phrasal Verbs — nguyên lý &amp; phân loại</a>
+      <a class="toc-link" href="#ch34"><span class="toc-num">34</span> Phrasal Verbs thông dụng theo chủ đề</a>
+      <a class="toc-link" href="#ch35"><span class="toc-num">35</span> Collocations — cụm từ cố định</a>
+      <a class="toc-link" href="#ch36"><span class="toc-num">36</span> Idioms — thành ngữ thông dụng</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Sắp tới (gõ "Tiếp tục")</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 7 · Kỹ năng Nghe – Nói</a>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 8 · Kỹ năng Đọc – Viết</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 6 / Phrasal Verbs, Collocations &amp; Idioms</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="../index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần 6 / N</span>
+          <h1>Phrasal Verbs, Collocations &amp; Idioms</h1>
+          <p>
+            Đây là "gia vị" khiến tiếng Anh của bạn nghe <b>tự nhiên như người bản xứ</b> thay vì chỉ đúng ngữ pháp.
+            <b>Phrasal Verbs</b> (động từ + giới từ/trạng từ tạo nghĩa mới), <b>Collocations</b> (cụm từ hay đi cùng
+            nhau theo thói quen) và <b>Idioms</b> (thành ngữ mang nghĩa bóng) xuất hiện dày đặc trong giao tiếp hàng
+            ngày, phim ảnh, và cả bài thi IELTS Speaking/Writing band cao.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 33</b><div>Phrasal Verbs — nguyên lý, phrasal verbs tách được/không tách được</div></div>
+            <div class="rm-item"><b>Chương 34</b><div>40+ Phrasal Verbs thông dụng theo chủ đề</div></div>
+            <div class="rm-item"><b>Chương 35</b><div>Collocations — verb+noun, adj+noun, adverb+adjective</div></div>
+            <div class="rm-item"><b>Chương 36</b><div>Idioms — 20 thành ngữ thông dụng nhất trong giao tiếp</div></div>
+          </div>
+        </div>
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          KHÔNG học phrasal verbs/idioms bằng cách dịch từng chữ (word-by-word) — nghĩa của chúng thường hoàn toàn
+          khác với nghĩa đen của từng từ riêng lẻ. Luôn học theo NGỮ CẢNH và VÍ DỤ cụ thể.
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 33: PHRASAL VERBS - PRINCIPLES -->
+      <section id="ch33" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">33</span><h2>Phrasal Verbs — Nguyên Lý &amp; Phân Loại</h2></div>
+        <div class="chapter-sub">Động từ + giới từ/trạng từ = nghĩa hoàn toàn mới.</div>
+
+        <div class="section-block">
+          <h3>33.1 Phrasal Verb là gì?</h3>
+          <p>
+            <b>Phrasal Verb</b> là cụm gồm <b>động từ + tiểu từ (particle: giới từ hoặc trạng từ)</b>, tạo ra một nghĩa
+            hoàn toàn mới, thường không thể đoán được từ nghĩa đen của từng từ:
+          </p>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">give up = từ bỏ (không phải "cho lên") — look after = chăm sóc (không phải "nhìn theo sau")</div>
+            <div class="ex-line ex-vi">→ Nghĩa của cụm khác hoàn toàn nghĩa đen của từng từ ghép lại.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>33.2 Phân loại: tách được (Separable) &amp; không tách được (Inseparable)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Loại</th><th>Quy tắc</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Tách được (Separable)</td><td>Tân ngữ có thể đứng giữa hoặc sau cụm; nếu là ĐẠI TỪ, BẮT BUỘC đứng giữa</td><td class="mono">turn off the light / turn the light off / turn it off (✅) — turn off it (❌)</td></tr>
+                <tr><td>Không tách được (Inseparable)</td><td>Tân ngữ luôn đứng sau cụm, không chen vào giữa</td><td class="mono">look after the baby / look after her (✅) — look the baby after (❌)</td></tr>
+                <tr><td>Nội động từ (không có tân ngữ)</td><td>Không cần tân ngữ đi kèm</td><td class="mono">The plane took off. / She grew up in Hanoi.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box tip">
+            <div class="box-title">💡 Tip</div>
+            Không cần học thuộc lý thuyết phân loại quá kỹ — thay vào đó, học phrasal verb qua VÍ DỤ CỤ THỂ và LUYỆN
+            TẬP nhiều lần cho đến khi phản xạ tự nhiên với đại từ tân ngữ đứng giữa cụm tách được.
+          </div>
+        </div>
+
+        <h3>33.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chọn đúng: "Can you turn ___ the TV? It's too loud." (up/it up)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Can you turn the TV up?" hoặc "Can you turn up the TV?" đều đúng vì "the TV" là danh từ, không bắt buộc đứng giữa. Nhưng nếu dùng đại từ "it", bắt buộc: "Can you turn it up?"</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Sửa lỗi: "She looks the children after every day."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "She looks after the children every day." — "look after" là cụm không tách được.</div>
+        </div>
+
+        <h3>33.4 Quiz trắc nghiệm — Chương 33</h3>
+        <div class="quiz-box" id="quiz33"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 33</h3>
+          <ul>
+            <li>Phrasal verb = động từ + tiểu từ, nghĩa hoàn toàn mới, không đoán được từ nghĩa đen.</li>
+            <li>Cụm tách được: đại từ tân ngữ BẮT BUỘC đứng giữa.</li>
+            <li>Cụm không tách được: tân ngữ luôn đứng sau cả cụm.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 34: PHRASAL VERBS BY TOPIC -->
+      <section id="ch34" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">34</span><h2>Phrasal Verbs Thông Dụng Theo Chủ Đề</h2></div>
+        <div class="chapter-sub">Hơn 24 phrasal verbs thiết yếu, phân nhóm theo chủ đề để dễ ghi nhớ.</div>
+
+        <div class="accordion open">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>34.1 Công việc &amp; Học tập</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body" style="max-height:800px;">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">give up</div><div class="vc-ipa">/ɡɪv ʌp/</div><div class="vc-vi">từ bỏ</div></div>
+              <div class="vocab-card"><div class="vc-en">figure out</div><div class="vc-ipa">/ˈfɪɡjər aʊt/</div><div class="vc-vi">tìm ra, hiểu ra</div></div>
+              <div class="vocab-card"><div class="vc-en">work on</div><div class="vc-ipa">/wɜːrk ɑːn/</div><div class="vc-vi">làm việc/tập trung vào</div></div>
+              <div class="vocab-card"><div class="vc-en">carry out</div><div class="vc-ipa">/ˈkæri aʊt/</div><div class="vc-vi">thực hiện</div></div>
+              <div class="vocab-card"><div class="vc-en">hand in</div><div class="vc-ipa">/hænd ɪn/</div><div class="vc-vi">nộp (bài)</div></div>
+              <div class="vocab-card"><div class="vc-en">catch up on</div><div class="vc-ipa">/kætʃ ʌp ɑːn/</div><div class="vc-vi">bắt kịp (bài học bị bỏ lỡ)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>34.2 Đời sống hằng ngày</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">wake up</div><div class="vc-ipa">/weɪk ʌp/</div><div class="vc-vi">thức dậy</div></div>
+              <div class="vocab-card"><div class="vc-en">get up</div><div class="vc-ipa">/ɡet ʌp/</div><div class="vc-vi">ra khỏi giường</div></div>
+              <div class="vocab-card"><div class="vc-en">turn on/off</div><div class="vc-ipa">/tɜːrn ɑːn/ɔːf/</div><div class="vc-vi">bật/tắt</div></div>
+              <div class="vocab-card"><div class="vc-en">clean up</div><div class="vc-ipa">/kliːn ʌp/</div><div class="vc-vi">dọn dẹp</div></div>
+              <div class="vocab-card"><div class="vc-en">run out of</div><div class="vc-ipa">/rʌn aʊt ʌv/</div><div class="vc-vi">hết (đồ gì đó)</div></div>
+              <div class="vocab-card"><div class="vc-en">put away</div><div class="vc-ipa">/pʊt əˈweɪ/</div><div class="vc-vi">cất đi</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>34.3 Giao tiếp &amp; Quan hệ</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">get along with</div><div class="vc-ipa">/ɡet əˈlɔːŋ wɪð/</div><div class="vc-vi">hòa hợp với</div></div>
+              <div class="vocab-card"><div class="vc-en">look up to</div><div class="vc-ipa">/lʊk ʌp tuː/</div><div class="vc-vi">ngưỡng mộ</div></div>
+              <div class="vocab-card"><div class="vc-en">bring up</div><div class="vc-ipa">/brɪŋ ʌp/</div><div class="vc-vi">đề cập/nuôi dạy</div></div>
+              <div class="vocab-card"><div class="vc-en">break up (with)</div><div class="vc-ipa">/breɪk ʌp/</div><div class="vc-vi">chia tay</div></div>
+              <div class="vocab-card"><div class="vc-en">make up</div><div class="vc-ipa">/meɪk ʌp/</div><div class="vc-vi">làm hòa / bịa ra</div></div>
+              <div class="vocab-card"><div class="vc-en">call off</div><div class="vc-ipa">/kɔːl ɔːf/</div><div class="vc-vi">hủy bỏ</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>34.4 Di chuyển &amp; Du lịch</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">take off</div><div class="vc-ipa">/teɪk ɔːf/</div><div class="vc-vi">cất cánh (máy bay)</div></div>
+              <div class="vocab-card"><div class="vc-en">check in / check out</div><div class="vc-ipa">/tʃek ɪn/aʊt/</div><div class="vc-vi">nhận phòng / trả phòng</div></div>
+              <div class="vocab-card"><div class="vc-en">set off</div><div class="vc-ipa">/set ɔːf/</div><div class="vc-vi">khởi hành</div></div>
+              <div class="vocab-card"><div class="vc-en">get on/off</div><div class="vc-ipa">/ɡet ɑːn/ɔːf/</div><div class="vc-vi">lên/xuống (xe, tàu)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box tip" style="margin-top:16px;">
+          <div class="box-title">💡 Tip — Mẹo học phrasal verbs</div>
+          Học theo cụm câu hoàn chỉnh (không học từ đơn lẻ), và nhóm theo chủ đề gần gũi với cuộc sống của bạn để dễ
+          liên tưởng và sử dụng thực tế hơn.
+        </div>
+
+        <h3>34.5 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Điền phrasal verb đúng: "I need to ___ my assignment before the deadline." (nộp)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "hand in" — "I need to hand in my assignment before the deadline."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Điền phrasal verb đúng: "We ___ sugar, can you buy some?" (hết)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "ran out of" — "We ran out of sugar, can you buy some?"</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Điền phrasal verb đúng: "The meeting was ___ due to bad weather." (hủy bỏ)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "called off" — "The meeting was called off due to bad weather."</div>
+        </div>
+
+        <h3>34.6 Quiz trắc nghiệm — Chương 34</h3>
+        <div class="quiz-box" id="quiz34"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 34</h3>
+          <ul>
+            <li>Học phrasal verbs theo nhóm chủ đề: công việc, đời sống, giao tiếp, di chuyển.</li>
+            <li>Luôn học kèm ví dụ câu hoàn chỉnh để nhớ cách dùng đúng ngữ cảnh.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 35: COLLOCATIONS -->
+      <section id="ch35" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">35</span><h2>Collocations — Cụm Từ Cố Định</h2></div>
+        <div class="chapter-sub">Những từ "quen đi với nhau" — sai collocation là dấu hiệu rõ nhất của "Vietlish".</div>
+
+        <div class="section-block">
+          <h3>35.1 Collocation là gì?</h3>
+          <p>
+            <b>Collocation</b> là các từ có xu hướng <b>luôn đi cùng nhau</b> một cách tự nhiên theo thói quen của người
+            bản xứ, dù về mặt ngữ pháp có thể ghép từ khác nghĩa tương tự nhưng nghe "sai" hoặc "không tự nhiên":
+          </p>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">✅ make a decision (ĐÚNG) — ❌ do a decision (nghe sai dù "do" và "make" đều nghĩa là "làm")</div>
+            <div class="ex-line ex-vi">→ Đây là lý do phải học từ vựng theo CỤM chứ không phải từ đơn lẻ.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>35.2 Các loại collocation phổ biến</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Loại</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Verb + Noun</td><td class="mono">make a decision, take a break, do homework, have a shower, catch a cold</td></tr>
+                <tr><td>Adjective + Noun</td><td class="mono">heavy rain, strong coffee, deep sleep, high temperature</td></tr>
+                <tr><td>Adverb + Adjective</td><td class="mono">deeply concerned, highly effective, fully aware, badly injured</td></tr>
+                <tr><td>Verb + Preposition</td><td class="mono">rely on, depend on, apply for, deal with</td></tr>
+                <tr><td>Noun + Noun</td><td class="mono">a piece of advice, a bar of soap, a bunch of flowers</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning</div>
+            Lỗi phổ biến của người Việt: <span class="mono">❌ do a mistake (✅ make a mistake), ❌ do the housework (✅ do the housework — đúng!), ❌ take a photograph (✅ take a photo — đúng)</span>.
+            Không có công thức chung — phải HỌC THUỘC từng cụm cố định qua đọc/nghe nhiều.
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>35.3 20 Collocations học thuật/công sở thường gặp</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">make progress</div><div class="vc-vi">đạt tiến bộ</div></div>
+              <div class="vocab-card"><div class="vc-en">reach a conclusion</div><div class="vc-vi">đi đến kết luận</div></div>
+              <div class="vocab-card"><div class="vc-en">meet a deadline</div><div class="vc-vi">đáp ứng hạn chót</div></div>
+              <div class="vocab-card"><div class="vc-en">raise a question</div><div class="vc-vi">đặt câu hỏi</div></div>
+              <div class="vocab-card"><div class="vc-en">gain experience</div><div class="vc-vi">tích lũy kinh nghiệm</div></div>
+              <div class="vocab-card"><div class="vc-en">pay attention</div><div class="vc-vi">chú ý</div></div>
+              <div class="vocab-card"><div class="vc-en">take responsibility</div><div class="vc-vi">chịu trách nhiệm</div></div>
+              <div class="vocab-card"><div class="vc-en">draw a conclusion</div><div class="vc-vi">rút ra kết luận</div></div>
+            </div>
+          </div>
+        </div>
+
+        <h3>35.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chọn đúng: "It's important to ___ (make/do) a good decision."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "make" — "make a decision" là collocation cố định.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chọn đúng: "The weather forecast predicts ___ (heavy/strong) rain tomorrow."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "heavy" — "heavy rain" là collocation chuẩn (không dùng "strong rain").</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Đặt câu với collocation "meet a deadline".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Our team worked overtime to meet the project deadline."</div>
+        </div>
+
+        <h3>35.5 Quiz trắc nghiệm — Chương 35</h3>
+        <div class="quiz-box" id="quiz35"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 35</h3>
+          <ul>
+            <li>Collocation = từ hay đi cùng nhau theo thói quen ngôn ngữ, không theo công thức logic cố định.</li>
+            <li>5 loại phổ biến: Verb+Noun, Adj+Noun, Adverb+Adj, Verb+Prep, Noun+Noun.</li>
+            <li>Cách học tốt nhất: đọc/nghe nhiều và ghi chú lại cụm từ xuất hiện lặp lại.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 36: IDIOMS -->
+      <section id="ch36" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">36</span><h2>Idioms — Thành Ngữ Thông Dụng</h2></div>
+        <div class="chapter-sub">Nghĩa bóng hoàn toàn khác nghĩa đen — điểm nhấn cho IELTS Speaking band cao.</div>
+
+        <div class="section-block">
+          <h3>36.1 Idiom là gì?</h3>
+          <p>
+            <b>Idiom (thành ngữ)</b> là cụm từ mang <b>nghĩa bóng cố định</b>, hoàn toàn không thể đoán được từ nghĩa
+            đen của từng từ riêng lẻ — tương tự "nước đổ lá khoai" hay "chân ướt chân ráo" trong tiếng Việt.
+          </p>
+        </div>
+
+        <div class="accordion open">
+          <div class="acc-head" onclick="toggleAcc(this)"><span>36.2 20 Idioms thông dụng nhất trong giao tiếp</span><span class="acc-icon">＋</span></div>
+          <div class="acc-body" style="max-height:2000px;">
+            <div class="vocab-grid">
+              <div class="vocab-card"><div class="vc-en">break the ice</div><div class="vc-vi">phá vỡ sự ngại ngùng ban đầu</div></div>
+              <div class="vocab-card"><div class="vc-en">hit the books</div><div class="vc-vi">học hành chăm chỉ</div></div>
+              <div class="vocab-card"><div class="vc-en">under the weather</div><div class="vc-vi">cảm thấy không khỏe</div></div>
+              <div class="vocab-card"><div class="vc-en">piece of cake</div><div class="vc-vi">việc dễ như ăn kẹo</div></div>
+              <div class="vocab-card"><div class="vc-en">cost an arm and a leg</div><div class="vc-vi">rất đắt đỏ</div></div>
+              <div class="vocab-card"><div class="vc-en">once in a blue moon</div><div class="vc-vi">hiếm khi xảy ra</div></div>
+              <div class="vocab-card"><div class="vc-en">let the cat out of the bag</div><div class="vc-vi">để lộ bí mật</div></div>
+              <div class="vocab-card"><div class="vc-en">a blessing in disguise</div><div class="vc-vi">trong cái rủi có cái may</div></div>
+              <div class="vocab-card"><div class="vc-en">on the same page</div><div class="vc-vi">cùng quan điểm/hiểu biết</div></div>
+              <div class="vocab-card"><div class="vc-en">bite off more than you can chew</div><div class="vc-vi">ôm đồm quá sức</div></div>
+              <div class="vocab-card"><div class="vc-en">get cold feet</div><div class="vc-vi">bỗng nhiên sợ hãi/do dự</div></div>
+              <div class="vocab-card"><div class="vc-en">hit the sack</div><div class="vc-vi">đi ngủ</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">The exam was a piece of cake for Huy because he had hit the books all week. — I think losing that job was actually a blessing in disguise.</div>
+          <div class="ex-line ex-vi">→ "piece of cake" = dễ dàng, "hit the books" = học chăm chỉ, "blessing in disguise" = trong rủi có may.</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Chỉ nên dùng 1-2 idiom trong một bài nói/viết — dùng quá nhiều idiom liên tục nghe rất gượng ép và không tự
+          nhiên, kể cả với người bản xứ. Ưu tiên chọn idiom phù hợp ngữ cảnh thay vì cố nhồi nhét cho "sang".
+        </div>
+
+        <h3>36.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Điền idiom đúng: "I'm feeling a bit ___ today, I might have caught a cold." (under the weather)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "under the weather" — "I'm feeling a bit under the weather today."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Giải thích ý nghĩa của idiom "let the cat out of the bag".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Có nghĩa là vô tình để lộ một bí mật ra ngoài.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Đặt câu với idiom "piece of cake".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "Don't worry, this test will be a piece of cake for you."</div>
+        </div>
+
+        <h3>36.4 Quiz trắc nghiệm — Chương 36</h3>
+        <div class="quiz-box" id="quiz36"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 36</h3>
+          <ul>
+            <li>Idiom mang nghĩa bóng cố định, không đoán được từ nghĩa đen.</li>
+            <li>Chỉ nên dùng vừa phải (1-2 idiom/bài) để tránh nghe gượng ép.</li>
+            <li>Học idiom qua ngữ cảnh thực tế, không học tách rời khỏi câu.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 6</div>
+          Bạn đã trang bị Phrasal Verbs, Collocations và Idioms — vốn từ của bạn giờ đã tự nhiên hơn rất nhiều!
+          Gõ <b>"Tiếp tục"</b> để nhận <b>Phần 7: Kỹ Năng Nghe – Nói (Listening &amp; Speaking, Shadowing)</b>.
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz33: [
+    {q:"'give up' có nghĩa là gì?", opts:["cho lên","từ bỏ","đưa lên","lên cao"], correct:1},
+    {q:"Với phrasal verb tách được, đại từ tân ngữ phải đứng ở đâu?", opts:["Sau cụm","Giữa động từ và tiểu từ","Đầu câu","Không quan trọng"], correct:1},
+    {q:"'look after' thuộc loại phrasal verb nào?", opts:["Tách được","Không tách được","Nội động từ","Không phải phrasal verb"], correct:1}
+  ],
+  quiz34: [
+    {q:"'hand in' nghĩa là gì?", opts:["nộp bài","cầm tay","đưa vào","cất đi"], correct:0},
+    {q:"'run out of' nghĩa là gì?", opts:["chạy ra ngoài","hết (đồ gì đó)","chạy nhanh","bắt đầu"], correct:1},
+    {q:"'call off' nghĩa là gì?", opts:["gọi điện","hủy bỏ","gọi lại","gọi đến"], correct:1}
+  ],
+  quiz35: [
+    {q:"Collocation đúng của 'quyết định' là gì?", opts:["do a decision","make a decision","take a decision","have a decision"], correct:1},
+    {q:"Collocation đúng cho 'mưa to' là gì?", opts:["strong rain","heavy rain","big rain","hard rain"], correct:1},
+    {q:"'meet a deadline' nghĩa là gì?", opts:["gặp gỡ ai đó","đáp ứng hạn chót","hoãn deadline","bỏ lỡ hạn chót"], correct:1}
+  ],
+  quiz36: [
+    {q:"'piece of cake' nghĩa là gì?", opts:["một miếng bánh","việc rất dễ dàng","món tráng miệng","việc khó khăn"], correct:1},
+    {q:"'under the weather' nghĩa là gì?", opts:["ngoài trời","cảm thấy không khỏe","dưới mưa","rất vui vẻ"], correct:1},
+    {q:"'cost an arm and a leg' nghĩa là gì?", opts:["bị thương","rất đắt đỏ","rất rẻ","mất tay chân"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container || !Array.isArray(data) || data.length === 0) return;
+
+  let lastAttemptSignature = '';
+  function shuffleQuizItems(items){
+    const shuffled = [...items];
+    for(let i=shuffled.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  function renderAttempt(){
+    container.innerHTML = '';
+    let score = 0;
+    let answered = 0;
+    const questionCount = data.length > 2 ? Math.max(2, Math.floor(data.length * 0.7)) : data.length;
+    const selected = shuffleQuizItems(data).slice(0, questionCount);
+    const attempt = selected.map(item=>({
+      item,
+      options: shuffleQuizItems(item.opts.map((text,index)=>({text, isCorrect:index===item.correct})))
+    }));
+    let signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    if(signature === lastAttemptSignature && attempt.length){
+      if(attempt.length > 1) [attempt[0],attempt[1]]=[attempt[1],attempt[0]];
+      else [attempt[0].options[0],attempt[0].options[1]]=[attempt[0].options[1],attempt[0].options[0]];
+      signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    }
+    lastAttemptSignature = signature;
+
+    attempt.forEach((row,qi)=>{
+      const item = row.item;
+      const qDiv = document.createElement('div');
+      qDiv.className='quiz-q';
+      const questionText = item.q.replace(/^\d+\.\s*/, '');
+      qDiv.innerHTML = '<p>Câu ' + (qi+1) + '. ' + questionText + '</p>';
+      const optsDiv = document.createElement('div');
+      optsDiv.className='quiz-opts';
+      row.options.forEach(option=>{
+        const b = document.createElement('button');
+        b.className='quiz-opt';
+        b.textContent = option.text;
+        b.onclick = ()=>{
+          if(b.dataset.locked) return;
+          [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+          if(option.isCorrect){ b.classList.add('correct'); score++; }
+          else {
+            b.classList.add('wrong');
+            const correctIndex = row.options.findIndex(candidate=>candidate.isCorrect);
+            optsDiv.children[correctIndex].classList.add('correct');
+          }
+          answered++;
+          updateScore();
+        };
+        optsDiv.appendChild(b);
+      });
+      qDiv.appendChild(optsDiv);
+      container.appendChild(qDiv);
+    });
+
+    const scoreEl = document.createElement('div');
+    scoreEl.className='quiz-score';
+    container.appendChild(scoreEl);
+    const retryButton = document.createElement('button');
+    retryButton.type='button';
+    retryButton.className='quiz-retry-btn';
+    retryButton.textContent='🔄 Làm bộ câu khác';
+    retryButton.style.cssText='margin:12px 0;padding:10px 16px;border:0;border-radius:8px;background:var(--teal);color:#fff;font-weight:700;cursor:pointer;';
+    retryButton.addEventListener('click',renderAttempt);
+    container.appendChild(retryButton);
+    function updateScore(){
+      scoreEl.textContent = 'Điểm hiện tại: ' + score + '/' + attempt.length + ' (' + answered + '/' + attempt.length + ' câu đã trả lời)';
+    }
+    updateScore();
+  }
+  renderAttempt();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

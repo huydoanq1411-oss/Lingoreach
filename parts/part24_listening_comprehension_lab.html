@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 24: Listening Comprehension Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+
+/* ===== LISTENING LAB STYLES ===== */
+.listen-card{background:var(--paper-2); border:1px solid var(--line); border-radius:18px; padding:26px; margin:18px 0; box-shadow:var(--shadow);}
+.listen-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
+.listen-tab{border:1px solid var(--line); background:var(--paper); color:var(--text); padding:8px 16px; border-radius:20px; font-size:.85rem; cursor:pointer; transition:.2s;}
+.listen-tab.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+.player-box{background:var(--ink); color:#fff; border-radius:14px; padding:24px; margin-bottom:18px; text-align:center;}
+.player-box .pb-title{font-family:'Fraunces',serif; font-size:1.15rem; margin-bottom:14px;}
+.player-controls{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:10px;}
+.player-btn{border:none; padding:11px 20px; border-radius:12px; font-size:.88rem; font-weight:600; cursor:pointer; transition:transform .15s ease;}
+.player-btn:hover{transform:translateY(-2px);}
+.player-btn.play{background:var(--amber); color:#1a1200;}
+.player-btn.stop{background:var(--coral); color:#fff;}
+.rate-row{display:flex; align-items:center; gap:8px; justify-content:center; font-size:.82rem; color:#C9D3E4; margin-top:10px;}
+.transcript-toggle{background:none; border:1px solid rgba(255,255,255,0.3); color:#fff; padding:6px 14px; border-radius:20px; font-size:.78rem; cursor:pointer; margin-top:14px;}
+.transcript-reveal{display:none; text-align:left; background:rgba(255,255,255,0.06); border-radius:10px; padding:14px 18px; margin-top:14px; font-size:.88rem; line-height:1.7; color:#E4E9F2;}
+.transcript-reveal.show{display:block;}
+</style>
+<link rel="stylesheet" href="../assets/lingoreach.css">
+<script src="../assets/lingoreach.js" defer></script>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 24</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Listening Lab</a>
+      <a class="toc-link" href="#ch102"><span class="toc-num">102</span> Nghe hiểu đoạn hội thoại &amp; bài nói ngắn</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 24 / Listening Comprehension Lab</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="../index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình tiếng Anh toàn diện · Công cụ luyện tập #5</span>
+          <h1>Listening Comprehension Lab</h1>
+          <p>
+            Công cụ này dùng giọng đọc tự động của trình duyệt (Text-to-Speech) để "phát" các đoạn hội thoại và bài
+            nói ngắn — bạn nghe (không nhìn chữ), sau đó trả lời câu hỏi trắc nghiệm để kiểm tra khả năng nghe hiểu,
+            đúng theo phương pháp đã học ở Chương 37 (Phần 7): nghe không xem transcript trước, sau đó đối chiếu.
+          </p>
+        </div>
+        <div class="box note">
+          <div class="box-title">📝 Note</div>
+          Giọng đọc máy (TTS) không hoàn toàn tự nhiên như người thật, nhưng vẫn là công cụ luyện tập hữu ích để làm
+          quen với tốc độ nói và cấu trúc câu tiếng Anh. Bạn có thể điều chỉnh tốc độ đọc chậm/nhanh tùy trình độ.
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 102: LISTENING PRACTICE -->
+      <section id="ch102" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">102</span><h2>Nghe Hiểu Đoạn Hội Thoại &amp; Bài Nói Ngắn</h2></div>
+        <div class="chapter-sub">Chọn bài, nghe (không xem transcript), rồi trả lời câu hỏi trắc nghiệm.</div>
+
+        <div class="listen-card">
+          <div class="listen-tabs" id="passageTabs"></div>
+
+          <div class="player-box">
+            <div class="pb-title" id="passageTitle">Đang tải bài nghe...</div>
+            <div class="player-controls">
+              <button class="player-btn play" id="btnPlay">▶️ Phát bài nghe</button>
+              <button class="player-btn stop" id="btnStop">⏹️ Dừng</button>
+            </div>
+            <div class="rate-row">
+              Tốc độ: <input type="range" id="listenRate" min="0.6" max="1.1" step="0.1" value="0.9">
+              <span id="listenRateValue">0.9x</span>
+            </div>
+            <button class="transcript-toggle" id="btnTranscript">👁️ Hiện/Ẩn Transcript</button>
+            <div class="transcript-reveal" id="transcriptReveal"></div>
+          </div>
+
+          <div id="questionArea"></div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Nghe ít nhất 2 lần trước khi trả lời câu hỏi: lần 1 nắm ý chính, lần 2 chú ý chi tiết cụ thể (số liệu, tên
+          riêng). Chỉ mở Transcript SAU KHI đã trả lời xong để tự đối chiếu — xem lại Chương 37 nếu cần ôn phương pháp.
+        </div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Phần 25</h3>
+          <ul>
+            <li>5 bài nghe mẫu với độ khó tăng dần: hội thoại đời thường, thông báo, bài nói ngắn học thuật/công sở.</li>
+            <li>Mỗi bài có 3 câu hỏi trắc nghiệm kiểm tra khả năng nghe hiểu chi tiết.</li>
+            <li>Luôn nghe trước, trả lời, rồi mới xem transcript để tự đánh giá đúng khả năng thật.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 24</div>
+          Bạn giờ có 5 công cụ luyện tập tương tác đầy đủ: Speaking Studio, Conversation Simulator, IPA Lab, Flashcard
+          Trainer, và Listening Comprehension Lab. Kết hợp cùng 101+ chương lý thuyết, đây là một hệ sinh thái học tiếng
+          Anh rất toàn diện. Chúc bạn học tập hiệu quả!
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+/* ============ LISTENING PASSAGES DATA ============ */
+const passages = [
+  {
+    title: "🗣️ Hội thoại: Đặt lịch hẹn",
+    text: "Hi, I'd like to schedule an appointment with Doctor Smith for a general check-up. Is he available this Friday afternoon? Great, could I get a 3 PM slot? My name is Nguyen Van Huy, and my phone number is 090-123-4567. Thank you very much, see you on Friday.",
+    questions: [
+      {q:"What day is the appointment scheduled for?", opts:["Monday","Wednesday","Friday","Saturday"], correct:2},
+      {q:"What time is the appointment?", opts:["9 AM","1 PM","3 PM","5 PM"], correct:2},
+      {q:"What type of appointment is being scheduled?", opts:["Dental surgery","General check-up","Eye exam","Physical therapy"], correct:1}
+    ]
+  },
+  {
+    title: "📢 Thông báo: Thay đổi lịch họp",
+    text: "Attention all staff, please note that tomorrow's quarterly meeting has been moved from 10 AM to 2 PM due to a scheduling conflict with the management team. The meeting will still take place in Conference Room B. Please make sure to bring your project status reports. If you have any questions, please contact the HR department.",
+    questions: [
+      {q:"What time was the meeting originally scheduled?", opts:["9 AM","10 AM","2 PM","4 PM"], correct:1},
+      {q:"Where will the meeting take place?", opts:["Conference Room A","Conference Room B","The main office","Online via video call"], correct:1},
+      {q:"What should staff bring to the meeting?", opts:["Their laptops only","Project status reports","Nothing specific","Signed contracts"], correct:1}
+    ]
+  },
+  {
+    title: "🎓 Bài nói ngắn: Giới thiệu khóa học",
+    text: "Welcome to our introductory course on web development. Over the next eight weeks, you'll learn the fundamentals of HTML, CSS, and JavaScript, followed by an introduction to backend development using Spring Boot. By the end of this course, you should be able to build a simple full-stack web application on your own. Please make sure to complete the weekly assignments, as they account for forty percent of your final grade.",
+    questions: [
+      {q:"How long does the course last?", opts:["Four weeks","Six weeks","Eight weeks","Twelve weeks"], correct:2},
+      {q:"What percentage of the final grade do weekly assignments account for?", opts:["20%","40%","60%","80%"], correct:1},
+      {q:"What backend technology is mentioned in the course?", opts:["Django","Spring Boot","Ruby on Rails","Laravel"], correct:1}
+    ]
+  },
+  {
+    title: "💼 Hội thoại công sở: Xin nghỉ phép",
+    text: "Excuse me, do you have a moment? I wanted to let you know that I need to take next Monday off for a family matter. I've already finished the report that's due this week, and I'll make sure to check my email in case anything urgent comes up. Would that be alright? Thank you so much, I really appreciate your understanding.",
+    questions: [
+      {q:"Which day is the person requesting off?", opts:["Friday","Monday","Wednesday","Sunday"], correct:1},
+      {q:"What has the person already completed?", opts:["A presentation","The report due this week","A training session","A client meeting"], correct:1},
+      {q:"What will the person do while away?", opts:["Ignore all emails","Check email in case of urgent matters","Come into the office anyway","Forward all tasks to a colleague"], correct:1}
+    ]
+  },
+  {
+    title: "🌍 Bài nói học thuật: Biến đổi khí hậu",
+    text: "Climate change remains one of the most pressing challenges of our time. Rising global temperatures have led to more frequent extreme weather events, including droughts, floods, and heatwaves. Scientists agree that reducing greenhouse gas emissions through renewable energy adoption is essential to slowing this trend. Governments and individuals alike have a role to play in building a more sustainable future.",
+    questions: [
+      {q:"According to the passage, what has risen globally?", opts:["Population","Temperatures","Ocean levels only","Agricultural output"], correct:1},
+      {q:"What do scientists agree is essential to slow climate change?", opts:["Building more factories","Reducing greenhouse gas emissions","Increasing oil production","Limiting renewable energy use"], correct:1},
+      {q:"Who does the passage say has a role in building a sustainable future?", opts:["Only governments","Only scientists","Governments and individuals","Only large corporations"], correct:2}
+    ]
+  }
+];
+
+let currentPassageIdx = 0;
+const passageTabs = document.getElementById('passageTabs');
+passages.forEach((p, idx)=>{
+  const tab = document.createElement('button');
+  tab.className = 'listen-tab' + (idx===0?' active':'');
+  tab.textContent = 'Bài ' + (idx+1);
+  tab.onclick = ()=>{
+    currentPassageIdx = idx;
+    document.querySelectorAll('.listen-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    loadPassage();
+  };
+  passageTabs.appendChild(tab);
+});
+
+function loadPassage(){
+  const p = passages[currentPassageIdx];
+  document.getElementById('passageTitle').textContent = p.title;
+  document.getElementById('transcriptReveal').textContent = p.text;
+  document.getElementById('transcriptReveal').classList.remove('show');
+
+  const qArea = document.getElementById('questionArea');
+  qArea.innerHTML = '';
+  const quizBox = document.createElement('div');
+  quizBox.className = 'quiz-box';
+  let score = 0, answered = 0;
+  p.questions.forEach((item, qi)=>{
+    const qDiv = document.createElement('div');
+    qDiv.className = 'quiz-q';
+    qDiv.innerHTML = `<p>Câu ${qi+1}. ${item.q}</p>`;
+    const optsDiv = document.createElement('div');
+    optsDiv.className = 'quiz-opts';
+    item.opts.forEach((opt, oi)=>{
+      const b = document.createElement('button');
+      b.className = 'quiz-opt';
+      b.textContent = opt;
+      b.onclick = ()=>{
+        if(b.dataset.locked) return;
+        [...optsDiv.children].forEach(c=>c.dataset.locked = "1");
+        if(oi === item.correct){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
+        answered++;
+        scoreEl.textContent = `Điểm: ${score}/${p.questions.length} (${answered}/${p.questions.length} đã trả lời)`;
+      };
+      optsDiv.appendChild(b);
+    });
+    qDiv.appendChild(optsDiv);
+    quizBox.appendChild(qDiv);
+  });
+  const scoreEl = document.createElement('div');
+  scoreEl.className = 'quiz-score';
+  scoreEl.textContent = `Điểm: 0/${p.questions.length} (0/${p.questions.length} đã trả lời)`;
+  quizBox.appendChild(scoreEl);
+  qArea.appendChild(quizBox);
+}
+loadPassage();
+
+/* TTS controls */
+const rateSlider = document.getElementById('listenRate');
+const rateValue = document.getElementById('listenRateValue');
+rateSlider.addEventListener('input', ()=> rateValue.textContent = parseFloat(rateSlider.value).toFixed(1) + 'x');
+
+document.getElementById('btnPlay').addEventListener('click', ()=>{
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const p = passages[currentPassageIdx];
+  const utter = new SpeechSynthesisUtterance(p.text);
+  utter.lang = 'en-US';
+  utter.rate = parseFloat(rateSlider.value);
+  const voices = window.speechSynthesis.getVoices();
+  const enVoice = voices.find(v=>v.lang && v.lang.startsWith('en'));
+  if(enVoice) utter.voice = enVoice;
+  window.speechSynthesis.speak(utter);
+});
+document.getElementById('btnStop').addEventListener('click', ()=>{
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+});
+document.getElementById('btnTranscript').addEventListener('click', ()=>{
+  document.getElementById('transcriptReveal').classList.toggle('show');
+});
+
+/* ============ DARK MODE / PRINT / MOBILE ============ */
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

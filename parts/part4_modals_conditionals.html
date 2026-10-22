@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 4: Modal Verbs & Câu Điều Kiện</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+td .ipa{color:var(--teal-dark); font-weight:600;}
+.badge{display:inline-block; background:var(--paper-2); border:1px solid var(--line); color:var(--text-soft); font-size:.72rem; padding:3px 9px; border-radius:20px; margin-right:6px;}
+.tense-formula{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin:16px 0;}
+.tf-card{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px;}
+.tf-card b{color:var(--teal-dark); display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+</style>
+<link rel="stylesheet" href="../assets/lingoreach.css">
+<script src="../assets/lingoreach.js" defer></script>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 4</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 4</a>
+      <a class="toc-link" href="#ch22"><span class="toc-num">22</span> Modal Verbs — khả năng &amp; cho phép</a>
+      <a class="toc-link" href="#ch23"><span class="toc-num">23</span> Modal Verbs — nghĩa vụ &amp; lời khuyên</a>
+      <a class="toc-link" href="#ch24"><span class="toc-num">24</span> Modal Verbs — suy đoán</a>
+      <a class="toc-link" href="#ch25"><span class="toc-num">25</span> Câu điều kiện loại 0 &amp; 1</a>
+      <a class="toc-link" href="#ch26"><span class="toc-num">26</span> Câu điều kiện loại 2</a>
+      <a class="toc-link" href="#ch27"><span class="toc-num">27</span> Câu điều kiện loại 3 &amp; hỗn hợp</a>
+      <a class="toc-link" href="#ch28"><span class="toc-num">28</span> Wish &amp; If only</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Sắp tới (gõ "Tiếp tục")</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 5 · Câu bị động &amp; Câu tường thuật</a>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 6 · Phrasal Verbs, Collocations &amp; Idioms</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 4 / Modal Verbs &amp; Câu Điều Kiện</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="../index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần 4 / N</span>
+          <h1>Modal Verbs &amp; Câu Điều Kiện</h1>
+          <p>
+            Sau khi thành thạo các thì, đây là lúc học cách diễn tả <b>khả năng, sự cho phép, nghĩa vụ, lời khuyên,
+            suy đoán</b> qua <b>động từ khuyết thiếu (Modal Verbs)</b>, và cách diễn tả các <b>tình huống giả định</b>
+            qua <b>Câu điều kiện (Conditional Sentences)</b> — từ điều kiện có thật ở hiện tại đến điều kiện không có
+            thật trong quá khứ. Đây là 2 chủ điểm ngữ pháp giúp câu văn của bạn tinh tế và tự nhiên hơn rất nhiều.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 22</b><div>Modal Verbs — khả năng (can/could) &amp; cho phép (may/can)</div></div>
+            <div class="rm-item"><b>Chương 23</b><div>Modal Verbs — nghĩa vụ (must/have to) &amp; lời khuyên (should)</div></div>
+            <div class="rm-item"><b>Chương 24</b><div>Modal Verbs — suy đoán (must/might/can't be)</div></div>
+            <div class="rm-item"><b>Chương 25</b><div>Câu điều kiện loại 0 &amp; loại 1 — sự thật &amp; điều kiện có thật</div></div>
+            <div class="rm-item"><b>Chương 26</b><div>Câu điều kiện loại 2 — giả định không có thật ở hiện tại</div></div>
+            <div class="rm-item"><b>Chương 27</b><div>Câu điều kiện loại 3 &amp; hỗn hợp — quá khứ không có thật</div></div>
+            <div class="rm-item"><b>Chương 28</b><div>Wish &amp; If only — diễn tả ước muốn, tiếc nuối</div></div>
+          </div>
+        </div>
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Modal Verbs luôn theo sau bởi <b>V nguyên mẫu (bare infinitive)</b>, không chia thì, không thêm "to":
+          <span class="mono">She can swim.</span> (KHÔNG phải "can to swim" hay "cans swim").
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 22: MODALS - ABILITY & PERMISSION -->
+      <section id="ch22" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">22</span><h2>Modal Verbs — Khả Năng &amp; Sự Cho Phép</h2></div>
+        <div class="chapter-sub">Can, could, may, be able to — diễn tả năng lực và xin phép.</div>
+
+        <div class="section-block">
+          <h3>22.1 Diễn tả khả năng (Ability)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Modal</th><th>Thời điểm</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">can</td><td>Khả năng ở hiện tại</td><td class="mono">I can speak English.</td></tr>
+                <tr><td class="mono">could</td><td>Khả năng ở quá khứ (chung chung)</td><td class="mono">I could swim when I was 5.</td></tr>
+                <tr><td class="mono">be able to</td><td>Mọi thì (linh hoạt hơn can/could)</td><td class="mono">I will be able to finish it tomorrow.</td></tr>
+                <tr><td class="mono">was/were able to</td><td>Khả năng thực hiện được MỘT LẦN cụ thể trong quá khứ</td><td class="mono">I was able to fix the bug yesterday.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box note">
+            <div class="box-title">📝 Note</div>
+            Với thành công MỘT LẦN cụ thể trong quá khứ, dùng "was/were able to" thay vì "could" — "could" chỉ dùng cho
+            khả năng chung chung: <span class="mono">✅ I was able to pass the exam yesterday. (❌ could)</span>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>22.2 Xin phép &amp; cho phép (Permission)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">May I come in? (trang trọng) — Can I use your pen? (thân mật) — You may leave now. (cho phép, trang trọng)</div>
+            <div class="ex-line ex-vi">→ "may" lịch sự/trang trọng hơn "can" khi xin phép hoặc cho phép ai làm gì.</div>
+          </div>
+        </div>
+
+        <h3>22.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chọn đúng: "I ___ (was able to / could) solve that difficult problem in the exam yesterday."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "was able to" — thành công một lần cụ thể trong quá khứ.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu xin phép lịch sự để mượn sách của giáo viên.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "May I borrow your book, please?"</div>
+        </div>
+
+        <h3>22.4 Quiz trắc nghiệm — Chương 22</h3>
+        <div class="quiz-box" id="quiz22"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 22</h3>
+          <ul>
+            <li>can/could diễn tả khả năng hiện tại/quá khứ chung chung; was/were able to cho thành công một lần cụ thể.</li>
+            <li>may lịch sự hơn can khi xin phép hoặc cho phép.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 23: MODALS - OBLIGATION & ADVICE -->
+      <section id="ch23" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">23</span><h2>Modal Verbs — Nghĩa Vụ &amp; Lời Khuyên</h2></div>
+        <div class="chapter-sub">Must, have to, should, ought to — phân biệt bắt buộc và khuyên nhủ.</div>
+
+        <div class="section-block">
+          <h3>23.1 Nghĩa vụ bắt buộc (Obligation)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Modal</th><th>Sắc thái</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">must</td><td>Bắt buộc từ ý muốn cá nhân/cảm nhận chủ quan của người nói</td><td class="mono">I must finish this report tonight. (tự đặt ra cho mình)</td></tr>
+                <tr><td class="mono">have to</td><td>Bắt buộc từ quy định/luật lệ khách quan bên ngoài</td><td class="mono">Students have to wear uniforms. (quy định trường)</td></tr>
+                <tr><td class="mono">mustn't</td><td>Cấm đoán (KHÔNG được làm)</td><td class="mono">You mustn't smoke here.</td></tr>
+                <tr><td class="mono">don't have to</td><td>Không bắt buộc (có thể làm hoặc không)</td><td class="mono">You don't have to come if you're busy.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning — Lỗi thường gặp</div>
+            "mustn't" (cấm) và "don't have to" (không bắt buộc) mang nghĩa hoàn toàn khác nhau — đây là lỗi người Việt
+            hay nhầm nhất: <span class="mono">You mustn't park here.</span> (CẤM đỗ xe) vs
+            <span class="mono">You don't have to park here.</span> (không bắt buộc đỗ, tùy ý).
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>23.2 Lời khuyên (Advice)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">You should study harder for the exam. — You ought to apologize to her. — You'd better leave now, or you'll miss the bus.</div>
+            <div class="ex-line ex-vi">→ should/ought to đưa ra lời khuyên nhẹ nhàng; "had better" (thường viết tắt 'd better) mang tính cảnh báo mạnh hơn, ngụ ý hậu quả nếu không làm.</div>
+          </div>
+        </div>
+
+        <h3>23.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Phân biệt: "You ___ smoke here" (cấm) vs "You ___ come if you don't want to" (không bắt buộc).</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "You mustn't smoke here." / "You don't have to come if you don't want to."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Đưa ra lời khuyên cho người bị đau đầu (headache).</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "You should take some medicine and get some rest."</div>
+        </div>
+
+        <h3>23.4 Quiz trắc nghiệm — Chương 23</h3>
+        <div class="quiz-box" id="quiz23"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 23</h3>
+          <ul>
+            <li>must (chủ quan) vs have to (khách quan, quy định).</li>
+            <li>mustn't (cấm) khác hoàn toàn don't have to (không bắt buộc).</li>
+            <li>should/ought to cho lời khuyên nhẹ; had better mang tính cảnh báo mạnh hơn.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 24: MODALS - SPECULATION -->
+      <section id="ch24" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">24</span><h2>Modal Verbs — Suy Đoán (Speculation)</h2></div>
+        <div class="chapter-sub">Must, might, may, can't — thể hiện mức độ chắc chắn khi suy đoán.</div>
+
+        <div class="section-block">
+          <h3>24.1 Thang mức độ chắc chắn</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Modal</th><th>Mức độ chắc chắn</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">must</td><td>Rất chắc chắn (gần như chắc chắn đúng)</td><td class="mono">The light is on. She must be home.</td></tr>
+                <tr><td class="mono">may / might / could</td><td>Có thể đúng (không chắc chắn)</td><td class="mono">She might be at work now.</td></tr>
+                <tr><td class="mono">can't</td><td>Rất chắc chắn là SAI</td><td class="mono">He can't be at home; I just saw him at the office.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box important">
+            <div class="box-title">📌 Important</div>
+            Với suy đoán về quá khứ, thêm "have + V3": <span class="mono">She must have forgotten the meeting.
+            He can't have finished it already — it's too soon.</span>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Huy hasn't replied all day. He must be busy studying for his exam. He might have fallen asleep early.</div>
+          <div class="ex-line ex-vi">→ "must be" (suy đoán chắc chắn ở hiện tại), "might have fallen asleep" (suy đoán không chắc chắn về quá khứ).</div>
+        </div>
+
+        <h3>24.2 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chọn đúng: "She's not answering her phone. She ___ (must/can't) be in a meeting."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "must" — suy đoán chắc chắn dựa trên bằng chứng (không nghe máy).</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu suy đoán về quá khứ: "Có lẽ anh ấy đã quên chìa khóa." (might/forget)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "He might have forgotten his keys."</div>
+        </div>
+
+        <h3>24.3 Quiz trắc nghiệm — Chương 24</h3>
+        <div class="quiz-box" id="quiz24"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 24</h3>
+          <ul>
+            <li>must = rất chắc chắn đúng; might/may/could = có thể đúng; can't = chắc chắn sai.</li>
+            <li>Suy đoán về quá khứ: modal + have + V3.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 25: CONDITIONALS 0 & 1 -->
+      <section id="ch25" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">25</span><h2>Câu Điều Kiện Loại 0 &amp; Loại 1</h2></div>
+        <div class="chapter-sub">Sự thật hiển nhiên và điều kiện có thể xảy ra trong tương lai.</div>
+
+        <div class="section-block">
+          <h3>25.1 Câu điều kiện loại 0 — Sự thật hiển nhiên (Zero Conditional)</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Công thức</b>If + S + V(hiện tại đơn), S + V(hiện tại đơn)<br><span class="mono">If you heat water to 100°C, it boils.</span></div>
+          </div>
+          <p>Dùng để diễn tả <b>sự thật khoa học, quy luật tự nhiên</b> luôn đúng — kết quả luôn xảy ra khi điều kiện được đáp ứng.</p>
+        </div>
+
+        <div class="section-block">
+          <h3>25.2 Câu điều kiện loại 1 — Điều kiện có thật ở tương lai (First Conditional)</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Công thức</b>If + S + V(hiện tại đơn), S + will + V(bare)<br><span class="mono">If it rains tomorrow, I will stay home.</span></div>
+          </div>
+          <p>Dùng để diễn tả điều kiện <b>có khả năng xảy ra thực sự</b> trong tương lai, và kết quả tương ứng nếu điều kiện đó xảy ra.</p>
+          <div class="box note">
+            <div class="box-title">📝 Note</div>
+            Mệnh đề "if" luôn dùng thì hiện tại đơn (KHÔNG dùng "will" trong mệnh đề if), dù nói về tương lai:
+            <span class="mono">✅ If it rains... (❌ If it will rain...)</span>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">If Huy studies hard, he will pass the JLPT exam. If you don't practice speaking, you won't improve quickly.</div>
+          <div class="ex-line ex-vi">→ Điều kiện thực tế có khả năng xảy ra, kết quả tương ứng dùng "will" hoặc "won't".</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Mệnh đề kết quả của Loại 1 không chỉ dùng "will" — có thể dùng modal khác như "can, may, should" tùy sắc thái:
+          <span class="mono">If you finish early, you can leave.</span>
+        </div>
+
+        <h3>25.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng (loại 0): "If you (mix) blue and yellow, you (get) green."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "If you mix blue and yellow, you get green."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chia đúng (loại 1): "If she (not/hurry), she (miss) the train."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "If she doesn't hurry, she will miss the train."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Sửa lỗi: "If it will rain, we will cancel the trip."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "If it rains, we will cancel the trip." — mệnh đề "if" không dùng "will".</div>
+        </div>
+
+        <h3>25.4 Quiz trắc nghiệm — Chương 25</h3>
+        <div class="quiz-box" id="quiz25"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 25</h3>
+          <ul>
+            <li>Loại 0: If + hiện tại đơn, hiện tại đơn — sự thật hiển nhiên.</li>
+            <li>Loại 1: If + hiện tại đơn, will + V — điều kiện có thật ở tương lai.</li>
+            <li>Mệnh đề "if" không bao giờ dùng "will".</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 26: CONDITIONAL 2 -->
+      <section id="ch26" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">26</span><h2>Câu Điều Kiện Loại 2</h2></div>
+        <div class="chapter-sub">Giả định không có thật ở hiện tại/tương lai — "nếu tôi là..." kiểu ước mơ, tưởng tượng.</div>
+
+        <div class="section-block">
+          <h3>26.1 Công thức</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Công thức</b>If + S + V-ed/were, S + would + V(bare)<br><span class="mono">If I were you, I would accept the job offer.</span></div>
+          </div>
+          <div class="box important">
+            <div class="box-title">📌 Important</div>
+            Trong câu điều kiện loại 2, dùng <b>"were"</b> cho MỌI chủ ngữ (kể cả I/he/she/it), đây gọi là
+            <b>"subjunctive mood" (thức giả định)</b>: <span class="mono">If I were a bird, I would fly.</span>
+            (không phải "If I was a bird" dù về mặt ngữ pháp thông thường "was" mới đúng với "I").
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>26.2 Cách dùng</h3>
+          <p>Dùng để diễn tả tình huống <b>giả định, trái ngược với thực tế hiện tại</b>, hoặc <b>ít có khả năng xảy ra</b> trong tương lai:</p>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">If I had a lot of money, I would travel around the world. (thực tế: tôi không có nhiều tiền) — If he worked harder, he would get promoted.</div>
+            <div class="ex-line ex-vi">→ Tình huống trái với sự thật hiện tại, chỉ là giả định/tưởng tượng.</div>
+          </div>
+        </div>
+
+        <h3>26.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng: "If I (be) you, I (not/say) that."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "If I were you, I wouldn't say that."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Đặt câu điều kiện loại 2 diễn tả ước mơ trở thành kỹ sư IT ở Nhật (giả định hiện tại chưa là).</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ Ví dụ: "If I worked as an IT engineer in Japan, I would learn a lot about Japanese work culture."</div>
+        </div>
+
+        <h3>26.4 Quiz trắc nghiệm — Chương 26</h3>
+        <div class="quiz-box" id="quiz26"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 26</h3>
+          <ul>
+            <li>Công thức: If + quá khứ đơn/were, would + V.</li>
+            <li>Luôn dùng "were" cho mọi chủ ngữ trong mệnh đề if (thức giả định).</li>
+            <li>Diễn tả tình huống trái với thực tế hiện tại hoặc ít khả năng xảy ra.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 27: CONDITIONAL 3 & MIXED -->
+      <section id="ch27" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">27</span><h2>Câu Điều Kiện Loại 3 &amp; Hỗn Hợp</h2></div>
+        <div class="chapter-sub">Diễn tả sự tiếc nuối về quá khứ — điều đã không xảy ra.</div>
+
+        <div class="section-block">
+          <h3>27.1 Câu điều kiện loại 3 (Third Conditional)</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Công thức</b>If + S + had + V3, S + would have + V3<br><span class="mono">If I had studied harder, I would have passed the exam.</span></div>
+          </div>
+          <p>Diễn tả điều kiện <b>không có thật trong quá khứ</b> — sự việc đã không xảy ra, và kết quả (cũng không xảy ra) chỉ là giả định ngược lại với những gì thực sự đã xảy ra.</p>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning</div>
+            Câu điều kiện loại 3 luôn hàm ý <b>tiếc nuối, hối hận</b>: "If I had studied harder, I would have passed"
+            ngụ ý thực tế là tôi <b>đã KHÔNG học chăm</b> và <b>đã KHÔNG đậu</b>.
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>27.2 Câu điều kiện hỗn hợp (Mixed Conditionals)</h3>
+          <p>Kết hợp điều kiện ở quá khứ (loại 3) với kết quả ở hiện tại (loại 2), hoặc ngược lại:</p>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">If I had taken that job (quá khứ), I would be rich now (hiện tại). — If she were more careful (hiện tại), she wouldn't have had the accident (quá khứ).</div>
+            <div class="ex-line ex-vi">→ Điều kiện ở quá khứ ảnh hưởng đến kết quả hiện tại, hoặc tính cách/tình trạng hiện tại ảnh hưởng đến kết quả quá khứ.</div>
+          </div>
+        </div>
+
+        <h3>27.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng (loại 3): "If he (not/be) late, he (not/miss) the flight."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "If he hadn't been late, he wouldn't have missed the flight."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Viết câu hỗn hợp: điều kiện quá khứ (không học chăm) → kết quả hiện tại (không có công việc tốt).</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "If I had studied harder, I would have a better job now."</div>
+        </div>
+
+        <h3>27.4 Quiz trắc nghiệm — Chương 27</h3>
+        <div class="quiz-box" id="quiz27"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 27</h3>
+          <ul>
+            <li>Loại 3: If + had + V3, would have + V3 — tiếc nuối về quá khứ.</li>
+            <li>Câu điều kiện hỗn hợp kết hợp thời gian khác nhau giữa mệnh đề if và mệnh đề kết quả.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 28: WISH & IF ONLY -->
+      <section id="ch28" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">28</span><h2>Wish &amp; If Only</h2></div>
+        <div class="chapter-sub">Diễn tả ước muốn và sự tiếc nuối — người bạn đồng hành của câu điều kiện.</div>
+
+        <div class="section-block">
+          <h3>28.1 Wish + quá khứ đơn (ước muốn hiện tại)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">I wish I had more free time. (thực tế: tôi không có nhiều thời gian rảnh)</div>
+            <div class="ex-line ex-vi">→ Diễn tả mong muốn điều gì đó khác với thực tế hiện tại — giống cấu trúc câu điều kiện loại 2.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>28.2 Wish + had + V3 (tiếc nuối về quá khứ)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">I wish I had studied harder in high school. (thực tế: tôi đã không học chăm)</div>
+            <div class="ex-line ex-vi">→ Diễn tả sự hối tiếc về một việc đã xảy ra/không xảy ra trong quá khứ — giống cấu trúc câu điều kiện loại 3.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>28.3 Wish + would (mong muốn ai đó thay đổi hành vi — thường có phàn nàn)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">I wish you would stop making noise. (phàn nàn, mong người khác thay đổi hành vi)</div>
+          </div>
+        </div>
+
+        <div class="box note">
+          <div class="box-title">📝 Note</div>
+          <b>"If only"</b> có ý nghĩa và cấu trúc tương tự "wish" nhưng mang cảm xúc <b>mạnh mẽ, tha thiết hơn</b>:
+          <span class="mono">If only I had listened to my parents!</span>
+        </div>
+
+        <h3>28.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chia đúng: "I wish I (know) the answer now."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "I wish I knew the answer now."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chia đúng: "She wishes she (not/say) that yesterday."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "She wishes she hadn't said that yesterday."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Viết câu phàn nàn dùng "wish...would" về việc hàng xóm ồn ào.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "I wish my neighbors would stop making so much noise at night."</div>
+        </div>
+
+        <h3>28.5 Quiz trắc nghiệm — Chương 28</h3>
+        <div class="quiz-box" id="quiz28"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 28</h3>
+          <ul>
+            <li>Wish + quá khứ đơn/were: ước muốn khác thực tế hiện tại.</li>
+            <li>Wish + had + V3: tiếc nuối về quá khứ.</li>
+            <li>Wish + would: phàn nàn, mong người khác thay đổi hành vi.</li>
+            <li>If only mang sắc thái cảm xúc mạnh hơn wish.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 4</div>
+          Bạn đã hoàn thành Modal Verbs và toàn bộ hệ thống Câu điều kiện! Gõ <b>"Tiếp tục"</b> để nhận
+          <b>Phần 5: Câu Bị Động &amp; Câu Tường Thuật (Passive Voice &amp; Reported Speech)</b>.
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz22: [
+    {q:"Chọn đúng: 'I ___ swim when I was five.'", opts:["can","could","am able to","will"], correct:1},
+    {q:"'May I leave now?' — từ 'may' dùng để làm gì?", opts:["Suy đoán","Xin phép lịch sự","Bắt buộc","Lời khuyên"], correct:1},
+    {q:"Chọn đúng cho thành công một lần cụ thể: 'I ___ finish the race despite the rain.'", opts:["could","was able to","can","may"], correct:1}
+  ],
+  quiz23: [
+    {q:"'mustn't' có nghĩa là gì?", opts:["Không bắt buộc","Cấm đoán","Nên làm","Có thể"], correct:1},
+    {q:"'don't have to' có nghĩa là gì?", opts:["Cấm đoán","Không bắt buộc","Bắt buộc","Nên làm"], correct:1},
+    {q:"Modal nào đưa ra lời khuyên?", opts:["must","should","can","will"], correct:1}
+  ],
+  quiz24: [
+    {q:"Modal nào thể hiện mức độ chắc chắn cao nhất (đúng)?", opts:["might","must","could","may"], correct:1},
+    {q:"Modal nào thể hiện chắc chắn là SAI?", opts:["can't","might","may","should"], correct:0},
+    {q:"Chọn đúng: 'He ___ have forgotten — he's usually very reliable.' (không chắc chắn)", opts:["must","might","can't","should"], correct:1}
+  ],
+  quiz25: [
+    {q:"Câu điều kiện loại 0 dùng để diễn tả điều gì?", opts:["Giả định tương lai","Sự thật hiển nhiên","Tiếc nuối quá khứ","Ước muốn"], correct:1},
+    {q:"Công thức đúng của loại 1 là gì?", opts:["If + hiện tại đơn, will + V","If + quá khứ đơn, would + V","If + had + V3, would have + V3","If + hiện tại đơn, hiện tại đơn"], correct:0},
+    {q:"Câu nào đúng?", opts:["If it will rain, I will stay home.","If it rains, I will stay home.","If it rain, I will stay home.","If it raining, I will stay home."], correct:1}
+  ],
+  quiz26: [
+    {q:"Trong câu điều kiện loại 2, chủ ngữ 'I' dùng 'to be' nào?", opts:["was","is","were","be"], correct:2},
+    {q:"Câu điều kiện loại 2 diễn tả điều gì?", opts:["Sự thật hiển nhiên","Giả định trái với hiện tại","Tiếc nuối quá khứ","Nghĩa vụ"], correct:1},
+    {q:"Chọn đúng: 'If I ___ rich, I would travel the world.'", opts:["am","was","were","will be"], correct:2}
+  ],
+  quiz27: [
+    {q:"Công thức câu điều kiện loại 3 là gì?", opts:["If + had + V3, would have + V3","If + hiện tại đơn, will + V","If + quá khứ đơn, would + V","If + were, would + V"], correct:0},
+    {q:"Câu điều kiện loại 3 diễn tả điều gì?", opts:["Tương lai có thể xảy ra","Sự thật hiển nhiên","Tiếc nuối về quá khứ","Ước muốn hiện tại"], correct:2},
+    {q:"Câu điều kiện hỗn hợp kết hợp điều gì?", opts:["Hai thì quá khứ","Hai mốc thời gian khác nhau (quá khứ-hiện tại)","Hai thì tương lai","Không có gì đặc biệt"], correct:1}
+  ],
+  quiz28: [
+    {q:"'I wish I knew the answer' diễn tả điều gì?", opts:["Ước muốn hiện tại khác thực tế","Tiếc nuối quá khứ","Phàn nàn về ai đó","Dự đoán tương lai"], correct:0},
+    {q:"'I wish I had studied harder' diễn tả điều gì?", opts:["Ước muốn hiện tại","Tiếc nuối về quá khứ","Lời khuyên","Sự cho phép"], correct:1},
+    {q:"'I wish you would stop making noise' diễn tả điều gì?", opts:["Sự thật hiển nhiên","Phàn nàn, mong thay đổi hành vi","Khả năng","Suy đoán"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container || !Array.isArray(data) || data.length === 0) return;
+
+  let lastAttemptSignature = '';
+  function shuffleQuizItems(items){
+    const shuffled = [...items];
+    for(let i=shuffled.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  function renderAttempt(){
+    container.innerHTML = '';
+    let score = 0;
+    let answered = 0;
+    const questionCount = data.length > 2 ? Math.max(2, Math.floor(data.length * 0.7)) : data.length;
+    const selected = shuffleQuizItems(data).slice(0, questionCount);
+    const attempt = selected.map(item=>({
+      item,
+      options: shuffleQuizItems(item.opts.map((text,index)=>({text, isCorrect:index===item.correct})))
+    }));
+    let signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    if(signature === lastAttemptSignature && attempt.length){
+      if(attempt.length > 1) [attempt[0],attempt[1]]=[attempt[1],attempt[0]];
+      else [attempt[0].options[0],attempt[0].options[1]]=[attempt[0].options[1],attempt[0].options[0]];
+      signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    }
+    lastAttemptSignature = signature;
+
+    attempt.forEach((row,qi)=>{
+      const item = row.item;
+      const qDiv = document.createElement('div');
+      qDiv.className='quiz-q';
+      const questionText = item.q.replace(/^\d+\.\s*/, '');
+      qDiv.innerHTML = '<p>Câu ' + (qi+1) + '. ' + questionText + '</p>';
+      const optsDiv = document.createElement('div');
+      optsDiv.className='quiz-opts';
+      row.options.forEach(option=>{
+        const b = document.createElement('button');
+        b.className='quiz-opt';
+        b.textContent = option.text;
+        b.onclick = ()=>{
+          if(b.dataset.locked) return;
+          [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+          if(option.isCorrect){ b.classList.add('correct'); score++; }
+          else {
+            b.classList.add('wrong');
+            const correctIndex = row.options.findIndex(candidate=>candidate.isCorrect);
+            optsDiv.children[correctIndex].classList.add('correct');
+          }
+          answered++;
+          updateScore();
+        };
+        optsDiv.appendChild(b);
+      });
+      qDiv.appendChild(optsDiv);
+      container.appendChild(qDiv);
+    });
+
+    const scoreEl = document.createElement('div');
+    scoreEl.className='quiz-score';
+    container.appendChild(scoreEl);
+    const retryButton = document.createElement('button');
+    retryButton.type='button';
+    retryButton.className='quiz-retry-btn';
+    retryButton.textContent='🔄 Làm bộ câu khác';
+    retryButton.style.cssText='margin:12px 0;padding:10px 16px;border:0;border-radius:8px;background:var(--teal);color:#fff;font-weight:700;cursor:pointer;';
+    retryButton.addEventListener('click',renderAttempt);
+    container.appendChild(retryButton);
+    function updateScore(){
+      scoreEl.textContent = 'Điểm hiện tại: ' + score + '/' + attempt.length + ' (' + answered + '/' + attempt.length + ' câu đã trả lời)';
+    }
+    updateScore();
+  }
+  renderAttempt();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

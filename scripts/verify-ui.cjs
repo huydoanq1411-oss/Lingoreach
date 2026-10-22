@@ -1,7 +1,7 @@
 // Browser acceptance checks against real local file:// pages, no server or build.
 const {chromium}=require(process.env.PLAYWRIGHT_CORE_PATH||'C:/Users/Quoc Huy/AppData/Roaming/npm/node_modules/@playwright/cli/node_modules/playwright-core');
 const fs=require('node:fs');const path=require('node:path');const {pathToFileURL}=require('node:url');const assert=require('node:assert/strict');
-const root=path.resolve(__dirname,'..'),url=n=>pathToFileURL(path.join(root,n)).href;
+const root=path.resolve(__dirname,'..'),url=n=>pathToFileURL(path.join(root,/^part\d/.test(n)?'parts/'+n:n)).href;
 const screenshot=file=>path.join(require('node:os').tmpdir(),'lingoreach-'+file);let runningBrowser;
 (async()=>{const browser=runningBrowser=await chromium.launch({channel:'msedge',headless:true});const context=await browser.newContext({viewport:{width:1440,height:1000}});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const results=[];
   async function open(file){await page.goto(url(file),{waitUntil:'domcontentloaded'});await page.waitForTimeout(250);}
@@ -23,7 +23,7 @@ const screenshot=file=>path.join(require('node:os').tmpdir(),'lingoreach-'+file)
   assert.equal(await page.locator('.lr-quiz-progress').getAttribute('aria-valuenow'),'10');await page.waitForFunction(()=>document.getElementById('finalScoreText').textContent==='10/10');await page.screenshot({path:screenshot('quiz.png')});results.push('Quiz: question generation, answering, progress and perfect-score result');
   await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>document.documentElement.classList.contains('lr-effects-off'));await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForFunction(()=>!document.documentElement.classList.contains('lr-effects-off'));await page.locator('.lr-control').filter({hasText:'Hiệu ứng'}).click();await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.documentElement.classList.contains('lr-effects-off'));results.push('Reduced motion and persisted effects switch');
   const overflows=[];await page.setViewportSize({width:360,height:800});
-  for(const file of fs.readdirSync(root).filter(n=>n.endsWith('.html')&&fs.statSync(path.join(root,n)).size)){await open(file);const has=await page.locator('link[href="assets/lingoreach.css"]').count();assert.equal(has,1,file);if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))overflows.push(file);}
+  for(const file of [...fs.readdirSync(root).filter(n=>n.endsWith('.html')&&n!=='index.html'),...fs.readdirSync(path.join(root,'parts')).map(n=>'parts/'+n)].filter(n=>fs.statSync(path.join(root,n)).size)){await open(file);const has=await page.locator('link[href$="assets/lingoreach.css"]').count();assert.equal(has,1,file);if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))overflows.push(file);}
   assert.deepEqual(overflows,[],'Mobile overflow');results.push('All 41 nonempty pages fit a 360px viewport');
   assert.deepEqual(errors,[]);results.push('All 41 nonempty HTML pages load without JavaScript page errors');
   fs.writeFileSync(path.join(root,'assets/ui-verification.txt'),results.join('\n')+'\n');console.log(results.join('\n'));await browser.close();

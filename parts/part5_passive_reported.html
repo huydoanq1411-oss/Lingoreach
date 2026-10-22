@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 5: Câu Bị Động & Câu Tường Thuật</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+td .ipa{color:var(--teal-dark); font-weight:600;}
+.tense-formula{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin:16px 0;}
+.tf-card{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px;}
+.tf-card b{color:var(--teal-dark); display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+</style>
+<link rel="stylesheet" href="../assets/lingoreach.css">
+<script src="../assets/lingoreach.js" defer></script>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 5</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 5</a>
+      <a class="toc-link" href="#ch29"><span class="toc-num">29</span> Câu bị động — cơ bản</a>
+      <a class="toc-link" href="#ch30"><span class="toc-num">30</span> Câu bị động — các thì &amp; modal</a>
+      <a class="toc-link" href="#ch31"><span class="toc-num">31</span> Câu tường thuật — câu kể</a>
+      <a class="toc-link" href="#ch32"><span class="toc-num">32</span> Câu tường thuật — câu hỏi &amp; mệnh lệnh</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Sắp tới (gõ "Tiếp tục")</div>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 6 · Phrasal Verbs, Collocations &amp; Idioms</a>
+      <a class="toc-link" style="opacity:.5" href="#">Phần 7 · Kỹ năng Nghe – Nói</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 5 / Câu Bị Động &amp; Câu Tường Thuật</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="../index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần 5 / N</span>
+          <h1>Câu Bị Động &amp; Câu Tường Thuật</h1>
+          <p>
+            Hai chủ điểm ngữ pháp cực kỳ phổ biến trong văn viết học thuật, tin tức, và giao tiếp hàng ngày:
+            <b>Câu bị động (Passive Voice)</b> — khi hành động quan trọng hơn người thực hiện, và
+            <b>Câu tường thuật (Reported Speech)</b> — khi thuật lại lời người khác đã nói.
+            Đây cũng là 2 chủ điểm xuất hiện thường xuyên trong đề thi TOEIC/IELTS phần ngữ pháp và viết lại câu.
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 29</b><div>Câu bị động cơ bản — công thức &amp; cách chuyển đổi</div></div>
+            <div class="rm-item"><b>Chương 30</b><div>Câu bị động theo từng thì &amp; với modal verbs</div></div>
+            <div class="rm-item"><b>Chương 31</b><div>Câu tường thuật — câu kể (statements)</div></div>
+            <div class="rm-item"><b>Chương 32</b><div>Câu tường thuật — câu hỏi &amp; câu mệnh lệnh</div></div>
+          </div>
+        </div>
+        <div class="box important">
+          <div class="box-title">📌 Important</div>
+          Cả hai chủ điểm này đều yêu cầu bạn nắm CHẮC 8 thì đã học ở Phần 3 — nếu còn chưa chắc, hãy ôn lại Phần 3
+          trước khi học tiếp phần này.
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 29: PASSIVE VOICE BASICS -->
+      <section id="ch29" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">29</span><h2>Câu Bị Động — Cơ Bản</h2></div>
+        <div class="chapter-sub">Khi hành động hoặc đối tượng chịu tác động quan trọng hơn người thực hiện.</div>
+
+        <div class="section-block">
+          <h3>29.1 Công thức chuyển đổi chủ động → bị động</h3>
+          <div class="tense-formula">
+            <div class="tf-card"><b>Chủ động</b>S + V + O<br><span class="mono">The teacher checks the homework.</span></div>
+            <div class="tf-card"><b>Bị động</b>O (làm S mới) + to be + V3 + (by + S cũ)<br><span class="mono">The homework is checked (by the teacher).</span></div>
+          </div>
+          <p>Các bước chuyển đổi:</p>
+          <ol>
+            <li>Lấy tân ngữ (object) của câu chủ động làm chủ ngữ mới.</li>
+            <li>Chia "to be" theo đúng thì của động từ gốc và theo chủ ngữ mới (số ít/nhiều).</li>
+            <li>Động từ chính chuyển thành V3 (quá khứ phân từ).</li>
+            <li>Thêm "by + chủ ngữ cũ" nếu cần nhấn mạnh ai làm — có thể bỏ nếu không quan trọng hoặc không rõ ai làm.</li>
+          </ol>
+        </div>
+
+        <div class="section-block">
+          <h3>29.2 Khi nào dùng câu bị động?</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Trường hợp</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Không biết/không cần nói rõ ai thực hiện</td><td class="mono">My phone was stolen. (không biết ai lấy)</td></tr>
+                <tr><td>Người/vật chịu tác động quan trọng hơn</td><td class="mono">The Mona Lisa was painted by Leonardo da Vinci.</td></tr>
+                <tr><td>Văn phong học thuật, khoa học, tin tức (khách quan)</td><td class="mono">The experiment was conducted over six months.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Active: Someone stole my laptop last night. → Passive: My laptop was stolen last night.</div>
+          <div class="ex-line ex-vi">→ Không cần biết ai lấy trộm, chỉ cần biết "chiếc laptop đã bị mất trộm".</div>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title">⚠️ Warning</div>
+          Chỉ những câu có <b>tân ngữ (object)</b> mới chuyển được sang bị động. Nội động từ (intransitive verbs)
+          như "happen, arrive, sleep" KHÔNG có dạng bị động.
+        </div>
+
+        <h3>29.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chuyển sang bị động: "They built this house in 1990."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "This house was built in 1990."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chuyển sang bị động: "Millions of people speak English around the world."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "English is spoken by millions of people around the world."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Câu nào KHÔNG thể chuyển sang bị động: "She slept for 8 hours" hay "She wrote a letter"?</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "She slept for 8 hours" — "sleep" là nội động từ, không có tân ngữ nên không chuyển được sang bị động.</div>
+        </div>
+
+        <h3>29.4 Quiz trắc nghiệm — Chương 29</h3>
+        <div class="quiz-box" id="quiz29"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 29</h3>
+          <ul>
+            <li>Công thức: O (cũ) + to be + V3 + (by + S cũ).</li>
+            <li>Dùng khi không cần nhấn mạnh người thực hiện, hoặc muốn nhấn mạnh đối tượng chịu tác động.</li>
+            <li>Chỉ ngoại động từ (có tân ngữ) mới chuyển được sang bị động.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 30: PASSIVE ACROSS TENSES -->
+      <section id="ch30" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">30</span><h2>Câu Bị Động Theo Từng Thì &amp; Với Modal Verbs</h2></div>
+        <div class="chapter-sub">Bảng tổng hợp cách chia "to be" theo từng thì đã học ở Phần 3.</div>
+
+        <div class="section-block">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Thì</th><th>Công thức bị động</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td>Hiện tại đơn</td><td class="mono">am/is/are + V3</td><td class="mono">The report is checked every week.</td></tr>
+                <tr><td>Hiện tại tiếp diễn</td><td class="mono">am/is/are + being + V3</td><td class="mono">The house is being painted now.</td></tr>
+                <tr><td>Quá khứ đơn</td><td class="mono">was/were + V3</td><td class="mono">The email was sent yesterday.</td></tr>
+                <tr><td>Quá khứ tiếp diễn</td><td class="mono">was/were + being + V3</td><td class="mono">The road was being repaired last week.</td></tr>
+                <tr><td>Hiện tại hoàn thành</td><td class="mono">have/has + been + V3</td><td class="mono">The work has been completed.</td></tr>
+                <tr><td>Quá khứ hoàn thành</td><td class="mono">had + been + V3</td><td class="mono">The letter had been sent before I called.</td></tr>
+                <tr><td>Tương lai (will)</td><td class="mono">will + be + V3</td><td class="mono">The results will be announced tomorrow.</td></tr>
+                <tr><td>Modal verbs</td><td class="mono">modal + be + V3</td><td class="mono">This form must be signed by tomorrow.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box note">
+            <div class="box-title">📝 Note</div>
+            Nguyên tắc chung: <b>động từ "to be" chia theo đúng thì gốc</b>, còn động từ chính LUÔN ở dạng V3
+            (quá khứ phân từ), bất kể thì nào.
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Active: The company will launch the new product next month. → Passive: The new product will be launched next month.</div>
+        </div>
+
+        <h3>30.1 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chuyển sang bị động: "They have completed the bridge."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "The bridge has been completed."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chuyển sang bị động: "You must submit the form by Friday."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "The form must be submitted by Friday."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Chuyển sang bị động: "Workers are repairing the road at the moment."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "The road is being repaired at the moment."</div>
+        </div>
+
+        <h3>30.2 Quiz trắc nghiệm — Chương 30</h3>
+        <div class="quiz-box" id="quiz30"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 30</h3>
+          <ul>
+            <li>"to be" chia theo đúng thì gốc; động từ chính luôn ở V3.</li>
+            <li>Modal verbs bị động: modal + be + V3.</li>
+            <li>Hiện tại/Quá khứ tiếp diễn bị động thêm "being" trước V3.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 31: REPORTED SPEECH - STATEMENTS -->
+      <section id="ch31" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">31</span><h2>Câu Tường Thuật — Câu Kể (Statements)</h2></div>
+        <div class="chapter-sub">Thuật lại lời người khác đã nói — lùi thì và đổi đại từ/trạng từ.</div>
+
+        <div class="section-block">
+          <h3>31.1 Quy tắc lùi thì (Backshift)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Câu trực tiếp (Direct Speech)</th><th>Câu tường thuật (Reported Speech)</th></tr></thead>
+              <tbody>
+                <tr><td>Hiện tại đơn</td><td>→ Quá khứ đơn</td></tr>
+                <tr><td>Hiện tại tiếp diễn</td><td>→ Quá khứ tiếp diễn</td></tr>
+                <tr><td>Quá khứ đơn</td><td>→ Quá khứ hoàn thành</td></tr>
+                <tr><td>Hiện tại hoàn thành</td><td>→ Quá khứ hoàn thành</td></tr>
+                <tr><td>will</td><td>→ would</td></tr>
+                <tr><td>can</td><td>→ could</td></tr>
+                <tr><td>must</td><td>→ had to</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>31.2 Đổi đại từ &amp; trạng từ chỉ thời gian/nơi chốn</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Trực tiếp</th><th>Tường thuật</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">I / we</td><td>→ he/she / they (tùy người nói)</td></tr>
+                <tr><td class="mono">now</td><td>→ then</td></tr>
+                <tr><td class="mono">today</td><td>→ that day</td></tr>
+                <tr><td class="mono">tomorrow</td><td>→ the next day / the following day</td></tr>
+                <tr><td class="mono">yesterday</td><td>→ the day before / the previous day</td></tr>
+                <tr><td class="mono">here</td><td>→ there</td></tr>
+                <tr><td class="mono">this</td><td>→ that</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+          <div class="ex-line ex-en">Direct: Huy said, "I am studying for my exam now." → Reported: Huy said (that) he was studying for his exam then.</div>
+          <div class="ex-line ex-vi">→ "am studying" → "was studying" (lùi thì), "I" → "he", "now" → "then".</div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Nếu sự thật hiển nhiên hoặc vẫn còn đúng ở hiện tại, có thể GIỮ NGUYÊN thì gốc (không bắt buộc lùi thì):
+          <span class="mono">He said the Earth is round. (sự thật khoa học, không cần đổi thành "was round")</span>
+        </div>
+
+        <h3>31.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chuyển sang câu tường thuật: She said, "I will call you tomorrow."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "She said (that) she would call me the next day."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chuyển sang câu tường thuật: He said, "I finished the report yesterday."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "He said (that) he had finished the report the day before."</div>
+        </div>
+
+        <h3>31.4 Quiz trắc nghiệm — Chương 31</h3>
+        <div class="quiz-box" id="quiz31"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 31</h3>
+          <ul>
+            <li>Quy tắc lùi thì: hiện tại → quá khứ, quá khứ → quá khứ hoàn thành.</li>
+            <li>Đổi đại từ và trạng từ chỉ thời gian/nơi chốn cho phù hợp với người tường thuật.</li>
+            <li>Sự thật hiển nhiên có thể giữ nguyên thì gốc.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 32: REPORTED SPEECH - QUESTIONS & COMMANDS -->
+      <section id="ch32" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">32</span><h2>Câu Tường Thuật — Câu Hỏi &amp; Câu Mệnh Lệnh</h2></div>
+        <div class="chapter-sub">Cấu trúc khác với câu kể — trật tự từ trở về dạng khẳng định.</div>
+
+        <div class="section-block">
+          <h3>32.1 Tường thuật câu hỏi Yes/No — dùng "if/whether"</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">Direct: "Do you like coffee?" she asked. → Reported: She asked if/whether I liked coffee.</div>
+            <div class="ex-line ex-vi">→ Bỏ trợ động từ do/does/did, chuyển về trật tự câu khẳng định (S + V), thêm "if/whether".</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>32.2 Tường thuật câu hỏi Wh- — giữ từ để hỏi, đổi trật tự</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">Direct: "Where do you live?" he asked. → Reported: He asked where I lived.</div>
+            <div class="ex-line ex-vi">→ Giữ nguyên từ để hỏi (where), bỏ trợ động từ, chuyển về trật tự khẳng định.</div>
+          </div>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning</div>
+            Lỗi phổ biến nhất: giữ nguyên trật tự đảo ngữ của câu hỏi trong câu tường thuật —
+            <span class="mono">❌ He asked where did I live. ✅ He asked where I lived.</span>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>32.3 Tường thuật câu mệnh lệnh/yêu cầu — dùng "to V" hoặc "not to V"</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Trực tiếp</th><th>Tường thuật</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">"Close the door," he said.</td><td class="mono">He told me to close the door.</td></tr>
+                <tr><td class="mono">"Don't be late," she said.</td><td class="mono">She told me not to be late.</td></tr>
+                <tr><td class="mono">"Please help me," he said.</td><td class="mono">He asked me to help him.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3>32.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chuyển sang câu tường thuật: "Are you coming to the party?" she asked me.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "She asked me if/whether I was coming to the party."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chuyển sang câu tường thuật: "What time does the meeting start?" he asked.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "He asked what time the meeting started."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Chuyển sang câu tường thuật: "Don't touch that wire!" the teacher said.</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "The teacher told us not to touch that wire."</div>
+        </div>
+
+        <h3>32.5 Quiz trắc nghiệm — Chương 32</h3>
+        <div class="quiz-box" id="quiz32"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 32</h3>
+          <ul>
+            <li>Câu hỏi Yes/No: dùng if/whether, trật tự về dạng khẳng định.</li>
+            <li>Câu hỏi Wh-: giữ từ để hỏi, bỏ trợ động từ, trật tự khẳng định.</li>
+            <li>Câu mệnh lệnh: tell/ask + O + to V (hoặc not to V).</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 5</div>
+          Bạn đã nắm vững Câu bị động và Câu tường thuật! Gõ <b>"Tiếp tục"</b> để nhận
+          <b>Phần 6: Phrasal Verbs, Collocations &amp; Idioms</b>.
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz29: [
+    {q:"Câu bị động của 'They built this house in 1990' là gì?", opts:["This house was built in 1990.","This house is built in 1990.","This house has been built in 1990.","This house built in 1990."], correct:0},
+    {q:"Câu nào KHÔNG thể chuyển sang bị động?", opts:["She wrote a letter.","She slept for 8 hours.","She read a book.","She cooked dinner."], correct:1},
+    {q:"Công thức chung của câu bị động là gì?", opts:["S + V + O","O + to be + V3 (+by+S)","S + to be + V-ing","O + V + S"], correct:1}
+  ],
+  quiz30: [
+    {q:"Câu bị động của 'They have completed the bridge' là gì?", opts:["The bridge has been completed.","The bridge is completed.","The bridge was completed.","The bridge completed."], correct:0},
+    {q:"Câu bị động ở hiện tại tiếp diễn dùng công thức nào?", opts:["is/am/are + V3","is/am/are + being + V3","was/were + V3","will + be + V3"], correct:1},
+    {q:"Câu bị động với modal 'must' là gì?", opts:["must + V3","must + be + V3","must + being + V3","must have + V3"], correct:1}
+  ],
+  quiz31: [
+    {q:"'will' trong câu tường thuật đổi thành gì?", opts:["would","will","can","must"], correct:0},
+    {q:"'tomorrow' trong câu tường thuật đổi thành gì?", opts:["today","the next day","yesterday","now"], correct:1},
+    {q:"Hiện tại đơn trong câu tường thuật lùi thành thì gì?", opts:["Quá khứ đơn","Hiện tại hoàn thành","Tương lai đơn","Giữ nguyên"], correct:0}
+  ],
+  quiz32: [
+    {q:"Câu hỏi Yes/No trong câu tường thuật dùng từ nối nào?", opts:["that","if/whether","because","so"], correct:1},
+    {q:"Câu nào đúng khi tường thuật câu hỏi Wh-?", opts:["He asked where did I live.","He asked where I lived.","He asked where I did live.","He asked where lived I."], correct:1},
+    {q:"Câu mệnh lệnh 'Don't be late' tường thuật thành gì?", opts:["He told me don't be late.","He told me not to be late.","He told me to not late.","He told me no late."], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container || !Array.isArray(data) || data.length === 0) return;
+
+  let lastAttemptSignature = '';
+  function shuffleQuizItems(items){
+    const shuffled = [...items];
+    for(let i=shuffled.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  function renderAttempt(){
+    container.innerHTML = '';
+    let score = 0;
+    let answered = 0;
+    const questionCount = data.length > 2 ? Math.max(2, Math.floor(data.length * 0.7)) : data.length;
+    const selected = shuffleQuizItems(data).slice(0, questionCount);
+    const attempt = selected.map(item=>({
+      item,
+      options: shuffleQuizItems(item.opts.map((text,index)=>({text, isCorrect:index===item.correct})))
+    }));
+    let signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    if(signature === lastAttemptSignature && attempt.length){
+      if(attempt.length > 1) [attempt[0],attempt[1]]=[attempt[1],attempt[0]];
+      else [attempt[0].options[0],attempt[0].options[1]]=[attempt[0].options[1],attempt[0].options[0]];
+      signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    }
+    lastAttemptSignature = signature;
+
+    attempt.forEach((row,qi)=>{
+      const item = row.item;
+      const qDiv = document.createElement('div');
+      qDiv.className='quiz-q';
+      const questionText = item.q.replace(/^\d+\.\s*/, '');
+      qDiv.innerHTML = '<p>Câu ' + (qi+1) + '. ' + questionText + '</p>';
+      const optsDiv = document.createElement('div');
+      optsDiv.className='quiz-opts';
+      row.options.forEach(option=>{
+        const b = document.createElement('button');
+        b.className='quiz-opt';
+        b.textContent = option.text;
+        b.onclick = ()=>{
+          if(b.dataset.locked) return;
+          [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+          if(option.isCorrect){ b.classList.add('correct'); score++; }
+          else {
+            b.classList.add('wrong');
+            const correctIndex = row.options.findIndex(candidate=>candidate.isCorrect);
+            optsDiv.children[correctIndex].classList.add('correct');
+          }
+          answered++;
+          updateScore();
+        };
+        optsDiv.appendChild(b);
+      });
+      qDiv.appendChild(optsDiv);
+      container.appendChild(qDiv);
+    });
+
+    const scoreEl = document.createElement('div');
+    scoreEl.className='quiz-score';
+    container.appendChild(scoreEl);
+    const retryButton = document.createElement('button');
+    retryButton.type='button';
+    retryButton.className='quiz-retry-btn';
+    retryButton.textContent='🔄 Làm bộ câu khác';
+    retryButton.style.cssText='margin:12px 0;padding:10px 16px;border:0;border-radius:8px;background:var(--teal);color:#fff;font-weight:700;cursor:pointer;';
+    retryButton.addEventListener('click',renderAttempt);
+    container.appendChild(retryButton);
+    function updateScore(){
+      scoreEl.textContent = 'Điểm hiện tại: ' + score + '/' + attempt.length + ' (' + answered + '/' + attempt.length + ' câu đã trả lời)';
+    }
+    updateScore();
+  }
+  renderAttempt();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

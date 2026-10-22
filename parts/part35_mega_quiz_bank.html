@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 35: Ngân Hàng Quiz Tổng Hợp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s; text-decoration:none;}
+
+/* ===== MEGA QUIZ APP STYLES ===== */
+.mq-card{background:var(--paper-2); border:1px solid var(--line); border-radius:18px; padding:26px; margin:18px 0; box-shadow:var(--shadow);}
+.mq-topic-select{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
+.mq-topic-chip{border:1px solid var(--line); background:var(--paper); color:var(--text); padding:8px 16px; border-radius:20px; font-size:.85rem; cursor:pointer; transition:.2s;}
+.mq-topic-chip.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+.mq-setup-row{display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:18px; font-size:.88rem; color:var(--text-soft);}
+.mq-setup-row select{border:1px solid var(--line); background:var(--paper); color:var(--text); padding:8px 12px; border-radius:8px; font-size:.88rem;}
+.mq-start-btn{background:var(--ink); color:#fff; border:none; padding:12px 26px; border-radius:12px; font-size:.92rem; font-weight:600; cursor:pointer; transition:.2s;}
+.mq-start-btn:hover{background:var(--teal);}
+.mq-timer{font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--amber); font-size:1.1rem;}
+.mq-progress-text{font-size:.85rem; color:var(--text-soft); margin-bottom:10px; text-align:center;}
+.mq-result-card{text-align:center; padding:30px 20px;}
+.mq-result-card .big-score{font-family:'Fraunces',serif; font-size:3rem; color:var(--teal-dark); font-weight:700;}
+.mq-result-card .result-msg{margin-top:10px; font-size:1rem; color:var(--text-soft);}
+</style>
+<link rel="stylesheet" href="../assets/lingoreach.css">
+<script src="../assets/lingoreach.js" defer></script>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 35</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Ngân Hàng Quiz</a>
+      <a class="toc-link" href="#ch151"><span class="toc-num">151</span> Quiz tổng hợp — chọn chủ đề &amp; bấm giờ</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 35 / Ngân Hàng Quiz Tổng Hợp</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="../index_hub.html" title="Về trang chủ">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Công cụ luyện tập #6</span>
+          <h1>Ngân Hàng Quiz Tổng Hợp</h1>
+          <p>
+            Hơn <b>150 câu hỏi trắc nghiệm</b> tổng hợp từ toàn bộ 23 phần trước — chia theo 6 chủ đề lớn: Ngữ pháp,
+            Từ vựng, Phrasal Verbs &amp; Idioms, Phát âm &amp; IPA, TOEIC/IELTS, và IT/Chuyên ngành. Chọn chủ đề, số
+            lượng câu hỏi, bấm giờ, và kiểm tra trình độ tổng quan của bạn sau khi đã học qua các phần trước.
+          </p>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 97: MEGA QUIZ APP -->
+      <section id="ch151" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">151</span><h2>Quiz Tổng Hợp — Chọn Chủ Đề &amp; Bấm Giờ</h2></div>
+        <div class="chapter-sub">Chọn 1 hoặc nhiều chủ đề, số câu hỏi mong muốn, rồi bắt đầu làm bài.</div>
+
+        <div class="mq-card">
+          <div id="setupView">
+            <p style="margin-top:0; font-weight:600;">1. Chọn chủ đề (có thể chọn nhiều):</p>
+            <div class="mq-topic-select" id="topicSelect"></div>
+
+            <p style="font-weight:600;">2. Số lượng câu hỏi:</p>
+            <div class="mq-setup-row">
+              <select id="questionCountSelect">
+                <option value="10">10 câu</option>
+                <option value="20" selected>20 câu</option>
+                <option value="30">30 câu</option>
+                <option value="9999">Tất cả câu có sẵn trong chủ đề đã chọn</option>
+              </select>
+              <span>⏱️ Thời gian: <b id="estimatedTime">10 phút</b> (ước tính 30s/câu)</span>
+            </div>
+
+            <button class="mq-start-btn" id="btnStartQuiz">🚀 Bắt đầu làm bài</button>
+          </div>
+
+          <div id="quizView" style="display:none;">
+            <div class="mq-progress-text">Câu <span id="currentQNum">1</span>/<span id="totalQNum">20</span> — Còn lại: <span class="mq-timer" id="quizTimer">10:00</span></div>
+            <div class="quiz-box" id="liveQuizBox"></div>
+          </div>
+
+          <div id="resultView" style="display:none;">
+            <div class="mq-result-card">
+              <div class="big-score" id="finalScoreText">0/0</div>
+              <div class="result-msg" id="finalMessage">Đang tính điểm...</div>
+              <button class="mq-start-btn" id="btnRetakeQuiz" style="margin-top:20px;">🔄 Làm bài mới</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Nên làm bài quiz tổng hợp này định kỳ 2-3 tuần/lần để tự kiểm tra xem kiến thức có bị quên hay không — kết
+          hợp với Flashcard Trainer (Phần 21) để ôn lại những phần bạn còn yếu.
+        </div>
+
+        <div class="summary-card">
+          <h3>🎯 6 Chủ đề trong Ngân Hàng Quiz</h3>
+          <ul>
+            <li><b>Ngữ pháp</b> — Thì, câu điều kiện, câu bị động, mạo từ, giới từ...</li>
+            <li><b>Từ vựng</b> — Từ vựng chủ đề, collocations, từ học thuật...</li>
+            <li><b>Phrasal Verbs &amp; Idioms</b> — Tổng hợp từ Phần 6 và Phần 14.</li>
+            <li><b>Phát âm &amp; IPA</b> — Kiến thức từ Phần 1 và Phần 18.</li>
+            <li><b>TOEIC/IELTS</b> — Chiến lược và kiến thức thi cử.</li>
+            <li><b>IT &amp; Chuyên ngành</b> — Từ vựng IT, phỏng vấn xin việc.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 24</div>
+          Bạn giờ có 6 công cụ luyện tập tương tác đầy đủ! Ngân hàng Quiz này sẽ tiếp tục hữu ích trong suốt quá trình
+          bạn ôn tập lại toàn bộ giáo trình. Chúc bạn học tốt!
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+/* ============ MEGA QUIZ QUESTION BANK (150+ questions across 6 topics) ============ */
+const questionBank = {
+  "Ngữ pháp": [
+    {q:"She ___ to work every day by bus.", opts:["go","goes","going","went"], correct:1},
+    {q:"If I ___ rich, I would travel the world.", opts:["am","was","were","will be"], correct:2},
+    {q:"The report ___ by the manager yesterday.", opts:["reviewed","was reviewed","reviews","is reviewed"], correct:1},
+    {q:"By the time we arrived, the movie ___ already started.", opts:["has","have","had","was"], correct:2},
+    {q:"She asked me where ___.", opts:["did I live","I lived","I live","do I live"], correct:1},
+    {q:"I wish I ___ more time to prepare.", opts:["have","had","has","having"], correct:1},
+    {q:"You ___ smoke in this building. It's strictly forbidden.", opts:["don't have to","mustn't","should","can"], correct:1},
+    {q:"She has lived here ___ 2015.", opts:["for","since","ago","in"], correct:1},
+    {q:"Choose the correct article: '___ hour ago'", opts:["a","an","the","(no article)"], correct:1},
+    {q:"The comparative form of 'good' is:", opts:["gooder","more good","better","best"], correct:2},
+    {q:"He ___ finished his homework before dinner.", opts:["has","had","have","having"], correct:1},
+    {q:"Neither the manager nor the employees ___ satisfied.", opts:["was","is","were","be"], correct:2},
+    {q:"The company's profits increased ___ last year.", opts:["significant","significantly","significance","signify"], correct:1},
+    {q:"Choose the correct preposition: 'interested ___ music'", opts:["at","in","on","for"], correct:1},
+    {q:"'I recommend that he ___ early.' (subjunctive)", opts:["arrives","arrived","arrive","arriving"], correct:2},
+    {q:"'She enjoys ___ novels.'", opts:["read","to read","reading","reads"], correct:2},
+    {q:"'He decided ___ abroad.'", opts:["study","studying","to study","studied"], correct:2},
+    {q:"Choose correct: 'Its/It's raining outside.'", opts:["Its","It's","Their","There"], correct:1},
+    {q:"'The new policy will ___ all employees.' (affect/effect)", opts:["affect","effect","effects","affecting"], correct:0},
+    {q:"'I'm not sure ___ she will come.' (weather/whether)", opts:["weather","whether","wether","weathers"], correct:1},
+    {q:"Which sentence uses correct inversion?", opts:["Never I have seen this.","Never have I seen this.","I never have seen this.","Have never I seen this."], correct:1},
+    {q:"'What worries me most ___ the cost.' (cleft sentence)", opts:["are","is","were","be"], correct:1},
+    {q:"Choose correct: 'This house ___ built in 1990.'", opts:["was","is","has","were"], correct:0}
+  ],
+  "Từ vựng": [
+    {q:"'significant' is closest in meaning to:", opts:["small","important","boring","cheap"], correct:1},
+    {q:"'obtain' is a more formal synonym for:", opts:["give","get","lose","find"], correct:1},
+    {q:"'hypothesis' means:", opts:["kết luận","giả thuyết","dữ liệu","phương pháp"], correct:1},
+    {q:"'meticulous' means:", opts:["cẩu thả","tỉ mỉ, cẩn thận","nhanh nhẹn","chậm chạp"], correct:1},
+    {q:"Which word means 'a considerable amount'?", opts:["substantial","tiny","negligible","minimal"], correct:0},
+    {q:"'detrimental' is closest in meaning to:", opts:["beneficial","harmful","neutral","exciting"], correct:1},
+    {q:"'criteria' means:", opts:["tiêu chí","kết quả","phương pháp","số liệu"], correct:0},
+    {q:"'paraphrase' means:", opts:["trích dẫn nguyên văn","diễn giải lại bằng lời khác","dịch sang ngôn ngữ khác","tóm tắt ngắn gọn"], correct:1},
+    {q:"'subsequent' means:", opts:["trước đó","đồng thời","sau đó, tiếp theo","không liên quan"], correct:2},
+    {q:"'considerable' is closest in meaning to:", opts:["insignificant","substantial","rare","brief"], correct:1},
+    {q:"'gain experience' is an example of what kind of word combination?", opts:["idiom","phrasal verb","collocation","preposition"], correct:2},
+    {q:"'meet a deadline' means:", opts:["gặp gỡ ai đó","hoàn thành đúng hạn","bỏ lỡ hạn chót","hoãn deadline"], correct:1},
+    {q:"'take responsibility' means:", opts:["trốn tránh trách nhiệm","chịu trách nhiệm","đưa ra trách nhiệm","không liên quan"], correct:1}
+  ],
+  "Phrasal Verbs & Idioms": [
+    {q:"'give up' means:", opts:["từ bỏ","bắt đầu","tiếp tục","hoàn thành"], correct:0},
+    {q:"'look after' means:", opts:["nhìn theo","chăm sóc","tìm kiếm","bỏ qua"], correct:1},
+    {q:"'run out of' means:", opts:["chạy nhanh","hết (đồ gì đó)","bắt đầu","chạy ra ngoài"], correct:1},
+    {q:"'burn out' means:", opts:["vui vẻ","kiệt sức do làm việc quá độ","nghỉ hưu","bắt đầu công việc mới"], correct:1},
+    {q:"'roll out' (in business context) means:", opts:["từ chối","triển khai (sản phẩm)","sa thải","nghỉ phép"], correct:1},
+    {q:"'put up with' means:", opts:["xây dựng","chịu đựng","từ chối","ủng hộ"], correct:1},
+    {q:"'break the ice' means:", opts:["phá vỡ sự ngại ngùng ban đầu","làm vỡ đá","gây xung đột","kết thúc cuộc trò chuyện"], correct:0},
+    {q:"'piece of cake' means:", opts:["một miếng bánh","việc rất dễ dàng","món tráng miệng","việc khó khăn"], correct:1},
+    {q:"'under the weather' means:", opts:["ngoài trời","cảm thấy không khỏe","dưới mưa","rất vui vẻ"], correct:1},
+    {q:"'cost an arm and a leg' means:", opts:["bị thương","rất đắt đỏ","rất rẻ","mất tay chân"], correct:1},
+    {q:"'think outside the box' means:", opts:["suy nghĩ trong khuôn khổ","suy nghĩ sáng tạo, khác biệt","không suy nghĩ gì","làm việc nhóm"], correct:1},
+    {q:"'on cloud nine' means:", opts:["buồn bã","cực kỳ vui sướng","tức giận","lo lắng"], correct:1},
+    {q:"'bury the hatchet' means:", opts:["chôn cất","làm hòa, quên đi mâu thuẫn","đào đất","bắt đầu chiến tranh"], correct:1}
+  ],
+  "Phát âm & IPA": [
+    {q:"How many phonemes (sounds) does English have in total?", opts:["26","36","44","52"], correct:2},
+    {q:"The schwa sound is represented by:", opts:["/æ/","/ə/","/e/","/ʌ/"], correct:1},
+    {q:"Which word contains the /θ/ sound?", opts:["this","think","the","that"], correct:1},
+    {q:"'sheep' and 'ship' differ in:", opts:["consonant sound","vowel length","word stress","silent letters"], correct:1},
+    {q:"In 'record' (noun), where is the stress?", opts:["First syllable","Second syllable","No stress","Both syllables"], correct:0},
+    {q:"Which pair is a minimal pair for vowel length?", opts:["ship/sheep","cat/bat","dog/log","pen/ten"], correct:0},
+    {q:"The 'ch' in 'chair' is represented by IPA symbol:", opts:["/ʃ/","/tʃ/","/dʒ/","/k/"], correct:1},
+    {q:"Falling intonation is typically used for:", opts:["Yes/No questions","Wh-questions and statements","Surprise only","Never used"], correct:1},
+    {q:"The silent letter in 'knife' is:", opts:["n","k","i","f"], correct:1}
+  ],
+  "TOEIC/IELTS": [
+    {q:"TOEIC Listening has how many parts?", opts:["3","4","5","6"], correct:1},
+    {q:"Which TOEIC Reading part has the most questions?", opts:["Part 5","Part 6","Part 7","Equal in all"], correct:2},
+    {q:"IELTS Writing Task 1 requires you to:", opts:["Give your opinion","Describe a chart/graph/letter","Write a story","Summarize a book"], correct:1},
+    {q:"IELTS Band 9 represents what level of user?", opts:["Modest User","Competent User","Expert User","Non User"], correct:2},
+    {q:"In IELTS Speaking, how much preparation time is given for Part 2?", opts:["30 seconds","1 minute","2 minutes","No preparation time"], correct:1},
+    {q:"Which IELTS Writing Task 2 essay type asks you to state your opinion clearly?", opts:["Problem-Solution","Opinion (Agree/Disagree)","Advantages/Disadvantages","Discussion only"], correct:1},
+    {q:"The ideal word count for IELTS Writing Task 2 is:", opts:["100-150 words","150-200 words","250-290 words","400+ words"], correct:2},
+    {q:"What does 'skimming' mean in reading strategy?", opts:["Reading word by word","Reading quickly for the main idea","Reading only the last paragraph","Memorizing the text"], correct:1}
+  ],
+  "Từ vựng học thuật & tư duy phản biện": [
+    {q:"A claim supported by reliable data is:", opts:["evidence-based","self-evident","short-lived","time-consuming"], correct:0},
+    {q:"A counterargument is:", opts:["an opposing argument considered in a discussion","a final summary","a repeated example","a numerical prediction"], correct:0},
+    {q:"If a proposal is feasible, it is:", opts:["possible and practical to carry out","guaranteed to succeed","already completed","unrelated to the issue"], correct:0},
+    {q:"A trade-off means:", opts:["accepting one disadvantage to gain another benefit","getting every benefit at no cost","avoiding a decision","repeating an argument"], correct:0},
+    {q:"An unintended consequence is:", opts:["an outcome that was not expected","a planned target","a research method","a positive result only"], correct:0},
+    {q:"Resource allocation is the process of:", opts:["distributing resources among needs or projects","finding new vocabulary","measuring public opinion","removing all risks"], correct:0},
+    {q:"A cost-effective option gives:", opts:["good results for a reasonable cost","the highest price","no measurable result","only a short-term benefit"], correct:0},
+    {q:"Correlation shows that two variables:", opts:["are associated, without proving causation","always cause each other","are identical","cannot be measured"], correct:0},
+    {q:"Causation describes a relationship in which:", opts:["one factor produces or contributes to a change","two events merely coincide","a result cannot be measured","a pattern is unrelated"], correct:0},
+    {q:"A risk assessment helps people:", opts:["identify and evaluate possible risks","guarantee there is no uncertainty","write a conclusion","avoid collecting evidence"], correct:0},
+    {q:"A policy intervention is:", opts:["an action taken by authorities to address an issue","a personal preference","a research citation","an unexpected outcome"], correct:0},
+    {q:"Long-term impact refers to an effect:", opts:["over an extended period","only at the moment of a decision","before a decision is made","on one person only"], correct:0}
+  ],
+  "IT & Chuyên ngành": [
+    {q:"'inheritance' in OOP means:", opts:["tính đa hình","tính kế thừa","tính đóng gói","tính trừu tượng"], correct:1},
+    {q:"'RESTful API' refers to:", opts:["A programming language","An architectural style for APIs","A database","A CSS framework"], correct:1},
+    {q:"'CI/CD' stands for:", opts:["Continuous Integration/Continuous Deployment","Code Inspection/Code Debugging","Client Interface/Client Design","Central Index/Central Database"], correct:0},
+    {q:"'technical debt' means:", opts:["Company's financial debt","Consequences of quick, non-optimal solutions","A security vulnerability","Server hosting cost"], correct:1},
+    {q:"'sprint' in Agile/Scrum refers to:", opts:["A type of run","A short development cycle","A bug report","A code review"], correct:1},
+    {q:"The STAR method stands for:", opts:["Situation-Task-Action-Result","Skill-Time-Ability-Result","Start-Try-Act-Repeat","Situation-Time-Action-Review"], correct:0},
+    {q:"'foreign key' in a database is used to:", opts:["Encrypt data","Link between tables","Delete records","Back up data"], correct:1},
+    {q:"A good bug report should NOT include:", opts:["Steps to Reproduce","Expected Behavior","Personal opinions unrelated to the bug","Environment details"], correct:2}
+  ]
+};
+
+let selectedTopics = new Set(["Ngữ pháp"]);
+const topicSelect = document.getElementById('topicSelect');
+Object.keys(questionBank).forEach(topic=>{
+  const chip = document.createElement('button');
+  chip.className = 'mq-topic-chip' + (selectedTopics.has(topic) ? ' active' : '');
+  chip.textContent = `${topic} (${questionBank[topic].length})`;
+  chip.onclick = ()=>{
+    if(selectedTopics.has(topic)){
+      selectedTopics.delete(topic);
+      chip.classList.remove('active');
+    } else {
+      selectedTopics.add(topic);
+      chip.classList.add('active');
+    }
+    updateEstimate();
+  };
+  topicSelect.appendChild(chip);
+});
+
+function getPooledQuestions(){
+  let pool = [];
+  selectedTopics.forEach(topic=>{
+    pool = pool.concat(questionBank[topic]);
+  });
+  return pool;
+}
+
+function shuffle(arr){
+  const a = [...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+let lastAttemptSignature = '';
+function createQuizAttempt(pool, count){
+  const attempt = shuffle(pool).slice(0, count).map(item=>{
+    const options = shuffle(item.opts.map((text,index)=>({text, isCorrect:index===item.correct})));
+    return {...item, opts:options.map(option=>option.text), correct:options.findIndex(option=>option.isCorrect)};
+  });
+  let signature = JSON.stringify(attempt.map(item=>[item.q,item.opts]));
+  if(signature === lastAttemptSignature && attempt.length){
+    const first = attempt[0];
+    [first.opts[0],first.opts[1]]=[first.opts[1],first.opts[0]];
+    const original = pool.find(item=>item.q===first.q);
+    first.correct = first.opts.indexOf(original.opts[original.correct]);
+    signature = JSON.stringify(attempt.map(item=>[item.q,item.opts]));
+  }
+  lastAttemptSignature = signature;
+  return attempt;
+}
+
+const questionCountSelect = document.getElementById('questionCountSelect');
+function updateEstimate(){
+  const pool = getPooledQuestions();
+  let count = parseInt(questionCountSelect.value, 10);
+  if(count > pool.length) count = pool.length;
+  const minutes = Math.max(1, Math.round(count * 30 / 60));
+  document.getElementById('estimatedTime').textContent = minutes + ' phút (' + count + ' câu)';
+}
+questionCountSelect.addEventListener('change', updateEstimate);
+updateEstimate();
+
+/* Quiz runtime state */
+let quizQuestions = [];
+let currentIdx = 0;
+let score = 0;
+let quizTimerSeconds = 0;
+let quizTimerInterval = null;
+
+document.getElementById('btnStartQuiz').addEventListener('click', ()=>{
+  const pool = getPooledQuestions();
+  if(pool.length === 0){
+    alert('Vui lòng chọn ít nhất 1 chủ đề.');
+    return;
+  }
+  let count = parseInt(questionCountSelect.value, 10);
+  if(count > pool.length) count = pool.length;
+  quizQuestions = createQuizAttempt(pool, count);
+  currentIdx = 0;
+  score = 0;
+  quizTimerSeconds = count * 30;
+
+  document.getElementById('setupView').style.display = 'none';
+  document.getElementById('resultView').style.display = 'none';
+  document.getElementById('quizView').style.display = 'block';
+  document.getElementById('totalQNum').textContent = quizQuestions.length;
+
+  startTimer();
+  renderQuestion();
+});
+
+function startTimer(){
+  clearInterval(quizTimerInterval);
+  updateTimerDisplay();
+  quizTimerInterval = setInterval(()=>{
+    quizTimerSeconds--;
+    updateTimerDisplay();
+    if(quizTimerSeconds <= 0){
+      clearInterval(quizTimerInterval);
+      finishQuiz();
+    }
+  }, 1000);
+}
+function updateTimerDisplay(){
+  const m = Math.floor(Math.max(0,quizTimerSeconds)/60).toString().padStart(2,'0');
+  const s = (Math.max(0,quizTimerSeconds)%60).toString().padStart(2,'0');
+  document.getElementById('quizTimer').textContent = `${m}:${s}`;
+}
+
+function renderQuestion(){
+  document.getElementById('currentQNum').textContent = currentIdx+1;
+  const box = document.getElementById('liveQuizBox');
+  box.innerHTML = '';
+  const item = quizQuestions[currentIdx];
+  const qDiv = document.createElement('div');
+  qDiv.className = 'quiz-q';
+  qDiv.innerHTML = `<p>${item.q}</p>`;
+  const optsDiv = document.createElement('div');
+  optsDiv.className = 'quiz-opts';
+  item.opts.forEach((opt, oi)=>{
+    const b = document.createElement('button');
+    b.className = 'quiz-opt';
+    b.textContent = opt;
+    b.onclick = ()=>{
+      if(b.dataset.locked) return;
+      [...optsDiv.children].forEach(c=>c.dataset.locked = "1");
+      if(oi === item.correct){ b.classList.add('correct'); score++; }
+      else { b.classList.add('wrong'); optsDiv.children[item.correct].classList.add('correct'); }
+      setTimeout(()=>{
+        currentIdx++;
+        if(currentIdx < quizQuestions.length){
+          renderQuestion();
+        } else {
+          clearInterval(quizTimerInterval);
+          finishQuiz();
+        }
+      }, 900);
+    };
+    optsDiv.appendChild(b);
+  });
+  qDiv.appendChild(optsDiv);
+  box.appendChild(qDiv);
+}
+
+function finishQuiz(){
+  document.getElementById('quizView').style.display = 'none';
+  document.getElementById('resultView').style.display = 'block';
+  const total = quizQuestions.length;
+  document.getElementById('finalScoreText').textContent = `${score}/${total}`;
+  const pct = total ? Math.round(score/total*100) : 0;
+  let msg = '';
+  if(pct >= 85) msg = '🌟 Xuất sắc! Bạn nắm rất vững kiến thức.';
+  else if(pct >= 65) msg = '👍 Khá tốt! Ôn lại một số phần bạn còn sai nhé.';
+  else msg = '📚 Nên quay lại ôn tập kỹ các phần liên quan trước khi làm lại bài quiz này.';
+  document.getElementById('finalMessage').textContent = msg + ` (${pct}%)`;
+}
+
+document.getElementById('btnRetakeQuiz').addEventListener('click', ()=>{
+  document.getElementById('resultView').style.display = 'none';
+  document.getElementById('setupView').style.display = 'block';
+});
+
+/* ============ DARK MODE / PRINT / MOBILE ============ */
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

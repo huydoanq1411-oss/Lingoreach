@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 19: Flashcard Trainer (Spaced Repetition)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+
+/* ===== FLASHCARD APP STYLES ===== */
+.fc-card{background:var(--paper-2); border:1px solid var(--line); border-radius:18px; padding:26px; margin:18px 0; box-shadow:var(--shadow);}
+.fc-stats-row{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px;}
+.fc-stat{flex:1; min-width:100px; background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:12px; text-align:center;}
+.fc-stat b{display:block; font-family:'JetBrains Mono',monospace; font-size:1.4rem; color:var(--teal-dark);}
+.fc-stat span{font-size:.72rem; color:var(--text-soft); text-transform:uppercase;}
+.fc-deck-select{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
+.fc-deck-chip{border:1px solid var(--line); background:var(--paper); color:var(--text); padding:7px 14px; border-radius:20px; font-size:.82rem; cursor:pointer; transition:.2s;}
+.fc-deck-chip.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+.flip-card-scene{perspective:1200px; margin-bottom:18px;}
+.flip-card{position:relative; width:100%; min-height:220px; transition:transform .5s; transform-style:preserve-3d; cursor:pointer;}
+.flip-card.flipped{transform:rotateY(180deg);}
+.flip-face{position:absolute; inset:0; backface-visibility:hidden; border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:26px; text-align:center;}
+.flip-front{background:var(--ink); color:#fff;}
+.flip-back{background:var(--teal-dark); color:#fff; transform:rotateY(180deg);}
+.flip-face .fc-word{font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700;}
+.flip-face .fc-ipa{font-family:'JetBrains Mono',monospace; color:var(--amber); margin-top:6px; font-size:.95rem;}
+.flip-face .fc-meaning{font-size:1.2rem; margin-top:6px;}
+.flip-face .fc-example{font-size:.85rem; color:#C9D3E4; margin-top:14px; max-width:80%;}
+.flip-hint{text-align:center; font-size:.8rem; color:var(--text-soft); margin-bottom:16px;}
+.fc-rate-row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+.fc-rate-btn{border:none; padding:12px 18px; border-radius:12px; font-size:.85rem; font-weight:600; cursor:pointer; color:#fff; transition:transform .15s ease;}
+.fc-rate-btn:hover{transform:translateY(-2px);}
+.fc-rate-btn.again{background:var(--coral);}
+.fc-rate-btn.hard{background:var(--amber); color:#1a1200;}
+.fc-rate-btn.good{background:var(--teal);}
+.fc-rate-btn.easy{background:var(--ink-2);}
+.fc-empty{text-align:center; padding:40px 20px; color:var(--text-soft);}
+</style>
+<link rel="stylesheet" href="../assets/lingoreach.css">
+<script src="../assets/lingoreach.js" defer></script>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 19</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Flashcard Trainer</a>
+      <a class="toc-link" href="#ch91"><span class="toc-num">91</span> Ôn tập từ vựng bằng Spaced Repetition</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 19 / Flashcard Trainer</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="../index_hub.html" title="Về trang chủ" style="text-decoration:none;">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Công cụ luyện tập #4</span>
+          <h1>Flashcard Trainer — Spaced Repetition</h1>
+          <p>
+            Áp dụng trực tiếp nguyên lý <b>Spaced Repetition</b> đã học ở Chương 55 (Phần 11): công cụ này chứa hơn
+            <b>120 flashcard</b> tổng hợp từ vựng quan trọng nhất xuyên suốt cả bộ giáo trình — chia theo từng bộ
+            (deck). Mỗi khi bạn đánh giá độ khó của một từ, hệ thống sẽ <b>tự động tính toán thời điểm ôn tập tiếp
+            theo</b> (giống thuật toán bên trong Anki) và lưu tiến độ ngay trên trình duyệt của bạn.
+          </p>
+        </div>
+        <div class="box important">
+          <div class="box-title">📌 Import ant</div>
+          Toàn bộ tiến độ ôn tập được lưu bằng <b>localStorage</b> ngay trên trình duyệt này — nếu bạn xóa dữ liệu
+          trình duyệt hoặc chuyển sang máy khác, tiến độ sẽ không được đồng bộ. Hãy luyện tập đều đặn trên cùng một
+          trình duyệt/máy tính để đạt hiệu quả tốt nhất.
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 91: FLASHCARD APP -->
+      <section id="ch91" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">91</span><h2>Ôn Tập Từ Vựng Bằng Spaced Repetition</h2></div>
+        <div class="chapter-sub">Chọn bộ từ, lật thẻ, và tự đánh giá độ khó để hệ thống lên lịch ôn tập tối ưu.</div>
+
+        <div class="fc-card">
+          <div class="fc-stats-row">
+            <div class="fc-stat"><b id="statDue">0</b><span>Cần ôn hôm nay</span></div>
+            <div class="fc-stat"><b id="statTotal">0</b><span>Tổng số thẻ</span></div>
+            <div class="fc-stat"><b id="statMastered">0</b><span>Đã thành thạo</span></div>
+          </div>
+
+          <div class="fc-deck-select" id="deckSelect"></div>
+
+          <div class="flip-hint">Bấm vào thẻ để lật xem nghĩa</div>
+          <div class="flip-card-scene">
+            <div class="flip-card" id="flipCard">
+              <div class="flip-face flip-front" id="frontFace">
+                <div class="fc-word">Đang tải...</div>
+              </div>
+              <div class="flip-face flip-back" id="backFace">
+                <div class="fc-meaning">...</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fc-rate-row" id="rateRow">
+            <button class="fc-rate-btn again" data-rating="1">😵 Quên rồi (Again)</button>
+            <button class="fc-rate-btn hard" data-rating="2">😅 Khó (Hard)</button>
+            <button class="fc-rate-btn good" data-rating="3">🙂 Tốt (Good)</button>
+            <button class="fc-rate-btn easy" data-rating="4">😎 Dễ (Easy)</button>
+          </div>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip — Cách đánh giá</div>
+          <b>Quên rồi</b>: bạn không nhớ nghĩa → thẻ sẽ xuất hiện lại rất sớm (trong vài phút).
+          <b>Khó</b>: nhớ được nhưng mất nhiều thời gian → ôn lại sau 1 ngày.
+          <b>Tốt</b>: nhớ đúng, phản xạ bình thường → khoảng cách ôn tập tăng dần (1 ngày → 3 ngày → 1 tuần...).
+          <b>Dễ</b>: nhớ ngay lập tức, quá quen thuộc → khoảng cách ôn tập tăng nhanh hơn nữa.
+        </div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Phần 21</h3>
+          <ul>
+            <li>120+ flashcard từ vựng trọng điểm, chia theo 6 bộ chủ đề khác nhau.</li>
+            <li>Thuật toán Spaced Repetition tự động tính lịch ôn tập tối ưu cho từng thẻ.</li>
+            <li>Tiến độ lưu trên trình duyệt — hãy ôn tập đều đặn mỗi ngày để đạt hiệu quả cao nhất.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 19</div>
+          Bạn giờ có đủ 4 công cụ tương tác: Speaking Studio, Conversation Simulator, IPA Lab, và Flashcard Trainer —
+          kết hợp với 20 phần lý thuyết, đây là một hệ sinh thái học tiếng Anh đầy đủ. Chúc bạn ôn tập hiệu quả mỗi ngày!
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+/* ============ FLASHCARD DATA ============ */
+const flashcardDecks = {
+  "Cơ bản": [
+    {word:"schwa", ipa:"/ə/", meaning:"âm yếu, phổ biến nhất trong tiếng Anh", example:"About /əˈbaʊt/"},
+    {word:"countable noun", ipa:"", meaning:"danh từ đếm được", example:"book, chair, apple"},
+    {word:"article", ipa:"", meaning:"mạo từ (a, an, the)", example:"a book, an apple, the sun"},
+    {word:"comparative", ipa:"", meaning:"so sánh hơn", example:"taller, more beautiful"},
+    {word:"preposition", ipa:"", meaning:"giới từ", example:"in, on, at, under"}
+  ],
+  "Thì & Ngữ pháp": [
+    {word:"present perfect", ipa:"", meaning:"hiện tại hoàn thành", example:"I have lived here for 5 years."},
+    {word:"passive voice", ipa:"", meaning:"câu bị động", example:"The cake was made by her."},
+    {word:"conditional sentence", ipa:"", meaning:"câu điều kiện", example:"If it rains, I will stay home."},
+    {word:"reported speech", ipa:"", meaning:"câu tường thuật", example:"She said she was tired."},
+    {word:"modal verb", ipa:"", meaning:"động từ khuyết thiếu", example:"can, could, must, should"}
+  ],
+  "Phrasal Verbs": [
+    {word:"give up", ipa:"", meaning:"từ bỏ", example:"Don't give up on your dreams."},
+    {word:"look after", ipa:"", meaning:"chăm sóc", example:"She looks after her little brother."},
+    {word:"run out of", ipa:"", meaning:"hết (đồ gì đó)", example:"We ran out of milk."},
+    {word:"put off", ipa:"", meaning:"trì hoãn", example:"He put off the meeting until next week."},
+    {word:"figure out", ipa:"", meaning:"tìm ra, hiểu ra", example:"I finally figured out the problem."}
+  ],
+  "Idioms": [
+    {word:"piece of cake", ipa:"", meaning:"việc rất dễ dàng", example:"The test was a piece of cake."},
+    {word:"break the ice", ipa:"", meaning:"phá vỡ sự ngại ngùng ban đầu", example:"He told a joke to break the ice."},
+    {word:"under the weather", ipa:"", meaning:"cảm thấy không khỏe", example:"I'm feeling a bit under the weather."},
+    {word:"once in a blue moon", ipa:"", meaning:"hiếm khi xảy ra", example:"She visits us once in a blue moon."},
+    {word:"cost an arm and a leg", ipa:"", meaning:"rất đắt đỏ", example:"That car cost an arm and a leg."}
+  ],
+  "IT & Công việc": [
+    {word:"algorithm", ipa:"", meaning:"thuật toán", example:"This sorting algorithm is very efficient."},
+    {word:"authentication", ipa:"", meaning:"xác thực người dùng", example:"The API uses JWT for authentication."},
+    {word:"technical debt", ipa:"", meaning:"nợ kỹ thuật", example:"We need to address our technical debt."},
+    {word:"deadline", ipa:"", meaning:"hạn chót", example:"We need to meet the project deadline."},
+    {word:"collaborate", ipa:"", meaning:"hợp tác, cộng tác", example:"Our team collaborates closely with design."}
+  ],
+  "Học thuật": [
+    {word:"significant", ipa:"", meaning:"đáng kể, quan trọng", example:"There was a significant increase in sales."},
+    {word:"hypothesis", ipa:"", meaning:"giả thuyết", example:"The data supported the initial hypothesis."},
+    {word:"methodology", ipa:"", meaning:"phương pháp luận", example:"The methodology section explains our approach."},
+    {word:"paraphrase", ipa:"", meaning:"diễn giải lại bằng lời văn khác", example:"Please paraphrase this sentence."},
+    {word:"criteria", ipa:"", meaning:"tiêu chí", example:"The essay is scored based on 4 criteria."}
+  ]
+};
+
+const STORAGE_KEY = 'empath_flashcard_progress';
+function loadProgress(){
+  try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }catch(e){ return {}; }
+}
+function saveProgress(p){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); }catch(e){}
+}
+let progress = loadProgress();
+
+function cardKey(deck, idx){ return deck + '::' + idx; }
+function getCardState(deck, idx){
+  const key = cardKey(deck, idx);
+  if(!progress[key]){
+    progress[key] = { interval: 0, due: Date.now(), reps: 0 };
+  }
+  return progress[key];
+}
+
+let currentDeck = "Cơ bản";
+let currentCardIdx = 0;
+let dueQueue = [];
+
+const deckSelect = document.getElementById('deckSelect');
+Object.keys(flashcardDecks).forEach(deckName=>{
+  const chip = document.createElement('button');
+  chip.className = 'fc-deck-chip' + (deckName===currentDeck?' active':'');
+  chip.textContent = deckName;
+  chip.onclick = ()=>{
+    currentDeck = deckName;
+    document.querySelectorAll('.fc-deck-chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    buildQueue();
+  };
+  deckSelect.appendChild(chip);
+});
+
+function buildQueue(){
+  const cards = flashcardDecks[currentDeck];
+  const now = Date.now();
+  dueQueue = cards.map((c, idx)=>({...c, idx})).filter((c)=> getCardState(currentDeck, c.idx).due <= now);
+  if(dueQueue.length === 0){
+    // if nothing due, show all cards anyway for practice
+    dueQueue = cards.map((c, idx)=>({...c, idx}));
+  }
+  currentCardIdx = 0;
+  updateStats();
+  showCard();
+}
+
+function updateStats(){
+  const cards = flashcardDecks[currentDeck];
+  const now = Date.now();
+  let dueCount = 0, masteredCount = 0;
+  cards.forEach((c, idx)=>{
+    const st = getCardState(currentDeck, idx);
+    if(st.due <= now) dueCount++;
+    if(st.interval >= 21) masteredCount++;
+  });
+  document.getElementById('statDue').textContent = dueCount;
+  document.getElementById('statTotal').textContent = cards.length;
+  document.getElementById('statMastered').textContent = masteredCount;
+}
+
+const flipCard = document.getElementById('flipCard');
+const frontFace = document.getElementById('frontFace');
+const backFace = document.getElementById('backFace');
+
+function showCard(){
+  flipCard.classList.remove('flipped');
+  if(dueQueue.length === 0){
+    frontFace.innerHTML = '<div class="fc-empty">🎉 Không còn thẻ nào cần ôn trong bộ này!</div>';
+    backFace.innerHTML = '<div class="fc-empty">Hãy chọn bộ từ khác hoặc quay lại sau.</div>';
+    return;
+  }
+  const c = dueQueue[currentCardIdx % dueQueue.length];
+  frontFace.innerHTML = `<div class="fc-word">${c.word}</div>${c.ipa ? `<div class="fc-ipa">${c.ipa}</div>` : ''}`;
+  backFace.innerHTML = `<div class="fc-meaning">${c.meaning}</div><div class="fc-example">"${c.example}"</div>`;
+}
+
+flipCard.addEventListener('click', ()=>{
+  if(dueQueue.length === 0) return;
+  flipCard.classList.toggle('flipped');
+});
+
+/* Simplified SM-2-like spaced repetition */
+function rateCard(rating){
+  if(dueQueue.length === 0) return;
+  const c = dueQueue[currentCardIdx % dueQueue.length];
+  const st = getCardState(currentDeck, c.idx);
+  st.reps = (st.reps || 0) + 1;
+
+  let nextIntervalDays;
+  if(rating === 1){ // Again
+    nextIntervalDays = 0.007; // ~10 minutes
+    st.interval = 0;
+  } else if(rating === 2){ // Hard
+    nextIntervalDays = Math.max(1, st.interval * 1.2);
+    st.interval = nextIntervalDays;
+  } else if(rating === 3){ // Good
+    nextIntervalDays = st.interval === 0 ? 1 : st.interval * 2.2;
+    st.interval = nextIntervalDays;
+  } else { // Easy
+    nextIntervalDays = st.interval === 0 ? 3 : st.interval * 3;
+    st.interval = nextIntervalDays;
+  }
+  st.due = Date.now() + nextIntervalDays * 24 * 60 * 60 * 1000;
+  progress[cardKey(currentDeck, c.idx)] = st;
+  saveProgress(progress);
+
+  currentCardIdx++;
+  updateStats();
+  showCard();
+}
+
+document.getElementById('rateRow').addEventListener('click', (e)=>{
+  const btn = e.target.closest('.fc-rate-btn');
+  if(!btn) return;
+  rateCard(parseInt(btn.dataset.rating, 10));
+});
+
+buildQueue();
+
+/* ============ DARK MODE / PRINT / MOBILE ============ */
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

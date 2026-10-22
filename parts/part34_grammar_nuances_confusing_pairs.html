@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáo Trình Tiếng Anh — Phần 34: Ngữ Pháp Nâng Cao & Các Cặp Từ Dễ Nhầm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+.icon-btn{border:1px solid var(--line); background:var(--paper-2); color:var(--text); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform .15s ease, background .2s; text-decoration:none;}
+</style>
+<link rel="stylesheet" href="../assets/lingoreach.css">
+<script src="../assets/lingoreach.js" defer></script>
+</head>
+<body data-theme="light">
+
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="waveform"><span></span><span></span><span></span><span></span><span></span></div>
+      <div><h1>Giáo Trình Tiếng Anh</h1><small>Tài Liệu Tiếng Anh Anh ngữ toàn diện</small></div>
+    </div>
+    <div class="sidebar-meter">
+      <div class="label"><span>Tiến độ Phần 34</span><span id="progressPct">0%</span></div>
+      <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    </div>
+    <div class="toc-group">
+      <div class="toc-title">Điều hướng</div>
+      <a class="toc-link" href="#intro"><span class="toc-num">00</span> Giới thiệu Phần 23</a>
+      <a class="toc-link" href="#ch147"><span class="toc-num">147</span> Thức giả định (Subjunctive Mood)</a>
+      <a class="toc-link" href="#ch148"><span class="toc-num">148</span> Tỉnh lược (Ellipsis) &amp; Thay thế (Substitution)</a>
+      <a class="toc-link" href="#ch149"><span class="toc-num">149</span> Danh động từ vs. Động từ nguyên mẫu (Gerund vs Infinitive)</a>
+      <a class="toc-link" href="#ch150"><span class="toc-num">150</span> 30 Cặp Từ Dễ Nhầm Lẫn Nhất</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+        <span class="topbar-title">Phần 34 / Ngữ Pháp Nâng Cao &amp; Cặp Từ Dễ Nhầm</span>
+      </div>
+      <div class="controls">
+        <a class="icon-btn" id="homeBtn" href="../index_hub.html" title="Về trang chủ">🏠</a>
+        <button class="icon-btn" id="darkToggle" title="Chế độ tối">🌙</button>
+        <button class="icon-btn" id="printBtn" title="In / Lưu PDF">🖨️</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro" class="chapter fade-in">
+        <div class="hero">
+          <span class="eyebrow">Giáo trình Anh ngữ toàn diện · Phần mở rộng kiến thức</span>
+          <h1>Ngữ Pháp Nâng Cao &amp; Các Cặp Từ Dễ Nhầm Lẫn</h1>
+          <p>
+            Đây là phần bổ sung những "góc khuất" ngữ pháp mà nhiều giáo trình cơ bản bỏ qua nhưng lại xuất hiện
+            thường xuyên trong văn viết học thuật và các bài thi trình độ cao: <b>Thức giả định (Subjunctive)</b>,
+            <b>Tỉnh lược câu (Ellipsis)</b>, sự khác biệt giữa <b>Gerund và Infinitive</b>, và một danh sách
+            <b>30 cặp từ tiếng Anh dễ gây nhầm lẫn nhất</b> (affect/effect, its/it's, lay/lie...).
+          </p>
+          <div class="roadmap">
+            <div class="rm-item"><b>Chương 93</b><div>Thức giả định — "were", "that + V nguyên mẫu"</div></div>
+            <div class="rm-item"><b>Chương 94</b><div>Tỉnh lược &amp; thay thế — tránh lặp từ tự nhiên</div></div>
+            <div class="rm-item"><b>Chương 95</b><div>Gerund vs Infinitive — khi nào dùng V-ing, khi nào dùng to V</div></div>
+            <div class="rm-item"><b>Chương 96</b><div>30 cặp từ dễ nhầm — tra cứu nhanh kèm ví dụ</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 93: SUBJUNCTIVE MOOD -->
+      <section id="ch147" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">147</span><h2>Thức Giả Định (Subjunctive Mood)</h2></div>
+        <div class="chapter-sub">Cấu trúc đặc biệt diễn tả điều không có thật, mong muốn, hoặc đề xuất trang trọng.</div>
+
+        <div class="section-block">
+          <h3>93.1 Subjunctive với "were" (đã gặp ở câu điều kiện loại 2)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">If I were you, I would accept the offer. — I wish it were possible to turn back time.</div>
+            <div class="ex-line ex-vi">→ "were" dùng cho MỌI chủ ngữ trong thức giả định, không chia theo "was" như thông thường.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>93.2 Subjunctive với "that + V nguyên mẫu" (mandative subjunctive)</h3>
+          <p>Dùng sau các động từ/tính từ diễn tả <b>đề nghị, yêu cầu, khuyến nghị trang trọng</b>: suggest, recommend,
+          insist, demand, propose, essential, important, vital...</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Câu ví dụ</th><th>Giải thích</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">The manager recommended that he arrive early.</td><td>KHÔNG chia "arrives" dù chủ ngữ là "he" — dùng V nguyên mẫu.</td></tr>
+                <tr><td class="mono">It is essential that every employee be informed.</td><td>"be" nguyên mẫu, không phải "is" hay "are".</td></tr>
+                <tr><td class="mono">She insisted that he apologize immediately.</td><td>"apologize" nguyên mẫu, không phải "apologizes".</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box warning">
+            <div class="box-title">⚠️ Warning</div>
+            Đây là lỗi rất phổ biến — người học thường chia động từ theo chủ ngữ như bình thường
+            (<span class="mono">❌ recommended that he arrives</span>) thay vì dùng thức giả định
+            (<span class="mono">✅ recommended that he arrive</span>). Cấu trúc này phổ biến hơn trong tiếng Anh-Mỹ
+            và văn phong trang trọng/học thuật.
+          </div>
+        </div>
+
+        <h3>93.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chọn đúng: "The doctor recommended that she (rests/rest) for a few days."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "rest" — thức giả định sau "recommend that", không chia theo chủ ngữ "she".</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chọn đúng: "It is important that everyone (is/be) on time for the meeting."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "be" — thức giả định sau cấu trúc "It is important that...".</div>
+        </div>
+
+        <h3>93.4 Quiz trắc nghiệm — Chương 93</h3>
+        <div class="quiz-box" id="quiz147"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 93</h3>
+          <ul>
+            <li>Subjunctive với "were": dùng cho mọi chủ ngữ trong câu điều kiện loại 2 và "wish".</li>
+            <li>Mandative subjunctive: "that + V nguyên mẫu" sau các động từ/tính từ đề nghị, yêu cầu trang trọng.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 94: ELLIPSIS & SUBSTITUTION -->
+      <section id="ch148" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">148</span><h2>Tỉnh Lược (Ellipsis) &amp; Thay Thế (Substitution)</h2></div>
+        <div class="chapter-sub">Kỹ thuật tránh lặp từ giúp câu văn tự nhiên và súc tích hơn.</div>
+
+        <div class="section-block">
+          <h3>94.1 Ellipsis — Lược bỏ phần lặp lại</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">She wanted to go to the party, but she couldn't [go to the party]. — He can speak French, and she can [speak French] too.</div>
+            <div class="ex-line ex-vi">→ Phần trong ngoặc thường được lược bỏ tự nhiên trong giao tiếp vì đã rõ ràng từ ngữ cảnh.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>94.2 Substitution — Thay thế bằng từ khác (so, do, one)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Từ thay thế</th><th>Ví dụ</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">so (thay cho cả mệnh đề)</td><td class="mono">"Is he coming?" "I think so." (= I think he is coming)</td></tr>
+                <tr><td class="mono">do/does/did (thay cho động từ)</td><td class="mono">"She works harder than he does." (= than he works)</td></tr>
+                <tr><td class="mono">one/ones (thay cho danh từ đếm được)</td><td class="mono">"I need a pen. Do you have one?" (= a pen)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3>94.3 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Rút gọn câu bằng ellipsis: "I wanted to help, but I couldn't help."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "I wanted to help, but I couldn't."</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Điền từ thay thế đúng: "Do you like coffee?" "Yes, I ___." (so/do)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "Yes, I do." (thay cho "I like coffee")</div>
+        </div>
+
+        <h3>94.4 Quiz trắc nghiệm — Chương 94</h3>
+        <div class="quiz-box" id="quiz148"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 94</h3>
+          <ul>
+            <li>Ellipsis: lược bỏ phần đã rõ ràng từ ngữ cảnh để tránh lặp.</li>
+            <li>Substitution: dùng so/do/one để thay thế mệnh đề/động từ/danh từ đã nhắc.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 95: GERUND VS INFINITIVE -->
+      <section id="ch149" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">149</span><h2>Danh Động Từ vs. Động Từ Nguyên Mẫu</h2></div>
+        <div class="chapter-sub">Gerund (V-ing) vs Infinitive (to V) — khi nào dùng cái nào sau động từ chính.</div>
+
+        <div class="section-block">
+          <h3>95.1 Động từ chỉ theo sau bởi Gerund (V-ing)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">enjoy, avoid, suggest, consider, finish, mind, admit, deny, practice, risk</div>
+            <div class="ex-line ex-en">She enjoys reading novels. — He suggested going to the beach.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>95.2 Động từ chỉ theo sau bởi Infinitive (to V)</h3>
+          <div class="example-block">
+            <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            <div class="ex-line ex-en">want, decide, plan, hope, promise, refuse, agree, manage, afford, offer</div>
+            <div class="ex-line ex-en">I decided to study abroad. — She refused to answer the question.</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>95.3 Động từ đổi nghĩa tùy theo Gerund hay Infinitive</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Động từ</th><th>+ V-ing</th><th>+ to V</th></tr></thead>
+              <tbody>
+                <tr><td>remember</td><td class="mono">remember doing (nhớ đã làm - quá khứ)</td><td class="mono">remember to do (nhớ để làm - tương lai)</td></tr>
+                <tr><td>stop</td><td class="mono">stop doing (dừng hẳn việc đang làm)</td><td class="mono">stop to do (dừng lại để làm việc khác)</td></tr>
+                <tr><td>try</td><td class="mono">try doing (thử làm để xem kết quả)</td><td class="mono">try to do (cố gắng làm, có thể không thành công)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box important">
+            <div class="box-title">📌 Important</div>
+            <span class="mono">"I stopped smoking"</span> (tôi đã bỏ hút thuốc - dừng hẳn) khác hoàn toàn
+            <span class="mono">"I stopped to smoke"</span> (tôi dừng lại để hút thuốc - đang làm việc khác thì dừng
+            để hút thuốc). Đây là lỗi rất dễ gây hiểu lầm nghiêm trọng nếu dùng sai.
+          </div>
+        </div>
+
+        <h3>95.4 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chọn đúng: "She enjoys (to swim/swimming) every morning."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "swimming" — "enjoy" luôn theo sau bởi gerund.</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Phân biệt nghĩa: "I remember locking the door" vs "I remembered to lock the door".</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "remember locking" = nhớ lại việc đã khóa cửa (một ký ức); "remembered to lock" = đã không quên khóa cửa (nhiệm vụ cần làm).</div>
+        </div>
+
+        <h3>95.5 Quiz trắc nghiệm — Chương 95</h3>
+        <div class="quiz-box" id="quiz149"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 95</h3>
+          <ul>
+            <li>enjoy, avoid, suggest, consider, finish + V-ing.</li>
+            <li>want, decide, plan, hope, promise + to V.</li>
+            <li>remember/stop/try đổi nghĩa hoàn toàn tùy theo V-ing hay to V theo sau.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHƯƠNG 96: 30 CONFUSING WORD PAIRS -->
+      <section id="ch150" class="chapter fade-in">
+        <div class="chapter-head"><span class="num">150</span><h2>30 Cặp Từ Dễ Nhầm Lẫn Nhất</h2></div>
+        <div class="chapter-sub">Tra cứu nhanh những cặp từ khiến cả người bản xứ cũng thường viết sai.</div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Từ 1</th><th>Từ 2</th><th>Phân biệt</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">affect (v.)</td><td class="mono">effect (n.)</td><td>ảnh hưởng đến (động từ) vs. hiệu ứng/kết quả (danh từ)</td></tr>
+              <tr><td class="mono">its</td><td class="mono">it's</td><td>sở hữu (của nó) vs. viết tắt của "it is/it has"</td></tr>
+              <tr><td class="mono">their</td><td class="mono">there / they're</td><td>sở hữu vs. chỉ nơi chốn vs. viết tắt "they are"</td></tr>
+              <tr><td class="mono">your</td><td class="mono">you're</td><td>sở hữu (của bạn) vs. viết tắt "you are"</td></tr>
+              <tr><td class="mono">lie (nói dối/nằm)</td><td class="mono">lay (đặt xuống)</td><td>"lie" là nội động từ (lie, lay, lain); "lay" là ngoại động từ, cần tân ngữ (lay, laid, laid)</td></tr>
+              <tr><td class="mono">then</td><td class="mono">than</td><td>chỉ thời gian/thứ tự vs. dùng trong so sánh</td></tr>
+              <tr><td class="mono">accept</td><td class="mono">except</td><td>chấp nhận vs. ngoại trừ</td></tr>
+              <tr><td class="mono">advice (n.)</td><td class="mono">advise (v.)</td><td>lời khuyên (danh từ) vs. khuyên (động từ)</td></tr>
+              <tr><td class="mono">complement</td><td class="mono">compliment</td><td>bổ sung hoàn thiện vs. lời khen</td></tr>
+              <tr><td class="mono">stationary</td><td class="mono">stationery</td><td>đứng yên vs. văn phòng phẩm</td></tr>
+              <tr><td class="mono">principal (n./adj.)</td><td class="mono">principle (n.)</td><td>hiệu trưởng/chính vs. nguyên tắc</td></tr>
+              <tr><td class="mono">weather</td><td class="mono">whether</td><td>thời tiết vs. liệu rằng (liên từ)</td></tr>
+              <tr><td class="mono">loose (adj.)</td><td class="mono">lose (v.)</td><td>lỏng lẻo vs. mất/thua</td></tr>
+              <tr><td class="mono">breath (n.)</td><td class="mono">breathe (v.)</td><td>hơi thở (danh từ) vs. thở (động từ)</td></tr>
+              <tr><td class="mono">desert (n./v.)</td><td class="mono">dessert (n.)</td><td>sa mạc/bỏ rơi vs. món tráng miệng</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box tip">
+          <div class="box-title">💡 Tip</div>
+          Mẹo nhớ nhanh: <span class="mono">"stationEry"</span> có chữ "E" giống "lEtter" (giấy tờ, văn phòng phẩm);
+          <span class="mono">"dEssert"</span> có 2 chữ "S" giống việc bạn muốn ăn "2 phần" tráng miệng ngon.
+        </div>
+
+        <h3>96.1 Bài tập thực hành</h3>
+        <div class="ex-item">
+          <div class="q">1. Chọn đúng: "The new policy will (affect/effect) all employees."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "affect" — vì đây là động từ (ảnh hưởng đến).</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">2. Chọn đúng: "Please (lie/lay) the documents on the table."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "lay" — vì có tân ngữ "the documents" (đặt cái gì đó xuống).</div>
+        </div>
+        <div class="ex-item">
+          <div class="q">3. Chọn đúng: "I'm not sure (weather/whether) she will come."</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Xem đáp án</button>
+          <div class="ex-answer">✅ "whether" — liên từ diễn tả "liệu rằng".</div>
+        </div>
+
+        <h3>96.2 Quiz trắc nghiệm — Chương 96</h3>
+        <div class="quiz-box" id="quiz150"></div>
+
+        <div class="summary-card">
+          <h3>🎯 Tổng kết Chương 96</h3>
+          <ul>
+            <li>30 cặp từ dễ nhầm được liệt kê để tra cứu nhanh khi viết.</li>
+            <li>Học cách phân biệt qua từ loại (danh từ/động từ) và ngữ cảnh câu.</li>
+          </ul>
+        </div>
+
+        <div class="box tip" style="margin-top:30px;">
+          <div class="box-title">✅ Hoàn thành Phần 23</div>
+          Bạn đã mở rộng thêm kiến thức ngữ pháp nâng cao và tránh được các lỗi chính tả/từ vựng phổ biến nhất! Hãy
+          tiếp tục ôn tập bằng Flashcard Trainer (Phần 21) để ghi nhớ 30 cặp từ này lâu dài.
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button id="toTop" title="Lên đầu trang">↑</button>
+
+<script>
+function toggleAcc(head){
+  const acc = head.parentElement;
+  const body = acc.querySelector('.acc-body');
+  const isOpen = acc.classList.contains('open');
+  if(isOpen){ acc.classList.remove('open'); body.style.maxHeight = null; }
+  else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 40 + "px"; }
+}
+function toggleAnswer(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? "Ẩn đáp án" : "Xem đáp án";
+}
+function copyBlock(btn){
+  const block = btn.parentElement;
+  const text = [...block.querySelectorAll('.ex-en')].map(e=>e.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "Đã chép!";
+    setTimeout(()=>btn.textContent = old, 1500);
+  });
+}
+
+const quizData = {
+  quiz147: [
+    {q:"'If I ___ you, I would apologize.' chọn đúng.", opts:["was","were","am","be"], correct:1},
+    {q:"'The committee recommended that he ___ the position.' chọn đúng.", opts:["accepts","accepted","accept","accepting"], correct:2},
+    {q:"'It is vital that she ___ informed immediately.' chọn đúng.", opts:["is","was","be","being"], correct:2}
+  ],
+  quiz148: [
+    {q:"'I wanted to go, but I couldn't ___.' hoàn thành bằng ellipsis.", opts:["go","to go","going","(để trống, không thêm gì)"], correct:3},
+    {q:"'She works harder than he ___.' chọn từ thay thế đúng.", opts:["does","is","so","one"], correct:0},
+    {q:"'I need a pen, do you have ___?' chọn từ thay thế đúng.", opts:["it","one","so","do"], correct:1}
+  ],
+  quiz149: [
+    {q:"'She avoids ___ (eat/eating) junk food.' chọn đúng.", opts:["eat","eating","to eat","ate"], correct:1},
+    {q:"'He decided ___ (study/to study) abroad.' chọn đúng.", opts:["study","studying","to study","studied"], correct:2},
+    {q:"'I stopped ___ (to smoke/smoking) five years ago.' (ý nghĩa: đã bỏ thuốc hoàn toàn)", opts:["to smoke","smoking","smoke","smoked"], correct:1}
+  ],
+  quiz150: [
+    {q:"Từ nào là động từ trong cặp 'affect/effect'?", opts:["affect","effect","cả hai đều là động từ","không từ nào là động từ"], correct:0},
+    {q:"'stationery' nghĩa là gì?", opts:["đứng yên","văn phòng phẩm","cố định","di chuyển"], correct:1},
+    {q:"Cặp từ nào phân biệt 'sở hữu' và 'viết tắt của is/has'?", opts:["their/there","its/it's","then/than","accept/except"], correct:1}
+  ]
+};
+
+function buildQuiz(id, data){
+  const container = document.getElementById(id);
+  if(!container || !Array.isArray(data) || data.length === 0) return;
+
+  let lastAttemptSignature = '';
+  function shuffleQuizItems(items){
+    const shuffled = [...items];
+    for(let i=shuffled.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  function renderAttempt(){
+    container.innerHTML = '';
+    let score = 0;
+    let answered = 0;
+    const questionCount = data.length > 2 ? Math.max(2, Math.floor(data.length * 0.7)) : data.length;
+    const selected = shuffleQuizItems(data).slice(0, questionCount);
+    const attempt = selected.map(item=>({
+      item,
+      options: shuffleQuizItems(item.opts.map((text,index)=>({text, isCorrect:index===item.correct})))
+    }));
+    let signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    if(signature === lastAttemptSignature && attempt.length){
+      if(attempt.length > 1) [attempt[0],attempt[1]]=[attempt[1],attempt[0]];
+      else [attempt[0].options[0],attempt[0].options[1]]=[attempt[0].options[1],attempt[0].options[0]];
+      signature = JSON.stringify(attempt.map(row=>[row.item.q,row.options.map(option=>option.text)]));
+    }
+    lastAttemptSignature = signature;
+
+    attempt.forEach((row,qi)=>{
+      const item = row.item;
+      const qDiv = document.createElement('div');
+      qDiv.className='quiz-q';
+      const questionText = item.q.replace(/^\d+\.\s*/, '');
+      qDiv.innerHTML = '<p>Câu ' + (qi+1) + '. ' + questionText + '</p>';
+      const optsDiv = document.createElement('div');
+      optsDiv.className='quiz-opts';
+      row.options.forEach(option=>{
+        const b = document.createElement('button');
+        b.className='quiz-opt';
+        b.textContent = option.text;
+        b.onclick = ()=>{
+          if(b.dataset.locked) return;
+          [...optsDiv.children].forEach(c=>c.dataset.locked="1");
+          if(option.isCorrect){ b.classList.add('correct'); score++; }
+          else {
+            b.classList.add('wrong');
+            const correctIndex = row.options.findIndex(candidate=>candidate.isCorrect);
+            optsDiv.children[correctIndex].classList.add('correct');
+          }
+          answered++;
+          updateScore();
+        };
+        optsDiv.appendChild(b);
+      });
+      qDiv.appendChild(optsDiv);
+      container.appendChild(qDiv);
+    });
+
+    const scoreEl = document.createElement('div');
+    scoreEl.className='quiz-score';
+    container.appendChild(scoreEl);
+    const retryButton = document.createElement('button');
+    retryButton.type='button';
+    retryButton.className='quiz-retry-btn';
+    retryButton.textContent='🔄 Làm bộ câu khác';
+    retryButton.style.cssText='margin:12px 0;padding:10px 16px;border:0;border-radius:8px;background:var(--teal);color:#fff;font-weight:700;cursor:pointer;';
+    retryButton.addEventListener('click',renderAttempt);
+    container.appendChild(retryButton);
+    function updateScore(){
+      scoreEl.textContent = 'Điểm hiện tại: ' + score + '/' + attempt.length + ' (' + answered + '/' + attempt.length + ' câu đã trả lời)';
+    }
+    updateScore();
+  }
+  renderAttempt();
+}
+Object.keys(quizData).forEach(id=>buildQuiz(id, quizData[id]));
+
+const darkToggle = document.getElementById('darkToggle');
+function applyTheme(theme){
+  document.body.setAttribute('data-theme', theme);
+  if(darkToggle) darkToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+applyTheme(localStorage.getItem('empath_theme') || 'light');
+if(darkToggle){
+  darkToggle.addEventListener('click', ()=>{
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('empath_theme', newTheme);
+  });
+}
+document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+menuToggle && menuToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+
+const progressBar = document.getElementById('progressBar');
+const progressPct = document.getElementById('progressPct');
+const meterFill = document.getElementById('meterFill');
+const toTopBtn = document.getElementById('toTop');
+const tocLinks = document.querySelectorAll('.toc-link');
+const chapters = document.querySelectorAll('section.chapter');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, (scrollTop/docHeight)*100) : 0;
+  progressBar.style.width = pct + "%";
+  progressPct.textContent = Math.round(pct) + "%";
+  meterFill.style.width = pct + "%";
+  toTopBtn.style.display = scrollTop > 400 ? 'flex' : 'none';
+  let currentId = "";
+  chapters.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){ currentId = sec.id; }
+  });
+  tocLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#'+currentId);
+  });
+});
+toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

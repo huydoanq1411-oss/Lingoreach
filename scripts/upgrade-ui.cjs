@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const files = fs.readdirSync(root).filter(n => /^(part.*|index_hub|quiz|tu_vung|tra_tu_vung)\.html$/.test(n));
+const files = [...fs.readdirSync(root).filter(n => /^(index_hub|quiz|tu_vung|tra_tu_vung)\.html$/.test(n)), ...fs.readdirSync(path.join(root,'parts')).map(n=>'parts/'+n)];
 // Read balanced top-level rules, including media/keyframe blocks, without parsing declarations.
 function rules(css) {
   const out = []; let start = 0, depth = 0, quote = '', comment = false;
@@ -47,7 +47,8 @@ for(const p of pages){
   let css=p.match[1];
   for(const r of [...p.parsed].reverse())if(commonSet.has(clean(r.text)))css=css.slice(0,r.start)+css.slice(r.end);
   let html=p.html.replace(p.match[0],'<style>'+css+'</style>');
-  if(!html.includes('href="assets/lingoreach.css"'))html=html.replace('</head>','<link rel="stylesheet" href="assets/lingoreach.css">\n<script src="assets/lingoreach.js" defer></script>\n</head>');
+  const assetBase=p.name.startsWith('parts/')?'../assets/':'assets/';
+  if(!html.includes(`href="${assetBase}lingoreach.css"`))html=html.replace('</head>',`<link rel="stylesheet" href="${assetBase}lingoreach.css">\n<script src="${assetBase}lingoreach.js" defer></script>\n</head>`);
   fs.writeFileSync(path.join(root,p.name),html);
   report.push(`${p.name}: updated; ${p.parsed.filter(r=>commonSet.has(clean(r.text))).length} shared rules extracted`);
 }
