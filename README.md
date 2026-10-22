@@ -16,8 +16,8 @@ Nền tảng tự học tiếng Anh với bài học song ngữ, bài tập và 
 
 | Thành phần | Công nghệ |
 | --- | --- |
-| Trang giới thiệu | React 19, TypeScript, Vite 7 |
-| Giao diện React | Tailwind CSS 4, Framer Motion, Lucide React |
+| Trang giới thiệu | HTML, CSS, JavaScript; Vite 7 ?? ph?t tri?n/build |
+| Giao diện React | M? React/TypeScript tham chi?u trong `designpro/` |
 | Thư viện học tập | HTML, CSS và JavaScript thuần |
 | Font | Fraunces, Inter, JetBrains Mono qua Google Fonts |
 | Lưu trạng thái | `localStorage` |
@@ -114,7 +114,7 @@ npm run preview -- --port 5173
 ```
 
 ```bash
-node scripts/verify-designpro.cjs
+node scripts/verify-home.cjs
 ```
 
 Có thể đặt `PREVIEW_URL` nếu dùng địa chỉ khác. Ảnh kiểm tra mới được lưu trong `.preview/`; một số script cũ lưu ảnh vào thư mục tạm của hệ điều hành. Các kiểm tra hiện có không thay thế kiểm toán accessibility đầy đủ.
