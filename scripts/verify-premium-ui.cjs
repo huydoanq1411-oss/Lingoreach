@@ -4,7 +4,7 @@ const path = require('node:path');
 const assert = require('node:assert/strict');
 const { pathToFileURL } = require('node:url');
 const root = path.resolve(__dirname, '..');
-const files = ['index_hub.html', 'quiz.html', 'tu_vung.html', 'tra_tu_vung.html', ...fs.readdirSync(path.join(root, 'parts')).map(n => `parts/${n}`)].filter(file => fs.statSync(path.join(root, file)).size);
+const files = ['index.html', 'quiz.html', 'tu_vung.html', 'tra_tu_vung.html', ...fs.readdirSync(path.join(root, 'parts')).map(n => `parts/${n}`)].filter(file => fs.statSync(path.join(root, file)).size);
 (async () => {
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
   try {

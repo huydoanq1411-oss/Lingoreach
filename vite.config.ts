@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { cpSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-// Keep the original, standalone learning pages available in production too.
+// Keep the unified static homepage and standalone lessons available in production.
 export default defineConfig({
   base: './',
   plugins: [react(), tailwindcss(), {
