@@ -1,86 +1,128 @@
-# Giáo trình Tiếng Anh ENG
+# Lingoreach · DesignPro
 
-Tài liệu tự học tiếng Anh chạy trực tiếp trong trình duyệt, từ phát âm và ngữ pháp nền tảng đến giao tiếp, luyện thi, tiếng Anh học thuật và tiếng Anh ngành IT. Phần lớn bài học là các trang HTML độc lập; không cần cài đặt hay chạy máy chủ.
+Nền tảng tự học tiếng Anh với bài học song ngữ, bài tập và công cụ luyện tập trên trình duyệt. Dự án kết hợp thư viện HTML độc lập của Lingoreach với trang giới thiệu DesignPro viết bằng React và TypeScript.
 
-## DesignPro interface
+## Tính năng chính
 
-Run `npm install` and `npm run dev`, then open the URL shown by Vite. Build with `npm run build`; preview production with `npm run preview`.
+- **Thư viện học tập:** tìm kiếm, lọc tài liệu, đánh dấu hoàn thành và lưu tiến độ trên trình duyệt.
+- **Nội dung tiếng Anh:** phát âm IPA, ngữ pháp, từ vựng, giao tiếp, tiếng Anh công việc, TOEIC và IELTS.
+- **Luyện tập:** quiz chấm điểm, flashcard ôn cách quãng, Writing Lab, Listening Lab và mô phỏng hội thoại.
+- **Tra cứu:** từ điển Anh–Việt nội bộ, tra cứu trực tuyến và bộ từ vựng cá nhân ở các công cụ có hỗ trợ.
+- **Âm thanh:** đọc văn bản, nhận diện giọng nói và trực quan hóa microphone tùy khả năng trình duyệt.
+- **Giao diện:** nền tối, tiêu đề serif, điểm nhấn gold/teal, bố cục responsive và hỗ trợ giảm chuyển động.
+- **DesignPro:** hero video, chữ quét sáng, menu mobile và hộp thông tin chương trình.
 
-The React + TypeScript hero lives in `designpro/`. All 38 original lesson files live in `parts/`; the English learning hub remains at `index_hub.html`. The production build includes the complete HTML library and shared assets. DesignPro application dates, instructor profiles, graduate stories, and contact details are pending; navigation opens explanatory panels and enrollment does not submit data.
+## Công nghệ sử dụng
 
-## Bắt đầu nhanh
+| Thành phần | Công nghệ |
+| --- | --- |
+| Trang giới thiệu | React 19, TypeScript, Vite 7 |
+| Giao diện React | Tailwind CSS 4, Framer Motion, Lucide React |
+| Thư viện học tập | HTML, CSS và JavaScript thuần |
+| Font | Fraunces, Inter, JetBrains Mono qua Google Fonts |
+| Lưu trạng thái | `localStorage` |
+| Âm thanh | Web Speech API, Web Audio API, MediaDevices |
+| Kiểm tra giao diện | Script Node.js sử dụng Playwright Core và Microsoft Edge |
 
-1. Mở [index_hub.html](index_hub.html) bằng trình duyệt hiện đại.
-2. Người mới nên học theo thứ tự **Phần 1 → Phần 9**, sau đó chọn mục tiêu ở phần luyện thi, giao tiếp hoặc nâng cao.
-3. Trong mỗi buổi, học một chủ điểm nhỏ, tự làm bài trước khi mở đáp án, rồi dùng kiến thức đó để nói hoặc viết câu của riêng mình.
-4. Dùng [Phần 19 — Flashcard Trainer](parts/part19_flashcard_trainer.html) và ghi lại lỗi thường gặp để ôn theo lịch.
+Dự án hiện không có backend hoặc cơ sở dữ liệu máy chủ. Tailwind chỉ được tích hợp cho phần React; các trang bài học dùng CSS riêng và CSS dùng chung.
 
-Trang hub là mục lục chính: có tìm kiếm, lọc theo nhóm và đánh dấu tiến độ. Tiến độ được lưu trong bộ nhớ cục bộ của trình duyệt; dữ liệu không tự đồng bộ sang thiết bị khác.
+## Cài đặt và chạy
 
-## Lộ trình và danh mục nội dung
+### Yêu cầu
 
-### Nền tảng và ngữ pháp
+- Node.js 22.12 trở lên và npm.
+- Trình duyệt hiện đại; khả năng nhận diện giọng nói phụ thuộc trình duyệt và thiết bị.
 
-| Phần | Nội dung | Tệp |
-| --- | --- | --- |
-| 1 | Bảng chữ cái, IPA, phonics và nền tảng phát âm | [part1_alphabet_ipa_phonics.html](parts/part1_alphabet_ipa_phonics.html) |
-| 2 | Từ loại, từ vựng theo chủ đề và ngữ pháp cơ bản | [part2_vocab_basic_grammar.html](parts/part2_vocab_basic_grammar.html) |
-| 3 | Các thì tiếng Anh | [part3_tenses.html](parts/part3_tenses.html) |
-| 4 | Modal verbs và câu điều kiện | [part4_modals_conditionals.html](parts/part4_modals_conditionals.html) |
-| 5 | Câu bị động và câu tường thuật | [part5_passive_reported.html](parts/part5_passive_reported.html) |
-| 6 | Phrasal verbs, collocations và idioms | [part6_phrasalverbs_collocations_idioms.html](parts/part6_phrasalverbs_collocations_idioms.html) |
-| 7–9 | Nghe–nói, đọc–viết, Business English và Academic English | [Phần 7](parts/part7_listening_speaking.html) · [Phần 8](parts/part8_reading_writing.html) · [Phần 9](parts/part9_business_academic.html) |
+### Phát triển
 
-### Kỹ năng, giao tiếp và nghề nghiệp
+Chạy trong thư mục gốc của dự án:
 
-| Phần | Nội dung | Tệp |
-| --- | --- | --- |
-| 11 | Phương pháp tự học, ghi nhớ và sửa lỗi phổ biến | [part11_tips_mistakes_selfstudy.html](parts/part11_tips_mistakes_selfstudy.html) |
-| 12 | Từ vựng công nghệ thông tin | [part12_it_vocabulary.html](parts/part12_it_vocabulary.html) |
-| 14–15 | Phrasal verbs/idioms mở rộng và phỏng vấn IT | [Phần 14](parts/part14_phrasalverbs_idioms_extended.html) · [Phần 15](parts/part15_it_interview_english.html) |
-| 16–18 | Luyện nói, mô phỏng hội thoại và phòng luyện IPA | [Phần 16](parts/part16_speaking_studio.html) · [Phần 17](parts/part17_conversation_simulator.html) · [Phần 18](parts/part18_ipa_pronunciation_lab.html) |
-| 21 | Giao tiếp tiếng Anh nơi làm việc Nhật Bản | [part21_japan_workplace_culture.html](parts/part21_japan_workplace_culture.html) |
-| 22, 24 | Writing Lab và Listening Comprehension Lab | [Phần 22](parts/part22_writing_lab.html) · [Phần 24](parts/part24_listening_comprehension_lab.html) |
-| 26–29 | Giảm âm và giọng vùng, tranh biện/thuyết trình, chatbot luyện tập | [Phần 26](parts/part26_weakforms_accents_grammar_gaps.html) · [Phần 27](parts/part27_debate_publicspeaking_notetaking.html) · [Phần 28](parts/part28_ai_chatbot_practice.html) · [Phần 29](parts/part29_real_ai_chatbot.html) |
+```bash
+npm ci
+npm run dev
+```
 
-### Luyện thi và tài liệu nâng cao
+Mở địa chỉ do Vite hiển thị, sau đó truy cập:
 
-| Phần | Nội dung | Tệp |
-| --- | --- | --- |
-| 13 | Bài tập TOEIC/IELTS | [part13_toeic_ielts_practice.html](parts/part13_toeic_ielts_practice.html) |
-| 20 | IELTS Band 8 | [part20_ielts_band8.html](parts/part20_ielts_band8.html) |
-| 23, 34 | Ôn ngữ pháp nâng cao và phân biệt các cặp từ dễ nhầm | [Phần 23](parts/part23_advanced_grammar_review.html) · [Phần 34](parts/part34_grammar_nuances_confusing_pairs.html) |
-| 25 | Cấu tạo từ, word families, tiền tố và hậu tố | [part25_word_building.html](parts/part25_word_building.html) |
-| 30, 32–33 | Từ vựng chuyên ngành, ngôn ngữ học cơ bản và các kỳ thi khác | [Phần 30](parts/part30_specialized_english_fields.html) · [Phần 32](parts/part32_linguistics_basics.html) · [Phần 33](parts/part33_other_exams.html) |
-| 35–36 | Ngân hàng quiz, từ loại và lộ trình CEFR A1–C2 | [Phần 35](parts/part35_mega_quiz_bank.html) · [Phần 36](parts/part36_word_types_cefr_roadmap.html) |
-| 40–41 | Danh sách từ vựng TOEFL/IELTS và ngân hàng dàn ý Writing Task 2 | [Phần 40](parts/part40_22000_tu_vung_ielts.html) · [Phần 41](parts/part41_task2_outline_bank.html) |
+- `/`: trang giới thiệu DesignPro.
+- `/index_hub.html`: mục lục học tiếng Anh.
+- `/quiz.html`: quiz tổng hợp.
+- `/tu_vung.html`: từ vựng tổng hợp.
+- `/tra_tu_vung.html`: từ điển.
+- `/parts/<ten-file>.html`: từng bài học.
 
-### Công cụ tra cứu và ôn tập
+Các trang học HTML có thể mở trực tiếp bằng trình duyệt. Nên dùng địa chỉ localhost cố định để có môi trường nhất quán cho lưu trạng thái và các API trình duyệt. Trang React cần Vite hoặc bản build; không chạy bằng cách mở trực tiếp `index.html`.
 
-- [Tra từ vựng](tra_tu_vung.html): từ điển Anh–Việt nội bộ và tra cứu trực tuyến khi có kết nối mạng.
-- [Từ vựng tổng hợp](tu_vung.html): danh sách từ theo chủ đề, IELTS, Writing Task 2, phrasal verbs, idioms, chuyên ngành, từ loại và bài tập điền từ. Trang có tìm kiếm, phát âm, kiểm tra phát âm và lưu từ cá nhân.
-- [Quiz tổng hợp](quiz.html): ngân hàng câu hỏi ôn tập.
-- Các quiz trong bài học có nút **Làm bộ câu khác**; câu hỏi được lấy ngẫu nhiên từ ngân hàng của bài và đáp án được xáo trộn. Quiz tổng hợp cũng xáo thứ tự câu và đáp án mỗi lượt.
-- [Phần 19 — Flashcard Trainer](parts/part19_flashcard_trainer.html): luyện nhớ từ bằng flashcard và lịch ôn tập.
+### Build và xem bản production
 
-## Cách học gợi ý
+```bash
+npm run build
+npm run preview
+```
 
-- Duy trì 30–60 phút mỗi ngày; chia thời gian giữa tiếp nhận (đọc/nghe) và chủ động sử dụng (nói/viết).
-- Học từ vựng trong cụm từ và câu hoàn chỉnh. Ghi từ loại, collocation, nghĩa theo ngữ cảnh và một câu tự đặt.
-- Ôn cách quãng, chẳng hạn sau 1 ngày, 3 ngày và 1 tuần; điều chỉnh nếu bạn vẫn chưa nhớ chắc.
-- Với phát âm, nghe mẫu, chú ý trọng âm và âm cuối, sau đó thu âm hoặc dùng tính năng nhận diện giọng nói nếu trình duyệt hỗ trợ.
-- Ghi lại lỗi thành câu đúng và tạo một ví dụ mới để tránh chỉ học thuộc đáp án.
+Lệnh build kiểm tra TypeScript và tạo `dist/`, bao gồm ứng dụng React, các trang học, thư mục `parts/` và tài nguyên dùng chung. Có thể phục vụ toàn bộ `dist/` bằng static hosting; cần giữ nguyên cấu trúc đường dẫn HTML.
 
-## Yêu cầu và tính năng trình duyệt
+## Cấu trúc thư mục
 
-- Mở trang HTML trực tiếp. Một số tính năng tra cứu từ trực tuyến cần kết nối Internet.
-- Tính năng đọc từ dùng Speech Synthesis; nhận diện giọng nói/phát âm phụ thuộc vào trình duyệt, thiết bị và quyền microphone. Chrome thường hỗ trợ tốt các tính năng này.
-- Dữ liệu tiến độ và một số từ cá nhân được lưu trong `localStorage` của trình duyệt. Xóa dữ liệu trang hoặc đổi trình duyệt có thể làm mất dữ liệu đó.
-- Phần 29 gọi Claude API và ghi chú trong trang cho biết tính năng này dành cho bản xem trước trong cuộc trò chuyện Claude; mở HTML đã tải trực tiếp trên máy có thể không kết nối được. Không có bước cấu hình khóa API trong tệp hiện tại.
+```text
+Lingoreach/
+├── index.html                       # Điểm vào ứng dụng React
+├── index_hub.html                   # Mục lục học tiếng Anh
+├── quiz.html                        # Quiz tổng hợp
+├── tu_vung.html                     # Từ vựng tổng hợp
+├── tra_tu_vung.html                 # Từ điển Anh–Việt
+├── designpro/
+│   ├── main.tsx                     # Khởi tạo React
+│   ├── DesignProHero.tsx            # Hero, menu và hộp thông tin
+│   ├── ShinyText.tsx                # Hiệu ứng chữ quét sáng
+│   ├── useMotionPreference.ts       # Theo dõi reduced motion
+│   └── styles.css                   # Tailwind và CSS của React
+├── parts/                           # 38 file bài học, gồm một file trống
+├── assets/
+│   ├── lingoreach.css               # CSS nền tảng và legacy
+│   ├── premium-dark.css             # Theme giáo dục nền tối
+│   └── lingoreach.js                # Tương tác và hiệu ứng dùng chung
+├── scripts/                         # Migration và kiểm tra
+├── PREMIUM-DESIGN-SYSTEM.md          # Quy ước giao diện
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── vite.config.ts
+└── dist/                            # Kết quả build, không đưa vào Git
+```
 
-## Tình trạng tệp và phạm vi
+## Kiểm tra
 
-- [index_hub.html](index_hub.html) là điểm vào và mục lục cập nhật của dự án.
-- [part10_toeic_ielts.html](parts/part10_toeic_ielts.html) hiện là tệp trống; hãy dùng Phần 13 để luyện TOEIC/IELTS.
-- Số phần trong tên và hub có thể không liên tục vì một số phần là công cụ hoặc tài liệu tra cứu riêng.
-- Các trang hoạt động độc lập; README cung cấp đường dẫn nhanh, còn nội dung chi tiết nằm trong từng trang.
+```bash
+npm run build
+node scripts/verify-premium-preservation.cjs
+```
+
+Script preservation đối chiếu nội dung với baseline trước đợt restyle; các thay đổi nội dung có chủ đích cần được xem xét cùng baseline.
+
+Các kiểm tra trình duyệt hiện yêu cầu Microsoft Edge và module `playwright-core`. Dependency này chưa được khai báo trong `package.json`; cần cài riêng và đặt biến môi trường `PLAYWRIGHT_CORE_PATH` tới thư mục module nếu đường dẫn mặc định trong script không phù hợp máy của bạn.
+
+```bash
+node scripts/verify-ui.cjs
+node scripts/verify-premium-ui.cjs
+```
+
+Để kiểm tra hero, chạy preview ở một terminal khác rồi thực hiện:
+
+```bash
+npm run preview -- --port 5173
+```
+
+```bash
+node scripts/verify-designpro.cjs
+```
+
+Có thể đặt `PREVIEW_URL` nếu dùng địa chỉ khác. Ảnh kiểm tra mới được lưu trong `.preview/`; một số script cũ lưu ảnh vào thư mục tạm của hệ điều hành. Các kiểm tra hiện có không thay thế kiểm toán accessibility đầy đủ.
+
+## Phạm vi và lưu ý
+
+- Có 41 trang HTML học tập có nội dung, ngoài trang React. `parts/part10_toeic_ielts.html` hiện trống; mục tương ứng trên hub được đánh dấu đang cập nhật.
+- Tiến độ và dữ liệu cá nhân được lưu cục bộ, không đồng bộ tài khoản. Đổi origin, cổng, trình duyệt hoặc xóa dữ liệu trang có thể khiến dữ liệu đã lưu không còn xuất hiện.
+- Video, Google Fonts và tra từ trực tuyến cần Internet. Microphone cần quyền truy cập và môi trường được trình duyệt cho phép, thường là HTTPS hoặc localhost.
+- Chatbot AI thật gọi dịch vụ bên ngoài và phụ thuộc môi trường tích hợp; dự án chưa có backend xác thực để chạy tính năng này độc lập.
+- DesignPro hiện là trang giới thiệu: các mục điều hướng mở hộp thông tin, nút đăng ký chưa gửi đơn hoặc dữ liệu tới máy chủ.
