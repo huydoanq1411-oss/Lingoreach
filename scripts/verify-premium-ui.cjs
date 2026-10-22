@@ -28,7 +28,7 @@ const files = ['index.html', 'quiz.html', 'tu_vung.html', 'tra_tu_vung.html', ..
         return false;
       }).slice(0, 15).map(el => ({ tag: el.tagName, class: el.className, text: el.textContent.trim().slice(0, 70), color: getComputedStyle(el).color })));
       if (illegible.length) contrast.push({ file, elements: illegible });
-      if (['index_hub.html', 'quiz.html', 'tu_vung.html', 'tra_tu_vung.html', 'parts/part3_tenses.html', 'parts/part19_flashcard_trainer.html', 'parts/part29_real_ai_chatbot.html'].includes(file)) {
+      if (['index.html', 'quiz.html', 'tu_vung.html', 'tra_tu_vung.html', 'parts/part3_tenses.html', 'parts/part19_flashcard_trainer.html', 'parts/part29_real_ai_chatbot.html'].includes(file)) {
         for (const width of [1440, 390]) {
           await page.setViewportSize({ width, height: 1000 });
           await page.screenshot({ path: `.preview/premium/${path.basename(file, '.html')}-${width}.png` });

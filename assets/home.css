@@ -1,5 +1,6 @@
 /* One static homepage: the learning hub's content, composed like the DesignPro hero. */
 body.merged-home { background: #0a0a0a; }
+@view-transition { navigation: none; }
 body.merged-home .topnav {
   position: absolute; inset: 24px 0 auto; z-index: 50;
   width: min(1280px, calc(100% - 64px)); margin-inline: auto;
