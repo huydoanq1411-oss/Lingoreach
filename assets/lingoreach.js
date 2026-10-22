@@ -46,7 +46,7 @@
   function count(el){const value=el.textContent.trim();if(!/^\d+[+%]?$/.test(value)||!active())return;const target=parseInt(value),suffix=value.replace(/^\d+/,'');let start;const step=t=>{if(!active()){el.textContent=value;return;}start??=t;const p=Math.min(1,(t-start)/CONFIG.count);el.textContent=Math.round(target*(1-(1-p)**3))+suffix;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);}
   function countScore(el){if(!el||!active())return;const value=el.textContent.trim(),match=value.match(/^(\d+)\/(\d+)$/);if(!match)return;let start,last=value;const step=t=>{if(el.textContent!==last||!el.closest('.show'))return;if(!active()){el.textContent=value;return;}start??=t;const p=Math.min(1,(t-start)/CONFIG.count);last=`${Math.round(Number(match[1])*(1-(1-p)**3))}/${match[2]}`;el.textContent=last;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);}
   $$('.hero-stat b').forEach(count);
-  const title=$('.hero-hub h1');if(title&&!document.body.classList.contains('merged-home')){const walker=document.createTreeWalker(title,NodeFilter.SHOW_TEXT),nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);let order=0;nodes.forEach(node=>{const fragment=document.createDocumentFragment();node.textContent.split(/(\s+)/).forEach(word=>{if(!word.trim()){fragment.append(document.createTextNode(word));return;}const span=document.createElement('span');span.className='lr-word';span.style.setProperty('--word-delay',`${order++*35}ms`);span.textContent=word;fragment.append(span);});node.replaceWith(fragment);});title.classList.add('lr-hero-ready');}
+  const title=$('.hero-hub h1');if(title){const walker=document.createTreeWalker(title,NodeFilter.SHOW_TEXT),nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);let order=0;nodes.forEach(node=>{const fragment=document.createDocumentFragment();node.textContent.split(/(\s+)/).forEach(word=>{if(!word.trim()){fragment.append(document.createTextNode(word));return;}const span=document.createElement('span');span.className='lr-word';span.style.setProperty('--word-delay',`${order++*35}ms`);span.textContent=word;fragment.append(span);});node.replaceWith(fragment);});title.classList.add('lr-hero-ready');}
   // Hub: retain existing search/filter semantics, add keyboard navigation, matching and FLIP.
   const search=$('#searchInput'), cards=$$('.part-card');
   cards.forEach(card=>{const check=$('.pc-check',card);if(check){check.insertAdjacentHTML('beforeend','<svg class="lr-ring" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14"/><circle cx="16" cy="16" r="14"/></svg>');check.setAttribute('aria-pressed',String(check.classList.contains('done')));check.addEventListener('click',()=>{check.setAttribute('aria-pressed',String(check.classList.contains('done')));toast(check.classList.contains('done')?'Đã lưu: hoàn thành bài học':'Đã lưu thay đổi tiến độ');});}
@@ -103,7 +103,7 @@
   }
   // Hero shader: a single quad, domain-warped fBm, adaptive resolution, CSS fallback.
   const hero=$('.hero-hub,.hero');
-  if(hero&&!hero.querySelector('video')){
+  if(hero){
     const subject=hero.textContent.toLowerCase();let pattern='wave';
     if(/ngữ pháp|thì \(tenses\)|grammar/.test(subject))pattern='grid';else if(/từ vựng|vocabulary|flashcard/.test(subject))pattern='network';else if(/ielts|toeic|quiz|luyện thi/.test(subject))pattern='target';
     hero.dataset.lrPattern=pattern;

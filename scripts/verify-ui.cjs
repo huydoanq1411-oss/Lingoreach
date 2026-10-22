@@ -5,7 +5,7 @@ const root=path.resolve(__dirname,'..'),url=n=>pathToFileURL(path.join(root,/^pa
 const screenshot=file=>path.join(require('node:os').tmpdir(),'lingoreach-'+file);let runningBrowser;
 (async()=>{const browser=runningBrowser=await chromium.launch({channel:'msedge',headless:true});const context=await browser.newContext({viewport:{width:1440,height:1000}});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const results=[];
   async function open(file){await page.goto(url(file),{waitUntil:'domcontentloaded'});await page.waitForTimeout(250);}
-  await open('index.html');const total=await page.locator('.part-card').count();assert.equal(total,41);
+  await open('index_hub.html');const total=await page.locator('.part-card').count();assert.equal(total,41);
   await page.keyboard.press('Control+k');assert.equal(await page.locator('#searchInput').evaluate(e=>e===document.activeElement),true);
   await page.locator('#searchInput').fill('ngữ pháp');assert.ok(await page.locator('.part-card:not(.hidden)').count()<total);assert.ok(await page.locator('mark').count()>0);
   await page.locator('#searchInput').fill('zzzz-no-lesson');assert.equal(await page.locator('.lr-empty').isVisible(),true);await page.locator('#searchInput').fill('');
