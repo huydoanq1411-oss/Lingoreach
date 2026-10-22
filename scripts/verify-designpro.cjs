@@ -18,6 +18,7 @@ const url = process.env.PREVIEW_URL || 'http://127.0.0.1:5173';
       assert.ok(await title.isVisible());
       const text = await page.locator('.shiny-text').boundingBox();
       assert.ok(text.x >= 0 && text.x + text.width <= width, `Heading outside viewport at ${width}`);
+      assert.ok(await page.locator('.shiny-text').evaluate(el => el.clientHeight < parseFloat(getComputedStyle(el).fontSize) * 1.3), `Product Leader must stay on one line at ${width}`);
       await page.screenshot({ path: `.preview/designpro-${width}.png` });
     }
     assert.ok(await page.locator('video').evaluate(v => v.autoplay && v.loop && v.muted && v.playsInline));
