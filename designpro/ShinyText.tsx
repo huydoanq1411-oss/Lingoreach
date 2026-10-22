@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useMotionPreference } from './useMotionPreference';
 
 interface ShinyTextProps {
   text: string;
@@ -12,7 +13,7 @@ interface ShinyTextProps {
 
 /** Moving from 100% to 0% carries the highlight from left to right. */
 export function ShinyText({ text, className = '', color = '#64CEFB', shineColor = '#ffffff', speed = 3, spread = 100, paused = false }: ShinyTextProps) {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useMotionPreference();
   const still = reducedMotion || paused;
   return (
     <motion.span

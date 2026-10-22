@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useReducedMotion } from 'framer-motion';
+import { useMotionPreference } from './useMotionPreference';
 import { ArrowRight, ArrowUpRight, Menu, Pause, Play, X } from 'lucide-react';
 import { ShinyText } from './ShinyText';
 
@@ -21,7 +21,7 @@ export function DesignProHero() {
   const [panel, setPanel] = useState<Panel | null>(null);
   const [paused, setPaused] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useMotionPreference();
   const video = useRef<HTMLVideoElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
@@ -45,7 +45,7 @@ export function DesignProHero() {
 
   return (
     <main id="home" className="relative isolate h-screen min-h-[700px] overflow-hidden bg-black text-white">
-      <video ref={video} className="absolute inset-0 h-full w-full object-cover" autoPlay loop muted playsInline preload="auto" aria-hidden="true" onError={() => setVideoFailed(true)}>
+      <video ref={video} className="absolute inset-0 h-full w-full object-cover" autoPlay={!reducedMotion && !paused} loop muted playsInline preload="auto" aria-hidden="true" onPlay={() => { if (paused || reducedMotion) video.current?.pause(); }} onError={() => setVideoFailed(true)}>
         <source src={VIDEO_URL} type="video/mp4" />
       </video>
       <div className="hero-scrim absolute inset-0" />
