@@ -12,7 +12,7 @@ interface ShinyTextProps {
 }
 
 /** Moving from 100% to 0% carries the highlight from left to right. */
-export function ShinyText({ text, className = '', color = '#64CEFB', shineColor = '#ffffff', speed = 3, spread = 100, paused = false }: ShinyTextProps) {
+export function ShinyText({ text, className = '', color = '#D4AF37', shineColor = '#ffffff', speed = 3, spread = 100, paused = false }: ShinyTextProps) {
   const reducedMotion = useMotionPreference();
   const still = reducedMotion || paused;
   return (

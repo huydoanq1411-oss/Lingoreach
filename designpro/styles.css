@@ -2,23 +2,33 @@
 
 @theme {
   --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --color-academic-gold: #d4af37;
+  --color-academic-teal: #0f766e;
+  --color-academic-navy: #0a1128;
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
   --breakpoint-xl: 80rem;
 }
 
-:root { font-family: 'Inter', sans-serif; color-scheme: dark; background: #000; font-synthesis: none; -webkit-font-smoothing: antialiased; }
+:root { font-family: 'Inter', sans-serif; color-scheme: dark; background: #0a0a0a; font-synthesis: none; -webkit-font-smoothing: antialiased; }
 body { margin: 0; }
 button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 button { cursor: pointer; }
-button:focus-visible, a:focus-visible { outline: 2px solid #64cefb; outline-offset: 5px; }
-.hero-scrim { background: linear-gradient(180deg, rgb(0 0 0 / .48), rgb(0 0 0 / .12) 45%, rgb(0 0 0 / .45)); }
-.hero-heading { line-height: .85; }
+button:focus-visible, a:focus-visible { outline: 2px solid #d4af37; outline-offset: 5px; }
+.hero-scrim { background: linear-gradient(120deg, rgb(10 17 40 / .82), rgb(6 78 59 / .62)); }
+.hero-heading { line-height: .95; }
 .shiny-text { white-space: nowrap; padding-block: .07em .14em; margin-bottom: -.14em; }
 .info-dialog { position: fixed; inset: 0; margin: auto; width: min(540px, calc(100% - 32px)); max-height: calc(100dvh - 48px); }
 .info-dialog::backdrop { background: rgb(0 0 0 / .8); }
+.premium-header { margin-top: 20px; padding: 16px 20px; }
+h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; }
+button, a { transition-property: color, background-color, border-color, box-shadow, opacity, transform; transition-duration: 300ms; transition-timing-function: ease-in-out; }
+main section[aria-labelledby="hero-title"] { animation: academic-enter 600ms cubic-bezier(.23, 1, .32, 1) both; }
+@keyframes academic-enter { from { opacity: .1; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@media (max-width: 639px) { .premium-header { padding: 12px; margin-top: 12px; } }
 @supports (height: 100svh) { main.h-screen { height: 100svh; } }
 @media (hover: hover) and (pointer: fine) { .enrollment:hover .cta-arrow { transform: translateX(4px); } }
 @media (max-width: 359px) { .hero-heading { font-size: clamp(2rem, 12vw, 2.5rem); } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: 0s !important; } }
